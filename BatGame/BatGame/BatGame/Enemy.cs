@@ -24,5 +24,10 @@ namespace BatGame
             this.actionTime = time;
             this.detected = false;
         }
+
+        public void Update()
+        {
+
+        }
     }
 }

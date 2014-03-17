@@ -20,9 +20,16 @@ namespace BatGame
         SpriteBatch spriteBatch;
 
         Grid grid;
-        SpriteFont comicSans14;
-        Player player;
+
         Texture2D playerImage;
+        Texture2D enemyImage;
+        SpriteFont comicSans14;
+
+        Player player;
+        Enemy enemy;
+
+        EnemyManager enemyManager;
+        
 
         public Game1()
         {
@@ -42,6 +49,10 @@ namespace BatGame
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             player = new Player(playerImage, new Rectangle(0, 0, grid.Width, grid.Height), 
                 new Point(0,0), grid, true, 0, .6, true, 0, Direction.Right);
+            enemy = new Enemy(enemyImage, new Rectangle(1, 1, grid.Width, grid.Height),
+                new Point(1, 1), grid, true, 0, .6, true, 0, false, Direction.Right);
+            enemyManager = new EnemyManager();
+            enemyManager.AddEnemy(enemy);
             base.Initialize();
         }
 
@@ -57,7 +68,9 @@ namespace BatGame
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("ComicSans");
             playerImage = Content.Load<Texture2D>("player");
+            enemyImage = Content.Load<Texture2D>("enemy");
             player.ObjTexture = playerImage;
+            enemy.ObjTexture = enemyImage;
         }
 
         /// <summary>
@@ -83,6 +96,7 @@ namespace BatGame
             // TODO: Add your update logic here
             player.PlayerUpdate();
             player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
+            enemyManager.Update();
             Console.WriteLine(player.Speed);
             base.Update(gameTime);
         }
@@ -101,7 +115,10 @@ namespace BatGame
                 new Vector2(10, 10), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
                 new Vector2(10, 30), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
+                new Vector2(10, 50), Color.Orange);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+            spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
