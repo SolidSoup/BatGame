@@ -47,10 +47,8 @@ namespace BatGame
         {
             // TODO: Add your initialization logic here
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            player = new Player(playerImage, new Rectangle(0, 0, grid.Width, grid.Height), 
-                new Point(0,0), grid, true, 0, .6, true, 0, Direction.Right);
-            enemy = new Enemy(enemyImage, new Rectangle(1, 1, grid.Width, grid.Height),
-                new Point(1, 1), grid, true, 0, .6, true, 0, false, Direction.Right);
+            player = new Player(playerImage, new Point(0,0), grid, Direction.Right, true, 0, .6, true, 0);
+            enemy = new Enemy(enemyImage, new Point(1, 1), grid, Direction.Right, true, 0, .6, true, 0, false);
             enemyManager = new EnemyManager();
             enemyManager.AddEnemy(enemy);
             base.Initialize();

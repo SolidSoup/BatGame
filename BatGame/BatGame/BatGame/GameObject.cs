@@ -155,10 +155,11 @@ namespace BatGame
         }
 
         //instantiate for walls or inactive objects
-        public GameObject(Texture2D t, Rectangle r, Point p, Grid g, bool s, Direction d)
+        public GameObject(Texture2D t, Point p, Grid g, Direction d, bool s)
         {
+            Point po = g.getPosition(p);
             this.objTexture = t;
-            this.objRectangle = r;
+            this.objRectangle = new Rectangle(po.X, po.Y, g.Width, g.Height);
             this.position = p;
             this.gridPos = g;
             this.isSolid = s;

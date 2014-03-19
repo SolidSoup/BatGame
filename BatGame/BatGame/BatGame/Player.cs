@@ -21,8 +21,8 @@ namespace BatGame
 
 
         //possibly add check for something to decide length between screeches
-        public Player(Texture2D t, Rectangle r, Point p, Grid g, bool s, double speed, double m, bool a, int time, Direction d)
-            : base(t, r, p, g, s, speed, m, a, d)
+        public Player(Texture2D t, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time)
+            : base(t, p, g, d, s, speed, m, a)
         {
             this.screechTime = time;
         }

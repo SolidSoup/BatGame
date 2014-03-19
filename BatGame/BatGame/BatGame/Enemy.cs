@@ -18,8 +18,8 @@ namespace BatGame
         int actionTime;
         bool detected;
 
-        public Enemy(Texture2D t, Rectangle r, Point p, Grid g, bool s, double speed, double m, bool a, int time, bool detect, Direction d)
-            : base(t, r, p, g, s, m, speed, a, d)
+        public Enemy(Texture2D t, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time, bool detect)
+            : base(t, p, g, d, s, m, speed, a)
         {
             this.actionTime = time;
             this.detected = false;
