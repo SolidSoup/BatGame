@@ -1,8 +1,0 @@
-C:\College\GDAPS2\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.csprojResolveAssemblyReference.cache
-C:\College\GDAPS2\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\College\GDAPS2\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.exe
-C:\College\GDAPS2\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.pdb
-C:\College\GDAPS2\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
-C:\College\GDAPS2\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
-C:\College\GDAPS2\BatGame\BatGame\BatGame\bin\x86\Debug\Content\ComicSans.xnb
-C:\College\GDAPS2\BatGame\BatGame\BatGame\bin\x86\Debug\Content\player.xnb
