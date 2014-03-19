@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.IO;
 
 namespace BatGame
 {
@@ -29,6 +30,8 @@ namespace BatGame
         Enemy enemy;
 
         EnemyManager enemyManager;
+
+        String[,] check;
         
 
         public Game1()
@@ -51,6 +54,8 @@ namespace BatGame
             enemy = new Enemy(enemyImage, new Point(1, 1), grid, Direction.Right, true, 0, .6, true, 0, false);
             enemyManager = new EnemyManager();
             enemyManager.AddEnemy(enemy);
+
+            LoadMap("Content/level1.txt");
             base.Initialize();
         }
 
@@ -117,9 +122,109 @@ namespace BatGame
                 new Vector2(10, 50), Color.Orange);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
             spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
+
+            int x = 15;
+            int y = 15;
+
+            for (int i = 0; i < check.GetLength(0); i++)
+            {
+                for (int j = 0; j < check.GetLength(1); j++)
+                {
+                    spriteBatch.DrawString(comicSans14, check[i, j],
+                        new Vector2(x * j, 70 + y * i), Color.Orange);
+                }
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
+
+        #region LoadMap
+        protected void LoadMap(String file)
+        {
+
+            String[,] data = new string[100, 100];
+            String[,] map;
+            int longestRow = 0;
+
+            StreamReader input = null;
+
+            try
+            {
+                input = new StreamReader(file);
+
+                String line = "";
+                int counter = 0;
+
+                while ((line = input.ReadLine()) != null)
+                {
+                    if (line.Length > longestRow)
+                    {
+                        longestRow = line.Length;
+                    }
+
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        data[counter, i] = line.Substring(i, 1);
+                    }
+                    counter++;
+                }
+
+
+                map = new string[counter, longestRow];
+                for (int i = 0; i < counter; i++)
+                {
+                    for (int j = 0; j < longestRow; j++)
+                    {
+                        map[i, j] = data[i, j];
+                    }
+                }
+
+                check = map;
+
+                for (int i = 0; i < map.GetLength(0); i++)
+                {
+                    for (int j = 0; j < map.GetLength(1); j++)
+                    {
+                        switch (map[i, j])
+                        {
+                            case "|":
+                                //Add a vertical wall
+                                break;
+                            case "+":
+                                //Add a corner
+                                break;
+                            case "-":
+                                // Add a horizontal wall
+                                break;
+                            case "1":
+                                //Add a floor tile
+                                break;
+                            case "e":
+                                //Add a floor tile
+                                //Add an enemy
+                                break;
+                            case "p":
+                                //Add a floor tile
+                                //Add a player
+                                break;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                if (input != null)
+                {
+                    input.Close();
+                }
+            }
+        }
+        #endregion
     }
 }
