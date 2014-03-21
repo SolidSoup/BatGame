@@ -50,12 +50,12 @@ namespace BatGame
         {
             // TODO: Add your initialization logic here
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            player = new Player(playerImage, new Point(0,0), grid, Direction.Right, true, 0, .6, true, 0);
+            player = new Player(playerImage, new Point(0,0), grid, Direction.Right, true, 0, .4, true, 0);
             enemy = new Enemy(enemyImage, new Point(1, 1), grid, Direction.Right, true, 0, .6, true, 0, false);
             enemyManager = new EnemyManager();
             enemyManager.AddEnemy(enemy);
 
-            LoadMap("Content/level1.txt");
+            
             base.Initialize();
         }
 
@@ -73,7 +73,9 @@ namespace BatGame
             playerImage = Content.Load<Texture2D>("player");
             enemyImage = Content.Load<Texture2D>("enemy");
             player.ObjTexture = playerImage;
+            //Later, there will be a LoadEnemyTexture method here instead
             enemy.ObjTexture = enemyImage;
+            LoadMap("Content/level1.txt");
         }
 
         /// <summary>
@@ -98,9 +100,9 @@ namespace BatGame
 
             // TODO: Add your update logic here
             player.PlayerUpdate();
+
             player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
-            enemyManager.Update();
-            Console.WriteLine(player.Speed);
+            enemyManager.EManagerUpdate();
             base.Update(gameTime);
         }
 
@@ -120,8 +122,11 @@ namespace BatGame
                 new Vector2(10, 30), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
                 new Vector2(10, 50), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
+                new Vector2(170, 10), Color.Orange);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
-            spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
+            enemyManager.EManagerDraw(spriteBatch);
+            //spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
 
             int x = 15;
             int y = 15;
@@ -202,8 +207,8 @@ namespace BatGame
                                 //Add a floor tile
                                 break;
                             case "e":
-                                //Add a floor tile
-                                //Add an enemy
+                                Enemy jim = new Enemy(enemyImage, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, false);
+                                enemyManager.AddEnemy(jim);
                                 break;
                             case "p":
                                 //Add a floor tile

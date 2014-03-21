@@ -34,3 +34,13 @@ C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
 \\banner.main.ad.rit.edu\students\ms8565\IGMProfile\Desktop\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\banner.main.ad.rit.edu\students\ms8565\IGMProfile\Desktop\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 \\banner.main.ad.rit.edu\students\ms8565\IGMProfile\Desktop\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\ComicSans.xnb
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\player.xnb
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\enemy.xnb
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\level1.txt
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.exe
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.pdb
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.csprojResolveAssemblyReference.cache
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
+\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb

@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace BatGame
 {
@@ -19,11 +26,27 @@ namespace BatGame
             enemies.Add(e);
         }
 
-        public void Update()
+
+        /// <summary>
+        /// calls update on each of the enemies in the list
+        /// </summary>
+        public void EManagerUpdate()
         {
             foreach (Enemy e in enemies)
             {
-                e.Update();
+                e.EnemyUpdate();
+            }
+        }
+
+        /// <summary>
+        /// Draws all enemies in the enemies list
+        /// </summary>
+        /// <param name="batch">spritebatch object</param>
+        public void EManagerDraw(SpriteBatch batch)
+        {
+            foreach (Enemy e in enemies)
+            {
+                batch.Draw(e.ObjTexture, e.ObjRectangle, Color.White);
             }
         }
 
@@ -34,5 +57,11 @@ namespace BatGame
                 return enemies.Count;
             }
         }
+
+        public List<Enemy> Enemies
+        {
+            get { return this.enemies; }
+        }
+
     }
 }

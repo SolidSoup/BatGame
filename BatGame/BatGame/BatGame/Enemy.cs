@@ -25,7 +25,8 @@ namespace BatGame
             this.detected = false;
         }
 
-        public void Update()
+        //meant to overriden for each enemy
+        public virtual void EnemyUpdate()
         {
 
         }

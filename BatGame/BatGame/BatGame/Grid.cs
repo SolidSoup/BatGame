@@ -30,7 +30,6 @@ namespace BatGame
                 for (int j = 0; j < 16; j++)
                 {
                     grid[i, j] = new Rectangle(i * (width / 16), j * (height / 16), width / 16, height / 16);
-                    Console.WriteLine(grid[i, j].X + ", " + grid[i, j].Y);
                 }
             }
         }

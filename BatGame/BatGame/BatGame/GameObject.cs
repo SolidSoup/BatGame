@@ -89,6 +89,7 @@ namespace BatGame
             set
             {
                 objRectangle.X = value;
+                Console.WriteLine(objRectangle);
                 /*Rectangle temp = new Rectangle(value, this.objRectangle.Y, this.objRectangle.Width, this.objRectangle.Height);
                 this.objRectangle = temp;*/
             }
