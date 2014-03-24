@@ -44,3 +44,17 @@ C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
 \\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 \\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\ComicSans.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\player.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\enemy.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\level1.txt
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.exe
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\BatGame.pdb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Corner.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\VerticalWall.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\FloorTile.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\HorizontalWall.xnb

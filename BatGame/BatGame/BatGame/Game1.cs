@@ -24,6 +24,11 @@ namespace BatGame
 
         Texture2D playerImage;
         Texture2D enemyImage;
+        Texture2D verticalWallImage;
+        Texture2D horizontalWallImage;
+        Texture2D cornerWallImage;
+        Texture2D floorTileImage;
+
         SpriteFont comicSans14;
 
         Player player;
@@ -32,6 +37,9 @@ namespace BatGame
         EnemyManager enemyManager;
 
         String[,] check;
+        GameObject[,] checkMap;
+
+        Dictionary<string, Texture2D> spriteDictionary;
         
 
         public Game1()
@@ -54,6 +62,7 @@ namespace BatGame
             enemy = new Enemy(enemyImage, new Point(1, 1), grid, Direction.Right, true, 0, .6, true, 0, false);
             enemyManager = new EnemyManager();
             enemyManager.AddEnemy(enemy);
+            spriteDictionary = new Dictionary<string, Texture2D>();
 
             
             base.Initialize();
@@ -70,12 +79,35 @@ namespace BatGame
 
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("ComicSans");
+
             playerImage = Content.Load<Texture2D>("player");
+            spriteDictionary.Add("playerImage", playerImage);
+
             enemyImage = Content.Load<Texture2D>("enemy");
+            spriteDictionary.Add("enemyImage", enemyImage);
+
+            verticalWallImage = Content.Load<Texture2D>("VerticalWall");
+            spriteDictionary.Add("verticalWall", verticalWallImage);
+
+            horizontalWallImage = Content.Load<Texture2D>("HorizontalWall");
+            spriteDictionary.Add("horizontalWall", horizontalWallImage);
+
+            cornerWallImage = Content.Load<Texture2D>("Corner");
+            spriteDictionary.Add("cornerWall", cornerWallImage);
+
+            floorTileImage = Content.Load<Texture2D>("FloorTile");
+            spriteDictionary.Add("floorTile", floorTileImage);
+
+
             player.ObjTexture = playerImage;
             //Later, there will be a LoadEnemyTexture method here instead
             enemy.ObjTexture = enemyImage;
-            LoadMap("Content/level1.txt");
+            Level level1 = new Level("Content/level1.txt");
+            check = level1.loadLevel();
+            //LoadMap("Content/level1.txt");
+
+            //doesnt currently work, move mouse over method to read why
+            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager);
         }
 
         /// <summary>
@@ -115,7 +147,22 @@ namespace BatGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
             spriteBatch.Begin();
+
+            /*
+            // tests drawing the 2D array of GameObjects's from the setup level method in the level class, 
+            // commented out because of the reasons mentioned at the setupLevel method description in the level class
+            
+            for (int i = 0; i < checkMap.GetLength(0); i++)
+            {
+                for (int j = 0; j < checkMap.GetLength(1); j++)
+                {
+                    spriteBatch.Draw(checkMap[i, j].ObjTexture, new Rectangle((grid.Width / 16) * i, (grid.Height / 16) * j, verticalWallImage.Width, verticalWallImage.Height) , Color.White);
+                }
+            }
+             * */
+
             spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.Width + ", " + grid.Height, 
                 new Vector2(10, 10), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
@@ -124,9 +171,6 @@ namespace BatGame
                 new Vector2(10, 50), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
                 new Vector2(170, 10), Color.Orange);
-            spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
-            enemyManager.EManagerDraw(spriteBatch);
-            //spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
 
             int x = 15;
             int y = 15;
@@ -139,6 +183,12 @@ namespace BatGame
                         new Vector2(x * j, 70 + y * i), Color.Orange);
                 }
             }
+
+            spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+            enemyManager.EManagerDraw(spriteBatch);
+            //spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
+
+            
 
             spriteBatch.End();
 
@@ -219,7 +269,7 @@ namespace BatGame
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
             finally

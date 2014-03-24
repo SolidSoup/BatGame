@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\ComicSans.xnb</Output>
-      <Time>2014-03-19T09:59:03.38255-04:00</Time>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\ComicSans.xnb</Output>
+      <Time>2014-03-24T14:32:17.3395943-04:00</Time>
     </Item>
     <Item>
       <Source>player.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\player.xnb</Output>
-      <Time>2014-03-19T09:59:03.485602-04:00</Time>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2014-03-24T14:32:17.3445985-04:00</Time>
     </Item>
     <Item>
       <Source>enemy.png</Source>
@@ -25,8 +25,44 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\enemy.xnb</Output>
-      <Time>2014-03-19T09:59:03.396768-04:00</Time>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\enemy.xnb</Output>
+      <Time>2014-03-24T14:32:17.3405954-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Corner.png</Source>
+      <Name>Corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Corner.xnb</Output>
+      <Time>2014-03-24T16:49:51.9563846-04:00</Time>
+    </Item>
+    <Item>
+      <Source>VerticalWall.png</Source>
+      <Name>VerticalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\VerticalWall.xnb</Output>
+      <Time>2014-03-24T16:50:02.2711848-04:00</Time>
+    </Item>
+    <Item>
+      <Source>FloorTile.png</Source>
+      <Name>FloorTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\FloorTile.xnb</Output>
+      <Time>2014-03-24T16:54:45.720387-04:00</Time>
+    </Item>
+    <Item>
+      <Source>HorizontalWall.png</Source>
+      <Name>HorizontalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\HorizontalWall.xnb</Output>
+      <Time>2014-03-24T16:49:58.1753123-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -35,39 +71,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGameContent\</RootDirectory>
-      <LoggerRootDirectory>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\</LoggerRootDirectory>
-      <IntermediateDirectory>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>\\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2012-09-06T14:52:54-04:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-07-31T14:49:41.0611548-04:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-03-02T15:13:33.3242713-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

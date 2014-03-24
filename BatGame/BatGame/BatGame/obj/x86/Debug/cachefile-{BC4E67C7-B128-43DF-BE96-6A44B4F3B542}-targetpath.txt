@@ -1,4 +1,8 @@
 Content\ComicSans.xnb
 Content\player.xnb
 Content\enemy.xnb
+Content\Corner.xnb
+Content\VerticalWall.xnb
+Content\FloorTile.xnb
+Content\HorizontalWall.xnb
 Content\level1.txt

@@ -80,6 +80,7 @@
     <Compile Include="Grid.cs" />
     <Compile Include="Immobiles.cs" />
     <Compile Include="Interactable.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="LevelManager.cs" />
     <Compile Include="Mobiles.cs" />
     <Compile Include="MusicManager.cs" />
