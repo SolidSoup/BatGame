@@ -16,20 +16,24 @@ namespace BatGame
     {
         //fields
         Rectangle[,] grid;
-        int height;
-        int width;
+        int tileHeight;
+        int tileWidth;
+        int tileHeightCount;
+        int tileWidthCount;
 
         public Grid(int width, int height)
         {
-            grid = new Rectangle[16, 16];
-            this.height = height/16;
-            this.width = width/16;
-            //loops through to create the grid 16x16 based on the width and height of the window
-            for (int i = 0; i < 16; i++)
+            grid = new Rectangle[width/32, height/32];
+            this.tileHeight = 32;
+            this.tileWidth = 32;
+            tileHeightCount = height/32;
+            tileWidthCount = width/32;
+            //loops through to create the grid that has tiles that are 32x32 the size of the grid is based on the window size
+            for (int i = 0; i < tileWidthCount; i++)
             {
-                for (int j = 0; j < 16; j++)
+                for (int j = 0; j < tileHeightCount; j++)
                 {
-                    grid[i, j] = new Rectangle(i * (width / 16), j * (height / 16), width / 16, height / 16);
+                    grid[i, j] = new Rectangle(i * 32, j * 32, 32, 32);
                 }
             }
         }
@@ -41,36 +45,52 @@ namespace BatGame
         }
 
         //properties
-        public int Width
+        public int TileWidth
         {
             get
             {
-                return width;
+                return tileWidth;
             }
             set
             {
-                width = value;
+                tileWidth = value;
             }
         }
 
-        public int Height
+        public int TileHeight
         {
             get
             {
-                return height;
+                return tileHeight;
             }
             set
             {
-                height = value;
+                tileHeight = value;
             }
         }
 
-        /*public int X
+        public int TileWidthCount
         {
             get
             {
-                return 
+                return tileWidthCount;
             }
-        }*/
+            set
+            {
+                tileWidthCount = value;
+            }
+        }
+
+        public int TileHeightCount
+        {
+            get
+            {
+                return tileHeightCount;
+            }
+            set
+            {
+                tileWidthCount = value;
+            }
+        }
     }
 }

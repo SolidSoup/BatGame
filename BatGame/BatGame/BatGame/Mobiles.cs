@@ -44,35 +44,35 @@ namespace BatGame
             }
             else if (dir == Direction.DownLeft)
             {
-                if (this.PosY + 1 >= 16 || this.PosX - 1 <= -1)
+                if (this.PosY + 1 >= GridPos.TileHeightCount || this.PosX - 1 <= -1)
                 {
                     return false;
                 }
             }
             else if (dir == Direction.Down)
             {
-                if (this.PosY + 1 >= 16)
+                if (this.PosY + 1 >= GridPos.TileHeightCount)
                 {
                     return false;
                 }
             }
             else if (dir == Direction.DownRight)
             {
-                if (this.PosY + 1 >= 16 || this.PosX + 1 >= 16)
+                if (this.PosY + 1 >= GridPos.TileHeightCount || this.PosX + 1 >= GridPos.TileWidthCount)
                 {
                     return false;
                 }
             }
             else if (dir == Direction.Right)
             {
-                if (this.PosX + 1 >= 16)
+                if (this.PosX + 1 >= GridPos.TileWidthCount)
                 {
                     return false;
                 }
             }
             else
             {
-                if (this.PosY - 1 <= -1 || this.PosX + 1 >= 16)
+                if (this.PosY - 1 <= -1 || this.PosX + 1 >= GridPos.TileWidthCount)
                 {
                     return false;
                 }

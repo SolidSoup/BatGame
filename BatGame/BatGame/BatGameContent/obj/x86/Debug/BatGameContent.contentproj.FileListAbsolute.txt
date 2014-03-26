@@ -4,3 +4,4 @@ C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGameContent\obj\x86\Debug\BatGameCo
 \\banner.main.ad.rit.edu\students\ms8565\IGMProfile\Desktop\GitHub\BatGame\BatGame\BatGame\BatGameContent\obj\x86\Debug\BatGameContent.contentprojResolveAssemblyReference.cache
 \\banner.main.ad.rit.edu\students\wsw3877\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGameContent\obj\x86\Debug\BatGameContent.contentprojResolveAssemblyReference.cache
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGameContent\obj\x86\Debug\BatGameContent.contentprojResolveAssemblyReference.cache
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGameContent\obj\x86\Debug\BatGameContent.contentprojResolveAssemblyReference.cache

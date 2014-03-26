@@ -160,7 +160,7 @@ namespace BatGame
         {
             Point po = g.getPosition(p);
             this.objTexture = t;
-            this.objRectangle = new Rectangle(po.X, po.Y, g.Width, g.Height);
+            this.objRectangle = new Rectangle(po.X, po.Y, g.TileWidth, g.TileHeight);
             this.position = p;
             this.gridPos = g;
             this.isSolid = s;

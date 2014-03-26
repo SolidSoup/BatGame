@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace BatGame
 {
     //currently exists for organizational purposes
-    abstract class Immobiles : GameObject
+     class Immobiles : GameObject
     {
         //simply calls base constructor
         public Immobiles(Texture2D t, Point p, Grid g, Direction d, bool s)

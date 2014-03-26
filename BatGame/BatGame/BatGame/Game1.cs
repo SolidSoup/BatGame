@@ -102,12 +102,12 @@ namespace BatGame
             player.ObjTexture = playerImage;
             //Later, there will be a LoadEnemyTexture method here instead
             enemy.ObjTexture = enemyImage;
-            Level level1 = new Level("Content/level1.txt");
+            /*Level level1 = new Level("Content/level2.txt");
             check = level1.loadLevel();
             //LoadMap("Content/level1.txt");
 
             //doesnt currently work, move mouse over method to read why
-            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager);
+            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager);*/
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace BatGame
             }
              * */
 
-            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.Width + ", " + grid.Height, 
+            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight, 
                 new Vector2(10, 10), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
                 new Vector2(10, 30), Color.Orange);
@@ -172,7 +172,7 @@ namespace BatGame
             spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
                 new Vector2(170, 10), Color.Orange);
 
-            int x = 15;
+            /*int x = 15;
             int y = 15;
 
             for (int i = 0; i < check.GetLength(0); i++)
@@ -182,7 +182,7 @@ namespace BatGame
                     spriteBatch.DrawString(comicSans14, check[i, j],
                         new Vector2(x * j, 70 + y * i), Color.Orange);
                 }
-            }
+            }*/
 
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
             enemyManager.EManagerDraw(spriteBatch);
