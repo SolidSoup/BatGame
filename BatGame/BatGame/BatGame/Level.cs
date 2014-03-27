@@ -71,16 +71,17 @@ namespace BatGame
                 }
 
 
-                map = new string[counter, longestRow];
+                /*map = new string[counter, longestRow];
                 for (int i = 0; i < counter; i++)
                 {
                     for (int j = 0; j < longestRow; j++)
                     {
                         map[i, j] = data[i, j];
                     }
-                }
+                }*/
 
-                levelStringArray = map;
+                //levelStringArray = map;
+                levelStringArray = data;
 
             }
             catch (Exception)
@@ -105,7 +106,7 @@ namespace BatGame
         ///and create classes for all of the different GameObjects. I dont know how they want to go about doing that so im just leaving it like this for now. 
         ///Until then, if you want to run the game, just comment out where this method and where it is called
         /// </summary>
-        public GameObject[,] setupLevel(Dictionary<string, Texture2D> textureDictionary, Grid grid, EnemyManager enemyManager)
+        public GameObject[,] setupLevel(Dictionary<string, Texture2D> textureDictionary, Grid grid, EnemyManager enemyManager, ImmobilesManager immobilesManager)
         {
 
             levelObjectArray = new GameObject[levelStringArray.GetLength(1), levelStringArray.GetLength(0)];
@@ -117,29 +118,39 @@ namespace BatGame
                     switch (levelStringArray[i, j])
                     {
                         case "|":
-                            //Adds a vertical wall
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["verticalWall"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempVert = new Immobiles(textureDictionary["verticalWall"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempVert;
+                            immobilesManager.AddImmobile(tempVert);
                             break;
                         case "+":
                             //Adds a corner
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["cornerWall"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempCorner = new Immobiles(textureDictionary["cornerWall"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempCorner;
+                            immobilesManager.AddImmobile(tempCorner);
                             break;
                         case "-":
-                            //Adds a horizontal wall
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["horizontalWall"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempHoriz = new Immobiles(textureDictionary["horizontalWall"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempHoriz;
+                            immobilesManager.AddImmobile(tempHoriz);
                             break;
                         case "1":
-                            //Adds a floor tile
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempFloor = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempFloor;
+                            immobilesManager.AddImmobile(tempFloor);
                             break;
                         case "e":
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
-                            Enemy jim = new Enemy(textureDictionary["enemyImage"], new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, false);
-                            enemyManager.AddEnemy(jim);
+                            Immobiles tempFloor2 = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempFloor2;
+                            immobilesManager.AddImmobile(tempFloor2);
+
+                            Enemy tempE = new Enemy(textureDictionary["enemyImage"], new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, false);
+                            enemyManager.AddEnemy(tempE);
                             break;
                         case "p":
-                            //Adds a floor tile
-                            levelObjectArray[i, j] = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempFloor3 = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
+                            levelObjectArray[i, j] = tempFloor3;
+                            immobilesManager.AddImmobile(tempFloor3);
+
                             //Adds a player
                             Player player = new Player(textureDictionary["playerImage"], new Point(j, i), grid, Direction.Right, true, 0, 0, true, 3);
 

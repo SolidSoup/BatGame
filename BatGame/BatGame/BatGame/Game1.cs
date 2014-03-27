@@ -35,6 +35,7 @@ namespace BatGame
         Enemy enemy;
 
         EnemyManager enemyManager;
+        ImmobilesManager immobilesManager;
 
         String[,] check;
         GameObject[,] checkMap;
@@ -58,11 +59,12 @@ namespace BatGame
         {
             // TODO: Add your initialization logic here
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            player = new Player(playerImage, new Point(0,0), grid, Direction.Right, true, 0, .4, true, 0);
-            enemy = new Enemy(enemyImage, new Point(1, 1), grid, Direction.Right, true, 0, .6, true, 0, false);
             enemyManager = new EnemyManager();
-            enemyManager.AddEnemy(enemy);
+            immobilesManager = new ImmobilesManager();
+            
             spriteDictionary = new Dictionary<string, Texture2D>();
+
+            player = new Player(playerImage, new Point(2,2), grid, Direction.Right, true, 0, .4, true, 0);
 
             
             base.Initialize();
@@ -100,14 +102,11 @@ namespace BatGame
 
 
             player.ObjTexture = playerImage;
-            //Later, there will be a LoadEnemyTexture method here instead
-            enemy.ObjTexture = enemyImage;
-            /*Level level1 = new Level("Content/level2.txt");
-            check = level1.loadLevel();
-            //LoadMap("Content/level1.txt");
 
-            //doesnt currently work, move mouse over method to read why
-            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager);*/
+           // LoadMap("Content/level1.txt");
+            Level level1 = new Level("Content/level1.txt");
+            check = level1.loadLevel();
+            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager);
         }
 
         /// <summary>
@@ -134,7 +133,7 @@ namespace BatGame
             player.PlayerUpdate();
 
             player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
-            enemyManager.EManagerUpdate();
+            enemyManager.EManagerUpdate(gameTime, player);
             base.Update(gameTime);
         }
 
@@ -144,7 +143,7 @@ namespace BatGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SaddleBrown);
 
             // TODO: Add your drawing code here
 
@@ -162,6 +161,9 @@ namespace BatGame
                 }
             }
              * */
+            immobilesManager.IManagerDraw(spriteBatch);
+            spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+            enemyManager.EManagerDraw(spriteBatch);
 
             spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight, 
                 new Vector2(10, 10), Color.Orange);
@@ -183,12 +185,6 @@ namespace BatGame
                         new Vector2(x * j, 70 + y * i), Color.Orange);
                 }
             }*/
-
-            spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
-            enemyManager.EManagerDraw(spriteBatch);
-            //spriteBatch.Draw(enemy.ObjTexture, enemy.ObjRectangle, Color.White);
-
-            
 
             spriteBatch.End();
 
@@ -257,7 +253,7 @@ namespace BatGame
                                 //Add a floor tile
                                 break;
                             case "e":
-                                Enemy jim = new Enemy(enemyImage, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, false);
+                                Enemy jim = new Enemy(enemyImage, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, true);
                                 enemyManager.AddEnemy(jim);
                                 break;
                             case "p":

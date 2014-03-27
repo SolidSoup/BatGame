@@ -6,3 +6,4 @@ Content\HorizontalWall.xnb
 Content\VerticalWall.xnb
 Content\FloorTile.xnb
 Content\level1.txt
+Content\testlevel.txt

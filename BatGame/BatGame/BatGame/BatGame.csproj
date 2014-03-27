@@ -79,6 +79,7 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Immobiles.cs" />
+    <Compile Include="ImmobilesManager.cs" />
     <Compile Include="Interactable.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LevelManager.cs" />

@@ -30,11 +30,11 @@ namespace BatGame
         /// <summary>
         /// calls update on each of the enemies in the list
         /// </summary>
-        public void EManagerUpdate()
+        public void EManagerUpdate(GameTime gameTime, Player player)
         {
             foreach (Enemy e in enemies)
             {
-                e.EnemyUpdate();
+                e.EnemyUpdate(gameTime, player);
             }
         }
 
