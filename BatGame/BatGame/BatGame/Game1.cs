@@ -25,8 +25,16 @@ namespace BatGame
         Texture2D playerImage;
         Texture2D enemyImage;
         Texture2D verticalWallImage;
+        Texture2D verticalLeftWallImage;
+        Texture2D verticalRightWallImage;
         Texture2D horizontalWallImage;
+        Texture2D horizontalDownWallImage;
+        Texture2D horizontalUpWallImage;
         Texture2D cornerWallImage;
+        Texture2D upRightCornerWallImage;
+        Texture2D upLeftCornerWallImage;
+        Texture2D downRightCornerWallImage;
+        Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
 
         SpriteFont comicSans14;
@@ -91,11 +99,35 @@ namespace BatGame
             verticalWallImage = Content.Load<Texture2D>("VerticalWall");
             spriteDictionary.Add("verticalWall", verticalWallImage);
 
+            verticalLeftWallImage = Content.Load<Texture2D>("VerticalLeftWall");
+            spriteDictionary.Add("verticalLeftWall", verticalLeftWallImage);
+
+            verticalRightWallImage = Content.Load<Texture2D>("VerticalRightWall");
+            spriteDictionary.Add("verticalRightWall", verticalRightWallImage);
+
             horizontalWallImage = Content.Load<Texture2D>("HorizontalWall");
             spriteDictionary.Add("horizontalWall", horizontalWallImage);
 
+            horizontalUpWallImage = Content.Load<Texture2D>("HorizontalUpWall");
+            spriteDictionary.Add("horizontalUpWall", horizontalUpWallImage);
+
+            horizontalDownWallImage = Content.Load<Texture2D>("HorizontalDownWall");
+            spriteDictionary.Add("horizontalDownWall", horizontalDownWallImage);
+
             cornerWallImage = Content.Load<Texture2D>("Corner");
             spriteDictionary.Add("cornerWall", cornerWallImage);
+
+            downLeftCornerWallImage = Content.Load<Texture2D>("DownLeftCorner");
+            spriteDictionary.Add("downLeftCornerWall", downLeftCornerWallImage);
+
+            upLeftCornerWallImage = Content.Load<Texture2D>("UpLeftCorner");
+            spriteDictionary.Add("upLeftCornerWall", upLeftCornerWallImage);
+
+            downRightCornerWallImage = Content.Load<Texture2D>("DownRightCorner");
+            spriteDictionary.Add("downRightCornerWall", downRightCornerWallImage);
+
+            upRightCornerWallImage = Content.Load<Texture2D>("UpRightCorner");
+            spriteDictionary.Add("upRightCornerWall", upRightCornerWallImage);
 
             floorTileImage = Content.Load<Texture2D>("FloorTile");
             spriteDictionary.Add("floorTile", floorTileImage);

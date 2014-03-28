@@ -76,6 +76,7 @@
     <Compile Include="Collectables.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyManager.cs" />
+    <Compile Include="Floor.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Immobiles.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="StateManager.cs" />
+    <Compile Include="Wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

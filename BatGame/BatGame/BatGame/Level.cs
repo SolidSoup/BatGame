@@ -118,21 +118,55 @@ namespace BatGame
                     switch (levelStringArray[i, j])
                     {
                         case "|":
-                            Immobiles tempVert = new Immobiles(textureDictionary["verticalWall"], new Point(j, i), grid, Direction.Right, false);
+                            Immobiles tempVert = new Immobiles(textureDictionary["verticalWall"], new Point(j, i), grid, Direction.Right, true);
                             levelObjectArray[i, j] = tempVert;
                             immobilesManager.AddImmobile(tempVert);
                             break;
+                        case "]":
+                            Wall tempVertL = new Wall(textureDictionary["verticalLeftWall"], new Point(j, i), grid, Direction.Right,true);
+                            levelObjectArray[i, j] = tempVertL;
+                            immobilesManager.AddImmobile(tempVertL);
+                            break;
+                        case "[":
+                            Wall tempVertR = new Wall(textureDictionary["verticalRightWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempVertR;
+                            immobilesManager.AddImmobile(tempVertR);
+                            break;
+                       
+                        
                         case "+":
-                            //Adds a corner
-                            Immobiles tempCorner = new Immobiles(textureDictionary["cornerWall"], new Point(j, i), grid, Direction.Right, false);
-                            levelObjectArray[i, j] = tempCorner;
-                            immobilesManager.AddImmobile(tempCorner);
+                            Wall tempCornerDR = new Wall(textureDictionary["downRightCornerWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempCornerDR;
+                            immobilesManager.AddImmobile(tempCornerDR);
+                            break;
+                        case ".":
+                            Wall tempCornerDL = new Wall(textureDictionary["downLeftCornerWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempCornerDL;
+                            immobilesManager.AddImmobile(tempCornerDL);
+                            break;
+                        case "<":
+                            Wall tempCornerUR = new Wall(textureDictionary["upRightCornerWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempCornerUR;
+                            immobilesManager.AddImmobile(tempCornerUR);
+                            break;
+                        case ">":
+                            Wall tempCornerUL = new Wall(textureDictionary["upLeftCornerWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempCornerUL;
+                            immobilesManager.AddImmobile(tempCornerUL);
+                            break;
+                        
+                        
+                        case "_":
+                            Wall tempHorizU = new Wall(textureDictionary["horizontalUpWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempHorizU;
+                            immobilesManager.AddImmobile(tempHorizU);
                             break;
                         case "-":
-                            Immobiles tempHoriz = new Immobiles(textureDictionary["horizontalWall"], new Point(j, i), grid, Direction.Right, false);
-                            levelObjectArray[i, j] = tempHoriz;
-                            immobilesManager.AddImmobile(tempHoriz);
+                            Wall tempHorizD = new Wall(textureDictionary["horizontalDownWall"], new Point(j, i), grid, Direction.Right, true);
+                            levelObjectArray[i, j] = tempHorizD;
+                            immobilesManager.AddImmobile(tempHorizD);
                             break;
+
                         case "1":
                             Immobiles tempFloor = new Immobiles(textureDictionary["floorTile"], new Point(j, i), grid, Direction.Right, false);
                             levelObjectArray[i, j] = tempFloor;
@@ -143,7 +177,7 @@ namespace BatGame
                             levelObjectArray[i, j] = tempFloor2;
                             immobilesManager.AddImmobile(tempFloor2);
 
-                            Enemy tempE = new Enemy(textureDictionary["enemyImage"], new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, false);
+                            Enemy tempE = new Enemy(textureDictionary["enemyImage"], new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3,false);
                             enemyManager.AddEnemy(tempE);
                             break;
                         case "p":

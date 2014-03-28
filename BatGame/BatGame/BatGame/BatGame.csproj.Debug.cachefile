@@ -5,5 +5,13 @@ Content\Corner.xnb
 Content\HorizontalWall.xnb
 Content\VerticalWall.xnb
 Content\FloorTile.xnb
+Content\VerticalLeftWall.xnb
+Content\VerticalRightWall.xnb
+Content\HorizontalUpWall.xnb
+Content\HorizontalDownWall.xnb
+Content\UpLeftCorner.xnb
+Content\DownRightCorner.xnb
+Content\DownLeftCorner.xnb
+Content\UpRightCorner.xnb
 Content\level1.txt
 Content\testlevel.txt
