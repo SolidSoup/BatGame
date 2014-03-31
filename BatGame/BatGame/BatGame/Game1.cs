@@ -205,6 +205,8 @@ namespace BatGame
                 new Vector2(10, 50), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
                 new Vector2(170, 10), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.01",
+                new Vector2(GraphicsDevice.Viewport.Width-150, GraphicsDevice.Viewport.Height-30), Color.Orange);
 
             /*int x = 15;
             int y = 15;
