@@ -36,6 +36,12 @@ namespace BatGame
         Texture2D downRightCornerWallImage;
         Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
+        Texture2D lightMask;
+
+        RenderTarget2D lightsTarget;
+        RenderTarget2D mainTarget;
+
+        Effect lightingEffect;
 
         SpriteFont comicSans14;
 
@@ -49,7 +55,7 @@ namespace BatGame
         GameObject[,] checkMap;
 
         Dictionary<string, Texture2D> spriteDictionary;
-        
+
 
         public Game1()
         {
@@ -69,12 +75,12 @@ namespace BatGame
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             enemyManager = new EnemyManager();
             immobilesManager = new ImmobilesManager();
-            
+
             spriteDictionary = new Dictionary<string, Texture2D>();
 
-            player = new Player(playerImage, new Point(2,2), grid, Direction.Right, true, 0, .4, true, 0);
+            player = new Player(playerImage, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
 
-            
+
             base.Initialize();
         }
 
@@ -87,6 +93,14 @@ namespace BatGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            lightMask = Content.Load<Texture2D>("lightmask");
+            lightingEffect = Content.Load<Effect>("lightingeffect");
+
+            var pp = GraphicsDevice.PresentationParameters;
+            lightsTarget = new RenderTarget2D(
+                GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
+            mainTarget = new RenderTarget2D(
+                GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("ComicSans");
 
@@ -135,7 +149,7 @@ namespace BatGame
 
             player.ObjTexture = playerImage;
 
-           // LoadMap("Content/level1.txt");
+            // LoadMap("Content/level1.txt");
             Level level1 = new Level("Content/level1.txt");
             check = level1.loadLevel();
             checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager);
@@ -175,11 +189,20 @@ namespace BatGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.SetRenderTarget(lightsTarget);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
+            //lightMask bound to player's position as a little sphere of vision
+            Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
+
+            spriteBatch.Draw(lightMask, light, Color.White);
+            spriteBatch.End();
+
+            GraphicsDevice.SetRenderTarget(mainTarget);
             GraphicsDevice.Clear(Color.SaddleBrown);
+            spriteBatch.Begin();
 
             // TODO: Add your drawing code here
 
-            spriteBatch.Begin();
 
             /*
             // tests drawing the 2D array of GameObjects's from the setup level method in the level class, 
@@ -197,7 +220,7 @@ namespace BatGame
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
             enemyManager.EManagerDraw(spriteBatch);
 
-            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight, 
+            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
                 new Vector2(10, 10), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
                 new Vector2(10, 30), Color.Orange);
@@ -206,7 +229,7 @@ namespace BatGame
             spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
                 new Vector2(170, 10), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.01",
-                new Vector2(GraphicsDevice.Viewport.Width-150, GraphicsDevice.Viewport.Height-30), Color.Orange);
+                new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
             /*int x = 15;
             int y = 15;
@@ -221,6 +244,15 @@ namespace BatGame
             }*/
 
             spriteBatch.End();
+
+            GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
+            GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            lightingEffect.Parameters["lightMask"].SetValue(lightsTarget);
+            lightingEffect.CurrentTechnique.Passes[0].Apply();
+            spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
+            spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
@@ -313,3 +345,4 @@ namespace BatGame
         #endregion
     }
 }
+

@@ -13,5 +13,8 @@ Content\UpLeftCorner.xnb
 Content\DownRightCorner.xnb
 Content\DownLeftCorner.xnb
 Content\UpRightCorner.xnb
+Content\lightmask.xnb
+Content\echo.xnb
+Content\lightingeffect.xnb
 Content\level1.txt
 Content\testlevel.txt
