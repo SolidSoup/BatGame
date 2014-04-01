@@ -50,6 +50,7 @@ namespace BatGame
 
         EnemyManager enemyManager;
         ImmobilesManager immobilesManager;
+        GameObjectManager gameObjectManager;
 
         String[,] check;
         GameObject[,] checkMap;
@@ -75,10 +76,11 @@ namespace BatGame
             grid = new Grid(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             enemyManager = new EnemyManager();
             immobilesManager = new ImmobilesManager();
+            gameObjectManager = new GameObjectManager();
 
             spriteDictionary = new Dictionary<string, Texture2D>();
 
-            player = new Player(playerImage, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
+            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
 
 
             base.Initialize();
@@ -152,7 +154,7 @@ namespace BatGame
             // LoadMap("Content/level1.txt");
             Level level1 = new Level("Content/level1.txt");
             check = level1.loadLevel();
-            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager);
+            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
         }
 
         /// <summary>
@@ -217,6 +219,7 @@ namespace BatGame
             }
              * */
             immobilesManager.IManagerDraw(spriteBatch);
+            gameObjectManager.GManagerDraw(spriteBatch);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
             enemyManager.EManagerDraw(spriteBatch);
 
@@ -319,7 +322,7 @@ namespace BatGame
                                 //Add a floor tile
                                 break;
                             case "e":
-                                Enemy jim = new Enemy(enemyImage, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, true);
+                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, true);
                                 enemyManager.AddEnemy(jim);
                                 break;
                             case "p":

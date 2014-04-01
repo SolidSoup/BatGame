@@ -22,8 +22,8 @@ namespace BatGame
         double waitTime;
         double distance;
 
-        public Enemy(Texture2D t, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time, bool detect)
-            : base(t, p, g, d, s, m, speed, a)
+        public Enemy(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time, bool detect)
+            : base(t, go, p, g, d, s, m, speed, a)
         {
             this.actionTime = time;
             this.detected = detect;

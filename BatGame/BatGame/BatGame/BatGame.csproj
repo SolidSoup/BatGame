@@ -78,6 +78,7 @@
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="GameObjectManager.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Immobiles.cs" />
     <Compile Include="ImmobilesManager.cs" />

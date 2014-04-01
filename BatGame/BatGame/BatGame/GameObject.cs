@@ -32,6 +32,8 @@ namespace BatGame
         Point position;
         Grid gridPos;
 
+        GameObjectManager gManager;
+
         Direction facing;
 
         //false for background images or non-active objects
@@ -51,6 +53,16 @@ namespace BatGame
             return false;
         }
 
+        public bool willMove(Point moveLocation)
+        {
+            if (gManager.spotTaken(moveLocation))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //accessors
         public Texture2D ObjTexture
         {
             get { return this.objTexture; }
@@ -156,7 +168,7 @@ namespace BatGame
         }
 
         //instantiate for walls or inactive objects
-        public GameObject(Texture2D t, Point p, Grid g, Direction d, bool s)
+        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s)
         {
             Point po = g.getPosition(p);
             this.objTexture = t;
@@ -165,6 +177,7 @@ namespace BatGame
             this.gridPos = g;
             this.isSolid = s;
             this.facing = d;
+            gManager = go;
         }
     }
 }

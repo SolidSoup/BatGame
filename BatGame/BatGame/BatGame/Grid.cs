@@ -45,6 +45,9 @@ namespace BatGame
         }
 
         //properties
+        /// <summary>
+        /// how wide each tile is
+        /// </summary>
         public int TileWidth
         {
             get
@@ -57,6 +60,9 @@ namespace BatGame
             }
         }
 
+        /// <summary>
+        /// how tall each tile is
+        /// </summary>
         public int TileHeight
         {
             get
@@ -69,6 +75,9 @@ namespace BatGame
             }
         }
 
+        /// <summary>
+        /// how many tiles are in the grid in each row
+        /// </summary>
         public int TileWidthCount
         {
             get
@@ -81,6 +90,9 @@ namespace BatGame
             }
         }
 
+        /// <summary>
+        /// how many tiles are in the grid in each column
+        /// </summary>
         public int TileHeightCount
         {
             get

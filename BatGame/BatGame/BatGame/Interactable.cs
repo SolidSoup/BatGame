@@ -16,8 +16,8 @@ namespace BatGame
     {
         bool isActive;
 
-        public Interactable(Texture2D t, Point p, Grid g, Direction d, bool s, bool a)
-            : base(t, p, g, d, s)
+        public Interactable(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, bool a)
+            : base(t, go, p, g, d, s)
         {
             this.isActive = a;
         }

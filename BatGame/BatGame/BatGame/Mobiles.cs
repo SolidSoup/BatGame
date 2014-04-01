@@ -106,8 +106,8 @@ namespace BatGame
         }
 
         //instantiate for projectiles
-        public Mobiles(Texture2D t, Point p, Grid g, Direction d, bool s, double speed, double m, bool a)
-            : base(t, p, g, d, s)
+        public Mobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a)
+            : base(t, go, p, g, d, s)
         {
             this.speed = speed;
             this.moveTime = m;

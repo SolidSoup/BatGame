@@ -14,8 +14,8 @@ namespace BatGame
 {
     class Floor:Immobiles
     {
-        public Floor(Texture2D t, Point p, Grid g, Direction d, bool s)
-            : base(t, p, g, d, s)
+        public Floor(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s)
+            : base(t, go, p, g, d, s)
         {
         }
     }

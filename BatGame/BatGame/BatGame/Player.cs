@@ -21,8 +21,8 @@ namespace BatGame
 
 
         //possibly add check for something to decide length between screeches
-        public Player(Texture2D t, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time)
-            : base(t, p, g, d, s, speed, m, a)
+        public Player(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time)
+            : base(t, go, p, g, d, s, speed, m, a)
         {
             this.screechTime = time;
         }
@@ -36,15 +36,16 @@ namespace BatGame
             {
                 //cardinal movement
                 //if you want to move up only and you are looking up
-                if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D) 
-                    && isFacing(Direction.Up) && canMove(Direction.Up))
+                if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
+                    && isFacing(Direction.Up) && canMove(Direction.Up) && willMove(new Point(Position.X, Position.Y - 1)))
                 {
+                    Console.WriteLine(willMove(new Point(Position.X, Position.Y - 1)));
                     PosY--;
                     RectY = GridPos.getPosition(Position).Y;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
-                    //look up if you aren't and you want to
+                //look up if you aren't and you want to
                 else if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D))
                 {
                     Facing = Direction.Up;
@@ -52,7 +53,7 @@ namespace BatGame
                 }
                 //if you want to move left only and you are looking left
                 if (state.IsKeyDown(Keys.A) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
-                    && isFacing(Direction.Left) && canMove(Direction.Left))
+                    && isFacing(Direction.Left) && canMove(Direction.Left) && willMove(new Point(Position.X - 1, Position.Y)))
                 {
                     PosX--;
                     RectX = GridPos.getPosition(Position).X;
@@ -67,7 +68,7 @@ namespace BatGame
                 }
                 //if you want to move down only and you are looking down
                 if (state.IsKeyDown(Keys.S) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
-                    && isFacing(Direction.Down) && canMove(Direction.Down))
+                    && isFacing(Direction.Down) && canMove(Direction.Down) && willMove(new Point(Position.X, Position.Y + 1)))
                 {
                     PosY++;
                     RectY = GridPos.getPosition(Position).Y;
@@ -82,7 +83,7 @@ namespace BatGame
                 }
                 //if you want to move right only and you are looking right
                 if (state.IsKeyDown(Keys.D) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
-                    && isFacing(Direction.Right) && canMove(Direction.Right))
+                    && isFacing(Direction.Right) && canMove(Direction.Right) && willMove(new Point(Position.X + 1, Position.Y)))
                 {
                     PosX++;
                     RectX = GridPos.getPosition(Position).X;
@@ -97,7 +98,8 @@ namespace BatGame
                 }
                 //diagonal movement
                 //move up and to the left
-                if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A) && isFacing(Direction.UpLeft) && canMove(Direction.UpLeft))
+                if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A) && isFacing(Direction.UpLeft) && canMove(Direction.UpLeft)
+                    && willMove(new Point(Position.X - 1, Position.Y - 1)))
                 {
                     PosY--;
                     RectY = GridPos.getPosition(Position).Y;
@@ -106,14 +108,15 @@ namespace BatGame
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
-                    //face up left if you aren't
+                //face up left if you aren't
                 else if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A))
                 {
                     Facing = Direction.UpLeft;
                     Speed = MoveTime / 2;
                 }
                 //move up and to the right
-                if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D) && isFacing(Direction.UpRight) && canMove(Direction.UpRight))
+                if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D) && isFacing(Direction.UpRight) && canMove(Direction.UpRight)
+                    && willMove(new Point(Position.X + 1, Position.Y - 1)))
                 {
                     PosY--;
                     RectY = GridPos.getPosition(Position).Y;
@@ -129,8 +132,8 @@ namespace BatGame
                     Speed = MoveTime / 2;
                 }
                 //move down and to the left
-                if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A) && isFacing(Direction.DownLeft) 
-                    && canMove(Direction.DownLeft))
+                if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A) && isFacing(Direction.DownLeft)
+                    && canMove(Direction.DownLeft) && willMove(new Point(Position.X - 1, Position.Y + 1)))
                 {
                     PosY++;
                     RectY = GridPos.getPosition(Position).Y;
@@ -147,7 +150,8 @@ namespace BatGame
                 }
                 //move down and right
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.D)
-                    && isFacing(Direction.DownRight) && canMove(Direction.DownRight))
+                    && isFacing(Direction.DownRight) && canMove(Direction.DownRight)
+                    && willMove(new Point(Position.X + 1, Position.Y + 1)))
                 {
                     PosY++;
                     RectY = GridPos.getPosition(Position).Y;
