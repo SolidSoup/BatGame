@@ -1,7 +1,7 @@
 //Circular lighting effect for player and light sources
 sampler s0;
 texture lightMask;
-sampler lightSampler = sampler_state{Texture = lightMask; AddressU = Clamp; AddressV = Clamp;};		//Clamps the texture so it's acceptable
+sampler lightSampler = sampler_state{Texture = lightMask; Filter = MIN_MAG_MIP_LINEAR; AddressU = Clamp; AddressV = Clamp;};		//Clamps the texture so it's acceptable
 
 float4 PixelShaderFunction(float2 coords: TEXCOORD0) : COLOR0
 {
