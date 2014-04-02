@@ -17,6 +17,7 @@ namespace BatGame
         //not currently being used - if have extra time
         bool[] items;
         int screechTime;
+        int hits = 0;
         KeyboardState state;
 
 
@@ -34,6 +35,7 @@ namespace BatGame
             //if the animation has finished you can move
             if (this.Speed >= MoveTime)
             {
+                BadCollide();
                 //cardinal movement
                 //if you want to move up only and you are looking up
                 if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
@@ -166,7 +168,21 @@ namespace BatGame
                     Facing = Direction.DownRight;
                     Speed = MoveTime / 2;
                 }
+
             }
         }
+
+        /// <summary>
+        /// increments hits if hits a bad thingy
+        /// </summary>
+        public void BadCollide()
+        {
+            if(GManager.inSpot(Position) is Enemy)
+            {
+                this.hits++;
+            }
+        }
+
+        public int Hits { get { return hits; } }
     }
 }

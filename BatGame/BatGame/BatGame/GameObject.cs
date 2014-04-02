@@ -167,6 +167,14 @@ namespace BatGame
             }
         }
 
+        public GameObjectManager GManager
+        {
+            get
+            {
+                return gManager;
+            }
+        }
+
         //instantiate for walls or inactive objects
         public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s)
         {

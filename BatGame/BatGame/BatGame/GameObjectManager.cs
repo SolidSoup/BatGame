@@ -68,6 +68,26 @@ namespace BatGame
             return false;
         }
 
+        //blank in game object, override for specific scenerios
+        /// <summary>
+        /// checks if spot is taken by a specific kind of object
+        /// </summary>
+        /// <param name="moveLocation">location to check</param>
+        /// <param name="obj">the game object</param>
+        /// <returns>game object colliding with</returns>
+        public GameObject inSpot(Point moveLocation)
+        {
+            //Console.WriteLine("here");
+            foreach (GameObject g in gameObjects)
+            {
+                if (g.Position == moveLocation && g.IsSolid)
+                {
+                    return g;
+                }
+            }
+            return default(GameObject);
+        }
+
         public int Count
         {
             get

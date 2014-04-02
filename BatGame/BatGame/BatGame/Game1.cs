@@ -225,14 +225,16 @@ namespace BatGame
             enemyManager.EManagerDraw(spriteBatch);
 
             spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
-                new Vector2(10, 10), Color.Orange);
+                new Vector2(480, 220), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
-                new Vector2(10, 30), Color.Orange);
+                new Vector2(480, 250), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
-                new Vector2(10, 50), Color.Orange);
+                new Vector2(480, 280), Color.Orange);
             spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
-                new Vector2(170, 10), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.01",
+                new Vector2(480, 310), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
+                new Vector2(480, 340), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.05",
                 new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
             /*int x = 15;
