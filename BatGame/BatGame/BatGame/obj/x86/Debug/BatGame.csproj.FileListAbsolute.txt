@@ -184,3 +184,5 @@ C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Ba
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Horizontal_Wall.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Verticle_Wall.xnb

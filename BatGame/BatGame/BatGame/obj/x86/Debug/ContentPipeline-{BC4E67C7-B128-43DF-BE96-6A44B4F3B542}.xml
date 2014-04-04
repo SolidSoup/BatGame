@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\FloorTile.xnb</Output>
-      <Time>2014-04-03T20:59:27.5560718-04:00</Time>
+      <Time>2014-04-04T09:13:12.6439781-04:00</Time>
     </Item>
     <Item>
       <Source>VerticalLeftWall.png</Source>
@@ -180,6 +180,24 @@
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\lightingeffect.xnb</Output>
       <Time>2014-04-03T14:47:18.1864962-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Horizontal_Wall.png</Source>
+      <Name>Horizontal_Wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Horizontal_Wall.xnb</Output>
+      <Time>2014-04-04T03:40:04.1927281-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Verticle_Wall.png</Source>
+      <Name>Verticle_Wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Verticle_Wall.xnb</Output>
+      <Time>2014-04-04T03:40:04.1967273-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
