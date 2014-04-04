@@ -23,6 +23,10 @@ namespace BatGame
         Grid grid;
 
         Texture2D playerImage;
+        //bat texture
+        Texture2D batUpDownImage;
+        Texture2D batSideImage;
+
         Texture2D enemyImage;
         Texture2D verticalWallImage;
         Texture2D verticalLeftWallImage;
@@ -56,7 +60,7 @@ namespace BatGame
         GameObject[,] checkMap;
 
         Dictionary<string, Texture2D> spriteDictionary;
-
+        AnimationFarm aniFarm;
 
         public Game1()
         {
@@ -80,6 +84,7 @@ namespace BatGame
             gameObjectManager = new GameObjectManager();
 
             spriteDictionary = new Dictionary<string, Texture2D>();
+            aniFarm = new AnimationFarm(spriteBatch);
 
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
 
@@ -109,6 +114,13 @@ namespace BatGame
 
             playerImage = Content.Load<Texture2D>("player");
             spriteDictionary.Add("playerImage", playerImage);
+
+
+            batUpDownImage = Content.Load<Texture2D>("Bat_Fly_Up");
+            spriteDictionary.Add("BatUpDownImage", batUpDownImage);
+
+            batSideImage = Content.Load<Texture2D>("Bat_Fly_Left");
+            spriteDictionary.Add("batSideImage", batSideImage);
 
             enemyImage = Content.Load<Texture2D>("enemy");
             spriteDictionary.Add("enemyImage", enemyImage);
