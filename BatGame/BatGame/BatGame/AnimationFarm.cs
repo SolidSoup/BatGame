@@ -69,6 +69,9 @@ namespace BatGame
         Vector2 drawPosition;
         Vector2 origin;
 
+        KeyboardState currentKB;
+        KeyboardState previousKB;
+
         //Plugged in and taken from the parent class
         SpriteBatch sp;
 
@@ -76,15 +79,71 @@ namespace BatGame
         /// Initialize the Animation class
         /// </summary>
         /// <param name="sprite">sprite batch to have access to sprite sheets</param>
-        public AnimationFarm(SpriteBatch sprite)
+        public AnimationFarm(Texture2D text, int curfrm, int sprWid, int sprHgt)
         {
-            sp = sprite;
+            this.SpriteTexture = text;
+            this.currentFrame = curfrm;
+            this.spriteWidth = sprWid;
+            this.spriteHeight = sprHgt;
             isFlying = false;
             isIdle = false;
         }
 
+        public Vector2 DrawPosition
+        {
+            get
+            {
+                return drawPosition;
+            }
+            set
+            {
+                drawPosition = value;
+            }
+        }
+
+        public Vector2 Origin
+        {
+            get
+            {
+                return origin;
+            }
+            set
+            {
+                origin = value;
+            }
+        }
+
+        public Texture2D SpriteTexture
+        {
+            get
+            {
+                return spriteTexture;
+            }
+            set
+            {
+                spriteTexture = value;
+            }
+        }
+
+        public Rectangle DrawRectangle
+        {
+            get
+            {
+                return drawRect;
+            }
+            set
+            {
+                drawRect = value;
+            }
+        }
+
         public void AnimationUpdate(GameTime gameTime)
         {
+            previousKB = currentKB;
+            currentKB = Keyboard.GetState();
+
+            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
+
 
         }
 
