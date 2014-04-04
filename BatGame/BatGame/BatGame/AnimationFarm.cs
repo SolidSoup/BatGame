@@ -62,7 +62,7 @@ namespace BatGame
         int spriteWidth = 64;
         int spriteHeight = 64;
         //how fast it moves across the screen?
-        double spriteSpeed = .6;
+        float spriteSpeed = .6f;
         //sprite's rect
         Rectangle drawRect;
         //where will I draw the sprite and the center of the sprite
@@ -89,6 +89,7 @@ namespace BatGame
             isIdle = false;
         }
 
+        //where the sprite will be drawn
         public Vector2 DrawPosition
         {
             get
@@ -101,6 +102,7 @@ namespace BatGame
             }
         }
 
+        //the center of a sprite
         public Vector2 Origin
         {
             get
@@ -113,6 +115,7 @@ namespace BatGame
             }
         }
 
+        //current sprite in use
         public Texture2D SpriteTexture
         {
             get
@@ -125,6 +128,7 @@ namespace BatGame
             }
         }
 
+        //will draw the rectangle around the sprite necessary to get from spr sheet
         public Rectangle DrawRectangle
         {
             get
@@ -137,6 +141,10 @@ namespace BatGame
             }
         }
 
+        /// <summary>
+        /// Update to figure out what needs to be drawn
+        /// </summary>
+        /// <param name="gameTime">gametime for animation purposes</param>
         public void AnimationUpdate(GameTime gameTime)
         {
             previousKB = currentKB;
@@ -144,6 +152,26 @@ namespace BatGame
 
             drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
 
+            if (currentKB.GetPressedKeys().Length==0)
+            {
+                currentFrame=0;
+            }
+
+            if (currentKB.IsKeyDown(Keys.A) == true)
+            {
+                FlyingDirection = Flying.West;
+                
+                drawPosition.X += spriteSpeed;
+            }
+
+            if (currentKB.IsKeyDown(Keys.D) == true)
+            {
+                FlyingDirection = Flying.East;
+
+                drawPosition.X -= spriteSpeed;
+            }
+
+            
 
         }
 

@@ -84,7 +84,7 @@ namespace BatGame
             gameObjectManager = new GameObjectManager();
 
             spriteDictionary = new Dictionary<string, Texture2D>();
-            aniFarm = new AnimationFarm(spriteBatch);
+            //aniFarm = new AnimationFarm(spriteBatch);
 
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
 
