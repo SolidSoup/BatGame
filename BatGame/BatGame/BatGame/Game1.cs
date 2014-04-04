@@ -196,8 +196,22 @@ namespace BatGame
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
             //lightMask bound to player's position as a little sphere of vision
             Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
-
             spriteBatch.Draw(lightMask, light, Color.White);
+            spriteBatch.End();
+
+            spriteBatch.Begin();
+            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
+                new Vector2(480, 220), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
+                new Vector2(480, 250), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
+                new Vector2(480, 280), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
+                new Vector2(480, 310), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
+                new Vector2(480, 340), Color.Orange);
+            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.05",
+                new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
             spriteBatch.End();
 
             GraphicsDevice.SetRenderTarget(mainTarget);
@@ -223,19 +237,6 @@ namespace BatGame
             gameObjectManager.GManagerDraw(spriteBatch);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
             enemyManager.EManagerDraw(spriteBatch);
-
-            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
-                new Vector2(480, 220), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
-                new Vector2(480, 250), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
-                new Vector2(480, 280), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
-                new Vector2(480, 310), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
-                new Vector2(480, 340), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.05",
-                new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
             /*int x = 15;
             int y = 15;
