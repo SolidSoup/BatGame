@@ -16,9 +16,14 @@ Content\UpRightCorner.xnb
 Content\lightmask.xnb
 Content\Bat_Fly_Left.xnb
 Content\Bat_Fly_Up.xnb
-Content\echo.xnb
-Content\lightingeffect.xnb
 Content\Horizontal_Wall.xnb
 Content\Verticle_Wall.xnb
+Content\echo.xnb
+Content\lightingeffect.xnb
+Content\loadButton.xnb
+Content\menu.xnb
+Content\nameLogo.xnb
+Content\optionsButton.xnb
+Content\startButton.xnb
 Content\level1.txt
 Content\testlevel.txt

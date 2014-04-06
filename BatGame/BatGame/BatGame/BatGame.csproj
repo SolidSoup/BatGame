@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="AnimationFarm.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Collectables.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyManager.cs" />

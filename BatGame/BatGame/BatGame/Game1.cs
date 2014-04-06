@@ -62,6 +62,19 @@ namespace BatGame
         Dictionary<string, Texture2D> spriteDictionary;
         AnimationFarm aniFarm;
 
+        //Things that will eventually be moved to state manager
+        GameState gameState;
+        Texture2D menuImage;
+        Texture2D startButtonImage;
+        Texture2D optionsButtonImage;
+        Texture2D loadButtonImage;
+        Texture2D nameLogoImage;
+        Button startButton;
+        Button optionButton;
+        Button loadButton;
+        MouseState lastMouseState;
+        MouseState currentMouseState;
+
         public Game1()
         {
             
@@ -88,6 +101,7 @@ namespace BatGame
 
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
 
+            gameState = GameState.menu;
 
             base.Initialize();
         }
@@ -168,6 +182,17 @@ namespace BatGame
             Level level1 = new Level("Content/level1.txt");
             check = level1.loadLevel();
             checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+
+            menuImage = Content.Load<Texture2D>("menu");
+            nameLogoImage = Content.Load<Texture2D>("nameLogo");
+            startButtonImage = Content.Load<Texture2D>("startButton");
+            loadButtonImage = Content.Load<Texture2D>("loadButton");
+            optionsButtonImage = Content.Load<Texture2D>("optionsButton");
+
+            int height = 2 * GraphicsDevice.Viewport.Height / 3;
+            startButton = new Button((GraphicsDevice.Viewport.Width / 3) - 90, height, 120, 90, startButtonImage);
+            loadButton = new Button((GraphicsDevice.Viewport.Width / 2) - 40, height, 120, 90, loadButtonImage);
+            optionButton = new Button(2 * GraphicsDevice.Viewport.Width / 3, height, 120, 90, optionsButtonImage);
         }
 
         /// <summary>
@@ -191,11 +216,55 @@ namespace BatGame
                 this.Exit();
 
             // TODO: Add your update logic here
-            player.PlayerUpdate();
+            switch (gameState)
+            {
+                case GameState.game:
+                    player.PlayerUpdate();
 
-            player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
-            enemyManager.EManagerUpdate(gameTime, player);
-            base.Update(gameTime);
+                    player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
+                    enemyManager.EManagerUpdate(gameTime, player);
+                    base.Update(gameTime);
+                    break;
+                case GameState.menu:
+                    startButton.Selected = false;
+                    optionButton.Selected = false;
+                    loadButton.Selected = false;
+
+                    lastMouseState = currentMouseState;
+                    currentMouseState = Mouse.GetState();
+                    Point pos = new Point(currentMouseState.X, currentMouseState.Y);
+
+                    if (startButton.Rect.Contains(pos))
+                    {
+                        startButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            gameState = GameState.game;
+                        }
+                    }
+                    if (optionButton.Rect.Contains(pos))
+                    {
+                        optionButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            //Pop up options
+                        }
+                    }
+                    if (loadButton.Rect.Contains(pos))
+                    {
+                        loadButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            //load saved game
+                        }
+                    }
+
+                    base.Update(gameTime);
+                    break;
+            }
         }
 
         /// <summary>
@@ -204,76 +273,97 @@ namespace BatGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.SetRenderTarget(lightsTarget);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
-            //lightMask bound to player's position as a little sphere of vision
-            Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
-            spriteBatch.Draw(lightMask, light, Color.White);
-            spriteBatch.End();
-
-            spriteBatch.Begin();
-            spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
-                new Vector2(480, 220), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
-                new Vector2(480, 250), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
-                new Vector2(480, 280), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
-                new Vector2(480, 310), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
-                new Vector2(480, 340), Color.Orange);
-            spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.05",
-                new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
-            spriteBatch.End();
-
-            GraphicsDevice.SetRenderTarget(mainTarget);
-            GraphicsDevice.Clear(Color.SaddleBrown);
-            spriteBatch.Begin();
-
-            // TODO: Add your drawing code here
-
-
-            /*
-            // tests drawing the 2D array of GameObjects's from the setup level method in the level class, 
-            // commented out because of the reasons mentioned at the setupLevel method description in the level class
-            
-            for (int i = 0; i < checkMap.GetLength(0); i++)
+            switch (gameState)
             {
-                for (int j = 0; j < checkMap.GetLength(1); j++)
-                {
-                    spriteBatch.Draw(checkMap[i, j].ObjTexture, new Rectangle((grid.Width / 16) * i, (grid.Height / 16) * j, verticalWallImage.Width, verticalWallImage.Height) , Color.White);
-                }
+                case GameState.game:
+                    this.IsMouseVisible = false;
+
+                    GraphicsDevice.SetRenderTarget(lightsTarget);
+                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
+                    //lightMask bound to player's position as a little sphere of vision
+                    Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
+                    spriteBatch.Draw(lightMask, light, Color.White);
+                    spriteBatch.End();
+
+                    spriteBatch.Begin();
+                    spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidth + ", " + grid.TileHeight,
+                        new Vector2(480, 220), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
+                        new Vector2(480, 250), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "Enemies: " + enemyManager.Count,
+                        new Vector2(480, 280), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "Position: " + player.PosX + ", " + player.PosY,
+                        new Vector2(480, 310), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
+                        new Vector2(480, 340), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.05",
+                        new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
+                    spriteBatch.End();
+
+                    GraphicsDevice.SetRenderTarget(mainTarget);
+                    GraphicsDevice.Clear(Color.SaddleBrown);
+                    spriteBatch.Begin();
+
+                    // TODO: Add your drawing code here
+
+
+                    /*
+                    // tests drawing the 2D array of GameObjects's from the setup level method in the level class, 
+                    // commented out because of the reasons mentioned at the setupLevel method description in the level class
+                    
+                    for (int i = 0; i < checkMap.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < checkMap.GetLength(1); j++)
+                        {
+                            spriteBatch.Draw(checkMap[i, j].ObjTexture, new Rectangle((grid.Width / 16) * i, (grid.Height / 16) * j, verticalWallImage.Width, verticalWallImage.Height) , Color.White);
+                        }
+                    }
+                     * */
+                    immobilesManager.IManagerDraw(spriteBatch);
+                    gameObjectManager.GManagerDraw(spriteBatch);
+                    spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+                    enemyManager.EManagerDraw(spriteBatch);
+
+                    /*int x = 15;
+                    int y = 15;
+
+                    for (int i = 0; i < check.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < check.GetLength(1); j++)
+                        {
+                            spriteBatch.DrawString(comicSans14, check[i, j],
+                                new Vector2(x * j, 70 + y * i), Color.Orange);
+                        }
+                    }*/
+
+                    spriteBatch.End();
+
+                    GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
+                    GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
+                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                    lightingEffect.Parameters["lightMask"].SetValue(lightsTarget);
+                    lightingEffect.CurrentTechnique.Passes[0].Apply();
+                    spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
+                    spriteBatch.End();
+                    break;
+                case GameState.menu:
+                    spriteBatch.Begin();
+
+                    this.IsMouseVisible = true;
+                    spriteBatch.Draw(menuImage, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+                    spriteBatch.Draw(nameLogoImage, new Rectangle((GraphicsDevice.Viewport.Width / 2) - 100, 50, 250, 150), Color.White);
+
+                    startButton.Draw(spriteBatch);
+                    loadButton.Draw(spriteBatch);
+                    optionButton.Draw(spriteBatch);
+
+                    spriteBatch.End();
+                    base.Draw(gameTime);
+                    break;
             }
-             * */
-            immobilesManager.IManagerDraw(spriteBatch);
-            gameObjectManager.GManagerDraw(spriteBatch);
-            spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
-            enemyManager.EManagerDraw(spriteBatch);
-
-            /*int x = 15;
-            int y = 15;
-
-            for (int i = 0; i < check.GetLength(0); i++)
-            {
-                for (int j = 0; j < check.GetLength(1); j++)
-                {
-                    spriteBatch.DrawString(comicSans14, check[i, j],
-                        new Vector2(x * j, 70 + y * i), Color.Orange);
-                }
-            }*/
-
-            spriteBatch.End();
-
-            GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
-            GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            lightingEffect.Parameters["lightMask"].SetValue(lightsTarget);
-            lightingEffect.CurrentTechnique.Passes[0].Apply();
-            spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
-            spriteBatch.End();
 
 
-            base.Draw(gameTime);
+                    base.Draw(gameTime);
         }
 
         #region LoadMap

@@ -5,6 +5,12 @@ using System.Text;
 
 namespace BatGame
 {
+    public enum GameState
+    {
+        menu,
+        game
+    }
+
     class StateManager
     {
 
