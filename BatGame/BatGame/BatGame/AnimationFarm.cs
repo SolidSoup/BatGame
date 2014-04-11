@@ -36,6 +36,8 @@ namespace BatGame
     }
     class AnimationFarm
     {
+
+        #region VARIABLES
         //figure out which kind of animation to use
         bool isFlying;
         bool isIdle;
@@ -51,18 +53,18 @@ namespace BatGame
         //which sprite am I using?
         Texture2D spriteTexture;
         //time it will take before moving on to next frm
-        float timer = 0f;
+        double timer = 0f;
         //how often until it moves frm
-        float interval = 200f;
+        double interval = .3;
         //what frame we on? (current 0-2 || 1-3)
         int currentFrame = 0;
         //how many frames per second
-        int FramesPerSecond = 3;
+        int FramesPerSecond = 10;
         //how big are my sprites?
         int spriteWidth = 64;
         int spriteHeight = 64;
         //how fast it moves across the screen?
-        float spriteSpeed = .6f;
+        //float spriteSpeed = .6f;
         //sprite's rect
         Rectangle drawRect;
         //where will I draw the sprite and the center of the sprite
@@ -74,6 +76,8 @@ namespace BatGame
 
         //Plugged in and taken from the parent class
         SpriteBatch sp;
+
+        #endregion
 
         /// <summary>
         /// Initialize the Animation class
@@ -88,6 +92,8 @@ namespace BatGame
             isFlying = false;
             isIdle = false;
         }
+
+        #region PROPERTIES
 
         //where the sprite will be drawn
         public Vector2 DrawPosition
@@ -141,6 +147,8 @@ namespace BatGame
             }
         }
 
+        #endregion
+
         /// <summary>
         /// Update to figure out what needs to be drawn
         /// </summary>
@@ -152,26 +160,50 @@ namespace BatGame
 
             drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
 
-            if (currentKB.GetPressedKeys().Length==0)
+            if (currentKB.GetPressedKeys().Length == 0)
             {
-                currentFrame=0;
+                if (currentFrame > 0 && currentFrame < 3)
+                {
+                    currentFrame = 0;
+                }
+                if (currentFrame > 3 && currentFrame < 6)
+                {
+                    currentFrame = 3;
+                }
+                if (currentFrame > 6 && currentFrame < 9)
+                {
+                    currentFrame = 6;
+                }
+                if (currentFrame > 9 && currentFrame < 12)
+                {
+                    currentFrame = 9;
+                }
             }
 
             if (currentKB.IsKeyDown(Keys.A) == true)
             {
                 FlyingDirection = Flying.West;
-                
-                drawPosition.X += spriteSpeed;
+                isFlying = true;
+                //PlayerDraw()
+                //drawPosition.X += spriteSpeed;
             }
 
             if (currentKB.IsKeyDown(Keys.D) == true)
             {
                 FlyingDirection = Flying.East;
-
-                drawPosition.X -= spriteSpeed;
+                isFlying = true;
+                //drawPosition.X -= spriteSpeed;
             }
-
-            
+            if (currentKB.IsKeyDown(Keys.S) == true)
+            {
+                FlyingDirection = Flying.South;
+                isFlying = true;
+            }
+            if (currentKB.IsKeyDown(Keys.W) == true)
+            {
+                FlyingDirection = Flying.North;
+                isFlying = true;
+            }
 
         }
 

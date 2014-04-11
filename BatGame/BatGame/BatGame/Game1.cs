@@ -62,7 +62,7 @@ namespace BatGame
         GameObject[,] checkMap;
 
         Dictionary<string, Texture2D> spriteDictionary;
-        AnimationFarm aniFarm;
+        AnimationFarm playerAnimation;
 
         //Things that will eventually be moved to state manager
         GameState gameState;
