@@ -41,6 +41,8 @@ namespace BatGame
         Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
         Texture2D lightMask;
+        Texture2D coneLightMask;
+
 
         RenderTarget2D lightsTarget;
         RenderTarget2D mainTarget;
@@ -115,8 +117,11 @@ namespace BatGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lightMask = Content.Load<Texture2D>("lightmask");
-            lightingEffect = Content.Load<Effect>("lightingeffect");
+            lightMask = Content.Load<Texture2D>("Sprites/Shader_Sprites/lightmask");
+            spriteDictionary.Add("lightmask", lightMask);
+            coneLightMask = Content.Load<Texture2D>("Sprites/Shader_Sprites/cone");
+            spriteDictionary.Add("coneLightMask", coneLightMask);
+            lightingEffect = Content.Load<Effect>("Shader_Tools/lightingeffect");
 
             var pp = GraphicsDevice.PresentationParameters;
             lightsTarget = new RenderTarget2D(
@@ -124,70 +129,70 @@ namespace BatGame
             mainTarget = new RenderTarget2D(
                 GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
             // TODO: use this.Content to load your game content here
-            comicSans14 = Content.Load<SpriteFont>("ComicSans");
+            comicSans14 = Content.Load<SpriteFont>("Font/ComicSans");
 
-            playerImage = Content.Load<Texture2D>("player");
+            playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/player");
             spriteDictionary.Add("playerImage", playerImage);
 
 
-            batUpDownImage = Content.Load<Texture2D>("Bat_Fly_Up");
+            batUpDownImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Bat_Fly_Up");
             spriteDictionary.Add("BatUpDownImage", batUpDownImage);
 
-            batSideImage = Content.Load<Texture2D>("Bat_Fly_Left");
+            batSideImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Bat_Fly_Left");
             spriteDictionary.Add("batSideImage", batSideImage);
 
-            enemyImage = Content.Load<Texture2D>("enemy");
+            enemyImage = Content.Load<Texture2D>("Sprites/Enemy_Sprites/enemy");
             spriteDictionary.Add("enemyImage", enemyImage);
 
-            verticalWallImage = Content.Load<Texture2D>("VerticalWall");
+            verticalWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalWall");
             spriteDictionary.Add("verticalWall", verticalWallImage);
 
-            verticalLeftWallImage = Content.Load<Texture2D>("VerticalLeftWall");
+            verticalLeftWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalLeftWall");
             spriteDictionary.Add("verticalLeftWall", verticalLeftWallImage);
 
-            verticalRightWallImage = Content.Load<Texture2D>("VerticalRightWall");
+            verticalRightWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalRightWall");
             spriteDictionary.Add("verticalRightWall", verticalRightWallImage);
 
-            horizontalWallImage = Content.Load<Texture2D>("HorizontalWall");
+            horizontalWallImage = Content.Load<Texture2D>("Sprites/Walls/HorizontalWall");
             spriteDictionary.Add("horizontalWall", horizontalWallImage);
 
-            horizontalUpWallImage = Content.Load<Texture2D>("HorizontalUpWall");
+            horizontalUpWallImage = Content.Load<Texture2D>("Sprites/Walls/HorizontalUpWall");
             spriteDictionary.Add("horizontalUpWall", horizontalUpWallImage);
 
-            horizontalDownWallImage = Content.Load<Texture2D>("HorizontalDownWall");
+            horizontalDownWallImage = Content.Load<Texture2D>("Sprites/Walls/HorizontalDownWall");
             spriteDictionary.Add("horizontalDownWall", horizontalDownWallImage);
 
-            cornerWallImage = Content.Load<Texture2D>("Corner");
+            cornerWallImage = Content.Load<Texture2D>("Sprites/Corners/Corner");
             spriteDictionary.Add("cornerWall", cornerWallImage);
 
-            downLeftCornerWallImage = Content.Load<Texture2D>("DownLeftCorner");
+            downLeftCornerWallImage = Content.Load<Texture2D>("Sprites/Corners/DownLeftCorner");
             spriteDictionary.Add("downLeftCornerWall", downLeftCornerWallImage);
 
-            upLeftCornerWallImage = Content.Load<Texture2D>("UpLeftCorner");
+            upLeftCornerWallImage = Content.Load<Texture2D>("Sprites/Corners/UpLeftCorner");
             spriteDictionary.Add("upLeftCornerWall", upLeftCornerWallImage);
 
-            downRightCornerWallImage = Content.Load<Texture2D>("DownRightCorner");
+            downRightCornerWallImage = Content.Load<Texture2D>("Sprites/Corners/DownRightCorner");
             spriteDictionary.Add("downRightCornerWall", downRightCornerWallImage);
 
-            upRightCornerWallImage = Content.Load<Texture2D>("UpRightCorner");
+            upRightCornerWallImage = Content.Load<Texture2D>("Sprites/Corners/UpRightCorner");
             spriteDictionary.Add("upRightCornerWall", upRightCornerWallImage);
 
-            floorTileImage = Content.Load<Texture2D>("FloorTile");
+            floorTileImage = Content.Load<Texture2D>("Sprites/Floors/FloorTile");
             spriteDictionary.Add("floorTile", floorTileImage);
 
 
             player.ObjTexture = playerImage;
 
             // LoadMap("Content/level1.txt");
-            Level level1 = new Level("Content/level1.txt");
+            Level level1 = new Level("Content/Levels/level1.txt");
             check = level1.loadLevel();
             checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
 
-            menuImage = Content.Load<Texture2D>("menu");
-            nameLogoImage = Content.Load<Texture2D>("nameLogo");
-            startButtonImage = Content.Load<Texture2D>("startButton");
-            loadButtonImage = Content.Load<Texture2D>("loadButton");
-            optionsButtonImage = Content.Load<Texture2D>("optionsButton");
+            menuImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menu");
+            nameLogoImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/nameLogo");
+            startButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/startButton");
+            loadButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/loadButton");
+            optionsButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/optionsButton");
 
             int height = 2 * GraphicsDevice.Viewport.Height / 3;
             startButton = new Button((GraphicsDevice.Viewport.Width / 3) - 90, height, 120, 90, startButtonImage);
@@ -279,13 +284,19 @@ namespace BatGame
                     this.IsMouseVisible = false;
 
                     GraphicsDevice.SetRenderTarget(lightsTarget);
+                    GraphicsDevice.Clear(Color.DarkGray); // Change this to alter the "base" lighting
                     spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
                     //lightMask bound to player's position as a little sphere of vision
                     Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
                     spriteBatch.Draw(lightMask, light, Color.White);
+
+                    // To add more lights: draw them here, with whatever color you want!
+                    spriteBatch.Draw(coneLightMask,
+                        new Rectangle(player.RectX - 300, player.RectY - 300, 600, 600),
+                        Color.Green);
+
                     spriteBatch.End();
 
-                    
 
                     GraphicsDevice.SetRenderTarget(mainTarget);
                     GraphicsDevice.Clear(Color.SaddleBrown);
@@ -325,13 +336,25 @@ namespace BatGame
 
                     spriteBatch.End();
 
-                    GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
-                    GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
-                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+
+                    GraphicsDevice.SetRenderTarget(null);
+                    GraphicsDevice.Clear(Color.Black);
+
+                    // If using a shader, ALWAYS use the Begin() overload that takes the Effect!
+                    spriteBatch.Begin(0, null, null, null, null, lightingEffect);
                     lightingEffect.Parameters["lightMask"].SetValue(lightsTarget);
                     lightingEffect.CurrentTechnique.Passes[0].Apply();
                     spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
                     spriteBatch.End();
+
+                    //GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
+                    ////GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
+                    //GraphicsDevice.Clear(Color.Blue);
+                    //spriteBatch.Begin();//SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                    //lightingEffect.Parameters["lightMask"].SetValue(lightsTarget);
+                    //lightingEffect.CurrentTechnique.Passes[0].Apply();
+                    //spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
+                    //spriteBatch.End();
 
                     spriteBatch.Begin();
                     spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidthCount + ", " + grid.TileHeightCount,
@@ -344,7 +367,7 @@ namespace BatGame
                     new Vector2(480, 310), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
                     new Vector2(480, 340), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.07",
+                    spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.075",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
                     spriteBatch.End();
                     break;
@@ -365,9 +388,9 @@ namespace BatGame
             }
 
 
-            
 
-         base.Draw(gameTime);
+
+            base.Draw(gameTime); 
         }
 
         #region LoadMap

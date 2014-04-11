@@ -37,14 +37,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Bat Sprites\player.png">
+    <Compile Include="Sprites\Bat_Sprites\player.png">
       <Name>player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Enemy Sprites\enemy.png">
+    <Compile Include="Sprites\Enemy_Sprites\enemy.png">
       <Name>enemy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -147,33 +147,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shader Tools\echo.fx">
+    <Compile Include="Shader_Tools\echo.fx">
       <Name>echo</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shader Tools\lightingeffect.fx">
+    <Compile Include="Shader_Tools\lightingeffect.fx">
       <Name>lightingeffect</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Shader Sprites\lightmask.png">
+    <Compile Include="Sprites\Shader_Sprites\lightmask.png">
       <Name>lightmask</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Bat Sprites\Bat_Fly_Left.png">
+    <Compile Include="Sprites\Bat_Sprites\Bat_Fly_Left.png">
       <Name>Bat_Fly_Left</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Bat Sprites\Bat_Fly_Up.png">
+    <Compile Include="Sprites\Bat_Sprites\Bat_Fly_Up.png">
       <Name>Bat_Fly_Up</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -192,28 +192,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Menu Sprites\loadButton.png">
+    <Compile Include="Sprites\Menu_Sprites\loadButton.png">
       <Name>loadButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Menu Sprites\menu.png">
+    <Compile Include="Sprites\Menu_Sprites\menu.png">
       <Name>menu</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Menu Sprites\nameLogo.png">
+    <Compile Include="Sprites\Menu_Sprites\nameLogo.png">
       <Name>nameLogo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Menu Sprites\optionsButton.png">
+    <Compile Include="Sprites\Menu_Sprites\optionsButton.png">
       <Name>optionsButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Menu Sprites\startButton.png">
+    <Compile Include="Sprites\Menu_Sprites\startButton.png">
       <Name>startButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\cone.png">
+      <Name>cone</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
