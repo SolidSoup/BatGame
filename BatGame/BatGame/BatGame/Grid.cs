@@ -15,7 +15,7 @@ namespace BatGame
     class Grid
     {
         //fields
-        Rectangle[,] grid;
+        QuadTangle[,] grid;
         int tileHeight;
         int tileWidth;
         int tileHeightCount;
@@ -23,7 +23,7 @@ namespace BatGame
 
         public Grid(int width, int height)
         {
-            grid = new Rectangle[width/32, height/32];
+            grid = new QuadTangle[width/32, height/32];
             this.tileHeight = 32;
             this.tileWidth = 32;
             tileHeightCount = height/32;
@@ -33,14 +33,14 @@ namespace BatGame
             {
                 for (int j = 0; j < tileHeightCount; j++)
                 {
-                    grid[i, j] = new Rectangle(i * 32, j * 32, 32, 32);
+                    grid[i, j] = new QuadTangle(i * 32, j * 32, 32, 32);
                 }
             }
         }
 
         public Point getPosition(Point pos)
         {
-            Point p = new Point(grid[pos.X, pos.Y].X, grid[pos.X, pos.Y].Y);
+            Point p = new Point(grid[pos.X, pos.Y].Rect.X, grid[pos.X, pos.Y].Rect.Y);
             return p;
         }
 

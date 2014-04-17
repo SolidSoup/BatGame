@@ -7,134 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Font\ComicSans.xnb</Output>
-      <Time>2014-04-10T20:31:08.8437455-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Corners\Corner.png</Source>
-      <Name>Sprites\Corners\Corner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\Corner.xnb</Output>
-      <Time>2014-04-10T20:31:08.8587303-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\HorizontalWall.png</Source>
-      <Name>Sprites\Walls\HorizontalWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9516068-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\VerticalWall.png</Source>
-      <Name>Sprites\Walls\VerticalWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9566097-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Floors\FloorTile.png</Source>
-      <Name>Sprites\Floors\FloorTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\FloorTile.xnb</Output>
-      <Time>2014-04-10T20:31:08.8880943-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\VerticalLeftWall.png</Source>
-      <Name>Sprites\Walls\VerticalLeftWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalLeftWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9536077-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\VerticalRightWall.png</Source>
-      <Name>Sprites\Walls\VerticalRightWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalRightWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9556091-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\HorizontalUpWall.png</Source>
-      <Name>Sprites\Walls\HorizontalUpWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalUpWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9496029-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\HorizontalDownWall.png</Source>
-      <Name>Sprites\Walls\HorizontalDownWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalDownWall.xnb</Output>
-      <Time>2014-04-10T20:31:08.944869-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Corners\UpLeftCorner.png</Source>
-      <Name>Sprites\Corners\UpLeftCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\UpLeftCorner.xnb</Output>
-      <Time>2014-04-10T20:31:08.8718869-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Corners\DownRightCorner.png</Source>
-      <Name>Sprites\Corners\DownRightCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownRightCorner.xnb</Output>
-      <Time>2014-04-10T20:31:08.8597318-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Corners\DownLeftCorner.png</Source>
-      <Name>Sprites\Corners\DownLeftCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownLeftCorner.xnb</Output>
-      <Time>2014-04-10T20:31:08.8597318-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Corners\UpRightCorner.png</Source>
-      <Name>Sprites\Corners\UpRightCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\UpRightCorner.xnb</Output>
-      <Time>2014-04-10T20:31:08.87389-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\Horizontal_Wall.png</Source>
-      <Name>Sprites\Walls\Horizontal_Wall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\Horizontal_Wall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9526071-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Walls\Verticle_Wall.png</Source>
-      <Name>Sprites\Walls\Verticle_Wall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\Verticle_Wall.xnb</Output>
-      <Time>2014-04-10T20:31:08.9576104-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Font\ComicSans.xnb</Output>
+      <Time>2014-03-19T20:50:01.7685312-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Bat_Sprites\player.png</Source>
@@ -142,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\player.xnb</Output>
-      <Time>2014-04-10T20:31:08.8549992-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\player.xnb</Output>
+      <Time>2014-04-16T17:15:23.7188023-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Enemy_Sprites\enemy.png</Source>
@@ -151,8 +25,116 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Enemy_Sprites\enemy.xnb</Output>
-      <Time>2014-04-10T20:31:08.8758905-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Enemy_Sprites\enemy.xnb</Output>
+      <Time>2014-04-16T17:15:23.7198029-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Corners\Corner.png</Source>
+      <Name>Sprites\Corners\Corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\Corner.xnb</Output>
+      <Time>2014-03-25T20:33:25.3940494-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\HorizontalWall.png</Source>
+      <Name>Sprites\Walls\HorizontalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalWall.xnb</Output>
+      <Time>2014-03-25T20:33:25.6232548-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\VerticalWall.png</Source>
+      <Name>Sprites\Walls\VerticalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalWall.xnb</Output>
+      <Time>2014-03-25T20:33:25.6272575-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Floors\FloorTile.png</Source>
+      <Name>Sprites\Floors\FloorTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\FloorTile.xnb</Output>
+      <Time>2014-04-05T15:16:20.9256613-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\VerticalLeftWall.png</Source>
+      <Name>Sprites\Walls\VerticalLeftWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalLeftWall.xnb</Output>
+      <Time>2014-03-29T22:13:20.6298048-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\VerticalRightWall.png</Source>
+      <Name>Sprites\Walls\VerticalRightWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\VerticalRightWall.xnb</Output>
+      <Time>2014-03-29T22:13:20.6318061-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\HorizontalUpWall.png</Source>
+      <Name>Sprites\Walls\HorizontalUpWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalUpWall.xnb</Output>
+      <Time>2014-03-29T22:13:20.6167773-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\HorizontalDownWall.png</Source>
+      <Name>Sprites\Walls\HorizontalDownWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\HorizontalDownWall.xnb</Output>
+      <Time>2014-03-29T22:13:20.6157766-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Corners\UpLeftCorner.png</Source>
+      <Name>Sprites\Corners\UpLeftCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\UpLeftCorner.xnb</Output>
+      <Time>2014-03-29T22:13:20.6187786-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Corners\DownRightCorner.png</Source>
+      <Name>Sprites\Corners\DownRightCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownRightCorner.xnb</Output>
+      <Time>2014-03-29T22:13:20.6147759-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Corners\DownLeftCorner.png</Source>
+      <Name>Sprites\Corners\DownLeftCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownLeftCorner.xnb</Output>
+      <Time>2014-03-29T22:13:20.6137744-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Corners\UpRightCorner.png</Source>
+      <Name>Sprites\Corners\UpRightCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\UpRightCorner.xnb</Output>
+      <Time>2014-03-29T22:13:20.6197793-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Shader_Sprites\lightmask.png</Source>
@@ -160,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\lightmask.xnb</Output>
-      <Time>2014-04-10T20:31:08.9438679-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\lightmask.xnb</Output>
+      <Time>2014-04-16T17:15:23.8298784-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Bat_Sprites\Bat_Fly_Left.png</Source>
@@ -169,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Bat_Fly_Left.xnb</Output>
-      <Time>2014-04-10T20:31:08.8539976-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Bat_Fly_Left.xnb</Output>
+      <Time>2014-04-16T17:15:23.6797761-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Bat_Sprites\Bat_Fly_Up.png</Source>
@@ -178,8 +160,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Bat_Fly_Up.xnb</Output>
-      <Time>2014-04-10T20:31:08.8549992-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Bat_Fly_Up.xnb</Output>
+      <Time>2014-04-16T17:15:23.6807763-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\Horizontal_Wall.png</Source>
+      <Name>Sprites\Walls\Horizontal_Wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\Horizontal_Wall.xnb</Output>
+      <Time>2014-04-05T15:16:20.9256613-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Walls\Verticle_Wall.png</Source>
+      <Name>Sprites\Walls\Verticle_Wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Walls\Verticle_Wall.xnb</Output>
+      <Time>2014-04-05T15:16:20.9256613-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Menu_Sprites\loadButton.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\loadButton.xnb</Output>
-      <Time>2014-04-10T20:31:08.8910963-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\loadButton.xnb</Output>
+      <Time>2014-04-16T17:15:23.7208036-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Menu_Sprites\menu.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\menu.xnb</Output>
-      <Time>2014-04-10T20:31:08.9358625-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\menu.xnb</Output>
+      <Time>2014-04-16T17:15:23.8098637-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Menu_Sprites\nameLogo.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\nameLogo.xnb</Output>
-      <Time>2014-04-10T20:31:08.9368632-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\nameLogo.xnb</Output>
+      <Time>2014-04-16T17:15:23.8108666-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Menu_Sprites\optionsButton.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\optionsButton.xnb</Output>
-      <Time>2014-04-10T20:31:08.9388645-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\optionsButton.xnb</Output>
+      <Time>2014-04-16T17:15:23.8218727-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Menu_Sprites\startButton.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\startButton.xnb</Output>
-      <Time>2014-04-10T20:31:08.9408663-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\startButton.xnb</Output>
+      <Time>2014-04-16T17:15:23.8228725-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Shader_Sprites\cone.png</Source>
@@ -232,8 +232,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\cone.xnb</Output>
-      <Time>2014-04-10T20:34:02.5195988-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\cone.xnb</Output>
+      <Time>2014-04-16T17:15:23.8278767-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Bat_Sprites\Flying_Bat.png</Source>
+      <Name>Sprites\Bat_Sprites\Flying_Bat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Flying_Bat.xnb</Output>
+      <Time>2014-04-16T17:15:23.717802-04:00</Time>
     </Item>
     <Item>
       <Source>Shader_Tools\echo.fx</Source>
@@ -241,8 +250,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\echo.xnb</Output>
-      <Time>2014-04-10T20:31:08.8498474-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\echo.xnb</Output>
+      <Time>2014-04-16T17:15:23.6747727-04:00</Time>
     </Item>
     <Item>
       <Source>Shader_Tools\lightingeffect.fx</Source>
@@ -250,8 +259,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\lightingeffect.xnb</Output>
-      <Time>2014-04-10T21:38:09.8810549-04:00</Time>
+      <Output>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\lightingeffect.xnb</Output>
+      <Time>2014-04-16T17:15:23.6787758-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -260,10 +269,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Greg\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -291,8 +300,8 @@
         <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-02-23T21:15:53.4470671-05:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-03-01T14:32:33.118888-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -367,7 +367,7 @@ namespace BatGame
                     new Vector2(480, 310), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "# of Deads: " + player.Hits,
                     new Vector2(480, 340), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Pre-Alpha V 0.075",
+                    spriteBatch.DrawString(comicSans14, "Alpha V 0.11",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
                     spriteBatch.End();
                     break;
