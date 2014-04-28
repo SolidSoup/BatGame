@@ -33,7 +33,7 @@ namespace BatGame
             {
                 for (int j = 0; j < tileHeightCount; j++)
                 {
-                    grid[i, j] = new QuadTangle(i * 32, j * 32, 32, 32);
+                    grid[i, j] = new QuadTangle(i * 32, j * 32, 32, 32, false, false, false, false);
                 }
             }
         }

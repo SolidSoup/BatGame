@@ -20,13 +20,23 @@ namespace BatGame
         Rectangle bLeft;
         Rectangle bRight;
 
-        public QuadTangle(int x, int y, int width, int height)
+        bool tLeftFull;
+        bool tRightFull;
+        bool bLeftFull;
+        bool bRightFull;
+
+        public QuadTangle(int x, int y, int width, int height, bool tl, bool tr, bool bl, bool br)
         {
             rect = new Rectangle(x, y, width, height);
             tLeft = new Rectangle(x, y, width / 2, height / 2);
             tRight = new Rectangle(x + (width / 2), y, width / 2, height / 2);
             bLeft = new Rectangle(x, y + (width / 2), width / 2, height / 2);
             bRight = new Rectangle(x + (width / 2), y + (width / 2), width / 2, height / 2);
+
+            tLeftFull = tl;
+            tRightFull = tr;
+            bLeftFull = bl;
+            bRightFull = br;
         }
 
         public static implicit operator Rectangle(QuadTangle q)
@@ -92,6 +102,54 @@ namespace BatGame
             set
             {
                 bRight = value;
+            }
+        }
+
+        public bool TLeftFull
+        {
+            get
+            {
+                return tLeftFull;
+            }
+            set
+            {
+                tLeftFull = value;
+            }
+        }
+
+        public bool TRightFull
+        {
+            get
+            {
+                return tRightFull;
+            }
+            set
+            {
+                tRightFull = value;
+            }
+        }
+
+        public bool BLeftFull
+        {
+            get
+            {
+                return bLeftFull;
+            }
+            set
+            {
+                bLeftFull = value;
+            }
+        }
+
+        public bool BRightFull
+        {
+            get
+            {
+                return bRightFull;
+            }
+            set
+            {
+                bRightFull = value;
             }
         }
     }

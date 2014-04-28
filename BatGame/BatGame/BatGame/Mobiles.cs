@@ -81,6 +81,11 @@ namespace BatGame
             return true;
         }
 
+        public void Move(Direction dir)
+        {
+
+        }
+
         public double Speed
         {
             get { return this.speed; }
