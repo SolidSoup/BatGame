@@ -12,6 +12,14 @@ using Microsoft.Xna.Framework.Media;
 
 namespace BatGame
 {
+    enum SubSquares
+    {
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
+    }
+
     class QuadTangle
     {
         Rectangle rect;
@@ -25,7 +33,9 @@ namespace BatGame
         bool bLeftFull;
         bool bRightFull;
 
-        public QuadTangle(int x, int y, int width, int height, bool tl, bool tr, bool bl, bool br)
+        Point locInGrid;
+
+        public QuadTangle(int x, int y, int width, int height, bool tl, bool tr, bool bl, bool br, Point loc)
         {
             rect = new Rectangle(x, y, width, height);
             tLeft = new Rectangle(x, y, width / 2, height / 2);
@@ -37,6 +47,8 @@ namespace BatGame
             tRightFull = tr;
             bLeftFull = bl;
             bRightFull = br;
+
+            locInGrid = loc;
         }
 
         public static implicit operator Rectangle(QuadTangle q)
@@ -150,6 +162,18 @@ namespace BatGame
             set
             {
                 bRightFull = value;
+            }
+        }
+
+        public Point LocInGrid
+        {
+            get
+            {
+                return locInGrid;
+            }
+            set
+            {
+                locInGrid = value;
             }
         }
     }

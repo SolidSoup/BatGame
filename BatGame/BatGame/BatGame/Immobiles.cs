@@ -16,8 +16,8 @@ namespace BatGame
      class Immobiles : GameObject
     {
         //simply calls base constructor
-        public Immobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s)
-            : base(t, go, p, g, d, s)
+        public Immobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
+            : base(t, go, p, g, d, sub, s)
         {
         }
     }

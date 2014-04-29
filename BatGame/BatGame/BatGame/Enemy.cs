@@ -22,8 +22,8 @@ namespace BatGame
         double waitTime;
         double distance;
 
-        public Enemy(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time, bool detect)
-            : base(t, go, p, g, d, s, m, speed, a)
+        public Enemy(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time, bool detect)
+            : base(t, go, p, g, d, sub, s, m, speed, a)
         {
             this.actionTime = time;
             this.detected = detect;
@@ -89,7 +89,7 @@ namespace BatGame
                 {
                     PosY--;
                     steps++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     if (steps > 3 && detected == false)
                     {
                         steps = 0;
@@ -102,7 +102,7 @@ namespace BatGame
                 {
                     PosX--;
                     steps++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     if (steps > 3 && detected == false)
                     {
                         steps = 0;
@@ -115,7 +115,7 @@ namespace BatGame
                 {
                     PosY++;
                     steps++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     if (steps > 3 && detected == false)
                     {
                         steps = 0;
@@ -129,7 +129,7 @@ namespace BatGame
                     waitTime = .75;
                     PosX++;
                     steps++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     if (steps > 3 && detected == false)
                     {
                         steps = 0;
@@ -141,33 +141,33 @@ namespace BatGame
                 if (isFacing(Direction.UpLeft) && canMove(Direction.UpLeft))
                 {
                     PosY--;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX--;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                 }
                 //move up and to the right
                 if (isFacing(Direction.UpRight) && canMove(Direction.UpRight))
                 {
                     PosY--;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                 }
                 //move down and to the left
                 if (isFacing(Direction.DownLeft) && canMove(Direction.DownLeft))
                 {
                     PosY++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX--;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                 }
                 //move down and right
                 if (isFacing(Direction.DownRight) && canMove(Direction.DownRight))
                 {
                     PosY++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                 }
 
             }

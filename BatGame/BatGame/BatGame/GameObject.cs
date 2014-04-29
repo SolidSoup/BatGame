@@ -35,6 +35,7 @@ namespace BatGame
         GameObjectManager gManager;
 
         Direction facing;
+        SubSquares miniSquare;
 
         //false for background images or non-active objects
         bool isSolid;
@@ -167,6 +168,18 @@ namespace BatGame
             }
         }
 
+        public SubSquares MiniSquare
+        {
+            get
+            {
+                return miniSquare;
+            }
+            set
+            {
+                miniSquare = value;
+            }
+        }
+
         public GameObjectManager GManager
         {
             get
@@ -176,9 +189,9 @@ namespace BatGame
         }
 
         //instantiate for walls or inactive objects
-        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s)
+        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
         {
-            Point po = g.getPosition(p);
+            Point po = g.getPosition(p, sub);
             this.objTexture = t;
             this.objRectangle = new Rectangle(po.X, po.Y, g.TileWidth, g.TileHeight);
             this.position = p;

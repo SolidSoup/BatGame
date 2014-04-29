@@ -101,7 +101,7 @@ namespace BatGame
             spriteDictionary = new Dictionary<string, Texture2D>();
             //aniFarm = new AnimationFarm(spriteBatch);
 
-            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, true, 0, .4, true, 0);
+            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, SubSquares.TopLeft, true, 0, .4, true, 0);
 
             gameState = GameState.menu;
 
@@ -455,7 +455,7 @@ namespace BatGame
                                 //Add a floor tile
                                 break;
                             case "e":
-                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, true, 0, 0, true, 3, true);
+                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, true);
                                 enemyManager.AddEnemy(jim);
                                 break;
                             case "p":

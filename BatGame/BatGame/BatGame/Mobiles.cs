@@ -18,7 +18,11 @@ namespace BatGame
         bool isActive;
         double moveTime;
 
-
+        /// <summary>
+        /// checks to make sure that you are still in the grid
+        /// </summary>
+        /// <param name="dir">the direction you are facing</param>
+        /// <returns>true or false as to whether you can move in your current direction</returns>
         public bool canMove(Direction dir)
         {
             if (dir == Direction.Up)
@@ -81,9 +85,15 @@ namespace BatGame
             return true;
         }
 
-        public void Move(Direction dir)
+        /// <summary>
+        /// moves the object in the direction given
+        /// </summary>
+        /// <param name="dir">the direction you want to go</param>
+        /// <param name="sub">the top left sub square that you occupy</param>
+        public void Move(Direction dir, SubSquares sub)
         {
-
+                RectX = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub).X;
+                RectY = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub).Y;
         }
 
         public double Speed
@@ -111,8 +121,8 @@ namespace BatGame
         }
 
         //instantiate for projectiles
-        public Mobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a)
-            : base(t, go, p, g, d, s)
+        public Mobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a)
+            : base(t, go, p, g, d, sub, s)
         {
             this.speed = speed;
             this.moveTime = m;

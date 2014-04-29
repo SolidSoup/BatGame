@@ -22,8 +22,8 @@ namespace BatGame
 
 
         //possibly add check for something to decide length between screeches
-        public Player(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, bool s, double speed, double m, bool a, int time)
-            : base(t, go, p, g, d, s, speed, m, a)
+        public Player(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time)
+            : base(t, go, p, g, d, sub, s, speed, m, a)
         {
             this.screechTime = time;
         }
@@ -43,7 +43,7 @@ namespace BatGame
                 {
                     Console.WriteLine(willMove(new Point(Position.X, Position.Y - 1)));
                     PosY--;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
@@ -58,7 +58,7 @@ namespace BatGame
                     && isFacing(Direction.Left) && canMove(Direction.Left) && willMove(new Point(Position.X - 1, Position.Y)))
                 {
                     PosX--;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectX -= this.Speed;
                 }
@@ -73,7 +73,7 @@ namespace BatGame
                     && isFacing(Direction.Down) && canMove(Direction.Down) && willMove(new Point(Position.X, Position.Y + 1)))
                 {
                     PosY++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     Speed = 0;
                     //this.RectY += this.Speed;
                 }
@@ -88,7 +88,7 @@ namespace BatGame
                     && isFacing(Direction.Right) && canMove(Direction.Right) && willMove(new Point(Position.X + 1, Position.Y)))
                 {
                     PosX++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectX += this.Speed;
                 }
@@ -104,9 +104,9 @@ namespace BatGame
                     && willMove(new Point(Position.X - 1, Position.Y - 1)))
                 {
                     PosY--;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX--;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
@@ -121,9 +121,9 @@ namespace BatGame
                     && willMove(new Point(Position.X + 1, Position.Y - 1)))
                 {
                     PosY--;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
@@ -138,9 +138,9 @@ namespace BatGame
                     && canMove(Direction.DownLeft) && willMove(new Point(Position.X - 1, Position.Y + 1)))
                 {
                     PosY++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX--;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
@@ -156,9 +156,9 @@ namespace BatGame
                     && willMove(new Point(Position.X + 1, Position.Y + 1)))
                 {
                     PosY++;
-                    RectY = GridPos.getPosition(Position).Y;
+                    RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     PosX++;
-                    RectX = GridPos.getPosition(Position).X;
+                    RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
                 }
