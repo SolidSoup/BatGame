@@ -37,6 +37,9 @@ namespace BatGame
         Direction facing;
         SubSquares miniSquare;
 
+        bool halfX;
+        bool halfY;
+
         //false for background images or non-active objects
         bool isSolid;
 
@@ -180,6 +183,30 @@ namespace BatGame
             }
         }
 
+        public bool HalfX
+        {
+            get
+            {
+                return halfX;
+            }
+            set
+            {
+                halfX = value;
+            }
+        }
+
+        public bool HalfY
+        {
+            get
+            {
+                return halfY;
+            }
+            set
+            {
+                halfY = value;
+            }
+        }
+
         public GameObjectManager GManager
         {
             get
@@ -189,7 +216,7 @@ namespace BatGame
         }
 
         //instantiate for walls or inactive objects
-        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
+        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool hx, bool hy, bool s)
         {
             Point po = g.getPosition(p, sub);
             this.objTexture = t;
@@ -198,6 +225,8 @@ namespace BatGame
             this.gridPos = g;
             this.isSolid = s;
             this.facing = d;
+            this.halfX = hx;
+            this.halfY = hy;
             gManager = go;
         }
     }

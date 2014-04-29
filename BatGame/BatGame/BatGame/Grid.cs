@@ -73,43 +73,51 @@ namespace BatGame
         /// <param name="rect">the quadtangle that you are in</param>
         /// <param name="sub">the subsquare of the quadtangle that you are in</param>
         /// <returns>a point of where you will be when you move</returns>
-        public Point getNextSquare(Direction dir, QuadTangle rect, SubSquares sub)
+        public Point getNextSquare(Direction dir, QuadTangle rect, SubSquares sub, GameObject go)
         {
             if (dir == Direction.Right)
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return rect.TRight.Location;
                 }
                 else if(sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return rect.BRight.Location;
                 }
                 else if(sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y].TLeft.Location;
                 }
                 else
                 {
-                    return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y].BRight.Location;
+                    go.MiniSquare = SubSquares.BottomLeft;
+                    return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y].BLeft.Location;
                 }
             }
             else if(dir == Direction.UpRight)
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y-1].BRight.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return rect.TRight.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y-1].BLeft.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y].TLeft.Location;
                 }
             }
@@ -117,18 +125,22 @@ namespace BatGame
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y-1].BLeft.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return rect.TLeft.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y-1].BRight.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return rect.TRight.Location;
                 }
             }
@@ -136,18 +148,22 @@ namespace BatGame
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y-1].BRight.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y].TRight.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y-1].BLeft.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return rect.TLeft.Location;
                 }
             }
@@ -155,18 +171,22 @@ namespace BatGame
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y].TRight.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y].BRight.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return rect.TLeft.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return rect.BLeft.Location;
                 }
             }
@@ -174,37 +194,45 @@ namespace BatGame
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y].BRight.Location; ;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y+1].TRight.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return rect.BLeft.Location;
                 }
                 else
                 {
-                    return this.grid[rect.LocInGrid.X - 1, rect.LocInGrid.Y+1].TLeft.Location;
+                    go.MiniSquare = SubSquares.TopLeft;
+                    return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y+1].TLeft.Location;
                 }
             }
             else if (dir == Direction.Down)
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return rect.BLeft.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y+1].TLeft.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return rect.BRight.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y+1].TRight.Location;
                 }
             }
@@ -212,18 +240,22 @@ namespace BatGame
             {
                 if (sub == SubSquares.TopLeft)
                 {
+                    go.MiniSquare = SubSquares.BottomRight;
                     return rect.BRight.Location;
                 }
                 else if (sub == SubSquares.BottomLeft)
                 {
+                    go.MiniSquare = SubSquares.TopRight;
                     return this.grid[rect.LocInGrid.X, rect.LocInGrid.Y+1].TRight.Location;
                 }
                 else if (sub == SubSquares.TopRight)
                 {
+                    go.MiniSquare = SubSquares.BottomLeft;
                     return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y].BLeft.Location;
                 }
                 else
                 {
+                    go.MiniSquare = SubSquares.TopLeft;
                     return this.grid[rect.LocInGrid.X + 1, rect.LocInGrid.Y+1].TLeft.Location;
                 }
             }
