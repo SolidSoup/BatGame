@@ -19,7 +19,29 @@ namespace BatGame
         int screechTime;
         int hits = 0;
         KeyboardState state;
+        bool screech; //to keep track of when bat echolocation wave should start
+        bool screeching; //to keep track of screech movement
+        Direction screechdirection;
 
+        internal Direction Screechdirection
+        {
+            get { return screechdirection; }
+            set { screechdirection = value; }
+        }
+
+
+
+        public bool Screeching
+        {
+            get { return screeching; }
+            set { screeching = value; }
+        }
+
+        public bool Screech
+        {
+            get { return screech; }
+            set { screech = value; }
+        }
 
         //possibly add check for something to decide length between screeches
         /// <summary>
@@ -40,6 +62,8 @@ namespace BatGame
             : base(t, objMngr, p, g, d, sub, s, speed, m, a)
         {
             this.screechTime = time;
+            screech = false;
+            screeching = false;
         }
 
         public void PlayerUpdate()
@@ -191,6 +215,11 @@ namespace BatGame
                     Speed = MoveTime / 2;
                 }
 
+            }
+            //screech if you aren't
+            if (state.IsKeyDown(Keys.Space) && screech == false)
+            {
+                screech = true;
             }
         }
 

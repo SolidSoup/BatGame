@@ -23,8 +23,15 @@ Content\Sprites\Menu_Sprites\menu.xnb
 Content\Sprites\Menu_Sprites\nameLogo.xnb
 Content\Sprites\Menu_Sprites\optionsButton.xnb
 Content\Sprites\Menu_Sprites\startButton.xnb
-Content\Sprites\Shader_Sprites\cone.xnb
 Content\Sprites\Bat_Sprites\Flying_Bat.xnb
+Content\Sprites\Shader_Sprites\downCone.xnb
+Content\Sprites\Shader_Sprites\downLeftCone.xnb
+Content\Sprites\Shader_Sprites\downRightCone.xnb
+Content\Sprites\Shader_Sprites\leftCone.xnb
+Content\Sprites\Shader_Sprites\rightCone.xnb
+Content\Sprites\Shader_Sprites\upCone.xnb
+Content\Sprites\Shader_Sprites\upLeftCone.xnb
+Content\Sprites\Shader_Sprites\upRightCone.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\Levels\level1.txt

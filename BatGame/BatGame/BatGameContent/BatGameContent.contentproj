@@ -219,15 +219,64 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Shader_Sprites\cone.png">
-      <Name>cone</Name>
+    <Compile Include="Sprites\Bat_Sprites\Flying_Bat.png">
+      <Name>Flying_Bat</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Bat_Sprites\Flying_Bat.png">
-      <Name>Flying_Bat</Name>
+    <Compile Include="Sprites\Shader_Sprites\downCone.png">
+      <Name>downCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\downLeftCone.png">
+      <Name>downLeftCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\downRightCone.png">
+      <Name>downRightCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\leftCone.png">
+      <Name>leftCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\rightCone.png">
+      <Name>rightCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\upCone.png">
+      <Name>upCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\upLeftCone.png">
+      <Name>upLeftCone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\upRightCone.png">
+      <Name>upRightCone</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
