@@ -91,30 +91,41 @@ namespace BatGame
         /// <param name="sub">the top left sub square that you occupy</param>
         public void Move(Direction dir, SubSquares sub)
         {
+            //finds out where the next square is and makes this square = that squares location
             RectX = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).X;
             RectY = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).Y;
+            //if moving to the right && you are not fully in a square, 
+            //but instead halfway through the square in the x-direction
             if (dir == Direction.Right && HalfX)
             {
                 PosX++;
             }
+                //if moving up and to the right
             else if (dir == Direction.UpRight)
             {
+                //if the top left of the square is halfway through the square in the x and y direction
                 if (HalfX && HalfY)
                 {
+                    //you will move into the square to your right when you move
                     PosX++;
                 }
+                    //if you are fully in the square
                 else if (!HalfY && !HalfX)
                 {
+                    //you will end up moving into the square above you
                     PosY--;
                 }
+                    //if you are halfway through the square in the x direciton
                 else if (HalfX && !HalfY)
                 {
+                    //you will end up moving into the square to the right and above you
                     PosX++;
                     PosY--;
                 }
+                    //empty if for when you are halfway through the square in the y-direction
                 else if (!HalfX && HalfY)
                 {
-
+                    //you shouldnt end up changing squares so nothing is neccesary to do here
                 }
             }
             else if (dir == Direction.Up && !HalfY)
@@ -184,7 +195,7 @@ namespace BatGame
                 this.HalfY = !this.HalfY;
             }
             if (dir == Direction.Left || dir == Direction.UpLeft || dir == Direction.DownLeft ||
-                dir == Direction.Right || dir == Direction.UpLeft || dir == Direction.DownRight)
+                dir == Direction.Right || dir == Direction.UpRight || dir == Direction.DownRight)
             {
                 this.HalfX = !this.HalfX;
             }
