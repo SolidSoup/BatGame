@@ -216,7 +216,7 @@ namespace BatGame
         }
 
         //instantiate for walls or inactive objects
-        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool hx, bool hy, bool s)
+        public GameObject(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
         {
             Point po = g.getPosition(p, sub);
             this.objTexture = t;
@@ -225,8 +225,22 @@ namespace BatGame
             this.gridPos = g;
             this.isSolid = s;
             this.facing = d;
-            this.halfX = hx;
-            this.halfY = hy;
+            if (sub == SubSquares.BottomLeft || sub == SubSquares.BottomRight)
+            {
+                halfY = true;
+            }
+            else
+            {
+                halfY = false;
+            }
+            if (sub == SubSquares.TopRight || sub == SubSquares.BottomRight)
+            {
+                halfX = true;
+            }
+            else
+            {
+                halfX = false;
+            }
             gManager = go;
         }
     }

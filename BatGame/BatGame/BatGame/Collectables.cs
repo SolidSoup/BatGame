@@ -17,8 +17,8 @@ namespace BatGame
     {
         bool isCollected;
 
-        public Collectables(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool hx, bool hy, bool s)
-            : base(t, go, p, g, d, sub, hx, hy, s)
+        public Collectables(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
+            : base(t, go, p, g, d, sub, s)
         {
 
         }

@@ -57,7 +57,6 @@ namespace BatGame
 
         public bool spotTaken(Point moveLocation)
         {
-            //Console.WriteLine("here");
             foreach (GameObject g in gameObjects)
             {
                 if (g.Position == moveLocation && g.IsSolid)

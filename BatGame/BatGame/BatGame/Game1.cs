@@ -101,7 +101,8 @@ namespace BatGame
             spriteDictionary = new Dictionary<string, Texture2D>();
             //aniFarm = new AnimationFarm(spriteBatch);
 
-            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, SubSquares.TopLeft, false, false, true, 0, .4, true, 0);
+            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, 
+                SubSquares.TopLeft, true, 0, .4, true, 0);
 
             gameState = GameState.menu;
 
@@ -371,7 +372,7 @@ namespace BatGame
                     new Vector2(480, 370), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "1/2 square x: " + player.HalfX,
                     new Vector2(480, 400), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Alpha V 0.11",
+                    spriteBatch.DrawString(comicSans14, "Alpha V 0.12",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
                     spriteBatch.End();
                     break;
@@ -459,7 +460,7 @@ namespace BatGame
                                 //Add a floor tile
                                 break;
                             case "e":
-                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, false, true, 0, 0, true, 3, true);
+                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, true);
                                 enemyManager.AddEnemy(jim);
                                 break;
                             case "p":

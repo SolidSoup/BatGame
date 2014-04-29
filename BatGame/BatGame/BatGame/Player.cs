@@ -22,8 +22,22 @@ namespace BatGame
 
 
         //possibly add check for something to decide length between screeches
-        public Player(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool hx, bool hy, bool s, double speed, double m, bool a, int time)
-            : base(t, go, p, g, d, sub, hx, hy, s, speed, m, a)
+        /// <summary>
+        /// Constructor for the player
+        /// </summary>
+        /// <param name="t">texture of the player</param>
+        /// <param name="onjMngr">gameObjectManager for the player</param>
+        /// <param name="p">x y coordinate for the player in the grid.</param>
+        /// <param name="g">the grid that the player is in</param>
+        /// <param name="d">the direction the obj is currently facing</param>
+        /// <param name="sub">The subsquare that you are in for the grid square that you are in</param>
+        /// <param name="s">a bool representing whether the object is solid aka: a mobile is solid</param>
+        /// <param name="speed">a timer that increments and has to be greater than the movetime to move</param>
+        /// <param name="m">the time that it takes for this obj to move and animate from one square to the next</param>
+        /// <param name="a">a bool that says if it is active which can mean alive or on screen</param>
+        /// <param name="time">time is how long the player must wait before they can screech again</param>
+        public Player(Texture2D t, GameObjectManager objMngr, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time)
+            : base(t, objMngr, p, g, d, sub, s, speed, m, a)
         {
             this.screechTime = time;
         }
@@ -102,7 +116,7 @@ namespace BatGame
                     Facing = Direction.Right;
                     Speed = MoveTime / 2;
                 }
-                //diagonal movement
+                //diaobjMngrnal movement
                 //move up and to the left
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A) && isFacing(Direction.UpLeft) && canMove(Direction.UpLeft)
                     && willMove(new Point(Position.X - 1, Position.Y - 1)))

@@ -51,6 +51,22 @@ namespace BatGame
             locInGrid = loc;
         }
 
+        public QuadTangle(Rectangle rect, bool tl, bool tr, bool bl, bool br, Point loc)
+        {
+            this.rect = rect;
+            tLeft = new Rectangle(rect.X, rect.Y, rect.Width / 2, rect.Height / 2);
+            tRight = new Rectangle(rect.X + (rect.Width / 2), rect.Y, rect.Width / 2, rect.Height / 2);
+            bLeft = new Rectangle(rect.X, rect.Y + (rect.Width / 2), rect.Width / 2, rect.Height / 2);
+            bRight = new Rectangle(rect.X + (rect.Width / 2), rect.Y + (rect.Width / 2), rect.Width / 2, rect.Height / 2);
+
+            tLeftFull = tl;
+            tRightFull = tr;
+            bLeftFull = bl;
+            bRightFull = br;
+
+            locInGrid = loc;
+        }
+
         public static implicit operator Rectangle(QuadTangle q)
         {
             return q.Rect;
