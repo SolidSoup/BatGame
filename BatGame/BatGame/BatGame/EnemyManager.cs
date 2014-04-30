@@ -46,7 +46,7 @@ namespace BatGame
         {
             foreach (Enemy e in enemies)
             {
-                batch.Draw(e.ObjTexture, e.ObjRectangle, Color.White);
+                e.Draw(batch);
             }
         }
 

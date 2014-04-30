@@ -40,6 +40,7 @@ namespace BatGame
         Texture2D downRightCornerWallImage;
         Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
+        Texture2D webImage;
         
         Texture2D lightMask;
         Texture2D rightCone;
@@ -111,7 +112,7 @@ namespace BatGame
             //aniFarm = new AnimationFarm(spriteBatch);
 
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, 
-                SubSquares.TopLeft, true, 0, .4, true, 0);
+                SubSquares.TopLeft, true, 0, .1, true, 0);
 
             gameState = GameState.menu;
 
@@ -213,6 +214,9 @@ namespace BatGame
             floorTileImage = Content.Load<Texture2D>("Sprites/Floors/FloorTile");
             spriteDictionary.Add("floorTile", floorTileImage);
 
+            webImage = Content.Load<Texture2D>("Sprites/Interactables/web");
+            spriteDictionary.Add("spiderWeb", webImage);
+
 
             player.ObjTexture = playerImage;
 
@@ -261,6 +265,8 @@ namespace BatGame
 
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     enemyManager.EManagerUpdate(gameTime, player);
+                    immobilesManager.IManagerUpdate();
+
                     base.Update(gameTime);
                     break;
                 case GameState.menu:
@@ -443,7 +449,7 @@ namespace BatGame
                     }
                      * */
                     immobilesManager.IManagerDraw(spriteBatch);
-                    gameObjectManager.GManagerDraw(spriteBatch);
+                    //gameObjectManager.GManagerDraw(spriteBatch);
                     spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
                     enemyManager.EManagerDraw(spriteBatch);
 

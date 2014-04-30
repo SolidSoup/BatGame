@@ -34,7 +34,18 @@ namespace BatGame
         {
             foreach (Immobiles i in immobiles)
             {
-                batch.Draw(i.ObjTexture, i.ObjRectangle, Color.White);
+                i.Draw(batch);
+            }
+        }
+
+        public void IManagerUpdate()
+        {
+            foreach (Immobiles i in immobiles)
+            {
+                if (i is Interactable)
+                {
+                    i.Update();
+                }
             }
         }
 
@@ -53,3 +64,4 @@ namespace BatGame
 
     }
 }
+

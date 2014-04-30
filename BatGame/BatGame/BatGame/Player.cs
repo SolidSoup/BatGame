@@ -228,7 +228,7 @@ namespace BatGame
         /// </summary>
         public void BadCollide()
         {
-            if(GManager.inSpot(Position) is Enemy)
+            if (GManager.inSpot(Position) is Enemy || GManager.inSpot(Position) is SpiderWeb)
             {
                 this.hits++;
             }

@@ -22,5 +22,17 @@ namespace BatGame
             this.isActive = a;
         }
 
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+            set
+            {
+                isActive = value;
+            }
+        }
+
     }
 }

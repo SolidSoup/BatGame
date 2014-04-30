@@ -79,7 +79,7 @@ namespace BatGame
             //Console.WriteLine("here");
             foreach (GameObject g in gameObjects)
             {
-                if (g.Position == moveLocation && g.IsSolid)
+                if (g.Position == moveLocation) //&& g.IsSolid)
                 {
                     return g;
                 }
@@ -98,6 +98,7 @@ namespace BatGame
         public List<GameObject> GameObjects
         {
             get { return this.gameObjects; }
+            set { this.gameObjects = value; }
         }
 
     }

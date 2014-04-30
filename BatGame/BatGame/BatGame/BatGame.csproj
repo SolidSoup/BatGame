@@ -76,6 +76,8 @@
     <Compile Include="AssetManager.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Collectables.cs" />
+    <Compile Include="Boulder.cs" />
+    <Compile Include="Skull.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Floor.cs" />
@@ -94,6 +96,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="QuadTangle.cs" />
+    <Compile Include="SpiderWeb.cs" />
+    <Compile Include="Stalagmite.cs" />
     <Compile Include="StateManager.cs" />
     <Compile Include="Wall.cs" />
   </ItemGroup>

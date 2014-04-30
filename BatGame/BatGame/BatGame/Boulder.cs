@@ -13,20 +13,13 @@ using Microsoft.Xna.Framework.Media;
 namespace BatGame
 {
     //currently exists for organizational purposes
-     class Immobiles : GameObject
+    class Boulder : Immobiles
     {
         //simply calls base constructor
-        public Immobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
+        public Boulder(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
             : base(t, go, p, g, d, sub, s)
         {
         }
-        public virtual void Update()
-        {
-        }
-        public virtual void Draw(SpriteBatch batch)
-        {
-            batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
-        }
     }
-}
 
+}

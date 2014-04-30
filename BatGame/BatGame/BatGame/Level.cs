@@ -204,6 +204,26 @@ namespace BatGame
                             Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, 0, 0, true, 3);
 
                             break;
+                        case "*":
+                            SpiderWeb tempWeb = new SpiderWeb(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            immobilesManager.AddImmobile(tempWeb);
+                            gameObjectManager.AddGameObject(tempWeb);
+                            break;
+                        case "M":
+                            Stalagmite tempStag = new Stalagmite(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            immobilesManager.AddImmobile(tempStag);
+                            gameObjectManager.AddGameObject(tempStag);
+                            break;
+                        case "0":
+                            Boulder tempBoulder = new Boulder(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true);
+                            immobilesManager.AddImmobile(tempBoulder);
+                            gameObjectManager.AddGameObject(tempBoulder);
+                            break;
+                        case "o":
+                            Skull tempSkull = new Skull(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            immobilesManager.AddImmobile(tempSkull);
+                            gameObjectManager.AddGameObject(tempSkull);
+                            break;
                     }
                 }
             }
