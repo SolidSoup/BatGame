@@ -228,9 +228,13 @@ namespace BatGame
         /// </summary>
         public void BadCollide()
         {
-            if (GManager.inSpot(Position) is Enemy || GManager.inSpot(Position) is SpiderWeb)
+            List<GameObject> objects = GManager.inSpot(Position);
+            foreach (GameObject g in objects)
             {
-                this.hits++;
+                if (g is Enemy || g is SpiderWeb)
+                {
+                    this.hits++;
+                }
             }
         }
 

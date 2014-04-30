@@ -187,7 +187,6 @@ C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\nameLogo.xnb
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\optionsButton.xnb
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\startButton.xnb
-C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\cone.xnb
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Flying_Bat.xnb
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\echo.xnb
 C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\lightingeffect.xnb
@@ -272,3 +271,12 @@ C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Con
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level1.txt
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\testlevel.txt
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\web.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\downCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\downLeftCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\downRightCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\leftCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\rightCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\upCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\upLeftCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\upRightCone.xnb
+C:\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\web.xnb

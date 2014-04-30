@@ -34,152 +34,152 @@ namespace BatGame
         //meant to overriden for each enemy
         public virtual void EnemyUpdate(GameTime gameTime, Player player)
         {
-            Console.WriteLine("Enemy: "+Position);
-            if (GManager.inSpot(Position) is SpiderWeb)
+            List<GameObject> objects = GManager.inSpot(Position);
+            foreach (GameObject g in objects)
             {
-                IsActive = false;
-            }
-            else
-            {
-                if (IsActive == true)
+                if (g is SpiderWeb)
                 {
-                    waitTime -= (double)gameTime.ElapsedGameTime.TotalSeconds;
-                    if (waitTime <= 0)
+                    IsActive = false;
+                }
+            }
+            if (IsActive == true)
+            {
+                waitTime -= (double)gameTime.ElapsedGameTime.TotalSeconds;
+                if (waitTime <= 0)
+                {
+                    waitTime = .75;
+
+                    distance = Math.Pow((player.PosX - this.PosX), 2) + Math.Pow((player.PosY - this.PosY), 2);
+                    if (distance < 10)
                     {
-                        waitTime = .75;
+                        detected = true;
+                    }
 
-                        distance = Math.Pow((player.PosX - this.PosX), 2) + Math.Pow((player.PosY - this.PosY), 2);
-                        if (distance < 10)
+                    if (detected == true)
+                    {
+
+                        if (player.PosX < this.PosX && player.PosY < this.PosY)
                         {
-                            detected = true;
+                            Facing = Direction.UpLeft;
+                        }
+                        else if (player.PosX > this.PosX && player.PosY < this.PosY)
+                        {
+                            Facing = Direction.UpRight;
+                        }
+                        else if (player.PosX < this.PosX && player.PosY > this.PosY)
+                        {
+                            Facing = Direction.DownLeft;
+                        }
+                        else if (player.PosX > this.PosX && player.PosY > this.PosY)
+                        {
+                            Facing = Direction.DownRight;
+                        }
+                        else if (player.PosX < this.PosX)
+                        {
+                            Facing = Direction.Left;
+                        }
+                        else if (player.PosX > this.PosX)
+                        {
+                            Facing = Direction.Right;
+                        }
+                        else if (player.PosY < this.PosY)
+                        {
+                            Facing = Direction.Up;
+                        }
+                        else if (player.PosY > this.PosY)
+                        {
+                            Facing = Direction.Down;
                         }
 
-                        if (detected == true)
-                        {
 
-                            if (player.PosX < this.PosX && player.PosY < this.PosY)
-                            {
-                                Facing = Direction.UpLeft;
-                            }
-                            else if (player.PosX > this.PosX && player.PosY < this.PosY)
-                            {
-                                Facing = Direction.UpRight;
-                            }
-                            else if (player.PosX < this.PosX && player.PosY > this.PosY)
-                            {
-                                Facing = Direction.DownLeft;
-                            }
-                            else if (player.PosX > this.PosX && player.PosY > this.PosY)
-                            {
-                                Facing = Direction.DownRight;
-                            }
-                            else if (player.PosX < this.PosX)
-                            {
-                                Facing = Direction.Left;
-                            }
-                            else if (player.PosX > this.PosX)
-                            {
-                                Facing = Direction.Right;
-                            }
-                            else if (player.PosY < this.PosY)
-                            {
-                                Facing = Direction.Up;
-                            }
-                            else if (player.PosY > this.PosY)
-                            {
-                                Facing = Direction.Down;
-                            }
-
-
-                        }
-                        //cardinal movement
-                        //move Up
-                        if (isFacing(Direction.Up) && canMove(Direction.Up))
+                    }
+                    //cardinal movement
+                    //move Up
+                    if (isFacing(Direction.Up) && canMove(Direction.Up))
+                    {
+                        PosY--;
+                        steps++;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        if (steps > 3 && detected == false)
                         {
-                            PosY--;
-                            steps++;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            if (steps > 3 && detected == false)
-                            {
-                                steps = 0;
-                                Facing = Direction.Right;
-                            }
-
-                        }
-                        //Move left
-                        if (isFacing(Direction.Left) && canMove(Direction.Left))
-                        {
-                            PosX--;
-                            steps++;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                            if (steps > 3 && detected == false)
-                            {
-                                steps = 0;
-                                Facing = Direction.Up;
-                            }
-
-                        }
-                        //Move Down
-                        if (isFacing(Direction.Down) && canMove(Direction.Down))
-                        {
-                            PosY++;
-                            steps++;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            if (steps > 3 && detected == false)
-                            {
-                                steps = 0;
-                                Facing = Direction.Left;
-                            }
-
-                        }
-                        //Move Right
-                        if (isFacing(Direction.Right) && canMove(Direction.Right))
-                        {
-                            waitTime = .75;
-                            PosX++;
-                            steps++;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                            if (steps > 3 && detected == false)
-                            {
-                                steps = 0;
-                                Facing = Direction.Down;
-                            }
-
-                        }
-                        //Move left
-                        if (isFacing(Direction.UpLeft) && canMove(Direction.UpLeft))
-                        {
-                            PosY--;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            PosX--;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                        }
-                        //move up and to the right
-                        if (isFacing(Direction.UpRight) && canMove(Direction.UpRight))
-                        {
-                            PosY--;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            PosX++;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                        }
-                        //move down and to the left
-                        if (isFacing(Direction.DownLeft) && canMove(Direction.DownLeft))
-                        {
-                            PosY++;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            PosX--;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                        }
-                        //move down and right
-                        if (isFacing(Direction.DownRight) && canMove(Direction.DownRight))
-                        {
-                            PosY++;
-                            RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                            PosX++;
-                            RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                            steps = 0;
+                            Facing = Direction.Right;
                         }
 
                     }
+                    //Move left
+                    if (isFacing(Direction.Left) && canMove(Direction.Left))
+                    {
+                        PosX--;
+                        steps++;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                        if (steps > 3 && detected == false)
+                        {
+                            steps = 0;
+                            Facing = Direction.Up;
+                        }
+
+                    }
+                    //Move Down
+                    if (isFacing(Direction.Down) && canMove(Direction.Down))
+                    {
+                        PosY++;
+                        steps++;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        if (steps > 3 && detected == false)
+                        {
+                            steps = 0;
+                            Facing = Direction.Left;
+                        }
+
+                    }
+                    //Move Right
+                    if (isFacing(Direction.Right) && canMove(Direction.Right))
+                    {
+                        waitTime = .75;
+                        PosX++;
+                        steps++;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                        if (steps > 3 && detected == false)
+                        {
+                            steps = 0;
+                            Facing = Direction.Down;
+                        }
+
+                    }
+                    //Move left
+                    if (isFacing(Direction.UpLeft) && canMove(Direction.UpLeft))
+                    {
+                        PosY--;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        PosX--;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                    }
+                    //move up and to the right
+                    if (isFacing(Direction.UpRight) && canMove(Direction.UpRight))
+                    {
+                        PosY--;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        PosX++;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                    }
+                    //move down and to the left
+                    if (isFacing(Direction.DownLeft) && canMove(Direction.DownLeft))
+                    {
+                        PosY++;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        PosX--;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                    }
+                    //move down and right
+                    if (isFacing(Direction.DownRight) && canMove(Direction.DownRight))
+                    {
+                        PosY++;
+                        RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
+                        PosX++;
+                        RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
+                    }
+
                 }
             }
         }

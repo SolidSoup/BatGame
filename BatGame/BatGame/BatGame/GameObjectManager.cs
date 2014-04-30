@@ -74,17 +74,17 @@ namespace BatGame
         /// <param name="moveLocation">location to check</param>
         /// <param name="obj">the game object</param>
         /// <returns>game object colliding with</returns>
-        public GameObject inSpot(Point moveLocation)
+        public List<GameObject> inSpot(Point moveLocation)
         {
-            //Console.WriteLine("here");
+            List<GameObject> objects = new List<GameObject>();
             foreach (GameObject g in gameObjects)
             {
                 if (g.Position == moveLocation) //&& g.IsSolid)
                 {
-                    return g;
+                    objects.Add(g);
                 }
             }
-            return default(GameObject);
+            return objects;
         }
 
         public int Count

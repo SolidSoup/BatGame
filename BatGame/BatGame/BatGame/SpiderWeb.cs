@@ -25,11 +25,15 @@ namespace BatGame
         {
             if (IsActive)
             {
-                if (GManager.inSpot(Position) is Enemy) //|| GManager.Player.Position.Equals(this.Position))
-                //if (GManager.Player.Position.Equals(this.Position))
+                List<GameObject> objects = GManager.inSpot(Position);
+                foreach (GameObject g in objects)
                 {
-                    IsActive = false;
-                    //IsSolid = true;
+                    if (g is Enemy) //|| GManager.Player.Position.Equals(this.Position))
+                    //if (GManager.Player.Position.Equals(this.Position))
+                    {
+                        IsActive = false;
+                        //IsSolid = true;
+                    }
                 }
             }
         }
