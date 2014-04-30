@@ -87,6 +87,18 @@ namespace BatGame
             return objects;
         }
 
+        public bool collidesWith<T>(Rectangle rect)
+        {
+            foreach(GameObject g in gameObjects)
+            {
+                if (rect.Intersects(g.ObjRectangle) && g is T)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public int Count
         {
             get

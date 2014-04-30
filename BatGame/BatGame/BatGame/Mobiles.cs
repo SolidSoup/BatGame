@@ -84,16 +84,29 @@ namespace BatGame
             return true;
         }
 
+        public Rectangle checkForCollision(Direction dir, SubSquares sub, Rectangle rect)
+        {
+            Rectangle tempRect = rect;
+            tempRect = Move(dir, sub, tempRect);
+
+            if (!GManager.collidesWith<Wall>(tempRect))
+            {
+                Console.WriteLine("here");
+                return rect = Move(dir, sub, rect);
+            }
+            return rect;
+        }
+
         /// <summary>
         /// moves the object in the direction given
         /// </summary>
         /// <param name="dir">the direction you want to go</param>
         /// <param name="sub">the top left sub square that you occupy</param>
-        public void Move(Direction dir, SubSquares sub)
+        public Rectangle Move(Direction dir, SubSquares sub, Rectangle rect)
         {
             //finds out where the next square is and makes this square = that squares location
-            RectX = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).X;
-            RectY = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).Y;
+            rect.X = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).X;
+            rect.Y = GridPos.getNextSquare(dir, GridPos.getGridSquare(Position), sub, this).Y;
             //if moving to the right && you are not fully in a square, 
             //but instead halfway through the square in the x-direction
             if (dir == Direction.Right && HalfX)
@@ -199,6 +212,7 @@ namespace BatGame
             {
                 this.HalfX = !this.HalfX;
             }
+            return rect;
         }
 
         public double Speed

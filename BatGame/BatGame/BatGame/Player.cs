@@ -80,7 +80,7 @@ namespace BatGame
                     && isFacing(Direction.Up) && canMove(Direction.Up) && willMove(new Point(Position.X, Position.Y - 1)))
                 {
                     //Console.WriteLine(willMove(new Point(Position.X, Position.Y - 1)));
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     /*PosY--;
                     RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;*/
                     Speed = 0;
@@ -96,7 +96,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.A) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
                     && isFacing(Direction.Left) && canMove(Direction.Left) && willMove(new Point(Position.X - 1, Position.Y)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosX--;
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
@@ -112,7 +112,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.S) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
                     && isFacing(Direction.Down) && canMove(Direction.Down) && willMove(new Point(Position.X, Position.Y + 1)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     Speed = 0;
@@ -128,7 +128,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.D) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
                     && isFacing(Direction.Right) && canMove(Direction.Right) && willMove(new Point(Position.X + 1, Position.Y)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosX++;
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
@@ -145,7 +145,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A) && isFacing(Direction.UpLeft) && canMove(Direction.UpLeft)
                     && willMove(new Point(Position.X - 1, Position.Y - 1)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosY--;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX--;
@@ -163,7 +163,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D) && isFacing(Direction.UpRight) && canMove(Direction.UpRight)
                     && willMove(new Point(Position.X + 1, Position.Y - 1)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosY--;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX++;
@@ -181,7 +181,7 @@ namespace BatGame
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A) && isFacing(Direction.DownLeft)
                     && canMove(Direction.DownLeft) && willMove(new Point(Position.X - 1, Position.Y + 1)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX--;
@@ -200,7 +200,7 @@ namespace BatGame
                     && isFacing(Direction.DownRight) && canMove(Direction.DownRight)
                     && willMove(new Point(Position.X + 1, Position.Y + 1)))
                 {
-                    Move(Facing, MiniSquare);
+                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX++;
