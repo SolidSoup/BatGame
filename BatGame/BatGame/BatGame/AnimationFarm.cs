@@ -34,7 +34,7 @@ namespace BatGame
         Southeast,
         Southwest
     }
-    class AnimationFarm
+    class AnimationFarm : Game1
     {
 
         #region VARIABLES
@@ -42,7 +42,7 @@ namespace BatGame
         bool isFlying;
         bool isIdle;
         Direction dir;
-        Flying FlyingDirection;
+        Flying flyingDirection;
         Idle IdleDirection;
 
 
@@ -53,18 +53,18 @@ namespace BatGame
         //which sprite am I using?
         Texture2D spriteTexture;
         //time it will take before moving on to next frm
-        double timer = 0f;
-        //how often until it moves frm
-        double interval = .3;
+        double timer = 0.0;
         //what frame we on? (current 0-2 || 1-3)
         int currentFrame = 0;
+        //how often until it moves frm
+        double interval;
         //how many frames per second
         int FramesPerSecond = 10;
         //how big are my sprites?
         int spriteWidth = 64;
         int spriteHeight = 64;
         //how fast it moves across the screen?
-        //float spriteSpeed = .6f;
+        float spriteSpeed;
         //sprite's rect
         Rectangle drawRect;
         //where will I draw the sprite and the center of the sprite
@@ -91,6 +91,8 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             isFlying = false;
             isIdle = false;
+            interval = 1.0 / FramesPerSecond;
+            spriteSpeed = FramesPerSecond / spriteWidth;
         }
 
         #region PROPERTIES
@@ -147,13 +149,25 @@ namespace BatGame
             }
         }
 
+        public Flying FlyDirection
+        {
+            get
+            {
+                return flyingDirection;
+            }
+            set
+            {
+                flyingDirection = value;
+            }
+        }
+
         #endregion
 
         /// <summary>
         /// Update to figure out what needs to be drawn
         /// </summary>
         /// <param name="gameTime">gametime for animation purposes</param>
-        public void AnimationUpdate(GameTime gameTime)
+        public void AnimationUpdate(GameTime gameTime, Direction d)
         {
             previousKB = currentKB;
             currentKB = Keyboard.GetState();
@@ -180,30 +194,35 @@ namespace BatGame
                 }
             }
 
-            if (currentKB.IsKeyDown(Keys.A) == true)
+            if (d == Direction.Left)
             {
-                FlyingDirection = Flying.West;
+                flyingDirection = Flying.West;
                 isFlying = true;
-                //PlayerDraw()
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X += spriteSpeed;
             }
 
-            if (currentKB.IsKeyDown(Keys.D) == true)
+            if (d == Direction.Right)
             {
-                FlyingDirection = Flying.East;
+                flyingDirection = Flying.East;
                 isFlying = true;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X -= spriteSpeed;
             }
-            if (currentKB.IsKeyDown(Keys.S) == true)
+            if (d == Direction.Down)
             {
-                FlyingDirection = Flying.South;
+                flyingDirection = Flying.South;
                 isFlying = true;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
-            if (currentKB.IsKeyDown(Keys.W) == true)
+            if (d == Direction.Up)
             {
-                FlyingDirection = Flying.North;
+                flyingDirection = Flying.North;
                 isFlying = true;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
+
+            Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
 
         }
 
@@ -211,8 +230,95 @@ namespace BatGame
         {
 
         }
-        private void PlayerDraw(Direction dir)
+
+
+        public void PlayerFlyingAnimation(Flying f, GameTime gameTime)
         {
+            if (f == Flying.North)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 0;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 3) //beyond the animation count held for flying (3)
+                        currentFrame = 0; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            if (f == Flying.South)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 3;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 6)
+                        currentFrame = 3; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            if (f == Flying.West)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 6;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 9)
+                        currentFrame = 6; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            if (f == Flying.East)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 9;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 12)
+                        currentFrame = 9; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            //sp.Begin();
+            //sp.Draw(this.SpriteTexture, playerPos, this.DrawRectangle, Color.White, 0f, this.Origin, 0, SpriteEffects.None, 0);
+            //sp.End();
+
+            //base.Draw(gameTime);
         }
 
     }//end class
