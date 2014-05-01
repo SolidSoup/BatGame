@@ -21,7 +21,6 @@ Content\Sprites\Walls\Verticle_Wall.xnb
 Content\Sprites\Menu_Sprites\loadButton.xnb
 Content\Sprites\Menu_Sprites\menu.xnb
 Content\Sprites\Menu_Sprites\nameLogo.xnb
-Content\Sprites\Menu_Sprites\optionsButton.xnb
 Content\Sprites\Menu_Sprites\startButton.xnb
 Content\Sprites\Bat_Sprites\Flying_Bat.xnb
 Content\Sprites\Shader_Sprites\downCone.xnb
@@ -35,5 +34,12 @@ Content\Sprites\Shader_Sprites\upRightCone.xnb
 Content\Sprites\Interactables\web.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
+Content\Sprites\Menu_Sprites\continueButton.xnb
+Content\Sprites\Menu_Sprites\menuButton.xnb
+Content\Sprites\Menu_Sprites\pause.xnb
+Content\Sprites\Menu_Sprites\quitButton.xnb
+Content\Sprites\Menu_Sprites\saveButton.xnb
+Content\Sprites\Interactables\boulder.xnb
+Content\Sprites\Interactables\stalagmite.xnb
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt

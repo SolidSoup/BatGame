@@ -15,6 +15,7 @@ namespace BatGame
     class GameObjectManager
     {
         List<GameObject> gameObjects = new List<GameObject>();
+        Player player;
 
         public GameObjectManager()
         {
@@ -107,10 +108,27 @@ namespace BatGame
             }
         }
 
+        public Player Player
+        {
+            get
+            {
+                return player;
+            }
+            set
+            {
+                player = value;
+            }
+        }
+
         public List<GameObject> GameObjects
         {
             get { return this.gameObjects; }
             set { this.gameObjects = value; }
+        }
+
+        public void Clear()
+        {
+            gameObjects.Clear();
         }
 
     }

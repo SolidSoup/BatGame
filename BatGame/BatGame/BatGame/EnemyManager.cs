@@ -63,5 +63,10 @@ namespace BatGame
             get { return this.enemies; }
         }
 
+        public void Clear()
+        {
+            enemies.Clear();
+        }
+
     }
 }

@@ -13,18 +13,28 @@ using System.IO;
 
 namespace BatGame
 {
-    class Level: LevelManager
+    class Level : LevelManager
     {
         private string levelfile;
         private GameObject[,] levelObjectArray;
         private string[,] levelStringArray;
+        Dictionary<string, Texture2D> textureDictionary;
+        Grid grid;
+        EnemyManager enemyManager;
+        ImmobilesManager immobilesManager;
+        GameObjectManager gameObjectManager;
 
         /// <summary>
         /// Constructor takes a string tht it uses for the path to the level's text file
         /// </summary>
-        public Level(string lvlfile)
+        public Level(string lvlfile, Dictionary<string, Texture2D> textureDictionary, Grid grid, EnemyManager enemyManager, ImmobilesManager immobilesManager, GameObjectManager gameObjectManager)
         {
             levelfile = lvlfile;
+            this.textureDictionary = textureDictionary;
+            this.grid = grid;
+            this.enemyManager = enemyManager;
+            this.immobilesManager = immobilesManager;
+            this.gameObjectManager = gameObjectManager;
         }
 
 
@@ -106,7 +116,7 @@ namespace BatGame
         ///and create classes for all of the different GameObjects. I dont know how they want to go about doing that so im just leaving it like this for now. 
         ///Until then, if you want to run the game, just comment out where this method and where it is called
         /// </summary>
-        public GameObject[,] setupLevel(Dictionary<string, Texture2D> textureDictionary, Grid grid, EnemyManager enemyManager, ImmobilesManager immobilesManager, GameObjectManager gameObjectManager)
+        public GameObject[,] setupLevel()
         {
 
             levelObjectArray = new GameObject[levelStringArray.GetLength(1), levelStringArray.GetLength(0)];
@@ -135,8 +145,8 @@ namespace BatGame
                             immobilesManager.AddImmobile(tempVertR);
                             gameObjectManager.AddGameObject(tempVertR);
                             break;
-                       
-                        
+
+
                         case "+":
                             Wall tempCornerDR = new Wall(textureDictionary["downRightCornerWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
                             levelObjectArray[i, j] = tempCornerDR;
@@ -161,8 +171,8 @@ namespace BatGame
                             immobilesManager.AddImmobile(tempCornerUL);
                             gameObjectManager.AddGameObject(tempCornerUL);
                             break;
-                        
-                        
+
+
                         case "_":
                             Wall tempHorizU = new Wall(textureDictionary["horizontalUpWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
                             levelObjectArray[i, j] = tempHorizU;
@@ -191,6 +201,7 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempFloor2);
 
                             Enemy tempE = new Enemy(textureDictionary["enemyImage"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, false);
+                            levelObjectArray[i, j] = tempE;
                             enemyManager.AddEnemy(tempE);
                             gameObjectManager.AddGameObject(tempE);
                             break;
@@ -201,8 +212,8 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempFloor3);
 
                             //Adds a player
-                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, 0, 0, true, 3);
-
+                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                            gameObjectManager.Player = player;
                             break;
                         case "*":
                             SpiderWeb tempWeb = new SpiderWeb(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
@@ -210,12 +221,13 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempWeb);
                             break;
                         case "M":
-                            Stalagmite tempStag = new Stalagmite(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            Stalagmite tempStag = new Stalagmite(textureDictionary["stalagmite"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            tempStag.DrawWeight = 2;
                             immobilesManager.AddImmobile(tempStag);
                             gameObjectManager.AddGameObject(tempStag);
                             break;
                         case "0":
-                            Boulder tempBoulder = new Boulder(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true);
+                            Boulder tempBoulder = new Boulder(textureDictionary["boulder"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true);
                             immobilesManager.AddImmobile(tempBoulder);
                             gameObjectManager.AddGameObject(tempBoulder);
                             break;
@@ -229,6 +241,13 @@ namespace BatGame
             }
 
             return levelObjectArray;
+        }
+
+        public void Reset()
+        {
+            gameObjectManager.Clear();
+            immobilesManager.Clear();
+            enemyManager.Clear();
         }
 
     }

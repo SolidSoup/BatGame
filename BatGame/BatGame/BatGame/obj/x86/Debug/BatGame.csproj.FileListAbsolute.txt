@@ -254,7 +254,6 @@ C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Con
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\loadButton.xnb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\menu.xnb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\nameLogo.xnb
-C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\optionsButton.xnb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\startButton.xnb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Bat_Sprites\Flying_Bat.xnb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\downCone.xnb
@@ -288,3 +287,10 @@ Z:\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Conte
 Z:\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\upLeftCone.xnb
 Z:\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\upRightCone.xnb
 Z:\IGMProfile\College\GDAPS2\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\web.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\continueButton.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\menuButton.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\pause.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\quitButton.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Menu_Sprites\saveButton.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\boulder.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\stalagmite.xnb

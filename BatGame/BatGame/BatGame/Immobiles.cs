@@ -15,10 +15,12 @@ namespace BatGame
     //currently exists for organizational purposes
      class Immobiles : GameObject
     {
+         int drawWeight;
         //simply calls base constructor
         public Immobiles(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s)
             : base(t, go, p, g, d, sub, s)
         {
+            drawWeight = 1;
         }
         public virtual void Update()
         {
@@ -26,6 +28,18 @@ namespace BatGame
         public virtual void Draw(SpriteBatch batch)
         {
             batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
+        }
+
+        public int DrawWeight
+        {
+            get
+            {
+                return drawWeight;
+            }
+            set
+            {
+                drawWeight = value;
+            }
         }
     }
 }

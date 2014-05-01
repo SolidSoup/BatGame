@@ -30,11 +30,25 @@ namespace BatGame
         /// Draws all immobilies
         /// </summary>
         /// <param name="batch">spritebatch object</param>
-        public void IManagerDraw(SpriteBatch batch)
+        public void IManagerDrawBack(SpriteBatch batch)
         {
             foreach (Immobiles i in immobiles)
             {
-                i.Draw(batch);
+                if (i.DrawWeight == 1)
+                {
+                    i.Draw(batch);
+                }
+            }
+        }
+
+        public void IManagerDrawFront(SpriteBatch batch)
+        {
+            foreach (Immobiles i in immobiles)
+            {
+                if (i.DrawWeight == 2)
+                {
+                    i.Draw(batch);
+                }
             }
         }
 
@@ -60,6 +74,11 @@ namespace BatGame
         public List<Immobiles> Immobiles
         {
             get { return this.immobiles; }
+        }
+
+        public void Clear()
+        {
+            immobiles.Clear();
         }
 
     }

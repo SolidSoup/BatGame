@@ -8,7 +8,10 @@ namespace BatGame
     public enum GameState
     {
         menu,
-        game
+        game,
+        pause,
+        level1,
+        level2
     }
 
     class StateManager

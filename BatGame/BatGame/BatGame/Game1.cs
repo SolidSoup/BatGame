@@ -41,7 +41,9 @@ namespace BatGame
         Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
         Texture2D webImage;
-        
+        Texture2D boulderImage;
+        Texture2D stagImage;
+
         Texture2D lightMask;
         Texture2D rightCone;
         Texture2D leftCone;
@@ -74,22 +76,35 @@ namespace BatGame
         Dictionary<string, Texture2D> spriteDictionary;
         AnimationFarm playerAnimation;
 
+        Level level1;
+        Level level2;
+        Level level3;
+        String currentLevel;
+
         //Things that will eventually be moved to state manager
         GameState gameState;
         Texture2D menuImage;
         Texture2D startButtonImage;
-        Texture2D optionsButtonImage;
+        Texture2D quitButtonImage;
+        Texture2D continueButtonImage;
+        Texture2D menuButtonImage;
+        Texture2D saveButtonImage;
         Texture2D loadButtonImage;
         Texture2D nameLogoImage;
+        Texture2D pauseImage;
         Button startButton;
-        Button optionButton;
+        Button quitButton;
         Button loadButton;
+        Button continueButton;
+        Button saveButton;
+        Button menuButton;
         MouseState lastMouseState;
         MouseState currentMouseState;
+        KeyboardState keyboardState;
 
         public Game1()
         {
-            
+
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -111,7 +126,7 @@ namespace BatGame
             spriteDictionary = new Dictionary<string, Texture2D>();
             //aniFarm = new AnimationFarm(spriteBatch);
 
-            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right, 
+            player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right,
                 SubSquares.TopLeft, true, 0, .1, true, 0);
 
             gameState = GameState.menu;
@@ -217,24 +232,44 @@ namespace BatGame
             webImage = Content.Load<Texture2D>("Sprites/Interactables/web");
             spriteDictionary.Add("spiderWeb", webImage);
 
+            boulderImage = Content.Load<Texture2D>("Sprites/Interactables/boulder");
+            spriteDictionary.Add("boulder", boulderImage);
+
+            stagImage = Content.Load<Texture2D>("Sprites/Interactables/stalagmite");
+            spriteDictionary.Add("stalagmite", stagImage);
+
 
             player.ObjTexture = playerImage;
 
             // LoadMap("Content/level1.txt");
-            Level level1 = new Level("Content/Levels/level1.txt");
-            check = level1.loadLevel();
-            checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level1 = new Level("Content/Levels/level1.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            //level2 = new Level("Content/Levels/level2.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
 
+
+            //check = level1.loadLevel();
+            //checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            //player = gameObjectManager.Player;
+
+            //Images and buttons for menu and pause screens
             menuImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menu");
             nameLogoImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/nameLogo");
             startButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/startButton");
             loadButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/loadButton");
-            optionsButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/optionsButton");
+            quitButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/quitButton");
+            continueButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/continueButton");
+            saveButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/saveButton");
+            menuButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menuButton");
+            pauseImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/pause");
 
             int height = 2 * GraphicsDevice.Viewport.Height / 3;
             startButton = new Button((GraphicsDevice.Viewport.Width / 3) - 90, height, 120, 90, startButtonImage);
             loadButton = new Button((GraphicsDevice.Viewport.Width / 2) - 40, height, 120, 90, loadButtonImage);
-            optionButton = new Button(2 * GraphicsDevice.Viewport.Width / 3, height, 120, 90, optionsButtonImage);
+            quitButton = new Button(2 * GraphicsDevice.Viewport.Width / 3, height, 120, 90, quitButtonImage);
+
+            height = 100;
+            menuButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 3, 140, 90, menuButtonImage);
+            continueButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height, 140, 90, continueButtonImage);
+            saveButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 2, 140, 90, saveButtonImage);
         }
 
         /// <summary>
@@ -267,46 +302,138 @@ namespace BatGame
                     enemyManager.EManagerUpdate(gameTime, player);
                     immobilesManager.IManagerUpdate();
 
+                    keyboardState = Keyboard.GetState();
+                    if (keyboardState.IsKeyDown(Keys.Escape))
+                    {
+                        gameState = GameState.pause;
+                    }
+
+                    if (player.Hits > 0)
+                    {
+                        if (currentLevel.Equals("level1"))
+                        {
+                            level1.Reset();
+                            gameState = GameState.level1;
+                        }
+                        if (currentLevel.Equals("level2"))
+                        {
+                            level2.Reset();
+                            gameState = GameState.level2;
+                        }
+                    }
+
                     base.Update(gameTime);
                     break;
-                case GameState.menu:
-                    startButton.Selected = false;
-                    optionButton.Selected = false;
-                    loadButton.Selected = false;
+                case GameState.pause:
+                    continueButton.Selected = false;
+                    saveButton.Selected = false;
+                    menuButton.Selected = false;
 
                     lastMouseState = currentMouseState;
                     currentMouseState = Mouse.GetState();
                     Point pos = new Point(currentMouseState.X, currentMouseState.Y);
 
-                    if (startButton.Rect.Contains(pos))
+                    if (continueButton.Rect.Contains(pos))
                     {
-                        startButton.Selected = true;
+                        continueButton.Selected = true;
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
                             gameState = GameState.game;
                         }
                     }
-                    if (optionButton.Rect.Contains(pos))
+                    if (menuButton.Rect.Contains(pos))
                     {
-                        optionButton.Selected = true;
+                        menuButton.Selected = true;
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
-                            //Pop up options
+                            gameState = GameState.menu;
                         }
                     }
-                    if (loadButton.Rect.Contains(pos))
+                    if (saveButton.Rect.Contains(pos))
+                    {
+                        saveButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            using (BinaryWriter writer = new BinaryWriter(File.Open("saveFile", FileMode.Create)))
+                            {
+                                writer.Write(currentLevel);
+                                writer.Write(player.PosX);
+                                writer.Write(player.PosY);
+                            }
+                        }
+                    }
+
+                    base.Update(gameTime);
+                    break;
+                case GameState.menu:
+                    startButton.Selected = false;
+                    quitButton.Selected = false;
+                    loadButton.Selected = false;
+
+                    lastMouseState = currentMouseState;
+                    currentMouseState = Mouse.GetState();
+                    Point pos2 = new Point(currentMouseState.X, currentMouseState.Y);
+
+                    if (startButton.Rect.Contains(pos2))
+                    {
+                        startButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            gameState = GameState.level1;
+                        }
+                    }
+                    if (quitButton.Rect.Contains(pos2))
+                    {
+                        quitButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            this.Exit();
+                        }
+                    }
+                    if (loadButton.Rect.Contains(pos2))
                     {
                         loadButton.Selected = true;
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
-                            //load saved game
+                            using (BinaryReader reader = new BinaryReader(File.Open("saveFile", FileMode.Open)))
+                            {
+                                currentLevel = reader.ReadString();
+                                if (currentLevel.Equals("level1"))
+                                {
+                                    gameState = GameState.level1;
+                                }
+                                if (currentLevel.Equals("level2"))
+                                {
+                                    gameState = GameState.level2;
+                                }
+                                int playerX = reader.ReadInt32();
+                                int playerY = reader.ReadInt32();
+                            }
                         }
                     }
 
                     base.Update(gameTime);
+                    break;
+                case GameState.level1:
+                    check = level1.loadLevel();
+                    checkMap = level1.setupLevel();
+                    player = gameObjectManager.Player;
+                    gameState = GameState.game;
+                    currentLevel = "level1";
+                    break;
+                case GameState.level2:
+                    check = level2.loadLevel();
+                    checkMap = level2.setupLevel();
+
+                    player = gameObjectManager.Player;
+                    gameState = GameState.game;
+                    currentLevel = "level2";
                     break;
             }
         }
@@ -317,6 +444,8 @@ namespace BatGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Clear(Color.Black);
+
             switch (gameState)
             {
                 case GameState.game:
@@ -330,7 +459,7 @@ namespace BatGame
                     spriteBatch.Draw(lightMask, light, Color.White);
 
                     // To add more lights: draw them here, with whatever color you want!
-                    if (player.Screech == true) 
+                    if (player.Screech == true)
                     {
                         player.Screeching = true;
                         switch (player.Facing)  //switch statement draws echolocation wave wherever the player is facing
@@ -351,7 +480,7 @@ namespace BatGame
                                 player.Screechdirection = Direction.Up;
                                 break;
                             case Direction.Down:
-                                cone = new Rectangle(player.RectX - 10, player.RectY +8, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 10, player.RectY + 8, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(downCone, cone, Color.Green);
                                 player.Screechdirection = Direction.Down;
                                 break;
@@ -366,12 +495,12 @@ namespace BatGame
                                 player.Screechdirection = Direction.UpRight;
                                 break;
                             case Direction.DownLeft:
-                                cone = new Rectangle(player.RectX - 20, player.RectY +2, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 20, player.RectY + 2, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(downLeftCone, cone, Color.Green);
                                 player.Screechdirection = Direction.DownLeft;
                                 break;
                             case Direction.DownRight:
-                                cone = new Rectangle(player.RectX - 5, player.RectY +2, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 5, player.RectY + 2, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(downRightCone, cone, Color.Green);
                                 player.Screechdirection = Direction.DownRight;
                                 break;
@@ -448,10 +577,11 @@ namespace BatGame
                         }
                     }
                      * */
-                    immobilesManager.IManagerDraw(spriteBatch);
+                    immobilesManager.IManagerDrawBack(spriteBatch);
                     //gameObjectManager.GManagerDraw(spriteBatch);
                     spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
                     enemyManager.EManagerDraw(spriteBatch);
+                    immobilesManager.IManagerDrawFront(spriteBatch);
 
                     /*int x = 15;
                     int y = 15;
@@ -515,17 +645,32 @@ namespace BatGame
 
                     startButton.Draw(spriteBatch);
                     loadButton.Draw(spriteBatch);
-                    optionButton.Draw(spriteBatch);
+                    quitButton.Draw(spriteBatch);
 
                     spriteBatch.End();
                     base.Draw(gameTime);
                     break;
+
+                case GameState.pause:
+                    spriteBatch.Begin();
+
+                    this.IsMouseVisible = true;
+                    spriteBatch.Draw(pauseImage, new Rectangle((GraphicsDevice.Viewport.Width / 2) - 250, 0, 2 * GraphicsDevice.Viewport.Width / 3, GraphicsDevice.Viewport.Height), Color.White);
+
+                    continueButton.Draw(spriteBatch);
+                    menuButton.Draw(spriteBatch);
+                    saveButton.Draw(spriteBatch);
+
+                    spriteBatch.End();
+                    base.Draw(gameTime);
+                    break;
+
             }
 
 
 
 
-            base.Draw(gameTime); 
+            base.Draw(gameTime);
         }
 
         #region LoadMap
@@ -616,4 +761,3 @@ namespace BatGame
         #endregion
     }
 }
-
