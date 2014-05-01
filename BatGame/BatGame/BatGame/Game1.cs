@@ -635,7 +635,7 @@ namespace BatGame
                     new Vector2(480, 370), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "1/2 square x: " + player.HalfX,
                     new Vector2(480, 400), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Alpha V 0.12",
+                    spriteBatch.DrawString(comicSans14, "Alpha V 0.15",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
                     spriteBatch.End();
                     break;

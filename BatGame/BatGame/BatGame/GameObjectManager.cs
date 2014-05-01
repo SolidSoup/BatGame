@@ -90,9 +90,9 @@ namespace BatGame
 
         public bool collidesWith<T>(Rectangle rect)
         {
-            foreach(GameObject g in gameObjects)
+            foreach (GameObject g in gameObjects)
             {
-                if (rect.Intersects(g.ObjRectangle) && g is T)
+                if (g is T && rect.Intersects(g.ObjRectangle) && g.IsSolid)
                 {
                     return true;
                 }
