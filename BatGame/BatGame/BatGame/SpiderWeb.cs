@@ -14,6 +14,7 @@ namespace BatGame
 {
     class SpiderWeb : Interactable
     {
+        bool hasKilled;
         public SpiderWeb(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d,SubSquares sub, bool s,bool active)
             : base(t, go, p, g, d, sub, s, active)
         {
@@ -31,7 +32,8 @@ namespace BatGame
                     if (g is Enemy) //|| GManager.Player.Position.Equals(this.Position))
                     //if (GManager.Player.Position.Equals(this.Position))
                     {
-                        IsActive = false;
+                        hasKilled = true;
+                        //IsActive = false;
                         //IsSolid = true;
                     }
                 }
@@ -39,7 +41,7 @@ namespace BatGame
         }
         public override void Draw(SpriteBatch batch)
         {
-            if (IsActive)
+            if (!hasKilled)
             {
                 batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
                 //Animation for empty web

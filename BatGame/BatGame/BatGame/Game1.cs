@@ -300,7 +300,6 @@ namespace BatGame
             {
                 case GameState.game:
                     player.PlayerUpdate();
-
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     enemyManager.EManagerUpdate(gameTime, player);
                     immobilesManager.IManagerUpdate();
@@ -315,12 +314,10 @@ namespace BatGame
                     {
                         if (currentLevel.Equals("level1"))
                         {
-                            level1.Reset();
                             gameState = GameState.level1;
                         }
                         if (currentLevel.Equals("level2"))
                         {
-                            level2.Reset();
                             gameState = GameState.level2;
                         }
                     }
@@ -410,13 +407,17 @@ namespace BatGame
                                 if (currentLevel.Equals("level1"))
                                 {
                                     gameState = GameState.level1;
+                                    level1.SpawnPlayerX = reader.ReadInt32();
+                                    level1.SpawnPlayerY = reader.ReadInt32();
+                                    level1.HasStarted = true;
                                 }
                                 if (currentLevel.Equals("level2"))
                                 {
                                     gameState = GameState.level2;
+                                    level2.SpawnPlayerX = reader.ReadInt32();
+                                    level2.SpawnPlayerY = reader.ReadInt32();
+                                    level2.HasStarted = true;
                                 }
-                                int playerX = reader.ReadInt32();
-                                int playerY = reader.ReadInt32();
                             }
                         }
                     }

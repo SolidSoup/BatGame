@@ -18,6 +18,9 @@ namespace BatGame
         private string levelfile;
         private GameObject[,] levelObjectArray;
         private string[,] levelStringArray;
+        bool hasStarted;
+        int spawnPlayerX;
+        int spawnPlayerY;
         Dictionary<string, Texture2D> textureDictionary;
         Grid grid;
         EnemyManager enemyManager;
@@ -44,6 +47,22 @@ namespace BatGame
         public GameObject[,] LevelObjectArray
         {
             get { return levelObjectArray; }
+        }
+        public bool HasStarted
+        {
+            get { return hasStarted; }
+            set { hasStarted = value; }
+        }
+        public int SpawnPlayerX
+        {
+            get { return spawnPlayerX; }
+            set { spawnPlayerX = value; }
+        }
+
+        public int SpawnPlayerY
+        {
+            get { return spawnPlayerY; }
+            set { spawnPlayerY = value; }
         }
 
 
@@ -118,6 +137,7 @@ namespace BatGame
         /// </summary>
         public GameObject[,] setupLevel()
         {
+            Reset();
 
             levelObjectArray = new GameObject[levelStringArray.GetLength(1), levelStringArray.GetLength(0)];
 
@@ -213,7 +233,13 @@ namespace BatGame
 
                             //Adds a player
                             Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                            if (HasStarted)
+                            {
+                                player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(SpawnPlayerX, SpawnPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                                HasStarted = false;
+                            }
                             gameObjectManager.Player = player;
+
                             break;
                         case "*":
                             SpiderWeb tempWeb = new SpiderWeb(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);

@@ -24,6 +24,7 @@ namespace BatGame
         Direction screechdirection;
         PlayerState playerState;
 
+
         internal Direction Screechdirection
         {
             get { return screechdirection; }
@@ -43,6 +44,9 @@ namespace BatGame
             get { return screech; }
             set { screech = value; }
         }
+
+
+
 
         //possibly add check for something to decide length between screeches
         /// <summary>
@@ -256,13 +260,26 @@ namespace BatGame
             List<GameObject> objects = GManager.inSpot(Position);
             foreach (GameObject g in objects)
             {
-                if (g is Enemy || g is SpiderWeb)
+                if (g is Enemy)
                 {
-                    this.hits++;
+                    Enemy temp = (Enemy)(g);
+                    if (temp.IsActive)
+                    {
+                        this.hits++;
+                    }
+                }
+                if (g is SpiderWeb)
+                {
+                    SpiderWeb temp = (SpiderWeb)(g);
+                    if (temp.IsActive)
+                    {
+                        this.hits++;
+                    }
                 }
             }
         }
 
         public int Hits { get { return hits; } }
+
     }
 }
