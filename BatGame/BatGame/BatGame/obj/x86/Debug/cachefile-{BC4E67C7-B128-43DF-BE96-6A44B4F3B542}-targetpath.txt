@@ -45,6 +45,7 @@ Content\Sprites\Walls\Horizontal_Wall_Tile3.xnb
 Content\Sprites\Walls\Verticle_Wall_Tile1.xnb
 Content\Sprites\Walls\Verticle_Wall_Tile2.xnb
 Content\Sprites\Walls\Verticle_Wall_Tile3.xnb
+Content\Sprites\Bat_Sprites\Idle_Bat.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\Levels\level1.txt

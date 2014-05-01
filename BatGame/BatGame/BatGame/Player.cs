@@ -78,10 +78,9 @@ namespace BatGame
                 //cardinal movement
                 //if you want to move up only and you are looking up
                 if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
-                    && isFacing(Direction.Up) && canMove(Direction.Up) && willMove(new Point(Position.X, Position.Y - 1)))
+                    && isFacing(Direction.Up) && canMove(Direction.Up) /*&& willMove(new Point(Position.X, Position.Y - 1))*/)
                 {
-                    //Console.WriteLine(willMove(new Point(Position.X, Position.Y - 1)));
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     /*PosY--;
                     RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;*/
                     Speed = 0;
@@ -99,9 +98,9 @@ namespace BatGame
                 }
                 //if you want to move left only and you are looking left
                 if (state.IsKeyDown(Keys.A) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
-                    && isFacing(Direction.Left) && canMove(Direction.Left) && willMove(new Point(Position.X - 1, Position.Y)))
+                    && isFacing(Direction.Left) && canMove(Direction.Left) /*&& willMove(new Point(Position.X - 1, Position.Y))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosX--;
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
@@ -117,9 +116,9 @@ namespace BatGame
                 }
                 //if you want to move down only and you are looking down
                 if (state.IsKeyDown(Keys.S) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
-                    && isFacing(Direction.Down) && canMove(Direction.Down) && willMove(new Point(Position.X, Position.Y + 1)))
+                    && isFacing(Direction.Down) && canMove(Direction.Down) /*&& willMove(new Point(Position.X, Position.Y + 1))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     Speed = 0;
@@ -135,9 +134,9 @@ namespace BatGame
                 }
                 //if you want to move right only and you are looking right
                 if (state.IsKeyDown(Keys.D) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
-                    && isFacing(Direction.Right) && canMove(Direction.Right) && willMove(new Point(Position.X + 1, Position.Y)))
+                    && isFacing(Direction.Right) && canMove(Direction.Right) /*&& willMove(new Point(Position.X + 1, Position.Y))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosX++;
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
@@ -154,9 +153,9 @@ namespace BatGame
                 //diaobjMngrnal movement
                 //move up and to the left
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A) && isFacing(Direction.UpLeft) && canMove(Direction.UpLeft)
-                    && willMove(new Point(Position.X - 1, Position.Y - 1)))
+                    /*&& willMove(new Point(Position.X - 1, Position.Y - 1))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosY--;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX--;
@@ -174,9 +173,9 @@ namespace BatGame
                 }
                 //move up and to the right
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D) && isFacing(Direction.UpRight) && canMove(Direction.UpRight)
-                    && willMove(new Point(Position.X + 1, Position.Y - 1)))
+                    /*&& willMove(new Point(Position.X + 1, Position.Y - 1))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosY--;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX++;
@@ -194,9 +193,9 @@ namespace BatGame
                 }
                 //move down and to the left
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A) && isFacing(Direction.DownLeft)
-                    && canMove(Direction.DownLeft) && willMove(new Point(Position.X - 1, Position.Y + 1)))
+                    && canMove(Direction.DownLeft) /*&& willMove(new Point(Position.X - 1, Position.Y + 1))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX--;
@@ -215,9 +214,9 @@ namespace BatGame
                 //move down and right
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.D)
                     && isFacing(Direction.DownRight) && canMove(Direction.DownRight)
-                    && willMove(new Point(Position.X + 1, Position.Y + 1)))
+                    /*&& willMove(new Point(Position.X + 1, Position.Y + 1))*/)
                 {
-                    ObjRectangle = Move(Facing, MiniSquare, ObjRectangle);
+                    ObjRectangle = checkForCollision(Facing, MiniSquare, ObjRectangle);
                     //PosY++;
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     //PosX++;
