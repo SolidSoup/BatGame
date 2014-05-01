@@ -22,6 +22,7 @@ namespace BatGame
         bool screech; //to keep track of when bat echolocation wave should start
         bool screeching; //to keep track of screech movement
         Direction screechdirection;
+        PlayerState playerState;
 
         internal Direction Screechdirection
         {
@@ -85,12 +86,16 @@ namespace BatGame
                     RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;*/
                     Speed = 0;
                     //this.RectY -= this.Speed;
+                    playerState = PlayerState.Flying;
+
                 }
                 //look up if you aren't and you want to
                 else if (state.IsKeyDown(Keys.W) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D))
                 {
                     Facing = Direction.Up;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
+
                 }
                 //if you want to move left only and you are looking left
                 if (state.IsKeyDown(Keys.A) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
@@ -101,12 +106,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectX -= this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //look left if you aren't and you want to
                 else if (state.IsKeyDown(Keys.A) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S))
                 {
                     Facing = Direction.Left;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //if you want to move down only and you are looking down
                 if (state.IsKeyDown(Keys.S) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D)
@@ -117,12 +124,14 @@ namespace BatGame
                     //RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
                     Speed = 0;
                     //this.RectY += this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //look down if you aren't and you want to
                 else if (state.IsKeyDown(Keys.S) && state.IsKeyUp(Keys.A) && state.IsKeyUp(Keys.D))
                 {
                     Facing = Direction.Down;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //if you want to move right only and you are looking right
                 if (state.IsKeyDown(Keys.D) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S)
@@ -133,12 +142,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectX += this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //look right if you aren't and you want to
                 else if (state.IsKeyDown(Keys.D) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.S))
                 {
                     Facing = Direction.Right;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //diaobjMngrnal movement
                 //move up and to the left
@@ -152,12 +163,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //face up left if you aren't
                 else if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.A))
                 {
                     Facing = Direction.UpLeft;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //move up and to the right
                 if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D) && isFacing(Direction.UpRight) && canMove(Direction.UpRight)
@@ -170,12 +183,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //face up right if you aren't
                 else if (state.IsKeyDown(Keys.W) && state.IsKeyDown(Keys.D))
                 {
                     Facing = Direction.UpRight;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //move down and to the left
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A) && isFacing(Direction.DownLeft)
@@ -188,12 +203,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //face down left if you aren't
                 else if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.A))
                 {
                     Facing = Direction.DownLeft;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
                 //move down and right
                 if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.D)
@@ -207,12 +224,14 @@ namespace BatGame
                     //RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
                     Speed = 0;
                     //this.RectY -= this.Speed;
+                    playerState = PlayerState.Flying;
                 }
                 //face down right if you aren't
                 else if (state.IsKeyDown(Keys.S) && state.IsKeyDown(Keys.D))
                 {
                     Facing = Direction.DownRight;
                     Speed = MoveTime / 2;
+                    playerState = PlayerState.Idle;
                 }
 
             }
@@ -222,6 +241,13 @@ namespace BatGame
                 screech = true;
             }
         }
+
+        public void PlayerDraw(Texture2D playerText)
+        {
+            //IDLE Animations?
+
+        }
+
 
         /// <summary>
         /// increments hits if hits a bad thingy

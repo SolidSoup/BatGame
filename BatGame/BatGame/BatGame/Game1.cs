@@ -23,6 +23,7 @@ namespace BatGame
         Grid grid;
 
         Texture2D playerImage;
+        Texture2D playerIdle;
         //bat texture
         Texture2D batUpDownImage;
         Texture2D batSideImage;
@@ -183,6 +184,8 @@ namespace BatGame
             playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/player");
             spriteDictionary.Add("playerImage", playerImage);
 
+            playerIdle = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
+            spriteDictionary.Add("playerIdle", playerIdle);
 
             batUpDownImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Bat_Fly_Up");
             spriteDictionary.Add("BatUpDownImage", batUpDownImage);

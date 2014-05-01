@@ -14,8 +14,33 @@ namespace BatGame
         level2
     }
 
+    public enum PlayerState
+    {
+        Idle,
+        Flying
+    }
+
+    
+
     class StateManager
     {
+        PlayerState playerState;
 
-    }
-}
+        public StateManager(PlayerState playerS)
+        {
+            playerState = playerS;
+        }
+
+        public PlayerState GetPlayerState
+        {
+            get
+            {
+                return playerState;
+            }
+            set
+            {
+                playerState = value;
+            }
+        }
+    }//end class
+}//end namespace
