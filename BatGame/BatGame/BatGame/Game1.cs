@@ -79,6 +79,7 @@ namespace BatGame
 
         Player player;
         Enemy enemy;
+        PartyMode PARTY;
 
         EnemyManager enemyManager;
         ImmobilesManager immobilesManager;
@@ -116,6 +117,8 @@ namespace BatGame
         MouseState currentMouseState;
         KeyboardState keyboardState;
 
+        Song tunes;
+
         public Game1()
         {
 
@@ -143,6 +146,7 @@ namespace BatGame
             playerAnimation = new AnimationFarm(playerImage, 0, 32, 32);
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right,
                 SubSquares.TopLeft, true, 0, .1, true, 0);
+            PARTY = new PartyMode(GraphicsDevice, immobilesManager, gameObjectManager, enemyManager, tunes);
 
             gameState = GameState.menu;
 
@@ -311,6 +315,10 @@ namespace BatGame
             menuButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 3, 140, 90, menuButtonImage);
             continueButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height, 140, 90, continueButtonImage);
             saveButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 2, 140, 90, saveButtonImage);
+
+            //"I Just Hold The Mirror" - Mark Castle
+            tunes = Content.Load<Song>("danceMusic");
+            PARTY.partyTime(tunes);
         }
 
         /// <summary>
@@ -332,6 +340,12 @@ namespace BatGame
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+
+            if (keyboardState.IsKeyDown(Keys.P))
+            {
+                this.Window.Title = "Party Game";
+                gameState = GameState.partyMode;
+            }
 
             // TODO: Add your update logic here
             switch (gameState)
@@ -517,6 +531,11 @@ namespace BatGame
                     player = gameObjectManager.Player;
                     gameState = GameState.game;
                     currentLevel = "level2";
+                    break;
+                case GameState.partyMode:
+                    player.PartyMode();
+                    player.PlayerUpdate();
+                    player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
         }
@@ -725,7 +744,7 @@ namespace BatGame
                     new Vector2(480, 370), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "1/2 square x: " + player.HalfX,
                     new Vector2(480, 400), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Alpha V 0.15",
+                    spriteBatch.DrawString(comicSans14, "Alpha V 0.2P",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
                     
                     playerAnimation.PlayerFlyingAnimation(playerAnimation.FlyDirection, gameTime);
@@ -761,6 +780,10 @@ namespace BatGame
 
                     spriteBatch.End();
                     base.Draw(gameTime);
+                    break;
+
+                case GameState.partyMode:
+                    PARTY.BeerGoggles(spriteBatch, player);
                     break;
 
             }

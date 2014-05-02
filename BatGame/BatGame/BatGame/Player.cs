@@ -291,6 +291,11 @@ namespace BatGame
 
         }
 
+        public void PartyMode()
+        {
+            PlayerUpdate();
+        }
+
 
         /// <summary>
         /// increments hits if hits a bad thingy

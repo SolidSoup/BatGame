@@ -48,5 +48,7 @@ Content\Sprites\Shriek\upRightShriek.xnb
 Content\Sprites\Shriek\upShriek.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
+Content\danceMusic.xnb
+Content\danceMusic.wma
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
