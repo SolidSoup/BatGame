@@ -37,13 +37,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Bat_Sprites\player.png">
-      <Name>player</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Enemy_Sprites\enemy.png">
       <Name>enemy</Name>
       <Importer>TextureImporter</Importer>
@@ -64,20 +57,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Walls\HorizontalWall.png">
-      <Name>HorizontalWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\VerticalWall.png">
-      <Name>VerticalWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Floors\FloorTile.png">
       <Name>FloorTile</Name>
       <Importer>TextureImporter</Importer>
@@ -89,62 +68,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>testlevel</Name>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\VerticalLeftWall.png">
-      <Name>VerticalLeftWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\VerticalRightWall.png">
-      <Name>VerticalRightWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\HorizontalUpWall.png">
-      <Name>HorizontalUpWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\HorizontalDownWall.png">
-      <Name>HorizontalDownWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Corners\UpLeftCorner.png">
-      <Name>UpLeftCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Corners\DownRightCorner.png">
-      <Name>DownRightCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Corners\DownLeftCorner.png">
-      <Name>DownLeftCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Corners\UpRightCorner.png">
-      <Name>UpRightCorner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Shader_Tools\echo.fx">
@@ -175,25 +98,6 @@
     </Compile>
     <Compile Include="Sprites\Bat_Sprites\Bat_Fly_Up.png">
       <Name>Bat_Fly_Up</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Walls\Horizontal_Wall.png">
-      <Name>Horizontal_Wall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\Walls\Verticle_Wall.png">
-      <Name>Verticle_Wall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprites\Bat_Sprites\Flying_Bat.png">
-      <Name>Flying_Bat</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -321,38 +225,65 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Walls\Horizontal_Wall_Tile1.png">
-      <Name>Horizontal_Wall_Tile1</Name>
+    <Compile Include="Sprites\Walls\HorizontalDownWall.png">
+      <Name>HorizontalDownWall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Walls\Horizontal_Wall_Tile2.png">
-      <Name>Horizontal_Wall_Tile2</Name>
+    <Compile Include="Sprites\Walls\HorizontalUpWall.png">
+      <Name>HorizontalUpWall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Walls\Horizontal_Wall_Tile3.png">
-      <Name>Horizontal_Wall_Tile3</Name>
+    <Compile Include="Sprites\Walls\Horizontal_Wall.png">
+      <Name>Horizontal_Wall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Walls\Verticle_Wall_Tile1.png">
-      <Name>Verticle_Wall_Tile1</Name>
+    <Compile Include="Sprites\Walls\VerticalLeftWall.png">
+      <Name>VerticalLeftWall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Walls\Verticle_Wall_Tile2.png">
-      <Name>Verticle_Wall_Tile2</Name>
+    <Compile Include="Sprites\Walls\VerticalRightWall.png">
+      <Name>VerticalRightWall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Walls\Verticle_Wall_Tile3.png">
-      <Name>Verticle_Wall_Tile3</Name>
+    <Compile Include="Sprites\Walls\Vertical_Wall.png">
+      <Name>Vertical_Wall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sprites\Corners\DownLeftCorner.png">
+      <Name>DownLeftCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Corners\DownRightCorner.png">
+      <Name>DownRightCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Corners\UpLeftCorner.png">
+      <Name>UpLeftCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Corners\UpRightCorner.png">
+      <Name>UpRightCorner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Bat_Sprites\Flying_Bat.png">
+      <Name>Flying_Bat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Sprites\Bat_Sprites\Idle_Bat.png">
       <Name>Idle_Bat</Name>
       <Importer>TextureImporter</Importer>

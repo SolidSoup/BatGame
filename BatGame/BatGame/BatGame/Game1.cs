@@ -126,7 +126,7 @@ namespace BatGame
 
             spriteDictionary = new Dictionary<string, Texture2D>();
             //aniFarm = new AnimationFarm(spriteBatch);
-
+            playerAnimation = new AnimationFarm(playerImage, 0, 32, 32);
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right,
                 SubSquares.TopLeft, true, 0, .1, true, 0);
 
@@ -181,7 +181,7 @@ namespace BatGame
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("Font/ComicSans");
 
-            playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/player");
+            playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
             spriteDictionary.Add("playerImage", playerImage);
 
             playerIdle = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
@@ -196,16 +196,16 @@ namespace BatGame
             enemyImage = Content.Load<Texture2D>("Sprites/Enemy_Sprites/enemy");
             spriteDictionary.Add("enemyImage", enemyImage);
 
-            verticalWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalWall");
+            verticalWallImage = Content.Load<Texture2D>("Sprites/Walls/Vertical_Wall");
             spriteDictionary.Add("verticalWall", verticalWallImage);
 
-            verticalLeftWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalLeftWall");
+            verticalLeftWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalRightWall");
             spriteDictionary.Add("verticalLeftWall", verticalLeftWallImage);
 
-            verticalRightWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalRightWall");
+            verticalRightWallImage = Content.Load<Texture2D>("Sprites/Walls/VerticalLeftWall");
             spriteDictionary.Add("verticalRightWall", verticalRightWallImage);
 
-            horizontalWallImage = Content.Load<Texture2D>("Sprites/Walls/HorizontalWall");
+            horizontalWallImage = Content.Load<Texture2D>("Sprites/Walls/Horizontal_Wall");
             spriteDictionary.Add("horizontalWall", horizontalWallImage);
 
             horizontalUpWallImage = Content.Load<Texture2D>("Sprites/Walls/HorizontalUpWall");
@@ -321,7 +321,7 @@ namespace BatGame
                             gameState = GameState.level2;
                         }
                     }
-
+                    playerAnimation.AnimationUpdate(gameTime, player.Facing);
                     base.Update(gameTime);
                     break;
                 case GameState.pause:
@@ -587,7 +587,7 @@ namespace BatGame
                      * */
                     immobilesManager.IManagerDrawBack(spriteBatch);
                     //gameObjectManager.GManagerDraw(spriteBatch);
-                    spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+                    //spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
                     enemyManager.EManagerDraw(spriteBatch);
                     immobilesManager.IManagerDrawFront(spriteBatch);
 
@@ -642,6 +642,11 @@ namespace BatGame
                     new Vector2(480, 400), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Alpha V 0.15",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
+                    
+                    playerAnimation.PlayerFlyingAnimation(playerAnimation.FlyDirection, gameTime);
+                    spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX+playerAnimation.Origin.X), (player.RectY+playerAnimation.Origin.Y)), playerAnimation.DrawRectangle, Color.White, 0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
+                    
+                    
                     spriteBatch.End();
                     break;
                 case GameState.menu:

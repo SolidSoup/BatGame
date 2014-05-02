@@ -59,10 +59,10 @@ namespace BatGame
         //how often until it moves frm
         double interval;
         //how many frames per second
-        int FramesPerSecond = 10;
+        int FramesPerSecond = 60;
         //how big are my sprites?
-        int spriteWidth = 64;
-        int spriteHeight = 64;
+        int spriteWidth = 32;
+        int spriteHeight = 32;
         //how fast it moves across the screen?
         float spriteSpeed;
         //sprite's rect
@@ -91,7 +91,7 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             isFlying = false;
             isIdle = false;
-            interval = 1.0 / FramesPerSecond;
+            interval = 10.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
         }
 
@@ -172,25 +172,29 @@ namespace BatGame
             previousKB = currentKB;
             currentKB = Keyboard.GetState();
 
-            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
+
 
             if (currentKB.GetPressedKeys().Length == 0)
             {
-                if (currentFrame > 0 && currentFrame < 3)
+                if (currentFrame > 0 && currentFrame < 2)//up
                 {
                     currentFrame = 0;
+                    interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 3 && currentFrame < 6)
+                if (currentFrame > 3 && currentFrame < 5)//down
                 {
                     currentFrame = 3;
+                    interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 6 && currentFrame < 9)
+                if (currentFrame > 6 && currentFrame < 8)//left
                 {
                     currentFrame = 6;
+                    interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 9 && currentFrame < 12)
+                if (currentFrame > 9 && currentFrame < 11)//right
                 {
                     currentFrame = 9;
+                    interval = 15.0 / FramesPerSecond;
                 }
             }
 
@@ -222,6 +226,7 @@ namespace BatGame
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
 
+            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
             Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
 
         }
@@ -247,14 +252,14 @@ namespace BatGame
                 {
                     currentFrame++; //continue the animation
 
-                    if (currentFrame > 3) //beyond the animation count held for flying (3)
+                    if (currentFrame > 2) //beyond the animation count held for flying (3)
                         currentFrame = 0; //reset the animation
 
                     timer = 0;
                 }
             }
 
-            if (f == Flying.South)
+            else if (f == Flying.South)
             {
                 if (currentKB != previousKB)
                 {
@@ -267,14 +272,14 @@ namespace BatGame
                 {
                     currentFrame++; //continue the animation
 
-                    if (currentFrame > 6)
+                    if (currentFrame > 5)
                         currentFrame = 3; //reset the animation
 
                     timer = 0;
                 }
             }
 
-            if (f == Flying.West)
+            else if (f == Flying.West)
             {
                 if (currentKB != previousKB)
                 {
@@ -287,14 +292,14 @@ namespace BatGame
                 {
                     currentFrame++; //continue the animation
 
-                    if (currentFrame > 9)
+                    if (currentFrame > 8)
                         currentFrame = 6; //reset the animation
 
                     timer = 0;
                 }
             }
 
-            if (f == Flying.East)
+            else if (f == Flying.East)
             {
                 if (currentKB != previousKB)
                 {
@@ -307,7 +312,7 @@ namespace BatGame
                 {
                     currentFrame++; //continue the animation
 
-                    if (currentFrame > 12)
+                    if (currentFrame > 11)
                         currentFrame = 9; //reset the animation
 
                     timer = 0;
@@ -315,7 +320,7 @@ namespace BatGame
             }
 
             //sp.Begin();
-            //sp.Draw(this.SpriteTexture, playerPos, this.DrawRectangle, Color.White, 0f, this.Origin, 0, SpriteEffects.None, 0);
+            //spriteBatch.Draw(playerAnimation.SpriteTexture, playerPos, this.DrawRectangle, Color.White, 0f, this.Origin, 0, SpriteEffects.None, 0);
             //sp.End();
 
             //base.Draw(gameTime);
