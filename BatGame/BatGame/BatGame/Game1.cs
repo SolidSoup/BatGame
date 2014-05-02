@@ -351,6 +351,8 @@ namespace BatGame
             {
                 this.Window.Title = "Party Game";
                 gameState = GameState.partyMode;
+                player.HalfX = !player.HalfX;
+                player.HalfY = !player.HalfY;
             }
 
             // TODO: Add your update logic here
@@ -738,7 +740,7 @@ namespace BatGame
                     new Vector2(480, 370), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "1/2 square x: " + player.HalfX,
                     new Vector2(480, 400), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Alpha V 0.2P",
+                    spriteBatch.DrawString(comicSans14, "Beta V 0.2P",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
 
