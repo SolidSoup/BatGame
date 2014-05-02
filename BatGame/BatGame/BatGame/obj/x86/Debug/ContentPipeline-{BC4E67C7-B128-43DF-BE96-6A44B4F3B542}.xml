@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\web.xnb</Output>
-      <Time>2014-05-01T20:39:05.3113494-04:00</Time>
+      <Time>2014-05-01T23:15:19.6508811-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Interactables\boulder.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\boulder.xnb</Output>
-      <Time>2014-05-01T20:39:05.3093472-04:00</Time>
+      <Time>2014-05-01T23:36:53.866453-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Interactables\stalagmite.png</Source>
@@ -369,6 +369,15 @@
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\lightingeffect.xnb</Output>
       <Time>2014-05-01T20:39:05.2923363-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Interactables\web_bloody.png</Source>
+      <Name>Sprites\Interactables\web_bloody</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Interactables\web_bloody.xnb</Output>
+      <Time>2014-05-01T23:16:19.922959-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
