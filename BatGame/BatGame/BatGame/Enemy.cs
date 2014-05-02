@@ -92,7 +92,7 @@ namespace BatGame
 
                     UndetectedMovement();
                     Move();
-                    
+
 
                 }
             }
@@ -607,7 +607,38 @@ namespace BatGame
         {
             if (IsActive)
             {
-                batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
+                if (Facing == Direction.Up)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 1.57f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.Left)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
+                }
+                else if (Facing == Direction.Right)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.14f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.Down)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 4.71f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.UpRight)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 2.36f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.UpLeft)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, .8f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.DownRight)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.94f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
+                else if (Facing == Direction.DownLeft)
+                {
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 5.51f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                }
             }
         }
     }

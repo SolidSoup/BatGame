@@ -90,7 +90,7 @@ namespace BatGame
             Mobiles tempobj = new Mobiles(null, this.GManager, this.Position, this.GridPos, dir, sub, true, 0, this.speed, false);
             tempobj.ObjRectangle = tempobj.Move(dir, sub, rect);
 
-            if (!GManager.collidesWith<Wall>(tempobj.ObjRectangle))
+            if (!GManager.collidesWith<Wall>(tempobj.ObjRectangle) && !GManager.collidesWith<Boulder>(tempobj.ObjRectangle))
             {
                 rect = Move(dir, sub, rect);
                 //if moving to the right && you are not fully in a square, 

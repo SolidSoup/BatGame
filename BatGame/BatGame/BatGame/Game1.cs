@@ -43,6 +43,7 @@ namespace BatGame
         Texture2D downLeftCornerWallImage;
         Texture2D floorTileImage;
         Texture2D webImage;
+        Texture2D webBloodImage;
         Texture2D boulderImage;
         Texture2D stagImage;
 
@@ -149,6 +150,7 @@ namespace BatGame
                 SubSquares.TopLeft, true, 0, .1, true, 0);
             PARTY = new PartyMode(GraphicsDevice, immobilesManager, gameObjectManager, enemyManager, tunes);
 
+            Mouse.WindowHandle = Window.Handle;
             gameState = GameState.menu;
 
             base.Initialize();
@@ -277,6 +279,9 @@ namespace BatGame
 
             webImage = Content.Load<Texture2D>("Sprites/Interactables/web");
             spriteDictionary.Add("spiderWeb", webImage);
+
+            //webBloodImage = Content.Load<Texture2D>("Sprites/Interactables/web_bloody");
+            //spriteDictionary.Add("spiderWeb", webBloodImage);
 
             boulderImage = Content.Load<Texture2D>("Sprites/Interactables/boulder");
             spriteDictionary.Add("boulder", boulderImage);
@@ -687,27 +692,15 @@ namespace BatGame
                     immobilesManager.IManagerDrawBack(spriteBatch);
                     //gameObjectManager.GManagerDraw(spriteBatch);
                     //spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
-                    
+
                     if (player.Shrieking == true && shriek != null) //draws shriek
                     {
                         shriek.Draw(spriteBatch);
                     }
-
+                    playerAnimation.PlayerFlyingAnimation(playerAnimation.FlyDirection, gameTime);
+                    spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX + playerAnimation.Origin.X), (player.RectY + playerAnimation.Origin.Y)), playerAnimation.DrawRectangle, Color.White, 0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
                     enemyManager.EManagerDraw(spriteBatch);
                     immobilesManager.IManagerDrawFront(spriteBatch);
-
-                    /*int x = 15;
-                    int y = 15;
-
-                    for (int i = 0; i < check.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < check.GetLength(1); j++)
-                        {
-                            spriteBatch.DrawString(comicSans14, check[i, j],
-                                new Vector2(x * j, 70 + y * i), Color.Orange);
-                        }
-                    }*/
-
                     spriteBatch.End();
 
 
@@ -747,11 +740,9 @@ namespace BatGame
                     new Vector2(480, 400), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Alpha V 0.2P",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
-                    
-                    playerAnimation.PlayerFlyingAnimation(playerAnimation.FlyDirection, gameTime);
-                    spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX+playerAnimation.Origin.X), (player.RectY+playerAnimation.Origin.Y)), playerAnimation.DrawRectangle, Color.White, 0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
-                    
-                    
+
+
+
                     spriteBatch.End();
                     break;
                 case GameState.menu:
