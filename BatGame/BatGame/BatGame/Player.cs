@@ -31,7 +31,11 @@ namespace BatGame
             set { screechdirection = value; }
         }
 
-
+        public int ScreechTime
+        {
+            get { return screechTime; }
+            set { screechTime = value; }
+        }
 
         public bool Screeching
         {
@@ -66,7 +70,7 @@ namespace BatGame
         public Player(Texture2D t, GameObjectManager objMngr, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time)
             : base(t, objMngr, p, g, d, sub, s, speed, m, a)
         {
-            this.screechTime = time;
+            screechTime = 0;
             screech = false;
             screeching = false;
         }
@@ -74,6 +78,7 @@ namespace BatGame
         public void PlayerUpdate()
         {
             state = Keyboard.GetState();
+            
 
             //if the animation has finished you can move
             if (this.Speed >= MoveTime)
@@ -238,11 +243,12 @@ namespace BatGame
                 }
 
             }
-            //screech if you aren't
-            if (state.IsKeyDown(Keys.Space) && screech == false)
+            //screech if it's off cooldown
+            if (state.IsKeyDown(Keys.Space) && screech == false && screechTime == 0)
             {
                 screech = true;
             }
+            
         }
 
         public void PlayerDraw(Texture2D playerText)

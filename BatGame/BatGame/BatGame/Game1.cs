@@ -465,7 +465,7 @@ namespace BatGame
                     // To add more lights: draw them here, with whatever color you want!
                     if (player.Screech == true)
                     {
-                        player.Screeching = true;
+
                         switch (player.Facing)  //switch statement draws echolocation wave wherever the player is facing
                         {
                             case Direction.Right:
@@ -474,7 +474,7 @@ namespace BatGame
                                 player.Screechdirection = Direction.Right;
                                 break;
                             case Direction.Left:
-                                cone = new Rectangle(player.RectX - 30, player.RectY - 13, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 60, player.RectY - 13, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(leftCone, cone, Color.Green);
                                 player.Screechdirection = Direction.Left;
                                 break;
@@ -484,12 +484,12 @@ namespace BatGame
                                 player.Screechdirection = Direction.Up;
                                 break;
                             case Direction.Down:
-                                cone = new Rectangle(player.RectX - 10, player.RectY + 8, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 8, player.RectY + 8, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(downCone, cone, Color.Green);
                                 player.Screechdirection = Direction.Down;
                                 break;
                             case Direction.UpLeft:
-                                cone = new Rectangle(player.RectX - 20, player.RectY - 13, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 18, player.RectY - 20, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(upLeftCone, cone, Color.Green);
                                 player.Screechdirection = Direction.UpLeft;
                                 break;
@@ -499,7 +499,7 @@ namespace BatGame
                                 player.Screechdirection = Direction.UpRight;
                                 break;
                             case Direction.DownLeft:
-                                cone = new Rectangle(player.RectX - 20, player.RectY + 2, 56, 56);  //makes the starting position of the wave
+                                cone = new Rectangle(player.RectX - 25, player.RectY, 56, 56);  //makes the starting position of the wave
                                 spriteBatch.Draw(downLeftCone, cone, Color.Green);
                                 player.Screechdirection = Direction.DownLeft;
                                 break;
@@ -510,6 +510,8 @@ namespace BatGame
                                 break;
                         }
                         player.Screech = false;
+                        player.ScreechTime = 150; //screech cooldown of 150 steps
+                        player.Screeching = true;
                     }
                     else if (player.Screeching == true)
                     {
@@ -517,17 +519,17 @@ namespace BatGame
                         {                       //wave will travel to end of the screen starting from edge of player's personal lightMask
                             //currently does not stop ever
                             case Direction.Right:
-                                Rectangle temp = new Rectangle(cone.X + 1, cone.Y - 6, cone.Width + 13, cone.Height + 12);
+                                Rectangle temp = new Rectangle(cone.X + 5, cone.Y - 6, cone.Width + 13, cone.Height + 12);
                                 cone = temp;
                                 spriteBatch.Draw(rightCone, cone, Color.Green);
                                 break;
                             case Direction.Left:
-                                temp = new Rectangle(cone.X - 8, cone.Y - 4, cone.Width + 10, cone.Height + 8);
+                                temp = new Rectangle(cone.X - 16, cone.Y - 4, cone.Width + 10, cone.Height + 8);
                                 cone = temp;
                                 spriteBatch.Draw(leftCone, cone, Color.Green);
                                 break;
                             case Direction.Up:
-                                temp = new Rectangle(cone.X - 5, cone.Y - 10, cone.Width + 10, cone.Height + 10);
+                                temp = new Rectangle(cone.X - 5, cone.Y - 11, cone.Width + 10, cone.Height + 10);
                                 cone = temp;
                                 spriteBatch.Draw(upCone, cone, Color.Green);
                                 break;
@@ -537,26 +539,28 @@ namespace BatGame
                                 spriteBatch.Draw(downCone, cone, Color.Green);
                                 break;
                             case Direction.UpLeft:
-                                temp = new Rectangle(cone.X - 8, cone.Y - 8, cone.Width + 12, cone.Height + 12);
+                                temp = new Rectangle(cone.X - 12, cone.Y - 10, cone.Width + 10, cone.Height + 10);
                                 cone = temp;
                                 spriteBatch.Draw(upLeftCone, cone, Color.Green);
                                 break;
                             case Direction.UpRight:
-                                temp = new Rectangle(cone.X + 2, cone.Y - 11, cone.Width + 14, cone.Height + 10);
+                                temp = new Rectangle(cone.X + 2, cone.Y - 11, cone.Width + 12, cone.Height + 10);
                                 cone = temp;
                                 spriteBatch.Draw(upRightCone, cone, Color.Green);
                                 break;
                             case Direction.DownLeft:
-                                temp = new Rectangle(cone.X - 10, cone.Y + 1, cone.Width + 11, cone.Height + 11);
+                                temp = new Rectangle(cone.X - 14, cone.Y + 1, cone.Width + 11, cone.Height + 11);
                                 cone = temp;
                                 spriteBatch.Draw(downLeftCone, cone, Color.Green);
                                 break;
                             case Direction.DownRight:
-                                temp = new Rectangle(cone.X + 2, cone.Y + 1, cone.Width + 11, cone.Height + 11);
+                                temp = new Rectangle(cone.X + 5, cone.Y + 2, cone.Width + 11, cone.Height + 11);
                                 cone = temp;
                                 spriteBatch.Draw(downRightCone, cone, Color.Green);
                                 break;
                         }
+                        if (player.ScreechTime > 0)
+                            player.ScreechTime--; //cooldown for echolocation decreasing
                     }
 
                     spriteBatch.End();

@@ -7,7 +7,7 @@ float4 PixelShaderFunction(float2 coords: TEXCOORD0) : COLOR0
 {
 	float4 color = tex2D(s0, coords);
 	float4 lightColor = tex2D(lightSampler, coords);
-	return color * (lightColor -.5f);	//brightens and darkens things based upon their actual color
+	return color * (lightColor -.61f);	//brightens and darkens things based upon their actual color
 }
 technique Technique1
 {
