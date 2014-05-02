@@ -208,14 +208,14 @@ namespace BatGame
                             break;
 
                         case "1":
-                            Immobiles tempFloor = new Immobiles(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            Floor tempFloor = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor;
                             immobilesManager.AddImmobile(tempFloor);
                             gameObjectManager.AddGameObject(tempFloor);
 
                             break;
                         case "e":
-                            Immobiles tempFloor2 = new Immobiles(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            Floor tempFloor2 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor2;
                             immobilesManager.AddImmobile(tempFloor2);
                             gameObjectManager.AddGameObject(tempFloor2);
@@ -226,7 +226,7 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempE);
                             break;
                         case "p":
-                            Immobiles tempFloor3 = new Immobiles(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            Floor tempFloor3 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor3;
                             immobilesManager.AddImmobile(tempFloor3);
                             gameObjectManager.AddGameObject(tempFloor3);

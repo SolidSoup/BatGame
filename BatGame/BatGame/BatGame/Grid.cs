@@ -331,5 +331,10 @@ namespace BatGame
                 tileWidthCount = value;
             }
         }
+
+        public QuadTangle[,] GetGrid
+        {
+            get { return grid; }
+        }
     }
 }

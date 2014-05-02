@@ -35,6 +35,28 @@ namespace BatGame
 
         Point locInGrid;
 
+        #region Astar fields
+        private List<QuadTangle> neighborList;
+        private QuadTangle parent;
+        private QuadTangle upNeighbor;
+        private QuadTangle downNeighbor;
+        private QuadTangle leftNeighbor;
+        private QuadTangle rightNeighbor;
+        private QuadTangle upleftNeighbor;
+        private QuadTangle uprightNeighbor;
+        private QuadTangle downleftNeighbor;
+        private QuadTangle downrightNeighbor;
+
+        private int distanceToEnd;
+        private int distanceFromStart;
+        private int pathcost;
+
+        private int rank;
+
+
+        private GameObject objInTangle;
+        #endregion
+
         public QuadTangle(int x, int y, int width, int height, bool tl, bool tr, bool bl, bool br, Point loc)
         {
             rect = new Rectangle(x, y, width, height);
@@ -49,6 +71,20 @@ namespace BatGame
             bRightFull = br;
 
             locInGrid = loc;
+
+            rank = 0;
+
+            parent = null;
+            upNeighbor = null;
+            downNeighbor = null;
+            leftNeighbor = null;
+            rightNeighbor = null;
+            upleftNeighbor = null;
+            uprightNeighbor = null;
+            downleftNeighbor = null;
+            downrightNeighbor = null;
+
+            neighborList = new List<QuadTangle>();
         }
 
         public QuadTangle(Rectangle rect, bool tl, bool tr, bool bl, bool br, Point loc)
@@ -65,6 +101,20 @@ namespace BatGame
             bRightFull = br;
 
             locInGrid = loc;
+
+            rank = 0;
+
+            parent = null;
+            upNeighbor = null;
+            downNeighbor = null;
+            leftNeighbor = null;
+            rightNeighbor = null;
+            upleftNeighbor = null;
+            uprightNeighbor = null;
+            downleftNeighbor = null;
+            downrightNeighbor = null;
+
+            neighborList = new List<QuadTangle>();
         }
 
         public static implicit operator Rectangle(QuadTangle q)
@@ -192,5 +242,98 @@ namespace BatGame
                 locInGrid = value;
             }
         }
+
+        #region Astar properties
+        public List<QuadTangle> NeighborList
+        {
+            get { return neighborList; }
+            set { neighborList = value; }
+        }
+
+        public QuadTangle Parent
+        {
+            get { return parent; }
+            set { parent = value; }
+        }
+
+        public QuadTangle UpNeighbor
+        {
+            get { return upNeighbor; }
+            set { upNeighbor = value; }
+        }
+
+        public QuadTangle DownNeighbor
+        {
+            get { return downNeighbor; }
+            set { downNeighbor = value; }
+        }
+
+        public QuadTangle LeftNeighbor
+        {
+            get { return leftNeighbor; }
+            set { leftNeighbor = value; }
+        }
+
+        public QuadTangle RightNeighbor
+        {
+            get { return rightNeighbor; }
+            set { rightNeighbor = value; }
+        }
+
+        public QuadTangle UpLeftNeighbor
+        {
+            get { return upleftNeighbor; }
+            set { upleftNeighbor = value; }
+        }
+
+        public QuadTangle DownRightNeighbor
+        {
+            get { return downrightNeighbor; }
+            set { downrightNeighbor = value; }
+        }
+
+        public QuadTangle DownLeftNeighbor
+        {
+            get { return downleftNeighbor; }
+            set { downleftNeighbor = value; }
+        }
+
+        public QuadTangle UpRightNeighbor
+        {
+            get { return uprightNeighbor; }
+            set { uprightNeighbor = value; }
+        }
+
+        public int DistanceFromStart
+        {
+            get { return distanceFromStart; }
+            set { distanceFromStart = value; }
+        }
+
+        public int DistanceToEnd
+        {
+            get { return distanceToEnd; }
+            set { distanceToEnd = value; }
+        }
+
+        public int PathCost
+        {
+            get { return pathcost; }
+            set { pathcost = value; }
+        }
+
+        public int Rank
+        {
+            get { return rank; }
+            set { rank = value; }
+        }
+
+
+        public GameObject ObjInTangle
+        {
+            get { return objInTangle; }
+            set { objInTangle = value; }
+        }
+        #endregion
     }
 }

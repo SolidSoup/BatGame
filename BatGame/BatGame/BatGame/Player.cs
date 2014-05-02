@@ -26,6 +26,14 @@ namespace BatGame
         bool shriek; //keep track if bat can shriek
         bool shrieking; //shriek is handled in a similar way to screech
 
+        private Grid grid;
+        private QuadTangle currentQuadtangle;
+
+        public QuadTangle CurrentQuadTangle
+        {
+            get { return currentQuadtangle; }
+        }
+
         public bool Shrieking
         {
             get { return shrieking; }
@@ -87,6 +95,9 @@ namespace BatGame
             screech = false;
             screeching = false;
             shriek = false;
+
+            grid = g;
+            currentQuadtangle = grid.getGridSquare(Position);
         }
 
         public void PlayerUpdate()
