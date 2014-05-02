@@ -23,7 +23,20 @@ namespace BatGame
         bool screeching; //to keep track of screech movement
         Direction screechdirection;
         PlayerState playerState;
+        bool shriek; //keep track if bat can shriek
+        bool shrieking; //shriek is handled in a similar way to screech
 
+        public bool Shrieking
+        {
+            get { return shrieking; }
+            set { shrieking = value; }
+        }
+
+        public bool Shriek
+        {
+            get { return shriek; }
+            set { shriek = value; }
+        }
 
         internal Direction Screechdirection
         {
@@ -73,6 +86,7 @@ namespace BatGame
             screechTime = 0;
             screech = false;
             screeching = false;
+            shriek = false;
         }
 
         public void PlayerUpdate()
@@ -248,7 +262,16 @@ namespace BatGame
             {
                 screech = true;
             }
-            
+            //shriek if off cooldown
+            if (shriek == true)
+            {
+                shrieking = true;
+                shriek = false;
+            }
+            if (state.IsKeyDown(Keys.LeftShift) && shriek == false && screechTime == 0)
+            {
+                shriek = true;
+            }
         }
 
         public void PlayerDraw(Texture2D playerText)

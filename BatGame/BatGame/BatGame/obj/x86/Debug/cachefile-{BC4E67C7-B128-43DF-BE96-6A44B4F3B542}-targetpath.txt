@@ -37,8 +37,16 @@ Content\Sprites\Corners\UpLeftCorner.xnb
 Content\Sprites\Corners\UpRightCorner.xnb
 Content\Sprites\Bat_Sprites\Flying_Bat.xnb
 Content\Sprites\Bat_Sprites\Idle_Bat.xnb
+Content\Sprites\Interactables\web_bloody.xnb
+Content\Sprites\Shriek\downLeftShriek.xnb
+Content\Sprites\Shriek\downRightShriek.xnb
+Content\Sprites\Shriek\downShriek.xnb
+Content\Sprites\Shriek\leftShriek.xnb
+Content\Sprites\Shriek\rightShriek.xnb
+Content\Sprites\Shriek\upLeftShriek.xnb
+Content\Sprites\Shriek\upRightShriek.xnb
+Content\Sprites\Shriek\upShriek.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
-Content\Sprites\Interactables\web_bloody.xnb
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt

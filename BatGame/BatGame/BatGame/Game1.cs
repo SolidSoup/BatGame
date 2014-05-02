@@ -55,7 +55,20 @@ namespace BatGame
         Texture2D downRightCone;
         Texture2D downLeftCone;
 
+        Texture2D rightShriek;
+        Texture2D leftShriek;
+        Texture2D upShriek;
+        Texture2D downShriek;
+        Texture2D upRightShriek;
+        Texture2D upLeftShriek;
+        Texture2D downRightShriek;
+        Texture2D downLeftShriek;
+
+        Point shriekStart;
+
         Rectangle cone;
+
+        Shriek shriek;
 
         RenderTarget2D lightsTarget;
         RenderTarget2D mainTarget;
@@ -126,6 +139,7 @@ namespace BatGame
 
             spriteDictionary = new Dictionary<string, Texture2D>();
             //aniFarm = new AnimationFarm(spriteBatch);
+            shriek = null;
             playerAnimation = new AnimationFarm(playerImage, 0, 32, 32);
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right,
                 SubSquares.TopLeft, true, 0, .1, true, 0);
@@ -172,6 +186,30 @@ namespace BatGame
             spriteDictionary.Add("downRightCone", downRightCone);
 
             lightingEffect = Content.Load<Effect>("Shader_Tools/lightingeffect");
+
+            downRightShriek = Content.Load<Texture2D>("Sprites/Shriek/downRightShriek");
+            spriteDictionary.Add("downRightShriek", downRightShriek);
+
+            downLeftShriek = Content.Load<Texture2D>("Sprites/Shriek/downLeftShriek");
+            spriteDictionary.Add("downLeftShriek", downLeftShriek);
+
+            downShriek = Content.Load<Texture2D>("Sprites/Shriek/downShriek");
+            spriteDictionary.Add("downShriek", downShriek);
+
+            upRightShriek = Content.Load<Texture2D>("Sprites/Shriek/upRightShriek");
+            spriteDictionary.Add("upnRightShriek", upRightShriek);
+
+            upLeftShriek = Content.Load<Texture2D>("Sprites/Shriek/upLeftShriek");
+            spriteDictionary.Add("upLeftShriek", upLeftShriek);
+
+            upShriek = Content.Load<Texture2D>("Sprites/Shriek/upShriek");
+            spriteDictionary.Add("upShriek", upShriek);
+
+            rightShriek = Content.Load<Texture2D>("Sprites/Shriek/rightShriek");
+            spriteDictionary.Add("rightShriek", rightShriek);
+
+            leftShriek = Content.Load<Texture2D>("Sprites/Shriek/leftShriek");
+            spriteDictionary.Add("leftShriek", leftShriek);
 
             var pp = GraphicsDevice.PresentationParameters;
             lightsTarget = new RenderTarget2D(
@@ -299,6 +337,47 @@ namespace BatGame
             switch (gameState)
             {
                 case GameState.game:
+                    //too much code in Game1 is super bad, but it'll be sorted out later
+                    if (player.Shriek == true)
+                    {
+                        shriekStart = new Point(player.PosX, player.PosY);
+                        switch (player.Facing)  //switch statement draws shriek wherever the player is facing
+                        {
+                            case Direction.Right:
+                                shriek = new Shriek(rightShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .3, true, 0, Direction.Right);
+                                break;
+                            case Direction.Left:
+                                shriek = new Shriek(leftShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.Left);
+                                break;
+                            case Direction.Up:
+                                shriek = new Shriek(upShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.Up);
+                                break;
+                            case Direction.Down:
+                                shriek = new Shriek(downShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.Down);
+                                break;
+                            case Direction.UpLeft:
+                                shriek = new Shriek(upLeftShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.UpLeft);
+                                break;
+                            case Direction.UpRight:
+                                shriek = new Shriek(upRightShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.UpRight);
+                                break;
+                            case Direction.DownLeft:
+                                shriek = new Shriek(downLeftShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.DownLeft);
+                                break;
+                            case Direction.DownRight:
+                                shriek = new Shriek(downRightShriek, gameObjectManager, shriekStart, grid, Direction.Right, player.MiniSquare, true, 0, .05, true, 0, Direction.DownRight);
+                                break;
+                        }
+                        gameObjectManager.AddGameObject(shriek);
+                        player.ScreechTime = 250; //cooldown length
+                    }
+                    if (player.Shrieking == true && shriek != null)
+                    {
+                        shriek.Update(gameTime);
+                        if (player.ScreechTime > 0)
+                            player.ScreechTime--; //cooldown
+                    }
+
                     player.PlayerUpdate();
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     enemyManager.EManagerUpdate(gameTime, player);
@@ -588,6 +667,12 @@ namespace BatGame
                     immobilesManager.IManagerDrawBack(spriteBatch);
                     //gameObjectManager.GManagerDraw(spriteBatch);
                     //spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+                    
+                    if (player.Shrieking == true && shriek != null) //draws shriek
+                    {
+                        shriek.Draw(spriteBatch);
+                    }
+
                     enemyManager.EManagerDraw(spriteBatch);
                     immobilesManager.IManagerDrawFront(spriteBatch);
 

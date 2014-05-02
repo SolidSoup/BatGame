@@ -21,6 +21,8 @@ namespace BatGame
         int steps;
         double waitTime;
         double distance;
+        int stunTime;
+        double savedSpeed;
 
         public Enemy(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time, bool detect)
             : base(t, go, p, g, d, sub, s, m, speed, a)
@@ -29,6 +31,8 @@ namespace BatGame
             this.detected = detect;
             this.Facing = Direction.Right;
             this.waitTime = .75;
+            this.stunTime = 1000;
+            savedSpeed = speed;
         }
 
         //meant to overriden for each enemy
@@ -40,6 +44,14 @@ namespace BatGame
                 if (g is SpiderWeb)
                 {
                     IsActive = false;
+                }
+                else if (g is Shriek)
+                {
+                    Shriek temp = (Shriek)(g);
+                    if (temp.IsActive)
+                    {
+                        waitTime = 1.5;
+                    }
                 }
             }
             if (IsActive == true)
