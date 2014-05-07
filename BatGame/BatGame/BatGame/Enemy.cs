@@ -35,6 +35,9 @@ namespace BatGame
         List<QuadTangle> open = new List<QuadTangle>();
         List<QuadTangle> closed = new List<QuadTangle>();
         Player playerPos;
+
+        QuadTangle[,] graph;
+
         #endregion
 
         public Enemy(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, double speed, double m, bool a, int time, bool detect)
@@ -50,6 +53,8 @@ namespace BatGame
             grid = g;
             gom = go;
             locInGrid = grid.getGridSquare(Position);
+
+            graph = grid.GetGrid;
         }
 
         //meant to overriden for each enemy
@@ -84,10 +89,12 @@ namespace BatGame
                     {
                         detected = true;
                     }
+                    else if (distance > 1000)
+                        detected = false;
 
                     if (detected == true)
                     {
-                        ShortestPathAI(player);
+                        Pathfinding(player);
                     }
 
                     UndetectedMovement();
@@ -194,9 +201,93 @@ namespace BatGame
         {
 
 
-            QuadTangle[,] graph = grid.GetGrid;
+            Reset();
 
-            #region Reset
+            SetUpGraph();
+
+
+
+            SetUpNeighbors();
+
+
+
+            //adds the start to the beginning
+            Enqueue(locInGrid);
+
+            //The main A* loop
+            while (!IsEmpty() && (Peek().LocInGrid.X != playerPos.CurrentQuadTangle.LocInGrid.X || Peek().LocInGrid.Y != playerPos.CurrentQuadTangle.LocInGrid.Y))
+            {
+                current = Dequeue(0);
+                closed.Add(current);
+
+                float cost = G(current) + 10;
+
+                //goes through the currents neighbor list to compare costs
+                foreach (QuadTangle q in current.NeighborList)
+                {
+                    //compares cuurents cost to the tiles cost if the tile is still in open
+                    if (open.Contains(q) && cost < G(q))
+                    {
+                        Dequeue(open.IndexOf(q));
+                    }
+                    //compares cost of current and tile if the tile is in closed
+                    if (closed.Contains(q) && cost < G(q))
+                    {
+                        closed.Remove(q);
+                    }
+                    //if the tile isnt in open or in closed at this point, then set its parent to current, making it a part of the path, and move on
+                    if (!open.Contains(q) && !closed.Contains(q))
+                    {
+                        q.DistanceFromStart = cost;
+                        q.Rank = F(q);
+                        q.Parent = current;
+                        Enqueue(q);
+
+                    }
+
+                }
+
+            }
+
+
+
+            QuadTangle Pathq = playerPos.CurrentQuadTangle;
+            List<QuadTangle> AstarList = new List<QuadTangle>();
+            foreach (QuadTangle q in graph)
+            {
+                if (playerPos.CurrentQuadTangle.LocInGrid == q.LocInGrid)
+                {
+                    Pathq = q;
+                    break;
+                }
+            }
+
+            //makes a list of the path through parent nodes
+            while (Pathq.Parent != null)
+            {
+                AstarList.Add(Pathq.Parent);
+                Pathq = Pathq.Parent;
+            }
+
+            //reverses the list
+            List<QuadTangle> AstarList2 = new List<QuadTangle>();
+            for (int i = AstarList.Count - 1; i > -1; i--)
+            {
+                AstarList2.Add(AstarList[i]);
+            }
+
+
+            SetDirectionToMove(AstarList2[1]);
+
+        }
+        #region Astar helper methods
+        #region Most A star helper methods
+
+        /// <summary>
+        /// Resets all of the nodes for A*
+        /// </summary>
+        public void Reset()
+        {
             foreach (QuadTangle q in graph)
             {
 
@@ -220,9 +311,13 @@ namespace BatGame
             current = null;
             open.Clear();
             closed.Clear();
-            #endregion
+        }
 
-            #region set up graph array
+        /// <summary>
+        /// Sets up the graph 2d array of nodes
+        /// </summary>
+        public void SetUpGraph()
+        {
             List<GameObject> objinspot = new List<GameObject>();
 
             foreach (QuadTangle Q in graph)
@@ -251,11 +346,13 @@ namespace BatGame
 
 
             }
-            #endregion
+        }
 
-
-
-            #region Set the nodes neighbors
+        /// <summary>
+        /// Sets up the neighbors of all of the nodes
+        /// </summary>
+        public void SetUpNeighbors()
+        {
             for (int i = 0; i < graph.GetLength(0); i++)
             {
                 for (int j = 0; j < graph.GetLength(1); j++)
@@ -331,95 +428,23 @@ namespace BatGame
                 }
             }
 
-            #endregion
-
-
-
-            //adds the start to the beginning
-            Enqueue(locInGrid);
-
-            //The main A* loop
-            while (!IsEmpty() && (Peek().LocInGrid.X != playerPos.CurrentQuadTangle.LocInGrid.X || Peek().LocInGrid.Y != playerPos.CurrentQuadTangle.LocInGrid.Y))
-            {
-                current = Dequeue(0);
-                closed.Add(current);
-
-                int cost = G(current) + 10;
-
-                //goes through the currents neighbor list to compare costs
-                foreach (QuadTangle q in current.NeighborList)
-                {
-                    //compares cuurents cost to the tiles cost if the tile is still in open
-                    if (open.Contains(q) && cost < G(q))
-                    {
-                        Dequeue(open.IndexOf(q));
-                    }
-                    //compares cost of current and tile if the tile is in closed
-                    if (closed.Contains(q) && cost < G(q))
-                    {
-                        closed.Remove(q);
-                    }
-                    //if the tile isnt in open or in closed at this point, then set its parent to current, making it a part of the path, and move on
-                    if (!open.Contains(q) && !closed.Contains(q))
-                    {
-                        q.DistanceFromStart = cost;
-                        q.Rank = F(q);
-                        q.Parent = current;
-                        Enqueue(q);
-
-                    }
-
-                }
-
-            }
-
-
-
-            QuadTangle Pathq = playerPos.CurrentQuadTangle;
-            List<QuadTangle> AstarList = new List<QuadTangle>();
-            foreach (QuadTangle q in graph)
-            {
-                if (playerPos.CurrentQuadTangle.LocInGrid == q.LocInGrid)
-                {
-                    Pathq = q;
-                    break;
-                }
-            }
-
-            //makes a list of the path through parent nodes
-            while (Pathq.Parent != null)
-            {
-                AstarList.Add(Pathq.Parent);
-                Pathq = Pathq.Parent;
-            }
-
-            //reverses the list
-            List<QuadTangle> AstarList2 = new List<QuadTangle>();
-            for (int i = AstarList.Count - 1; i > -1; i--)
-            {
-                AstarList2.Add(AstarList[i]);
-            }
-
-
-            SetDirectionToMove(AstarList2[1]);
-
         }
-        #region Astar helper methods
-        #region Most A star helper methods
+
         /// <summary>
         /// The hueristic algorithm
         /// </summary>
         /// <param name="t">the tile</param>
         /// <returns></returns>
-        private int H(QuadTangle q)
+        private float H(QuadTangle q)
         {
-            int xDistance = Math.Abs(locInGrid.LocInGrid.X - q.LocInGrid.X);
-            int yDistance = Math.Abs(locInGrid.LocInGrid.Y - q.LocInGrid.Y);
-            if (xDistance > yDistance)
-                q.DistanceToEnd = 14 * yDistance + 10 * (xDistance - yDistance);
-            else
-                q.DistanceToEnd = 14 * xDistance + 10 * (yDistance - xDistance);
+            //int xDistance = Math.Abs(locInGrid.LocInGrid.X - q.LocInGrid.X);
+            //int yDistance = Math.Abs(locInGrid.LocInGrid.Y - q.LocInGrid.Y);
+            //if (xDistance > yDistance)
+            //    q.DistanceToEnd = 14 * yDistance + 10 * (xDistance - yDistance);
+            //else
+            //    q.DistanceToEnd = 14 * xDistance + 10 * (yDistance - xDistance);
 
+            q.DistanceToEnd = (float) Math.Sqrt(Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.X - q.LocInGrid.X), 2) + Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.Y - q.LocInGrid.Y), 2));
             return q.DistanceToEnd;
         }
 
@@ -428,7 +453,7 @@ namespace BatGame
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public int G(QuadTangle q)
+        public float G(QuadTangle q)
         {
             return q.DistanceFromStart;
         }
@@ -438,7 +463,7 @@ namespace BatGame
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public int F(QuadTangle q)
+        public float F(QuadTangle q)
         {
             current.PathCost = G(q) + H(q);
             return current.PathCost;
@@ -565,6 +590,146 @@ namespace BatGame
             }
         }
         #endregion
+
+        public void Pathfinding(Player player)
+        {
+            SetUpGraph();
+            SetUpNeighbors();
+
+            int graphx = 0;
+            int graphy = 0;
+            bool done = false;
+            #region find enemy in graph
+            for (int i = 0; i < graph.GetLength(0); i++)
+            {
+                for (int j = 0; j < graph.GetLength(1); j++)
+                {
+                    if (graph[i, j].LocInGrid == locInGrid.LocInGrid)
+                    {
+                        graphx = i;
+                        graphy = j;
+                        done = true;
+                    }
+                }
+                if (done)
+                    break;
+            }
+            #endregion
+
+
+            //up left
+            if (player.PosX < this.PosX && player.PosY < this.PosY)
+            {
+                if (graph[graphx, graphy].UpLeftNeighbor != null)
+                    Facing = Direction.UpLeft;
+                else if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.Up;
+                else if (graph[graphx, graphy].LeftNeighbor != null)
+                    Facing = Direction.Left;
+                else
+                    Facing = Direction.DownRight;
+
+            }   //up right
+            else if (player.PosX > this.PosX && player.PosY < this.PosY)
+            {
+                if(graph[graphx, graphy].UpRightNeighbor != null)
+                    Facing = Direction.UpRight;
+                else if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.Up;
+                else if (graph[graphx, graphy].RightNeighbor != null)
+                    Facing = Direction.Right;
+                else
+                    Facing = Direction.DownLeft;
+
+            }   //down left
+            else if (player.PosX < this.PosX && player.PosY > this.PosY)
+            {
+                if(graph[graphx, graphy].DownLeftNeighbor != null)
+                    Facing = Direction.DownLeft;
+                else if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.Down;
+                else if (graph[graphx, graphy].LeftNeighbor != null)
+                    Facing = Direction.Left;
+                else
+                    Facing = Direction.UpRight;
+
+            }   //down right
+            else if (player.PosX > this.PosX && player.PosY > this.PosY)
+            {
+                if (graph[graphx, graphy].DownRightNeighbor != null)
+                    Facing = Direction.DownRight;
+                else if (graph[graphx, graphy].DownNeighbor != null)
+                    Facing = Direction.Down;
+                else if (graph[graphx, graphy].RightNeighbor != null)
+                    Facing = Direction.Right;
+                else
+                    Facing = Direction.UpLeft;
+
+            }   //left
+            else if (player.PosX < this.PosX)
+            {
+                if (graph[graphx, graphy].LeftNeighbor != null)
+                    Facing = Direction.Left;
+                else if (graph[graphx, graphy].UpLeftNeighbor != null)
+                    Facing = Direction.UpLeft;
+                else if (graph[graphx, graphy].DownLeftNeighbor != null)
+                    Facing = Direction.DownLeft;
+                else if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.Up;
+                else if (graph[graphx, graphy].DownNeighbor != null)
+                    Facing = Direction.Down;
+                else
+                    Facing = Direction.Right;
+
+            }   //right
+            else if (player.PosX > this.PosX)
+            {
+                if (graph[graphx, graphy].RightNeighbor != null)
+                    Facing = Direction.Right;
+                else if (graph[graphx, graphy].UpRightNeighbor != null)
+                    Facing = Direction.UpRight;
+                else if (graph[graphx, graphy].DownRightNeighbor != null)
+                    Facing = Direction.DownRight;
+                else if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.Up;
+                else if (graph[graphx, graphy].DownNeighbor != null)
+                    Facing = Direction.Down;
+                else
+                    Facing = Direction.Left;
+
+            }   //up
+            else if (player.PosY < this.PosY)
+            {
+                if (graph[graphx, graphy].UpNeighbor != null)
+                    Facing = Direction.UpLeft;
+                else if (graph[graphx, graphy].UpLeftNeighbor != null)
+                    Facing = Direction.UpLeft;
+                else if (graph[graphx, graphy].UpRightNeighbor != null)
+                    Facing = Direction.UpRight;
+                else if (graph[graphx, graphy].LeftNeighbor != null)
+                    Facing = Direction.Left;
+                else if (graph[graphx, graphy].RightNeighbor != null)
+                    Facing = Direction.Right;
+                else
+                    Facing = Direction.Down;
+
+            }   //down
+            else if (player.PosY > this.PosY)
+            {
+                if (graph[graphx, graphy].DownNeighbor != null)
+                    Facing = Direction.Down;
+                else if (graph[graphx, graphy].DownLeftNeighbor != null)
+                    Facing = Direction.DownLeft;
+                else if (graph[graphx, graphy].DownRightNeighbor != null)
+                    Facing = Direction.DownRight;
+                else if (graph[graphx, graphy].LeftNeighbor != null)
+                    Facing = Direction.Left;
+                else if (graph[graphx, graphy].RightNeighbor != null)
+                    Facing = Direction.Right;
+                else
+                    Facing = Direction.Up;
+            }
+        }
 
         public void ShortestPathAI(Player player)
         {

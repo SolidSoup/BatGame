@@ -48,11 +48,11 @@ namespace BatGame
         private QuadTangle downleftNeighbor;
         private QuadTangle downrightNeighbor;
 
-        private int distanceToEnd;
-        private int distanceFromStart;
-        private int pathcost;
+        private float distanceToEnd;
+        private float distanceFromStart;
+        private float pathcost;
 
-        private int rank;
+        private float rank;
 
 
         private GameObject objInTangle;
@@ -74,6 +74,9 @@ namespace BatGame
             locInGrid = loc;
 
             rank = 0;
+            distanceFromStart = 0;
+            distanceToEnd = 0;
+            pathcost = 0;
 
             parent = null;
             upNeighbor = null;
@@ -104,6 +107,9 @@ namespace BatGame
             locInGrid = loc;
 
             rank = 0;
+            distanceFromStart = 0;
+            distanceToEnd = 0;
+            pathcost = 0;
 
             parent = null;
             upNeighbor = null;
@@ -305,25 +311,25 @@ namespace BatGame
             set { uprightNeighbor = value; }
         }
 
-        public int DistanceFromStart
+        public float DistanceFromStart
         {
             get { return distanceFromStart; }
             set { distanceFromStart = value; }
         }
 
-        public int DistanceToEnd
+        public float DistanceToEnd
         {
             get { return distanceToEnd; }
             set { distanceToEnd = value; }
         }
 
-        public int PathCost
+        public float PathCost
         {
             get { return pathcost; }
             set { pathcost = value; }
         }
 
-        public int Rank
+        public float Rank
         {
             get { return rank; }
             set { rank = value; }
