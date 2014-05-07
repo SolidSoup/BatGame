@@ -294,7 +294,7 @@ namespace BatGame
 
             // LoadMap("Content/level1.txt");
             level1 = new Level("Content/Levels/level1.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
-            //level2 = new Level("Content/Levels/level2.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level2 = new Level("Content/Levels/level2.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
 
 
             //check = level1.loadLevel();
@@ -422,6 +422,19 @@ namespace BatGame
                             gameState = GameState.level2;
                         }
                     }
+                    if (player.FinishedLevel == true)
+                    {
+                        if (currentLevel.Equals("level1"))
+                        {
+                            gameState = GameState.level2;
+                        }
+                        if (currentLevel.Equals("level2"))
+                        {
+                            //gameState = GameState.level2;
+                        }
+                    }
+
+
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
                     base.Update(gameTime);
                     break;
@@ -464,6 +477,7 @@ namespace BatGame
                                 writer.Write(player.PosX);
                                 writer.Write(player.PosY);
                             }
+                            gameState = GameState.game;
                         }
                     }
 
@@ -673,7 +687,7 @@ namespace BatGame
 
 
                     GraphicsDevice.SetRenderTarget(mainTarget);
-                    GraphicsDevice.Clear(Color.SaddleBrown);
+                    GraphicsDevice.Clear(Color.Black);
                     spriteBatch.Begin();
 
                     // TODO: Add your drawing code here

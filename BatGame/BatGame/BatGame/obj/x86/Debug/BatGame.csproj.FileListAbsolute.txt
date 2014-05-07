@@ -510,3 +510,4 @@ F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.csprojResolveAssemblyR
 F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt

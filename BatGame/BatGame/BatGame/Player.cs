@@ -26,6 +26,7 @@ namespace BatGame
         PlayerState playerState;
         bool shriek; //keep track if bat can shriek
         bool shrieking; //shriek is handled in a similar way to screech
+        bool finishedLevel;
 
         private Grid grid;
         private QuadTangle currentQuadtangle;
@@ -71,6 +72,14 @@ namespace BatGame
             set { screech = value; }
         }
 
+        public bool FinishedLevel
+        {
+            get
+            {
+                return finishedLevel;
+            }
+        }
+
 
 
 
@@ -96,6 +105,7 @@ namespace BatGame
             screech = false;
             screeching = false;
             shriek = false;
+            finishedLevel = false;
 
             grid = g;
             currentQuadtangle = grid.getGridSquare(Position);
@@ -321,6 +331,10 @@ namespace BatGame
                     {
                         this.hits++;
                     }
+                }
+                if (g is Exit)
+                {
+                    finishedLevel = true;
                 }
             }
         }

@@ -36,7 +36,7 @@ namespace BatGame
             }
             else
             {
-                spriteBatch.Draw(texture, rect, Color.Red);
+                spriteBatch.Draw(texture, rect, Color.LightBlue);
             }
         }
         public Rectangle Rect

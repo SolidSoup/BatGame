@@ -267,6 +267,12 @@ namespace BatGame
                             immobilesManager.AddImmobile(tempSkull);
                             gameObjectManager.AddGameObject(tempSkull);
                             break;
+                        case "^":
+                            Exit tempExit = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true);
+                            levelObjectArray[i, j] = tempExit;
+                            immobilesManager.AddImmobile(tempExit);
+                            gameObjectManager.AddGameObject(tempExit);
+                            break;
                     }
                 }
             }
