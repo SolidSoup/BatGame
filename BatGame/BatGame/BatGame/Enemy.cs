@@ -52,7 +52,7 @@ namespace BatGame
 
             grid = g;
             gom = go;
-            locInGrid = grid.getGridSquare(Position);
+
 
             graph = grid.GetGrid;
         }
@@ -61,6 +61,7 @@ namespace BatGame
         public virtual void EnemyUpdate(GameTime gameTime, Player player)
         {
             playerPos = player;
+            locInGrid = grid.getGridSquare(Position);
             List<GameObject> objects = GManager.inSpot(Position);
             foreach (GameObject g in objects)
             {
@@ -444,7 +445,7 @@ namespace BatGame
             //else
             //    q.DistanceToEnd = 14 * xDistance + 10 * (yDistance - xDistance);
 
-            q.DistanceToEnd = (float) Math.Sqrt(Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.X - q.LocInGrid.X), 2) + Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.Y - q.LocInGrid.Y), 2));
+            q.DistanceToEnd = (float)Math.Sqrt(Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.X - q.LocInGrid.X), 2) + Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.Y - q.LocInGrid.Y), 2));
             return q.DistanceToEnd;
         }
 
@@ -593,6 +594,7 @@ namespace BatGame
 
         public void Pathfinding(Player player)
         {
+            Reset();
             SetUpGraph();
             SetUpNeighbors();
 
@@ -632,7 +634,7 @@ namespace BatGame
             }   //up right
             else if (player.PosX > this.PosX && player.PosY < this.PosY)
             {
-                if(graph[graphx, graphy].UpRightNeighbor != null)
+                if (graph[graphx, graphy].UpRightNeighbor != null)
                     Facing = Direction.UpRight;
                 else if (graph[graphx, graphy].UpNeighbor != null)
                     Facing = Direction.Up;
@@ -644,9 +646,9 @@ namespace BatGame
             }   //down left
             else if (player.PosX < this.PosX && player.PosY > this.PosY)
             {
-                if(graph[graphx, graphy].DownLeftNeighbor != null)
+                if (graph[graphx, graphy].DownLeftNeighbor != null)
                     Facing = Direction.DownLeft;
-                else if (graph[graphx, graphy].UpNeighbor != null)
+                else if (graph[graphx, graphy].DownNeighbor != null)
                     Facing = Direction.Down;
                 else if (graph[graphx, graphy].LeftNeighbor != null)
                     Facing = Direction.Left;
@@ -701,7 +703,7 @@ namespace BatGame
             else if (player.PosY < this.PosY)
             {
                 if (graph[graphx, graphy].UpNeighbor != null)
-                    Facing = Direction.UpLeft;
+                    Facing = Direction.Up;
                 else if (graph[graphx, graphy].UpLeftNeighbor != null)
                     Facing = Direction.UpLeft;
                 else if (graph[graphx, graphy].UpRightNeighbor != null)
@@ -808,3 +810,4 @@ namespace BatGame
         }
     }
 }
+

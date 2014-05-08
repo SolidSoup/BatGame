@@ -511,3 +511,8 @@ F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.Runtim
 F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 F:\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
 C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\danceMusic.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\danceMusic.wma
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
