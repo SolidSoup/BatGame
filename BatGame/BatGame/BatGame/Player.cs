@@ -108,7 +108,7 @@ namespace BatGame
             finishedLevel = false;
 
             grid = g;
-            currentQuadtangle = grid.getGridSquare(Position);
+            
         }
 
         public void PlayerUpdate()
@@ -294,6 +294,8 @@ namespace BatGame
             {
                 shriek = true;
             }
+
+            currentQuadtangle = grid.getGridSquare(Position);
         }
 
         public void PlayerDraw(Texture2D playerText)

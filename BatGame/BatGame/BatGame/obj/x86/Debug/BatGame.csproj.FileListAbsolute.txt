@@ -516,3 +516,9 @@ C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Con
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
+J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
+J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
+J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
+F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
+F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
+F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
