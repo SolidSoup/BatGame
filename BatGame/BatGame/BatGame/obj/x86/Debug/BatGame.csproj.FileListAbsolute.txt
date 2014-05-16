@@ -516,9 +516,25 @@ C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Con
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
+<<<<<<< HEAD
 J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
 J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
 J:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
 F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
 F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
 F:\Bat Game\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
+=======
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\downLeftShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\downRightShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\downShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\leftShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\rightShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\upLeftShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\upRightShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shriek\upShriek.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\danceMusic.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\danceMusic.wma
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\level2.txt
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test2level2.txt
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\test3level2.txt
+>>>>>>> 4ee61ee4f7021f07a4dd94eef51806a3e7bbbbe2
