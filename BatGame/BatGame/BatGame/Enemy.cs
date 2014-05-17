@@ -30,6 +30,9 @@ namespace BatGame
 
         QuadTangle locInGrid;
 
+        Point startPoint;
+        bool needToFindStart;
+
         #region Astar fields
         QuadTangle current;
         List<QuadTangle> open = new List<QuadTangle>();
@@ -53,8 +56,9 @@ namespace BatGame
             grid = g;
             gom = go;
 
+            startPoint = p;
+            needToFindStart = false;
 
-            
         }
 
         //meant to overriden for each enemy
@@ -79,6 +83,12 @@ namespace BatGame
                     }
                 }
             }
+            List<GameObject> playerObjects = GManager.inSpot(playerPos.Position);
+            foreach (GameObject g in playerObjects)
+            {
+                if (g is Skull)
+                    detected = false;
+            }
             if (IsActive == true)
             {
                 waitTime -= (double)gameTime.ElapsedGameTime.TotalSeconds;
@@ -92,13 +102,19 @@ namespace BatGame
                         detected = true;
                     }
                     else if (distance > 100)
+                    {
+                        if (detected)
+                            needToFindStart = true;
                         detected = false;
+                    }
 
                     if (detected == true)
                     {
-                        Pathfinding(player);
+                        Astar();
+                        //Pathfinding(player);
                     }
-
+                    else if (needToFindStart)
+                        Astart();
                     UndetectedMovement();
                     Move();
 
@@ -114,7 +130,7 @@ namespace BatGame
                 PosY--;
                 steps++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                if (steps > 3 && detected == false)
+                if (steps > 3 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Right;
@@ -127,7 +143,7 @@ namespace BatGame
                 PosX--;
                 steps++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                if (steps > 3 && detected == false)
+                if (steps > 3 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Up;
@@ -140,7 +156,7 @@ namespace BatGame
                 PosY++;
                 steps++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                if (steps > 3 && detected == false)
+                if (steps > 3 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Left;
@@ -154,7 +170,7 @@ namespace BatGame
                 PosX++;
                 steps++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                if (steps > 3 && detected == false)
+                if (steps > 3 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Down;
@@ -212,7 +228,7 @@ namespace BatGame
             SetUpNeighbors();
 
 
-
+            #region Astar main loop for player
             //adds the start to the beginning
             Enqueue(locInGrid);
 
@@ -241,7 +257,7 @@ namespace BatGame
                     if (!open.Contains(q) && !closed.Contains(q))
                     {
                         q.DistanceFromStart = cost;
-                        q.Rank = F(q);
+                        q.Rank = Fplayer(q);
                         q.Parent = current;
                         Enqueue(q);
 
@@ -250,7 +266,7 @@ namespace BatGame
                 }
 
             }
-
+            #endregion
 
 
             QuadTangle Pathq = playerPos.CurrentQuadTangle;
@@ -278,8 +294,13 @@ namespace BatGame
                 AstarList2.Add(AstarList[i]);
             }
 
-
-            SetDirectionToMove(AstarList2[1]);
+            if (AstarList2.Count > 1)
+                SetDirectionToMove(AstarList2[1]);
+            else if (AstarList2.Count == 0)
+            {
+                detected = false;
+                needToFindStart = true;
+            }
 
         }
         #region Astar helper methods
@@ -433,20 +454,24 @@ namespace BatGame
         }
 
         /// <summary>
-        /// The hueristic algorithm
+        /// The hueristic algorithm for player A*
         /// </summary>
         /// <param name="t">the tile</param>
         /// <returns></returns>
-        private float H(QuadTangle q)
+        private float Hplayer(QuadTangle q)
         {
-            //int xDistance = Math.Abs(locInGrid.LocInGrid.X - q.LocInGrid.X);
-            //int yDistance = Math.Abs(locInGrid.LocInGrid.Y - q.LocInGrid.Y);
-            //if (xDistance > yDistance)
-            //    q.DistanceToEnd = 14 * yDistance + 10 * (xDistance - yDistance);
-            //else
-            //    q.DistanceToEnd = 14 * xDistance + 10 * (yDistance - xDistance);
-
             q.DistanceToEnd = (float)Math.Sqrt(Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.X - q.LocInGrid.X), 2) + Math.Pow(Math.Abs(playerPos.CurrentQuadTangle.LocInGrid.Y - q.LocInGrid.Y), 2));
+            return q.DistanceToEnd;
+        }
+
+        /// <summary>
+        /// The hueristic algorithm for start A*
+        /// </summary>
+        /// <param name="t">the tile</param>
+        /// <returns></returns>
+        private float Hstart(QuadTangle q)
+        {
+            q.DistanceToEnd = (float)Math.Sqrt(Math.Pow(Math.Abs(startPoint.X - q.LocInGrid.X), 2) + Math.Pow(Math.Abs(startPoint.Y - q.LocInGrid.Y), 2));
             return q.DistanceToEnd;
         }
 
@@ -461,13 +486,24 @@ namespace BatGame
         }
 
         /// <summary>
-        /// The total cost from the start to the end
+        /// The total cost from the start to the end for player A*
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public float F(QuadTangle q)
+        public float Fplayer(QuadTangle q)
         {
-            current.PathCost = G(q) + H(q);
+            current.PathCost = G(q) + Hplayer(q);
+            return current.PathCost;
+        }
+
+        /// <summary>
+        /// The total cost from the start to the end for start A*
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public float Fstart(QuadTangle q)
+        {
+            current.PathCost = G(q) + Hstart(q);
             return current.PathCost;
         }
 
@@ -593,6 +629,86 @@ namespace BatGame
         }
         #endregion
 
+        public void Astart()
+        {
+
+
+            Reset();
+
+            SetUpGraph();
+
+
+
+            SetUpNeighbors();
+
+
+            #region Astar main loop for start point
+            //adds the start to the beginning
+            Enqueue(locInGrid);
+
+            //The main A* loop
+            while (!IsEmpty() && (Peek().LocInGrid.X != startPoint.X || Peek().LocInGrid.Y != startPoint.Y))
+            {
+                current = Dequeue(0);
+                closed.Add(current);
+
+                float cost = G(current) + 10;
+
+                //goes through the currents neighbor list to compare costs
+                foreach (QuadTangle q in current.NeighborList)
+                {
+                    //compares cuurents cost to the tiles cost if the tile is still in open
+                    if (open.Contains(q) && cost < G(q))
+                    {
+                        Dequeue(open.IndexOf(q));
+                    }
+                    //compares cost of current and tile if the tile is in closed
+                    if (closed.Contains(q) && cost < G(q))
+                    {
+                        closed.Remove(q);
+                    }
+                    //if the tile isnt in open or in closed at this point, then set its parent to current, making it a part of the path, and move on
+                    if (!open.Contains(q) && !closed.Contains(q))
+                    {
+                        q.DistanceFromStart = cost;
+                        q.Rank = Fstart(q);
+                        q.Parent = current;
+                        Enqueue(q);
+
+                    }
+
+                }
+
+            }
+            #endregion
+
+
+            QuadTangle Pathq = graph[startPoint.X, startPoint.Y];
+            List<QuadTangle> AstarList = new List<QuadTangle>();
+
+
+            //makes a list of the path through parent nodes
+            while (Pathq.Parent != null)
+            {
+                AstarList.Add(Pathq.Parent);
+                Pathq = Pathq.Parent;
+            }
+
+            //reverses the list
+            List<QuadTangle> AstarList2 = new List<QuadTangle>();
+            for (int i = AstarList.Count - 1; i > -1; i--)
+            {
+                AstarList2.Add(AstarList[i]);
+            }
+
+            if (AstarList2.Count > 1)
+                SetDirectionToMove(AstarList2[1]);
+            else if (AstarList2.Count == 0)
+                needToFindStart = false;
+
+        }
+
+        #region Unused pathfinding stuff
         public void Pathfinding(Player player)
         {
             Reset();
@@ -632,7 +748,7 @@ namespace BatGame
                     Facing = Direction.Up;
                 else if (graph[graphx, graphy].LeftNeighbor != null)
                     Facing = Direction.Left;
-                else if(graph[graphx, graphy].DownRightNeighbor != null)
+                else if (graph[graphx, graphy].DownRightNeighbor != null)
                     Facing = Direction.DownRight;
 
             }   //up right
@@ -644,7 +760,7 @@ namespace BatGame
                     Facing = Direction.Up;
                 else if (graph[graphx, graphy].RightNeighbor != null)
                     Facing = Direction.Right;
-                else if(graph[graphx, graphy].DownLeftNeighbor != null)
+                else if (graph[graphx, graphy].DownLeftNeighbor != null)
                     Facing = Direction.DownLeft;
 
             }   //down left
@@ -772,7 +888,7 @@ namespace BatGame
                 Facing = Direction.Down;
             }
         }
-
+        #endregion
 
         public virtual void Draw(SpriteBatch batch)
         {
