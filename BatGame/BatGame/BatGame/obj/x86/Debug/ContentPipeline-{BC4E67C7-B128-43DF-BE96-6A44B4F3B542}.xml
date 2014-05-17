@@ -440,7 +440,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownLeft_Corner_Inverted.xnb</Output>
-      <Time>2014-05-17T16:04:07.9310948-04:00</Time>
+      <Time>2014-05-17T16:24:45.825196-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Corners\DownRight_Corner_Inverted.png</Source>
@@ -449,7 +449,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownRight_Corner_Inverted.xnb</Output>
-      <Time>2014-05-17T16:05:25.4529494-04:00</Time>
+      <Time>2014-05-17T16:25:23.339715-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Corners\TopLeft_Corner_Inverted.png</Source>
@@ -467,7 +467,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\TopRight_Corner_Inverted.xnb</Output>
-      <Time>2014-05-17T16:02:16.4564154-04:00</Time>
+      <Time>2014-05-17T16:26:03.4217364-04:00</Time>
     </Item>
     <Item>
       <Source>Shader_Tools\echo.fx</Source>

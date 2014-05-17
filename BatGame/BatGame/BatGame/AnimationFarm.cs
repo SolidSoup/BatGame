@@ -72,6 +72,9 @@ namespace BatGame
         Vector2 drawPosition;
         Vector2 origin;
 
+        //rotation float
+        private float rotationAngle = 45.0F;
+
         KeyboardState currentKB;
         KeyboardState previousKB;
 
@@ -173,7 +176,8 @@ namespace BatGame
             previousKB = currentKB;
             currentKB = Keyboard.GetState();
 
-
+            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
+            Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
 
             if (currentKB.GetPressedKeys().Length == 0)
             {
@@ -199,36 +203,34 @@ namespace BatGame
                 }
             }
 
-            if (d == Direction.Left)
+            if (d == Direction.Left|| d==Direction.DownLeft)
             {
-                flyingDirection = Flying.West;
-                isFlying = true;
+                currentFrame = 6;
+                interval = 10.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X += spriteSpeed;
             }
 
-            if (d == Direction.Right)
+            else if (d == Direction.Right|| d==Direction.UpRight)
             {
-                flyingDirection = Flying.East;
-                isFlying = true;
+                currentFrame = 9;
+                interval = 10.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X -= spriteSpeed;
             }
-            if (d == Direction.Down)
+            else if (d == Direction.Down|| d==Direction.DownLeft)
             {
-                flyingDirection = Flying.South;
-                isFlying = true;
+                currentFrame=3;
+                interval = 10.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
-            if (d == Direction.Up)
+            else if (d == Direction.Up|| d==Direction.UpRight)
             {
-                flyingDirection = Flying.North;
-                isFlying = true;
+                currentFrame=0;
+                interval = 10.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
-
-            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
-            Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
+            
 
         }
 
@@ -238,9 +240,9 @@ namespace BatGame
         }
 
 
-        public void PlayerFlyingAnimation(Flying f, GameTime gameTime)
+        public void PlayerFlyingAnimation(Direction d, GameTime gameTime)
         {
-            if (f == Flying.North)
+            if (d == Direction.Up || d == Direction.UpRight)//
             {
                 if (currentKB != previousKB)
                 {
@@ -260,7 +262,7 @@ namespace BatGame
                 }
             }
 
-            else if (f == Flying.South)
+            else if (d == Direction.Down || d == Direction.DownLeft)//
             {
                 if (currentKB != previousKB)
                 {
@@ -280,7 +282,7 @@ namespace BatGame
                 }
             }
 
-            else if (f == Flying.West)
+            else if (d == Direction.Left || d == Direction.UpLeft)
             {
                 if (currentKB != previousKB)
                 {
@@ -300,7 +302,7 @@ namespace BatGame
                 }
             }
 
-            else if (f == Flying.East)
+            else if (d == Direction.Right || d == Direction.DownRight)
             {
                 if (currentKB != previousKB)
                 {
