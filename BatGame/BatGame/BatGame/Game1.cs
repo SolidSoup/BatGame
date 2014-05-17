@@ -36,11 +36,18 @@ namespace BatGame
         Texture2D horizontalWallImage;
         Texture2D horizontalDownWallImage;
         Texture2D horizontalUpWallImage;
+
         Texture2D cornerWallImage;
         Texture2D upRightCornerWallImage;
         Texture2D upLeftCornerWallImage;
         Texture2D downRightCornerWallImage;
         Texture2D downLeftCornerWallImage;
+
+        Texture2D upRightCornerInvertedWallImage;
+        Texture2D upLeftCornerInvertedWallImage;
+        Texture2D downRightCornerInvertedWallImage;
+        Texture2D downLeftCornerInvertedWallImage;
+
         Texture2D floorTileImage;
         Texture2D webImage;
         Texture2D webBloodImage;
@@ -273,6 +280,18 @@ namespace BatGame
 
             upRightCornerWallImage = Content.Load<Texture2D>("Sprites/Corners/UpRightCorner");
             spriteDictionary.Add("upRightCornerWall", upRightCornerWallImage);
+
+            downLeftCornerInvertedWallImage = Content.Load<Texture2D>("Sprites/Corners/DownLeft_Corner_Inverted");
+            spriteDictionary.Add("downLeftCornerInvertedWall", downLeftCornerInvertedWallImage);
+
+            upLeftCornerInvertedWallImage = Content.Load<Texture2D>("Sprites/Corners/TopLeft_Corner_Inverted");
+            spriteDictionary.Add("upLeftCornerInvertedWall", upLeftCornerInvertedWallImage);
+
+            downRightCornerInvertedWallImage = Content.Load<Texture2D>("Sprites/Corners/DownRight_Corner_Inverted");
+            spriteDictionary.Add("downRightCornerInvertedWall", downRightCornerInvertedWallImage);
+
+            upRightCornerInvertedWallImage = Content.Load<Texture2D>("Sprites/Corners/TopRight_Corner_Inverted");
+            spriteDictionary.Add("upRightCornerInvertedWall", upRightCornerInvertedWallImage);
 
             floorTileImage = Content.Load<Texture2D>("Sprites/Floors/FloorTile");
             spriteDictionary.Add("floorTile", floorTileImage);

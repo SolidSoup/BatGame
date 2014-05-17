@@ -46,13 +46,13 @@ Content\Sprites\Shriek\rightShriek.xnb
 Content\Sprites\Shriek\upLeftShriek.xnb
 Content\Sprites\Shriek\upRightShriek.xnb
 Content\Sprites\Shriek\upShriek.xnb
-Content\Shader_Tools\echo.xnb
-Content\Shader_Tools\lightingeffect.xnb
-Content\danceMusic.xnb
 Content\Sprites\Corners\DownLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\DownRight_Corner_Inverted.xnb
 Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\TopRight_Corner_Inverted.xnb
+Content\Shader_Tools\echo.xnb
+Content\Shader_Tools\lightingeffect.xnb
+Content\danceMusic.xnb
 Content\danceMusic.wma
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt

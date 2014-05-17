@@ -539,3 +539,7 @@ C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Co
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownRight_Corner_Inverted.xnb
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
 C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\TopRight_Corner_Inverted.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownLeft_Corner_Inverted.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\DownRight_Corner_Inverted.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
+C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Corners\TopRight_Corner_Inverted.xnb

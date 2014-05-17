@@ -193,6 +193,34 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempCornerUL);
                             break;
 
+                        case "L":
+                            Wall tempCornerDLInverted = new Wall(textureDictionary["downLeftCornerInvertedWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
+                            levelObjectArray[i, j] = tempCornerDLInverted;
+                            immobilesManager.AddImmobile(tempCornerDLInverted);
+                            gameObjectManager.AddGameObject(tempCornerDLInverted);
+                            break;
+
+                        case ",":
+                            Wall tempCornerDRInverted = new Wall(textureDictionary["downRightCornerInvertedWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
+                            levelObjectArray[i, j] = tempCornerDRInverted;
+                            immobilesManager.AddImmobile(tempCornerDRInverted);
+                            gameObjectManager.AddGameObject(tempCornerDRInverted);
+                            break;
+
+                        case "x":
+                            Wall tempCornerULInverted = new Wall(textureDictionary["upLeftCornerInvertedWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
+                            levelObjectArray[i, j] = tempCornerULInverted;
+                            immobilesManager.AddImmobile(tempCornerULInverted);
+                            gameObjectManager.AddGameObject(tempCornerULInverted);
+                            break;
+
+                        case "X":
+                            Wall tempCornerURInverted = new Wall(textureDictionary["upRightCornerInvertedWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
+                            levelObjectArray[i, j] = tempCornerURInverted;
+                            immobilesManager.AddImmobile(tempCornerURInverted);
+                            gameObjectManager.AddGameObject(tempCornerURInverted);
+                            break;
+
 
                         case "_":
                             Wall tempHorizU = new Wall(textureDictionary["horizontalUpWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
