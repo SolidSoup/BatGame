@@ -184,65 +184,98 @@ namespace BatGame
                 if (currentFrame > 0 && currentFrame < 2)//up
                 {
                     currentFrame = 0;
-                    interval = 15.0 / FramesPerSecond;
+                    //interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 3 && currentFrame < 5)//down
+                else if (currentFrame > 3 && currentFrame < 5)//down
                 {
                     currentFrame = 3;
-                    interval = 15.0 / FramesPerSecond;
+                    //interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 6 && currentFrame < 8)//left
+                else if (currentFrame > 6 && currentFrame < 8)//left
                 {
                     currentFrame = 6;
-                    interval = 15.0 / FramesPerSecond;
+                    //interval = 15.0 / FramesPerSecond;
                 }
-                if (currentFrame > 9 && currentFrame < 11)//right
+                else if (currentFrame > 9 && currentFrame < 11)//right
                 {
                     currentFrame = 9;
-                    interval = 15.0 / FramesPerSecond;
+                    //interval = 15.0 / FramesPerSecond;
+                }
+                else if (currentFrame > 12 && currentFrame < 14)//upright
+                {
+                    currentFrame = 12;
+                    //interval = 15.0 / FramesPerSecond;
+                }
+                else if (currentFrame > 15 && currentFrame < 17)//upleft
+                {
+                    currentFrame = 15;
+                    //interval = 15.0 / FramesPerSecond;
+                }
+                else if (currentFrame > 18 && currentFrame < 20)//downright
+                {
+                    currentFrame = 18;
+                    //interval = 15.0 / FramesPerSecond;
+                }
+                else if (currentFrame > 21 && currentFrame < 23)//downleft
+                {
+                    currentFrame = 21;
+                    //interval = 15.0 / FramesPerSecond;
                 }
             }
 
-            if (d == Direction.Left|| d==Direction.DownLeft)
+            if (d == Direction.Left)
             {
                 currentFrame = 6;
-                interval = 10.0 / FramesPerSecond;
+                interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X += spriteSpeed;
             }
 
-            else if (d == Direction.Right|| d==Direction.UpRight)
+            else if (d == Direction.Right)
             {
                 currentFrame = 9;
-                interval = 10.0 / FramesPerSecond;
+                interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X -= spriteSpeed;
             }
-            else if (d == Direction.Down|| d==Direction.DownLeft)
+            else if (d == Direction.Down)
             {
-                currentFrame=3;
-                interval = 10.0 / FramesPerSecond;
+                currentFrame = 3;
+                interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
-            else if (d == Direction.Up|| d==Direction.UpRight)
+            else if (d == Direction.Up)
             {
-                currentFrame=0;
-                interval = 10.0 / FramesPerSecond;
+                currentFrame = 0;
+                interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
-            
+            else if (d == Direction.UpRight)
+            {
+                currentFrame = 12;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.UpLeft)
+            {
+                currentFrame = 15;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.DownRight)
+            {
+                currentFrame = 18;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.DownLeft)
+            {
+                currentFrame = 21;
+                interval = 15.0 / FramesPerSecond;
+            }
 
         }
-
-        public void UpdateFrames(double timeElapsed)
-        {
-
-        }
-
 
         public void PlayerFlyingAnimation(Direction d, GameTime gameTime)
         {
-            if (d == Direction.Up || d == Direction.UpRight)//
+            if (d == Direction.Up)//
             {
                 if (currentKB != previousKB)
                 {
@@ -262,7 +295,7 @@ namespace BatGame
                 }
             }
 
-            else if (d == Direction.Down || d == Direction.DownLeft)//
+            else if (d == Direction.Down)//
             {
                 if (currentKB != previousKB)
                 {
@@ -282,7 +315,7 @@ namespace BatGame
                 }
             }
 
-            else if (d == Direction.Left || d == Direction.UpLeft)
+            else if (d == Direction.Left)
             {
                 if (currentKB != previousKB)
                 {
@@ -302,7 +335,7 @@ namespace BatGame
                 }
             }
 
-            else if (d == Direction.Right || d == Direction.DownRight)
+            else if (d == Direction.Right)
             {
                 if (currentKB != previousKB)
                 {
@@ -322,12 +355,87 @@ namespace BatGame
                 }
             }
 
-            //sp.Begin();
-            //spriteBatch.Draw(playerAnimation.SpriteTexture, playerPos, this.DrawRectangle, Color.White, 0f, this.Origin, 0, SpriteEffects.None, 0);
-            //sp.End();
+            else if (d == Direction.UpRight)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 12;// if the key is no longer held
+                }
 
-            //base.Draw(gameTime);
-        }
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 14)
+                        currentFrame = 12; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.UpLeft)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 15;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 17)
+                        currentFrame = 15; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.DownRight)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 18;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 20)
+                        currentFrame = 18; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.DownLeft)
+            {
+                if (currentKB != previousKB)
+                {
+                    currentFrame = 21;// if the key is no longer held
+                }
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 23)
+                        currentFrame = 21; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+        }//end method
 
     }//end class
 }//end namespace

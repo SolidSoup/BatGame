@@ -734,10 +734,10 @@ namespace BatGame
                     }
                     playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
 
-                    if (player.Facing == Direction.Down || player.Facing == Direction.Up || player.Facing == Direction.Left || player.Facing == Direction.Right)
-                    {
+                    //if (player.Facing == Direction.Down || player.Facing == Direction.Up || player.Facing == Direction.Left || player.Facing == Direction.Right)
+                    //{
                         spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX + playerAnimation.Origin.X), (player.RectY + playerAnimation.Origin.Y)), playerAnimation.DrawRectangle, Color.White, 0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
-                    }
+                    /*}
                     else if (player.Facing == Direction.DownLeft || player.Facing == Direction.DownRight || player.Facing == Direction.UpLeft || player.Facing == Direction.UpRight)
                     {
                         spriteBatch.Draw(player.ObjTexture,
@@ -750,7 +750,7 @@ namespace BatGame
                                 1, 
                                 SpriteEffects.None, 
                                 0);
-                    }
+                    }*/
                     enemyManager.EManagerDraw(spriteBatch);
                     immobilesManager.IManagerDrawFront(spriteBatch);
                     spriteBatch.End();
