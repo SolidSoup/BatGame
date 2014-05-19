@@ -50,6 +50,7 @@ Content\Sprites\Corners\DownLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\DownRight_Corner_Inverted.xnb
 Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\TopRight_Corner_Inverted.xnb
+Content\Sprites\Interactables\skull.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\danceMusic.xnb

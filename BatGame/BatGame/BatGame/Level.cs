@@ -291,7 +291,7 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempBoulder);
                             break;
                         case "o":
-                            Skull tempSkull = new Skull(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            Skull tempSkull = new Skull(textureDictionary["skull"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
                             immobilesManager.AddImmobile(tempSkull);
                             gameObjectManager.AddGameObject(tempSkull);
                             break;

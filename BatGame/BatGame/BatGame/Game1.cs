@@ -53,6 +53,7 @@ namespace BatGame
         Texture2D webBloodImage;
         Texture2D boulderImage;
         Texture2D stagImage;
+        Texture2D skullImage;
 
         Texture2D lightMask;
         Texture2D rightCone;
@@ -307,6 +308,9 @@ namespace BatGame
 
             stagImage = Content.Load<Texture2D>("Sprites/Interactables/stalagmite");
             spriteDictionary.Add("stalagmite", stagImage);
+
+            skullImage = Content.Load<Texture2D>("Sprites/Interactables/skull");
+            spriteDictionary.Add("skull", skullImage);
 
 
             player.ObjTexture = playerImage;
