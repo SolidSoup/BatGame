@@ -79,6 +79,8 @@ namespace BatGame
         Texture2D downRightShriek;
         Texture2D downLeftShriek;
 
+        Texture2D boatImage;
+
         Point shriekStart;
 
         Rectangle cone;
@@ -91,6 +93,7 @@ namespace BatGame
         Effect lightingEffect;
 
         SpriteFont comicSans14;
+        SpriteFont comicSansBold28;
 
         Player player;
         Enemy enemy;
@@ -132,15 +135,18 @@ namespace BatGame
         Texture2D loadButtonImage;
         Texture2D nameLogoImage;
         Texture2D pauseImage;
+
         Button startButton;
         Button quitButton;
         Button loadButton;
         Button continueButton;
         Button saveButton;
         Button menuButton;
+
         MouseState lastMouseState;
         MouseState currentMouseState;
         KeyboardState keyboardState;
+        KeyboardState lastKeyboardState;
 
         Song tunes;
         SoundEffect echoSound;
@@ -252,8 +258,9 @@ namespace BatGame
                 GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
             mainTarget = new RenderTarget2D(
                 GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
-            // TODO: use this.Content to load your game content here
+
             comicSans14 = Content.Load<SpriteFont>("Font/ComicSans");
+            comicSansBold28 = Content.Load<SpriteFont>("Font/ComicSansBold28");
 
             playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
             spriteDictionary.Add("playerImage", playerImage);
@@ -344,6 +351,9 @@ namespace BatGame
 
             skullImage = Content.Load<Texture2D>("Sprites/Interactables/skull");
             spriteDictionary.Add("skull", skullImage);
+
+            //got this from google images
+            boatImage = Content.Load<Texture2D>("Sprites/Extra_Images/boat");
 
 
             player.ObjTexture = playerImage;
@@ -444,11 +454,12 @@ namespace BatGame
             tunes = Content.Load<Song>("danceMusic");
             echoSound = Content.Load<SoundEffect>("Sounds/echoSound");
             shriekSound = Content.Load<SoundEffect>("Sounds/shriekSound");
-            ambientMusic = Content.Load<SoundEffect>("Sounds/caveSounds");
+            ambientMusic = Content.Load<SoundEffect>("Sounds/ambientMusic");
             ambientMusicInstance = ambientMusic.CreateInstance();
             caveSounds = Content.Load<SoundEffect>("Sounds/caveSounds");
             caveSoundsInstance = caveSounds.CreateInstance();
             PARTY.partyTime(tunes);
+            PARTY.dontRockTheBoat(boatImage);
         }
 
         /// <summary>
@@ -471,18 +482,19 @@ namespace BatGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            if (keyboardState.IsKeyDown(Keys.P))
-            {
-                this.Window.Title = "Party Game";
-                gameState = GameState.partyMode;
-                player.HalfX = !player.HalfX;
-                player.HalfY = !player.HalfY;
-            }
+            lastKeyboardState = keyboardState;
+            keyboardState = Keyboard.GetState();
 
             // TODO: Add your update logic here
             switch (gameState)
             {
                 case GameState.game:
+
+                    if (keyboardState.IsKeyDown(Keys.P) && lastKeyboardState.IsKeyUp(Keys.P))
+                    {
+                        gameState = GameState.warning;
+                    }
+
                     //too much code in Game1 is super bad, but it'll be sorted out later
                     if (caveSoundsInstance.State != SoundState.Playing)
                     {
@@ -647,6 +659,7 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
+
                 case GameState.menu:
                     
                     if (ambientMusicInstance.State != SoundState.Playing)
@@ -765,6 +778,38 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
+
+                case GameState.warning:
+                    IsMouseVisible = true;
+                    continueButton.Selected = false;
+                    quitButton.Selected = false;
+
+                    lastMouseState = currentMouseState;
+                    currentMouseState = Mouse.GetState();
+                    Point pos3 = new Point(currentMouseState.X, currentMouseState.Y);
+                    if (continueButton.Rect.Contains(pos3))
+                    {
+                        continueButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            this.Window.Title = "Party Game";
+                            player.HalfX = !player.HalfX;
+                            player.HalfY = !player.HalfY;
+                            gameState = GameState.warning;
+                        }
+                    }
+                    if (quitButton.Rect.Contains(pos3))
+                    {
+                        quitButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            this.Exit();
+                        }
+                    }
+                    break;
+
                 case GameState.partyMode:
                     ambientMusicInstance.Pause();
 
@@ -1065,13 +1110,13 @@ namespace BatGame
 
                 case GameState.warning:
                     spriteBatch.Begin();
-                    spriteBatch.DrawString(comicSans14, "Warning!",
+                    spriteBatch.DrawString(comicSansBold28, "Warning!",
                     new Vector2(320, 60), Color.Red);
-                    spriteBatch.DrawString(comicSans14, "This area contains flashing lights",
+                    spriteBatch.DrawString(comicSansBold28, "This area contains flashing lights",
                     new Vector2(120, 140), Color.White);
-                    spriteBatch.DrawString(comicSans14, "and cool beats.",
+                    spriteBatch.DrawString(comicSansBold28, "and cool beats.",
                     new Vector2(260, 180), Color.White);
-                    spriteBatch.DrawString(comicSans14, "Do you still wish to continue?",
+                    spriteBatch.DrawString(comicSansBold28, "Do you still wish to continue?",
                     new Vector2(160, 220), Color.White);
 
                     continueButton.X = 150;

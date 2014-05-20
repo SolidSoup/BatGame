@@ -167,7 +167,6 @@ namespace BatGame
             //Move Right
             else if (isFacing(Direction.Right) && canMove(Direction.Right))
             {
-                waitTime = .75;
                 PosX++;
                 steps++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
@@ -178,6 +177,7 @@ namespace BatGame
                 }
 
             }
+            waitTime = .75;
         }
 
         public void Move()
@@ -214,6 +214,7 @@ namespace BatGame
                 PosX++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
             }
+            waitTime = .75;
         }
 
         public void Astar()
@@ -898,9 +899,20 @@ namespace BatGame
         {
             if (IsActive)
             {
+                //---------------------------------------------------
+                //Glitch Report:
+                //The enemy image is being drawn in the correct location.
+                //The rotation code in spritebatch's draw is moving where the drawing point is
+                //so we are having the drawing point at the bottom right instead of top left like
+                //it should.
+                //We have a temporary fix in place right now that moves where the drawing point
+                //is so that it will be in the top left again.
+                //This problem should be fixed permanently when Karen uploads her drawing stuff.
+                //END REPORT
+                //---------------------------------------------------
                 if (Facing == Direction.Up)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 1.57f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 1.57f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.Left)
                 {
@@ -908,27 +920,27 @@ namespace BatGame
                 }
                 else if (Facing == Direction.Right)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.14f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.14f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.Down)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 4.71f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 4.71f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.UpRight)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 2.36f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 2.36f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.UpLeft)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, .8f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, .8f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.DownRight)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.94f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 3.94f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
                 else if (Facing == Direction.DownLeft)
                 {
-                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 5.51f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                    batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 5.51f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
             }
         }

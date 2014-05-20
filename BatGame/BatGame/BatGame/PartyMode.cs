@@ -31,6 +31,7 @@ namespace BatGame
         ImmobilesManager partyPooper;
         GameObjectManager DJ;
         EnemyManager Cops;
+        Boat boat;
 
         RenderTarget2D lightsTarget;
         RenderTarget2D mainTarget;
@@ -52,6 +53,7 @@ namespace BatGame
             this.DJ = DJ;
             this.Cops = Cops;
 
+
             var pp = gameOn.PresentationParameters;
             lightsTarget = new RenderTarget2D(
                 gameOn, pp.BackBufferWidth, pp.BackBufferHeight);
@@ -63,6 +65,11 @@ namespace BatGame
 
         }
 
+        public void dontRockTheBoat(Texture2D boatImage)
+        {
+            boat = new Boat(boatImage, new Rectangle(0, gameOn.Viewport.Height - boatImage.Height, boatImage.Width, boatImage.Height), gameOn);
+        }
+
         public Color strobeLight(SpriteBatch spriteBatch, Color shrooms)
         {
             if (!kickIt)
@@ -71,6 +78,7 @@ namespace BatGame
                 kickIt = true;
             }
             //gameOn.SetRenderTarget(lightsTarget);
+            boat.Update();
             if (dontStopTheParty % 5 == 0)
             {
                 switch (stepItUp)
@@ -128,6 +136,7 @@ namespace BatGame
             //gameObjectManager.GManagerDraw(spriteBatch);
             spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, acid);
             Cops.EManagerDraw(spriteBatch);
+            boat.Draw(spriteBatch);
             spriteBatch.End();
         }
     }

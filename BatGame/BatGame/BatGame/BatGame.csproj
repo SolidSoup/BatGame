@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="AnimationFarm.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="Boat.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Collectables.cs" />
     <Compile Include="Boulder.cs" />
