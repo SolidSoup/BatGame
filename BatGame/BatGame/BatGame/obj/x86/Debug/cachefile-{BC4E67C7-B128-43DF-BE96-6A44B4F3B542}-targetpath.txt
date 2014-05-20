@@ -56,6 +56,10 @@ Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\danceMusic.xnb
 Content\danceMusic.wma
+Content\Sounds\ambientMusic.xnb
+Content\Sounds\caveSounds.xnb
+Content\Sounds\echoSound.xnb
+Content\Sounds\shriekSound.xnb
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
 Content\Levels\level2.txt

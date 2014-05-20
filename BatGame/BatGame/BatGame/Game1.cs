@@ -143,6 +143,12 @@ namespace BatGame
         KeyboardState keyboardState;
 
         Song tunes;
+        SoundEffect echoSound;
+        SoundEffect shriekSound;
+        SoundEffect caveSounds;
+        SoundEffectInstance caveSoundsInstance;
+        SoundEffect ambientMusic;
+        SoundEffectInstance ambientMusicInstance;
 
         public Game1()
         {
@@ -436,6 +442,12 @@ namespace BatGame
 
             //"I Just Hold The Mirror" - Mark Castle
             tunes = Content.Load<Song>("danceMusic");
+            echoSound = Content.Load<SoundEffect>("Sounds/echoSound");
+            shriekSound = Content.Load<SoundEffect>("Sounds/shriekSound");
+            ambientMusic = Content.Load<SoundEffect>("Sounds/caveSounds");
+            ambientMusicInstance = ambientMusic.CreateInstance();
+            caveSounds = Content.Load<SoundEffect>("Sounds/caveSounds");
+            caveSoundsInstance = caveSounds.CreateInstance();
             PARTY.partyTime(tunes);
         }
 
@@ -472,8 +484,15 @@ namespace BatGame
             {
                 case GameState.game:
                     //too much code in Game1 is super bad, but it'll be sorted out later
+                    if (caveSoundsInstance.State != SoundState.Playing)
+                    {
+                        caveSoundsInstance.Play();
+                    }
+                    
                     if (player.Shriek == true)
                     {
+                        shriekSound.Play();
+
                         shriekStart = new Point(player.PosX, player.PosY);
                         switch (player.Facing)  //switch statement draws shriek wherever the player is facing
                         {
@@ -573,10 +592,17 @@ namespace BatGame
                         gameState = GameState.partyMode;
                     }
 
+                    if (player.Screech == true)
+                    {
+                        echoSound.Play();
+                    }
+
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
                     base.Update(gameTime);
                     break;
                 case GameState.pause:
+                    caveSoundsInstance.Pause();
+
                     continueButton.Selected = false;
                     saveButton.Selected = false;
                     menuButton.Selected = false;
@@ -622,6 +648,12 @@ namespace BatGame
                     base.Update(gameTime);
                     break;
                 case GameState.menu:
+                    
+                    if (ambientMusicInstance.State != SoundState.Playing)
+                    {
+                        ambientMusicInstance.Play();
+                    }
+
                     startButton.Selected = false;
                     quitButton.Selected = false;
                     loadButton.Selected = false;
@@ -734,6 +766,8 @@ namespace BatGame
                     base.Update(gameTime);
                     break;
                 case GameState.partyMode:
+                    ambientMusicInstance.Pause();
+
                     player.PartyMode();
                     player.PlayerUpdate();
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;

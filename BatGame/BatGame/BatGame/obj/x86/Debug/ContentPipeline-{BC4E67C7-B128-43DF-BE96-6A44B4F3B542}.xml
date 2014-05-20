@@ -515,6 +515,42 @@
       <Extra>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\danceMusic.wma</Extra>
       <Time>2014-05-20T14:47:45.5824528-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\ambientMusic.wav</Source>
+      <Name>Sounds\ambientMusic</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\ambientMusic.xnb</Output>
+      <Time>2014-05-20T17:17:36.6667119-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\caveSounds.wav</Source>
+      <Name>Sounds\caveSounds</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\caveSounds.xnb</Output>
+      <Time>2014-05-20T17:17:37.5449881-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\echoSound.wav</Source>
+      <Name>Sounds\echoSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\echoSound.xnb</Output>
+      <Time>2014-05-20T17:17:37.5596666-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\shriekSound.wav</Source>
+      <Name>Sounds\shriekSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\shriekSound.xnb</Output>
+      <Time>2014-05-20T17:17:37.5993549-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{BC4E67C7-B128-43DF-BE96-6A44B4F3B542}</ContentProjectGUID>
