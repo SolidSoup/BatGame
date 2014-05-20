@@ -41,9 +41,30 @@ namespace BatGame
                 if (waitTime <= 0)
                 {
                     waitTime = .05;
-                    this.ObjRectangle = this.checkForCollision(this.Facing, this.MiniSquare, this.ObjRectangle);
-                    //using check for collision for movement because it doesn't have to change directions
+                    //Uses a tentative Rectangle for movement based a little bit on half squares because the cardinal directions sometimes mess up the flight pattern
+                    Rectangle move = this.checkForCollision(this.Facing, this.MiniSquare, this.ObjRectangle);
+                    if (Facing == Direction.Right && this.HalfY)
+                    {
+                        move = this.checkForCollision(this.Facing, SubSquares.BottomRight, this.ObjRectangle);
+                    }
+                    else if (Facing == Direction.Left && this.HalfY)
+                    {
+                        move = this.checkForCollision(this.Facing, SubSquares.BottomLeft, this.ObjRectangle);
+                    }
+                    else if (Facing == Direction.Down && this.HalfX)
+                    {
+                        move = this.checkForCollision(this.Facing, SubSquares.BottomRight, this.ObjRectangle);
+                    }
+                    else if (Facing == Direction.Up && this.HalfX)
+                    {
+                        move = this.checkForCollision(this.Facing, SubSquares.TopRight, this.ObjRectangle);
+                    }
 
+                    if (move.Equals(this.ObjRectangle)) //if it can't move, go inactive
+                    {
+                        IsActive = false;
+                    }
+                    this.ObjRectangle = this.checkForCollision(this.Facing, this.MiniSquare, this.ObjRectangle);
                 }
 
             }
