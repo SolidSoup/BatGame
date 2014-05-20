@@ -148,12 +148,6 @@ namespace BatGame
                 {
                     switch (levelStringArray[i, j])
                     {
-                        case "|":
-                            Immobiles tempVert = new Immobiles(textureDictionary["verticalWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
-                            levelObjectArray[i, j] = tempVert;
-                            immobilesManager.AddImmobile(tempVert);
-                            gameObjectManager.AddGameObject(tempVert);
-                            break;
                         case "]":
                             Wall tempVertL = new Wall(textureDictionary["verticalLeftWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
                             levelObjectArray[i, j] = tempVertL;
@@ -166,8 +160,6 @@ namespace BatGame
                             immobilesManager.AddImmobile(tempVertR);
                             gameObjectManager.AddGameObject(tempVertR);
                             break;
-
-
                         case "+":
                             Wall tempCornerDR = new Wall(textureDictionary["downRightCornerWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true);
                             levelObjectArray[i, j] = tempCornerDR;
@@ -236,6 +228,31 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempHorizD);
                             break;
 
+                        case "?":
+                            DiagonalWall tempUpTop = new DiagonalWall(textureDictionary["upTopWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, DiagonalWallType.upTop);
+                            levelObjectArray[i, j] = tempUpTop;
+                            immobilesManager.AddImmobile(tempUpTop);
+                            gameObjectManager.AddGameObject(tempUpTop);
+                            break;
+                        case "/":
+                            DiagonalWall tempUpBottom = new DiagonalWall(textureDictionary["upBottomWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, DiagonalWallType.upBottom);
+                            levelObjectArray[i, j] = tempUpBottom;
+                            immobilesManager.AddImmobile(tempUpBottom);
+                            gameObjectManager.AddGameObject(tempUpBottom);
+                            break;
+                        case "|":
+                            DiagonalWall tempDownTop = new DiagonalWall(textureDictionary["downTopWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, DiagonalWallType.downTop);
+                            levelObjectArray[i, j] = tempDownTop;
+                            immobilesManager.AddImmobile(tempDownTop);
+                            gameObjectManager.AddGameObject(tempDownTop);
+                            break;
+                        case "\\":
+                            DiagonalWall tempDownBottom = new DiagonalWall(textureDictionary["downBottomWall"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, DiagonalWallType.downBottom);
+                            levelObjectArray[i, j] = tempDownBottom;
+                            immobilesManager.AddImmobile(tempDownBottom);
+                            gameObjectManager.AddGameObject(tempDownBottom);
+                            break;
+
                         case "1":
                             Floor tempFloor = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor;
@@ -300,6 +317,17 @@ namespace BatGame
                             levelObjectArray[i, j] = tempExit;
                             immobilesManager.AddImmobile(tempExit);
                             gameObjectManager.AddGameObject(tempExit);
+                            break;
+                        case "O":
+                            Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            levelObjectArray[i, j] = tempFloor5;
+                            immobilesManager.AddImmobile(tempFloor5);
+                            gameObjectManager.AddGameObject(tempFloor5);
+
+                            LightSource tempLight = new LightSource(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            levelObjectArray[i, j] = tempLight;
+                            immobilesManager.AddImmobile(tempLight);
+                            gameObjectManager.AddGameObject(tempLight);
                             break;
                     }
                 }

@@ -77,7 +77,9 @@
     <Compile Include="Button.cs" />
     <Compile Include="Collectables.cs" />
     <Compile Include="Boulder.cs" />
+    <Compile Include="DiagonalWall.cs" />
     <Compile Include="Exit.cs" />
+    <Compile Include="LightSource.cs" />
     <Compile Include="PartyMode.cs" />
     <Compile Include="Shriek.cs" />
     <Compile Include="Skull.cs" />
