@@ -91,7 +91,6 @@ namespace BatGame
         Effect lightingEffect;
 
         SpriteFont comicSans14;
-        SpriteFont comicSansBold28;
 
         Player player;
         Enemy enemy;
@@ -110,6 +109,20 @@ namespace BatGame
         Level level1;
         Level level2;
         Level level3;
+
+        Level level11;
+        Level level12;
+        Level level13;
+        Level level21;
+        Level level22;
+        Level level23;
+        Level level31;
+        Level level32;
+        Level level33;
+
+
+        Level[,] gameMap;
+
         String currentLevel;
 
         //Things that will eventually be moved to state manager
@@ -123,18 +136,15 @@ namespace BatGame
         Texture2D loadButtonImage;
         Texture2D nameLogoImage;
         Texture2D pauseImage;
-
         Button startButton;
         Button quitButton;
         Button loadButton;
         Button continueButton;
         Button saveButton;
         Button menuButton;
-
         MouseState lastMouseState;
         MouseState currentMouseState;
         KeyboardState keyboardState;
-        KeyboardState lastKeyboardState;
 
         Song tunes;
 
@@ -242,7 +252,6 @@ namespace BatGame
                 GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("Font/ComicSans");
-            comicSansBold28 = Content.Load<SpriteFont>("Font/ComicSansBold28");
 
             playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
             spriteDictionary.Add("playerImage", playerImage);
@@ -341,6 +350,77 @@ namespace BatGame
             level1 = new Level("Content/Levels/level1.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level2 = new Level("Content/Levels/level2.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
 
+            level11 = new Level("Content/Levels/level11.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level12 = new Level("Content/Levels/level12.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level13 = new Level("Content/Levels/level13.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level21 = new Level("Content/Levels/level21.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level22 = new Level("Content/Levels/level22.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level23 = new Level("Content/Levels/level23.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level31 = new Level("Content/Levels/level31.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level32 = new Level("Content/Levels/level32.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            level33 = new Level("Content/Levels/level33.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+
+            gameMap = new Level[3, 3] { { level11, level12, level13 }, { level21, level22, level23 }, { level31, level32, level33 } };
+
+            /*for (int i = 0; i < gameMap.GetLength(0); i++)
+            {
+                for (int j = 0; j < gameMap.GetLength(1); j++)
+                {
+                    if (j + 1 < gameMap.GetLength(1))
+                    {
+                        gameMap[i, j].DownNeighbor = gameMap[i, j + 1];
+                    }
+                    if (j - 1 > 0)
+                    {
+                        gameMap[i, j].UpNeighbor = gameMap[i, j - 1];
+                    }
+                    if (i - 1 > 0)
+                    {
+                        gameMap[i, j].LeftNeighbor = gameMap[i - 1, j];
+                    }
+                    if (i + 1 < gameMap.GetLength(0))
+                    {
+                        gameMap[i, j].RightNeighbor = gameMap[i + 1, j];
+                    }
+                }
+            }*/
+
+            level11.SpawnPlayerX = 2;
+            level11.SpawnPlayerY = 2;
+
+            level11.RightNeighbor = level12;
+            level11.DownNeighbor = level21;
+
+            level12.LeftNeighbor = level11;
+            level12.RightNeighbor = level13;
+            level12.DownNeighbor = level22;
+
+            level13.LeftNeighbor = level12;
+            level13.DownNeighbor = level23;
+
+            level21.RightNeighbor = level22;
+            level21.UpNeighbor = level11;
+            level21.DownNeighbor = level31;
+
+            level22.LeftNeighbor = level21;
+            level22.RightNeighbor = level23;
+            level22.UpNeighbor = level12;
+            level22.DownNeighbor = level32;
+
+            level23.LeftNeighbor = level22;
+            level23.UpNeighbor = level13;
+            level23.DownNeighbor = level33;
+
+            level31.UpNeighbor = level21;
+            level31.RightNeighbor = level32;
+
+            level32.UpNeighbor = level22;
+            level32.RightNeighbor = level33;
+            level32.LeftNeighbor = level31;
+
+            level33.UpNeighbor = level23;
+            level33.LeftNeighbor = level32;
+
 
             //check = level1.loadLevel();
             //checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
@@ -392,19 +472,18 @@ namespace BatGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            lastKeyboardState = keyboardState;
-            keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Keys.P))
+            {
+                this.Window.Title = "Party Game";
+                gameState = GameState.partyMode;
+                player.HalfX = !player.HalfX;
+                player.HalfY = !player.HalfY;
+            }
 
             // TODO: Add your update logic here
             switch (gameState)
             {
                 case GameState.game:
-
-                    if (keyboardState.IsKeyDown(Keys.P) && lastKeyboardState.IsKeyUp(Keys.P))
-                    {
-                        gameState = GameState.warning;
-                    }
-
                     //too much code in Game1 is super bad, but it'll be sorted out later
                     if (player.Shriek == true)
                     {
@@ -459,14 +538,15 @@ namespace BatGame
 
                     if (player.Hits > 0)
                     {
-                        if (currentLevel.Equals("level1"))
+                        /*if (currentLevel.Equals("level1"))
                         {
                             gameState = GameState.level1;
                         }
                         if (currentLevel.Equals("level2"))
                         {
                             gameState = GameState.level2;
-                        }
+                        }*/
+                        LoadLevel(player.CurrentLevel);
                     }
                     if (player.FinishedLevel == true)
                     {
@@ -480,6 +560,55 @@ namespace BatGame
                         }
                     }
 
+                    if (player.HitBottom)
+                    {
+                        int spawnX = player.PosX;
+                        int spawnY = 1;
+
+                        player.CurrentLevel.DownNeighbor.SpawnPlayerX = spawnX;
+                        player.CurrentLevel.DownNeighbor.SpawnPlayerY = spawnY;
+                        LoadLevel(player.CurrentLevel.DownNeighbor);
+
+                        // player.PosX = 10;
+                        //player.PosY = 10;
+                    }
+                    if (player.HitTop)
+                    {
+                        int spawnX = player.PosX;
+                        int spawnY = 13;
+                        player.CurrentLevel.UpNeighbor.SpawnPlayerX = spawnX;
+                        player.CurrentLevel.UpNeighbor.SpawnPlayerY = spawnY;
+                        LoadLevel(player.CurrentLevel.UpNeighbor);
+
+
+
+                    }
+                    if (player.HitLeft)
+                    {
+                        int spawnX = 23;
+                        int spawnY = player.PosY;
+                        player.CurrentLevel.LeftNeighbor.SpawnPlayerX = spawnX;
+                        player.CurrentLevel.LeftNeighbor.SpawnPlayerY = spawnY;
+                        LoadLevel(player.CurrentLevel.LeftNeighbor);
+
+                    }
+                    if (player.HitRight)
+                    {
+                        int spawnX = 1;
+                        int spawnY = player.PosY;
+                        player.CurrentLevel.RightNeighbor.SpawnPlayerX = spawnX;
+                        player.CurrentLevel.RightNeighbor.SpawnPlayerY = spawnY;
+                        LoadLevel(player.CurrentLevel.RightNeighbor);
+
+                    }
+
+                    if (player.HitFinish)
+                    {
+                        level22.SpawnPlayerX = 2;
+                        level22.SpawnPlayerY = 4;
+                        LoadLevel(level22);
+                        gameState = GameState.partyMode;
+                    }
 
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
                     base.Update(gameTime);
@@ -544,7 +673,8 @@ namespace BatGame
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
-                            gameState = GameState.level1;
+                            //gameState = GameState.level1;
+                            LoadLevel(level11);
                         }
                     }
                     if (quitButton.Rect.Contains(pos2))
@@ -579,21 +709,85 @@ namespace BatGame
                                     level2.SpawnPlayerY = reader.ReadInt32();
                                     level2.HasStarted = true;
                                 }
+
+
+
+                                if (currentLevel.Equals("level11"))
+                                {
+                                    LoadLevel(level11);
+                                    level11.SavedPlayerX = reader.ReadInt32();
+                                    level11.SavedPlayerY = reader.ReadInt32();
+                                    level11.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level12"))
+                                {
+                                    LoadLevel(level12);
+                                    level12.SavedPlayerX = reader.ReadInt32();
+                                    level12.SavedPlayerY = reader.ReadInt32();
+                                    level12.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level13"))
+                                {
+                                    LoadLevel(level13);
+                                    level13.SavedPlayerX = reader.ReadInt32();
+                                    level13.SavedPlayerY = reader.ReadInt32();
+                                    level13.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level21"))
+                                {
+                                    LoadLevel(level21);
+                                    level21.SavedPlayerX = reader.ReadInt32();
+                                    level21.SavedPlayerY = reader.ReadInt32();
+                                    level21.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level22"))
+                                {
+                                    LoadLevel(level22);
+                                    level22.SavedPlayerX = reader.ReadInt32();
+                                    level22.SavedPlayerY = reader.ReadInt32();
+                                    level22.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level23"))
+                                {
+                                    LoadLevel(level23);
+                                    level23.SavedPlayerX = reader.ReadInt32();
+                                    level23.SavedPlayerY = reader.ReadInt32();
+                                    level23.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level31"))
+                                {
+                                    LoadLevel(level31);
+                                    level31.SavedPlayerX = reader.ReadInt32();
+                                    level31.SavedPlayerY = reader.ReadInt32();
+                                    level31.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level32"))
+                                {
+                                    LoadLevel(level32);
+                                    level32.SavedPlayerX = reader.ReadInt32();
+                                    level32.SavedPlayerY = reader.ReadInt32();
+                                    level32.HasStarted = true;
+                                }
+                                if (currentLevel.Equals("level33"))
+                                {
+                                    LoadLevel(level33);
+                                    level33.SavedPlayerX = reader.ReadInt32();
+                                    level33.SavedPlayerY = reader.ReadInt32();
+                                    level33.HasStarted = true;
+                                }
                             }
                         }
                     }
 
                     base.Update(gameTime);
                     break;
-
-                case GameState.level1:
+                /*case GameState.level1:
                     check = level1.loadLevel();
                     checkMap = level1.setupLevel();
                     player = gameObjectManager.Player;
                     gameState = GameState.game;
                     currentLevel = "level1";
                     break;
-
                 case GameState.level2:
                     check = level2.loadLevel();
                     checkMap = level2.setupLevel();
@@ -601,39 +795,7 @@ namespace BatGame
                     player = gameObjectManager.Player;
                     gameState = GameState.game;
                     currentLevel = "level2";
-                    break;
-
-                case GameState.warning:
-                    IsMouseVisible = true;
-                    continueButton.Selected = false;
-                    quitButton.Selected = false;
-
-                    lastMouseState = currentMouseState;
-                    currentMouseState = Mouse.GetState();
-                    Point pos3 = new Point(currentMouseState.X, currentMouseState.Y);
-                    if (continueButton.Rect.Contains(pos3))
-                    {
-                        continueButton.Selected = true;
-
-                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
-                        {
-                            this.Window.Title = "Party Game";
-                            player.HalfX = !player.HalfX;
-                            player.HalfY = !player.HalfY;
-                            gameState = GameState.partyMode;
-                        }
-                    }
-                    if (quitButton.Rect.Contains(pos3))
-                    {
-                        quitButton.Selected = true;
-
-                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
-                        {
-                            this.Exit();
-                        }
-                    }
-                    break;
-
+                    break;*/
                 case GameState.partyMode:
                     player.PartyMode();
                     player.PlayerUpdate();
@@ -663,15 +825,27 @@ namespace BatGame
                     spriteBatch.Draw(lightMask, light, Color.White);
 
                     // To add more lights: draw them here, with whatever color you want!
-                    if (currentLevel == "level1")
+                    for (int i = 0; i < player.CurrentLevel.LevelObjectArray.GetLength(0); i++)
                     {
-                        for (int i = 0; i < level1.LevelObjectArray.GetLength(0); i++)
+                        for (int j = 0; j < player.CurrentLevel.LevelObjectArray.GetLength(1); j++)
                         {
-                            for (int j = 0; j < level1.LevelObjectArray.GetLength(1); j++)
+                            if (player.CurrentLevel.LevelObjectArray[i, j] is LightSource)
+                            {
+                                Vector2 lightSource = new Vector2(player.CurrentLevel.LevelObjectArray[i, j].RectX - 45, player.CurrentLevel.LevelObjectArray[i, j].RectY - 50);
+                                spriteBatch.Draw(lightMask, lightSource, Color.White);
+                            }
+                        }
+                    }
+                    
+                    /*if (currentLevel == "level11")
+                    {
+                        for (int i = 0; i < level11.LevelObjectArray.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < level11.LevelObjectArray.GetLength(1); j++)
                             {
                                 if (level1.LevelObjectArray[i, j] is LightSource)
                                 {
-                                    Vector2 lightSource = new Vector2(level1.LevelObjectArray[i, j].RectX - 45, level1.LevelObjectArray[i, j].RectY - 50);
+                                    Vector2 lightSource = new Vector2(level11.LevelObjectArray[i, j].RectX - 45, level11.LevelObjectArray[i, j].RectY - 50);
                                     spriteBatch.Draw(lightMask, lightSource, Color.White);
                                 }
                             }
@@ -690,7 +864,7 @@ namespace BatGame
                                 }
                             }
                         }
-                    }
+                    }*/
                     
                     if (player.Screech == true)
                     {
@@ -918,13 +1092,13 @@ namespace BatGame
 
                 case GameState.warning:
                     spriteBatch.Begin();
-                    spriteBatch.DrawString(comicSansBold28, "Warning!",
+                    spriteBatch.DrawString(comicSans14, "Warning!",
                     new Vector2(320, 60), Color.Red);
-                    spriteBatch.DrawString(comicSansBold28, "This area contains flashing lights",
+                    spriteBatch.DrawString(comicSans14, "This area contains flashing lights",
                     new Vector2(120, 140), Color.White);
-                    spriteBatch.DrawString(comicSansBold28, "and cool beats.",
+                    spriteBatch.DrawString(comicSans14, "and cool beats.",
                     new Vector2(260, 180), Color.White);
-                    spriteBatch.DrawString(comicSansBold28, "Do you still wish to continue?",
+                    spriteBatch.DrawString(comicSans14, "Do you still wish to continue?",
                     new Vector2(160, 220), Color.White);
 
                     continueButton.X = 150;
@@ -944,6 +1118,53 @@ namespace BatGame
 
 
             base.Draw(gameTime);
+        }
+        private void LoadLevel(Level level)
+        {
+            if (level.Equals(level11))
+            {
+                currentLevel = "level11";
+            }
+            else if (level.Equals(level12))
+            {
+                currentLevel = "level12";
+            }
+            else if (level.Equals(level13))
+            {
+                currentLevel = "level13";
+            }
+            else if (level.Equals(level21))
+            {
+                currentLevel = "level21";
+            }
+            else if (level.Equals(level22))
+            {
+                currentLevel = "level22";
+            }
+            else if (level.Equals(level23))
+            {
+                currentLevel = "level23";
+            }
+            else if (level.Equals(level31))
+            {
+                currentLevel = "level31";
+            }
+            else if (level.Equals(level32))
+            {
+                currentLevel = "level32";
+            }
+            else if (level.Equals(level33))
+            {
+                currentLevel = "level33";
+            }
+
+            check = level.loadLevel();
+            checkMap = level.setupLevel();
+            player = gameObjectManager.Player;
+            player.CurrentLevel = level;
+            gameState = GameState.game;
+
+
         }
 
         #region LoadMap

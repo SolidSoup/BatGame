@@ -28,6 +28,13 @@ namespace BatGame
         bool shrieking; //shriek is handled in a similar way to screech
         bool finishedLevel;
 
+        bool hitBottom;
+        bool hitTop;
+        bool hitLeft;
+        bool hitRight;
+        bool hitFinish;
+        Level currentLevel;
+
         private Grid grid;
         private QuadTangle currentQuadtangle;
 
@@ -77,6 +84,58 @@ namespace BatGame
             get
             {
                 return finishedLevel;
+            }
+        }
+
+        public bool HitLeft
+        {
+            get
+            {
+                return hitLeft;
+            }
+        }
+
+        public bool HitTop
+        {
+            get
+            {
+                return hitTop;
+            }
+        }
+
+        public bool HitBottom
+        {
+            get
+            {
+                return hitBottom;
+            }
+        }
+
+        public bool HitRight
+        {
+            get
+            {
+                return hitRight;
+            }
+        }
+
+        public bool HitFinish
+        {
+            get
+            {
+                return hitFinish;
+            }
+        }
+
+        public Level CurrentLevel
+        {
+            get
+            {
+                return currentLevel;
+            }
+            set
+            {
+                currentLevel = value;
             }
         }
 
@@ -336,7 +395,27 @@ namespace BatGame
                 }
                 if (g is Exit)
                 {
-                    finishedLevel = true;
+                    Exit temp = (Exit)(g);
+                    if (temp.Type == Exit.ExitType.Up)
+                    {
+                        hitTop = true;
+                    }
+                    else if (temp.Type == Exit.ExitType.Down)
+                    {
+                        hitBottom = true;
+                    }
+                    else if (temp.Type == Exit.ExitType.Left)
+                    {
+                        hitLeft = true;
+                    }
+                    else if (temp.Type == Exit.ExitType.Right)
+                    {
+                        hitRight = true;
+                    }
+                    else if (temp.Type == Exit.ExitType.Finish)
+                    {
+                        hitFinish = true;
+                    }
                 }
             }
         }

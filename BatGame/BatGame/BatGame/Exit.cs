@@ -10,10 +10,29 @@ namespace BatGame
 {
     class Exit : Interactable
     {
-        public Exit(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, bool active)
+        ExitType type;
+        public enum ExitType
+        {
+            Up,
+            Down,
+            Right,
+            Left,
+            Finish
+        }
+        public Exit(Texture2D t, GameObjectManager go, Point p, Grid g, Direction d, SubSquares sub, bool s, bool active, ExitType type)
             : base(t, go, p, g, d, sub, s, active)
         {
             this.IsSolid = false;
+            this.type = type;
         }
+
+        public ExitType Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+
+
     }
 }

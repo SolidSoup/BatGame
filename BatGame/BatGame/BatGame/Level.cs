@@ -28,11 +28,18 @@ namespace BatGame
         bool hasStarted;
         int spawnPlayerX;
         int spawnPlayerY;
+        int savedPlayerX;
+        int savedPlayerY;
         Dictionary<string, Texture2D> textureDictionary;
         Grid grid;
         EnemyManager enemyManager;
         ImmobilesManager immobilesManager;
         GameObjectManager gameObjectManager;
+        Level[,] gameMap;
+        Level leftNeighbor;
+        Level rightNeighbor;
+        Level upNeighbor;
+        Level bottomNeighbor;
 
         /// <summary>
         /// Constructor takes a string tht it uses for the path to the level's text file
@@ -70,6 +77,48 @@ namespace BatGame
         {
             get { return spawnPlayerY; }
             set { spawnPlayerY = value; }
+        }
+
+        public int SavedPlayerX
+        {
+            get { return savedPlayerX; }
+            set { savedPlayerX = value; }
+        }
+
+        public int SavedPlayerY
+        {
+            get { return savedPlayerY; }
+            set { savedPlayerY = value; }
+        }
+
+        public Level[,] GameMap
+        {
+            get { return gameMap; }
+            set { gameMap = value; }
+        }
+
+        public Level LeftNeighbor
+        {
+            get { return leftNeighbor; }
+            set { leftNeighbor = value; }
+        }
+
+        public Level RightNeighbor
+        {
+            get { return rightNeighbor; }
+            set { rightNeighbor = value; }
+        }
+
+        public Level UpNeighbor
+        {
+            get { return upNeighbor; }
+            set { upNeighbor = value; }
+        }
+
+        public Level DownNeighbor
+        {
+            get { return bottomNeighbor; }
+            set { bottomNeighbor = value; }
         }
 
 
@@ -284,10 +333,10 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempFloor3);
 
                             //Adds a player
-                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(spawnPlayerX, spawnPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
                             if (HasStarted)
                             {
-                                player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(SpawnPlayerX, SpawnPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                                player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(savedPlayerX, savedPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
                                 HasStarted = false;
                             }
                             gameObjectManager.Player = player;
@@ -319,10 +368,34 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempSkull);
                             break;
                         case "^":
-                            Exit tempExit = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true);
+                            Exit tempExit = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true, Exit.ExitType.Up);
                             levelObjectArray[i, j] = tempExit;
                             immobilesManager.AddImmobile(tempExit);
                             gameObjectManager.AddGameObject(tempExit);
+                            break;
+                        case "7":
+                            Exit tempExit2 = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true, Exit.ExitType.Down);
+                            levelObjectArray[i, j] = tempExit2;
+                            immobilesManager.AddImmobile(tempExit2);
+                            gameObjectManager.AddGameObject(tempExit2);
+                            break;
+                        case "8":
+                            Exit tempExit3 = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true, Exit.ExitType.Left);
+                            levelObjectArray[i, j] = tempExit3;
+                            immobilesManager.AddImmobile(tempExit3);
+                            gameObjectManager.AddGameObject(tempExit3);
+                            break;
+                        case "9":
+                            Exit tempExit4 = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true, Exit.ExitType.Right);
+                            levelObjectArray[i, j] = tempExit4;
+                            immobilesManager.AddImmobile(tempExit4);
+                            gameObjectManager.AddGameObject(tempExit4);
+                            break;
+                        case "6":
+                            Exit tempExit5 = new Exit(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false, true, Exit.ExitType.Finish);
+                            levelObjectArray[i, j] = tempExit5;
+                            immobilesManager.AddImmobile(tempExit5);
+                            gameObjectManager.AddGameObject(tempExit5);
                             break;
                         case "O":
                             /*Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
