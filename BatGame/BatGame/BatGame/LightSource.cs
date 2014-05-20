@@ -18,13 +18,5 @@ namespace BatGame
             : base(t, go, p, g, d, sub, s, a)
         {
         }
-
-        public override void Update()
-        {
-            //Yo greg put your fancy light code here
-        }
-        public override void Draw(SpriteBatch batch)
-        {
-        }
     }
 }

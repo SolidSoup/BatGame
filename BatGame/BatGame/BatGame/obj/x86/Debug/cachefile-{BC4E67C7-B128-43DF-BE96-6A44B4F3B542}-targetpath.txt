@@ -1,4 +1,5 @@
 Content\Font\ComicSans.xnb
+Content\Font\ComicSansBold28.xnb
 Content\Sprites\Enemy_Sprites\enemy.xnb
 Content\Sprites\Corners\Corner.xnb
 Content\Sprites\Floors\FloorTile.xnb
@@ -55,7 +56,6 @@ Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\danceMusic.xnb
 Content\danceMusic.wma
-Content\Font\ComicSansBold28.xnb
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
 Content\Levels\level2.txt

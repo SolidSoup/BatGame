@@ -18,6 +18,12 @@ namespace BatGame
     {
         private string levelfile;
         private GameObject[,] levelObjectArray;
+
+        internal GameObject[,] LevelObjectArray1
+        {
+            get { return levelObjectArray; }
+            set { levelObjectArray = value; }
+        }
         private string[,] levelStringArray;
         bool hasStarted;
         int spawnPlayerX;
@@ -319,11 +325,11 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempExit);
                             break;
                         case "O":
-                            Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            /*Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor5;
                             immobilesManager.AddImmobile(tempFloor5);
                             gameObjectManager.AddGameObject(tempFloor5);
-
+                            */
                             LightSource tempLight = new LightSource(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
                             levelObjectArray[i, j] = tempLight;
                             immobilesManager.AddImmobile(tempLight);

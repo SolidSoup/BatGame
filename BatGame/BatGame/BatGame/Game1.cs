@@ -663,6 +663,35 @@ namespace BatGame
                     spriteBatch.Draw(lightMask, light, Color.White);
 
                     // To add more lights: draw them here, with whatever color you want!
+                    if (currentLevel == "level1")
+                    {
+                        for (int i = 0; i < level1.LevelObjectArray.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < level1.LevelObjectArray.GetLength(1); j++)
+                            {
+                                if (level1.LevelObjectArray[i, j] is LightSource)
+                                {
+                                    Vector2 lightSource = new Vector2(level1.LevelObjectArray[i, j].RectX - 45, level1.LevelObjectArray[i, j].RectY - 50);
+                                    spriteBatch.Draw(lightMask, lightSource, Color.White);
+                                }
+                            }
+                        }
+                    }
+                    else if (currentLevel == "level2")
+                    {
+                        for (int i = 0; i < level2.LevelObjectArray.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < level2.LevelObjectArray.GetLength(1); j++)
+                            {
+                                if (level2.LevelObjectArray[i, j] is LightSource)
+                                {
+                                    Vector2 lightSource = new Vector2(level2.LevelObjectArray[i, j].RectX - 45, level2.LevelObjectArray[i, j].RectY - 50);
+                                    spriteBatch.Draw(lightMask, lightSource, Color.White);
+                                }
+                            }
+                        }
+                    }
+                    
                     if (player.Screech == true)
                     {
 
