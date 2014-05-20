@@ -91,6 +91,7 @@ namespace BatGame
         Effect lightingEffect;
 
         SpriteFont comicSans14;
+        SpriteFont comicSansBold28;
 
         Player player;
         Enemy enemy;
@@ -122,15 +123,18 @@ namespace BatGame
         Texture2D loadButtonImage;
         Texture2D nameLogoImage;
         Texture2D pauseImage;
+
         Button startButton;
         Button quitButton;
         Button loadButton;
         Button continueButton;
         Button saveButton;
         Button menuButton;
+
         MouseState lastMouseState;
         MouseState currentMouseState;
         KeyboardState keyboardState;
+        KeyboardState lastKeyboardState;
 
         Song tunes;
 
@@ -238,6 +242,7 @@ namespace BatGame
                 GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight);
             // TODO: use this.Content to load your game content here
             comicSans14 = Content.Load<SpriteFont>("Font/ComicSans");
+            comicSansBold28 = Content.Load<SpriteFont>("Font/ComicSansBold28");
 
             playerImage = Content.Load<Texture2D>("Sprites/Bat_Sprites/Idle_Bat");
             spriteDictionary.Add("playerImage", playerImage);
@@ -387,18 +392,19 @@ namespace BatGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            if (keyboardState.IsKeyDown(Keys.P))
-            {
-                this.Window.Title = "Party Game";
-                gameState = GameState.partyMode;
-                player.HalfX = !player.HalfX;
-                player.HalfY = !player.HalfY;
-            }
+            lastKeyboardState = keyboardState;
+            keyboardState = Keyboard.GetState();
 
             // TODO: Add your update logic here
             switch (gameState)
             {
                 case GameState.game:
+
+                    if (keyboardState.IsKeyDown(Keys.P) && lastKeyboardState.IsKeyUp(Keys.P))
+                    {
+                        gameState = GameState.warning;
+                    }
+
                     //too much code in Game1 is super bad, but it'll be sorted out later
                     if (player.Shriek == true)
                     {
@@ -579,6 +585,7 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
+
                 case GameState.level1:
                     check = level1.loadLevel();
                     checkMap = level1.setupLevel();
@@ -586,6 +593,7 @@ namespace BatGame
                     gameState = GameState.game;
                     currentLevel = "level1";
                     break;
+
                 case GameState.level2:
                     check = level2.loadLevel();
                     checkMap = level2.setupLevel();
@@ -594,6 +602,38 @@ namespace BatGame
                     gameState = GameState.game;
                     currentLevel = "level2";
                     break;
+
+                case GameState.warning:
+                    IsMouseVisible = true;
+                    continueButton.Selected = false;
+                    quitButton.Selected = false;
+
+                    lastMouseState = currentMouseState;
+                    currentMouseState = Mouse.GetState();
+                    Point pos3 = new Point(currentMouseState.X, currentMouseState.Y);
+                    if (continueButton.Rect.Contains(pos3))
+                    {
+                        continueButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            this.Window.Title = "Party Game";
+                            player.HalfX = !player.HalfX;
+                            player.HalfY = !player.HalfY;
+                            gameState = GameState.partyMode;
+                        }
+                    }
+                    if (quitButton.Rect.Contains(pos3))
+                    {
+                        quitButton.Selected = true;
+
+                        if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            this.Exit();
+                        }
+                    }
+                    break;
+
                 case GameState.partyMode:
                     player.PartyMode();
                     player.PlayerUpdate();
@@ -845,6 +885,24 @@ namespace BatGame
 
                     spriteBatch.End();
                     base.Draw(gameTime);
+                    break;
+
+                case GameState.warning:
+                    spriteBatch.Begin();
+                    spriteBatch.DrawString(comicSansBold28, "Warning!",
+                    new Vector2(320, 60), Color.Red);
+                    spriteBatch.DrawString(comicSansBold28, "This area contains flashing lights",
+                    new Vector2(120, 140), Color.White);
+                    spriteBatch.DrawString(comicSansBold28, "and cool beats.",
+                    new Vector2(260, 180), Color.White);
+                    spriteBatch.DrawString(comicSansBold28, "Do you still wish to continue?",
+                    new Vector2(160, 220), Color.White);
+
+                    continueButton.X = 150;
+                    continueButton.Y = 330;
+                    continueButton.Draw(spriteBatch);
+                    quitButton.Draw(spriteBatch);
+                    spriteBatch.End();
                     break;
 
                 case GameState.partyMode:

@@ -20,7 +20,8 @@ namespace BatGame
         pause,
         level1,
         level2,
-        partyMode
+        partyMode,
+        warning
     }
 
     public enum PlayerState
