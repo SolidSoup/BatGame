@@ -106,10 +106,6 @@ namespace BatGame
         Dictionary<string, Texture2D> spriteDictionary;
         AnimationFarm playerAnimation;
 
-        Level level1;
-        Level level2;
-        Level level3;
-
         Level level11;
         Level level12;
         Level level13;
@@ -346,10 +342,6 @@ namespace BatGame
 
             player.ObjTexture = playerImage;
 
-            // LoadMap("Content/level1.txt");
-            level1 = new Level("Content/Levels/level1.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
-            level2 = new Level("Content/Levels/level2.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
-
             level11 = new Level("Content/Levels/level11.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level12 = new Level("Content/Levels/level12.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level13 = new Level("Content/Levels/level13.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
@@ -420,11 +412,6 @@ namespace BatGame
 
             level33.UpNeighbor = level23;
             level33.LeftNeighbor = level32;
-
-
-            //check = level1.loadLevel();
-            //checkMap = level1.setupLevel(spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
-            //player = gameObjectManager.Player;
 
             //Images and buttons for menu and pause screens
             menuImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menu");
@@ -538,28 +525,8 @@ namespace BatGame
 
                     if (player.Hits > 0)
                     {
-                        /*if (currentLevel.Equals("level1"))
-                        {
-                            gameState = GameState.level1;
-                        }
-                        if (currentLevel.Equals("level2"))
-                        {
-                            gameState = GameState.level2;
-                        }*/
                         LoadLevel(player.CurrentLevel);
                     }
-                    if (player.FinishedLevel == true)
-                    {
-                        if (currentLevel.Equals("level1"))
-                        {
-                            gameState = GameState.level2;
-                        }
-                        if (currentLevel.Equals("level2"))
-                        {
-                            //gameState = GameState.level2;
-                        }
-                    }
-
                     if (player.HitBottom)
                     {
                         int spawnX = player.PosX;
@@ -568,9 +535,7 @@ namespace BatGame
                         player.CurrentLevel.DownNeighbor.SpawnPlayerX = spawnX;
                         player.CurrentLevel.DownNeighbor.SpawnPlayerY = spawnY;
                         LoadLevel(player.CurrentLevel.DownNeighbor);
-
-                        // player.PosX = 10;
-                        //player.PosY = 10;
+                        player.Facing = Direction.Down;
                     }
                     if (player.HitTop)
                     {
@@ -579,9 +544,7 @@ namespace BatGame
                         player.CurrentLevel.UpNeighbor.SpawnPlayerX = spawnX;
                         player.CurrentLevel.UpNeighbor.SpawnPlayerY = spawnY;
                         LoadLevel(player.CurrentLevel.UpNeighbor);
-
-
-
+                        player.Facing = Direction.Up;
                     }
                     if (player.HitLeft)
                     {
@@ -590,7 +553,7 @@ namespace BatGame
                         player.CurrentLevel.LeftNeighbor.SpawnPlayerX = spawnX;
                         player.CurrentLevel.LeftNeighbor.SpawnPlayerY = spawnY;
                         LoadLevel(player.CurrentLevel.LeftNeighbor);
-
+                        player.Facing = Direction.Left;
                     }
                     if (player.HitRight)
                     {
@@ -599,7 +562,7 @@ namespace BatGame
                         player.CurrentLevel.RightNeighbor.SpawnPlayerX = spawnX;
                         player.CurrentLevel.RightNeighbor.SpawnPlayerY = spawnY;
                         LoadLevel(player.CurrentLevel.RightNeighbor);
-
+                        player.Facing = Direction.Right;
                     }
 
                     if (player.HitFinish)
@@ -673,7 +636,6 @@ namespace BatGame
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
-                            //gameState = GameState.level1;
                             LoadLevel(level11);
                         }
                     }
@@ -695,85 +657,75 @@ namespace BatGame
                             using (BinaryReader reader = new BinaryReader(File.Open("saveFile", FileMode.Open)))
                             {
                                 currentLevel = reader.ReadString();
-                                if (currentLevel.Equals("level1"))
-                                {
-                                    gameState = GameState.level1;
-                                    level1.SpawnPlayerX = reader.ReadInt32();
-                                    level1.SpawnPlayerY = reader.ReadInt32();
-                                    level1.HasStarted = true;
-                                }
-                                if (currentLevel.Equals("level2"))
-                                {
-                                    gameState = GameState.level2;
-                                    level2.SpawnPlayerX = reader.ReadInt32();
-                                    level2.SpawnPlayerY = reader.ReadInt32();
-                                    level2.HasStarted = true;
-                                }
-
-
 
                                 if (currentLevel.Equals("level11"))
                                 {
-                                    LoadLevel(level11);
+                                    level11.HasStarted = true;
                                     level11.SavedPlayerX = reader.ReadInt32();
                                     level11.SavedPlayerY = reader.ReadInt32();
-                                    level11.HasStarted = true;
+                                    LoadLevel(level11);
                                 }
                                 if (currentLevel.Equals("level12"))
                                 {
-                                    LoadLevel(level12);
+                                    level12.HasStarted = true;
                                     level12.SavedPlayerX = reader.ReadInt32();
                                     level12.SavedPlayerY = reader.ReadInt32();
-                                    level12.HasStarted = true;
+                                    LoadLevel(level12);
+                                    
                                 }
                                 if (currentLevel.Equals("level13"))
                                 {
-                                    LoadLevel(level13);
+                                    level13.HasStarted = true;
                                     level13.SavedPlayerX = reader.ReadInt32();
                                     level13.SavedPlayerY = reader.ReadInt32();
-                                    level13.HasStarted = true;
+                                    LoadLevel(level13);
                                 }
                                 if (currentLevel.Equals("level21"))
                                 {
-                                    LoadLevel(level21);
+                                    level21.HasStarted = true;
                                     level21.SavedPlayerX = reader.ReadInt32();
                                     level21.SavedPlayerY = reader.ReadInt32();
-                                    level21.HasStarted = true;
+                                    LoadLevel(level21);
+                                    
                                 }
                                 if (currentLevel.Equals("level22"))
                                 {
-                                    LoadLevel(level22);
+                                    level22.HasStarted = true;
                                     level22.SavedPlayerX = reader.ReadInt32();
                                     level22.SavedPlayerY = reader.ReadInt32();
-                                    level22.HasStarted = true;
+                                    LoadLevel(level22);
+                                    
                                 }
                                 if (currentLevel.Equals("level23"))
                                 {
-                                    LoadLevel(level23);
+                                    level23.HasStarted = true;
                                     level23.SavedPlayerX = reader.ReadInt32();
                                     level23.SavedPlayerY = reader.ReadInt32();
-                                    level23.HasStarted = true;
+                                    LoadLevel(level23);
+                                    
                                 }
                                 if (currentLevel.Equals("level31"))
                                 {
-                                    LoadLevel(level31);
+                                    level31.HasStarted = true;
                                     level31.SavedPlayerX = reader.ReadInt32();
                                     level31.SavedPlayerY = reader.ReadInt32();
-                                    level31.HasStarted = true;
+                                    LoadLevel(level31);
+                                    
                                 }
                                 if (currentLevel.Equals("level32"))
                                 {
-                                    LoadLevel(level32);
+                                    level32.HasStarted = true;
                                     level32.SavedPlayerX = reader.ReadInt32();
                                     level32.SavedPlayerY = reader.ReadInt32();
-                                    level32.HasStarted = true;
+                                    LoadLevel(level32);
+                                    
                                 }
                                 if (currentLevel.Equals("level33"))
                                 {
-                                    LoadLevel(level33);
+                                    level33.HasStarted = true;
                                     level33.SavedPlayerX = reader.ReadInt32();
                                     level33.SavedPlayerY = reader.ReadInt32();
-                                    level33.HasStarted = true;
+                                    LoadLevel(level33);
                                 }
                             }
                         }
@@ -781,21 +733,6 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
-                /*case GameState.level1:
-                    check = level1.loadLevel();
-                    checkMap = level1.setupLevel();
-                    player = gameObjectManager.Player;
-                    gameState = GameState.game;
-                    currentLevel = "level1";
-                    break;
-                case GameState.level2:
-                    check = level2.loadLevel();
-                    checkMap = level2.setupLevel();
-
-                    player = gameObjectManager.Player;
-                    gameState = GameState.game;
-                    currentLevel = "level2";
-                    break;*/
                 case GameState.partyMode:
                     player.PartyMode();
                     player.PlayerUpdate();
@@ -1054,6 +991,8 @@ namespace BatGame
                     new Vector2(480, 370), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "1/2 square x: " + player.HalfX,
                     new Vector2(480, 400), Color.Orange);
+                    spriteBatch.DrawString(comicSans14, "Current level: " + currentLevel,
+                    new Vector2(480, 430), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Beta V 0.2P",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
@@ -1113,12 +1052,9 @@ namespace BatGame
                     break;
 
             }
-
-
-
-
             base.Draw(gameTime);
         }
+
         private void LoadLevel(Level level)
         {
             if (level.Equals(level11))
@@ -1163,95 +1099,6 @@ namespace BatGame
             player = gameObjectManager.Player;
             player.CurrentLevel = level;
             gameState = GameState.game;
-
-
         }
-
-        #region LoadMap
-        protected void LoadMap(String file)
-        {
-
-            String[,] data = new string[100, 100];
-            String[,] map;
-            int longestRow = 0;
-
-            StreamReader input = null;
-
-            try
-            {
-                input = new StreamReader(file);
-
-                String line = "";
-                int counter = 0;
-
-                while ((line = input.ReadLine()) != null)
-                {
-                    if (line.Length > longestRow)
-                    {
-                        longestRow = line.Length;
-                    }
-
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        data[counter, i] = line.Substring(i, 1);
-                    }
-                    counter++;
-                }
-
-
-                map = new string[counter, longestRow];
-                for (int i = 0; i < counter; i++)
-                {
-                    for (int j = 0; j < longestRow; j++)
-                    {
-                        map[i, j] = data[i, j];
-                    }
-                }
-
-                check = map;
-
-                for (int i = 0; i < map.GetLength(0); i++)
-                {
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-                        switch (map[i, j])
-                        {
-                            case "|":
-                                //Add a vertical wall
-                                break;
-                            case "+":
-                                //Add a corner
-                                break;
-                            case "-":
-                                // Add a horizontal wall
-                                break;
-                            case "1":
-                                //Add a floor tile
-                                break;
-                            case "e":
-                                Enemy jim = new Enemy(enemyImage, gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, true);
-                                enemyManager.AddEnemy(jim);
-                                break;
-                            case "p":
-                                //Add a floor tile
-                                //Add a player
-                                break;
-                        }
-                    }
-                }
-
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                if (input != null)
-                {
-                    input.Close();
-                }
-            }
-        }
-        #endregion
     }
 }

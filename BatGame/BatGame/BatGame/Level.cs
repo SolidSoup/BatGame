@@ -35,7 +35,6 @@ namespace BatGame
         EnemyManager enemyManager;
         ImmobilesManager immobilesManager;
         GameObjectManager gameObjectManager;
-        Level[,] gameMap;
         Level leftNeighbor;
         Level rightNeighbor;
         Level upNeighbor;
@@ -89,12 +88,6 @@ namespace BatGame
         {
             get { return savedPlayerY; }
             set { savedPlayerY = value; }
-        }
-
-        public Level[,] GameMap
-        {
-            get { return gameMap; }
-            set { gameMap = value; }
         }
 
         public Level LeftNeighbor
@@ -398,11 +391,6 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempExit5);
                             break;
                         case "O":
-                            /*Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
-                            levelObjectArray[i, j] = tempFloor5;
-                            immobilesManager.AddImmobile(tempFloor5);
-                            gameObjectManager.AddGameObject(tempFloor5);
-                            */
                             LightSource tempLight = new LightSource(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
                             levelObjectArray[i, j] = tempLight;
                             immobilesManager.AddImmobile(tempLight);
