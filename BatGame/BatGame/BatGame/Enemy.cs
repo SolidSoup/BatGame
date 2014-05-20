@@ -58,6 +58,7 @@ namespace BatGame
 
             startPoint = p;
             needToFindStart = false;
+            steps = 0;
 
         }
 
@@ -100,6 +101,7 @@ namespace BatGame
                     if (distance < 10)
                     {
                         detected = true;
+                        steps = 0;
                     }
                     else if (distance > 100)
                     {
@@ -111,7 +113,6 @@ namespace BatGame
                     if (detected == true)
                     {
                         Astar();
-                        //Pathfinding(player);
                     }
                     else if (needToFindStart)
                         Astart();
@@ -130,7 +131,7 @@ namespace BatGame
                 PosY--;
                 steps++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                if (steps > 3 && detected == false && !needToFindStart)
+                if (steps > 2 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Right;
@@ -138,12 +139,12 @@ namespace BatGame
 
             }
             //Move left
-            if (isFacing(Direction.Left) && canMove(Direction.Left))
+            else if (isFacing(Direction.Left) && canMove(Direction.Left))
             {
                 PosX--;
                 steps++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                if (steps > 3 && detected == false && !needToFindStart)
+                if (steps > 2 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Up;
@@ -151,12 +152,12 @@ namespace BatGame
 
             }
             //Move Down
-            if (isFacing(Direction.Down) && canMove(Direction.Down))
+            else if (isFacing(Direction.Down) && canMove(Direction.Down))
             {
                 PosY++;
                 steps++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
-                if (steps > 3 && detected == false && !needToFindStart)
+                if (steps > 2 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Left;
@@ -164,13 +165,13 @@ namespace BatGame
 
             }
             //Move Right
-            if (isFacing(Direction.Right) && canMove(Direction.Right))
+            else if (isFacing(Direction.Right) && canMove(Direction.Right))
             {
                 waitTime = .75;
                 PosX++;
                 steps++;
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
-                if (steps > 3 && detected == false && !needToFindStart)
+                if (steps > 2 && detected == false && !needToFindStart)
                 {
                     steps = 0;
                     Facing = Direction.Down;
@@ -190,7 +191,7 @@ namespace BatGame
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
             }
             //move up and to the right
-            if (isFacing(Direction.UpRight) && canMove(Direction.UpRight))
+            else if (isFacing(Direction.UpRight) && canMove(Direction.UpRight))
             {
                 PosY--;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
@@ -198,7 +199,7 @@ namespace BatGame
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
             }
             //move down and to the left
-            if (isFacing(Direction.DownLeft) && canMove(Direction.DownLeft))
+            else if (isFacing(Direction.DownLeft) && canMove(Direction.DownLeft))
             {
                 PosY++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
@@ -206,7 +207,7 @@ namespace BatGame
                 RectX = GridPos.getPosition(Position, SubSquares.TopLeft).X;
             }
             //move down and right
-            if (isFacing(Direction.DownRight) && canMove(Direction.DownRight))
+            else if (isFacing(Direction.DownRight) && canMove(Direction.DownRight))
             {
                 PosY++;
                 RectY = GridPos.getPosition(Position, SubSquares.TopLeft).Y;
@@ -355,13 +356,13 @@ namespace BatGame
                     }
                     else if (objinspot[i] is Wall && !(Q.ObjInTangle is Player))
                         Q.ObjInTangle = objinspot[i];
-                    else if (objinspot[i] is Stalagmite && !(Q.ObjInTangle is Player))
+                    else if (objinspot[i] is Stalagmite)
                         Q.ObjInTangle = objinspot[i];
                     else if (objinspot[i] is Boulder && !(Q.ObjInTangle is Player))
                         Q.ObjInTangle = objinspot[i];
-                    else if (objinspot[i] is Skull && !(Q.ObjInTangle is Player))
+                    else if (objinspot[i] is Skull)
                         Q.ObjInTangle = objinspot[i];
-                    else if (objinspot[i] is Enemy && !(Q.ObjInTangle is Player))
+                    else if (objinspot[i] is Enemy)
                         Q.ObjInTangle = objinspot[i];
                     else if (!(Q.ObjInTangle is Player))
                         Q.ObjInTangle = objinspot[i];
@@ -704,7 +705,10 @@ namespace BatGame
             if (AstarList2.Count > 1)
                 SetDirectionToMove(AstarList2[1]);
             else if (AstarList2.Count == 0)
+            {
                 needToFindStart = false;
+                Facing = Direction.Right;
+            }
 
         }
 

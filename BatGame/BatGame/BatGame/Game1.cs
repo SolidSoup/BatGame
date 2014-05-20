@@ -907,7 +907,7 @@ namespace BatGame
 
 
                     GraphicsDevice.SetRenderTarget(mainTarget);
-                    GraphicsDevice.Clear(Color.Black);
+                    GraphicsDevice.Clear(new Color(30,30,30));
                     spriteBatch.Begin();
 
                     // TODO: Add your drawing code here
