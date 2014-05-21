@@ -43,7 +43,7 @@ namespace BatGame
             }
             for (int i = 0; i < enemies.Count; i++)
             {
-                enemyAnimations[i].EnemyAnimationUpdate(gameTime, enemies[i].Facing);
+                //enemyAnimations[i].EnemyAnimationUpdate(gameTime, enemies[i].Facing);
                 enemyAnimations[i].EnemyFrameUpdate(gameTime, enemies[i].Facing);
             }
         }

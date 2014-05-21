@@ -81,6 +81,15 @@ namespace BatGame
         //Plugged in and taken from the parent class
         SpriteBatch sp;
 
+        bool firstUp;
+        bool firstDown;
+        bool firstRight;
+        bool firstLeft;
+        bool firstUpLeft;
+        bool firstUpRight;
+        bool firstDownLeft;
+        bool firstDownRight;
+
         #endregion
 
         /// <summary>
@@ -95,8 +104,17 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             //isFlying = false;
             //isIdle = false;
-            interval = 3.0 / FramesPerSecond;
+            interval = 5.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
+
+            firstUp = true;
+            firstDown = true;
+            firstRight = true;
+            firstLeft = true;
+            firstUpLeft = true;
+            firstUpRight = true;
+            firstDownLeft = true;
+            firstDownRight = true;
         }
 
         #region PROPERTIES
@@ -173,6 +191,7 @@ namespace BatGame
         /// <param name="gameTime">gametime for animation purposes</param>
         public void AnimationUpdate(GameTime gameTime, Direction d)
         {
+
             previousKB = currentKB;
             currentKB = Keyboard.GetState();
 
@@ -479,9 +498,16 @@ namespace BatGame
 
         public void EnemyFrameUpdate(GameTime gameTime, Direction d)
         {
+            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
+            Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
 
             if (d == Direction.Up)//
             {
+                if (firstUp)
+                {
+                    currentFrame = 0;
+                    firstUp = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -489,8 +515,11 @@ namespace BatGame
                 {
                     currentFrame++; //continue the animation
 
-                    if (currentFrame > 2) //beyond the animation count held for flying (3)
+                    if (currentFrame > 2)
+                    { //beyond the animation count held for flying (3)
                         currentFrame = 0; //reset the animation
+                        firstUp = true;
+                    }
 
                     timer = 0;
                 }
@@ -498,7 +527,11 @@ namespace BatGame
 
             else if (d == Direction.Down)//
             {
-
+                if (firstDown)
+                {
+                    currentFrame = 3;
+                    firstDown = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -507,15 +540,21 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 5)
+                    {
                         currentFrame = 3; //reset the animation
-
+                        firstDown = true;
+                    }
                     timer = 0;
                 }
             }
 
             else if (d == Direction.Left)
             {
-
+                if (firstLeft)
+                {
+                    currentFrame = 6;
+                    firstLeft = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -524,7 +563,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 8)
+                    {
                         currentFrame = 6; //reset the animation
+                        firstLeft = true;
+                    }
 
                     timer = 0;
                 }
@@ -532,7 +574,11 @@ namespace BatGame
 
             else if (d == Direction.Right)
             {
-
+                if (firstRight)
+                {
+                    currentFrame = 9;
+                    firstRight = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -541,7 +587,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 11)
+                    {
                         currentFrame = 9; //reset the animation
+                        firstRight = true;
+                    }
 
                     timer = 0;
                 }
@@ -549,7 +598,11 @@ namespace BatGame
 
             else if (d == Direction.UpRight)
             {
-
+                if (firstUpRight)
+                {
+                    currentFrame = 12;
+                    firstUpRight = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -558,7 +611,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 14)
+                    {
                         currentFrame = 12; //reset the animation
+                        firstUpRight = true;
+                    }
 
                     timer = 0;
                 }
@@ -566,7 +622,11 @@ namespace BatGame
 
             else if (d == Direction.UpLeft)
             {
-
+                if (firstUpLeft)
+                {
+                    currentFrame = 15;
+                    firstUpLeft = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -575,7 +635,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 17)
+                    {
                         currentFrame = 15; //reset the animation
+                        firstUpLeft = true;
+                    }
 
                     timer = 0;
                 }
@@ -583,7 +646,11 @@ namespace BatGame
 
             else if (d == Direction.DownRight)
             {
-
+                if (firstDownRight)
+                {
+                    currentFrame = 18;
+                    firstDownRight = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -592,7 +659,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 20)
+                    {
                         currentFrame = 18; //reset the animation
+                        firstDownRight = true;
+                    }
 
                     timer = 0;
                 }
@@ -600,7 +670,11 @@ namespace BatGame
 
             else if (d == Direction.DownLeft)
             {
-
+                if (firstDownLeft)
+                {
+                    currentFrame = 21;
+                    firstDownLeft = false;
+                }
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -610,6 +684,7 @@ namespace BatGame
 
                     if (currentFrame > 23)
                         currentFrame = 21; //reset the animation
+                        firstDownLeft = true;
 
                     timer = 0;
                 }
