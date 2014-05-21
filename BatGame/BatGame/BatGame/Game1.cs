@@ -601,7 +601,7 @@ namespace BatGame
                         level22.SpawnPlayerX = 2;
                         level22.SpawnPlayerY = 4;
                         LoadLevel(level22);
-                        gameState = GameState.partyMode;
+                        gameState = GameState.warning;
                     }
 
                     if (player.Screech == true)
@@ -796,7 +796,7 @@ namespace BatGame
                             this.Window.Title = "Party Game";
                             player.HalfX = !player.HalfX;
                             player.HalfY = !player.HalfY;
-                            gameState = GameState.warning;
+                            gameState = GameState.partyMode;
                         }
                     }
                     if (quitButton.Rect.Contains(pos3))
