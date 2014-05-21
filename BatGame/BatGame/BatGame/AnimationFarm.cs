@@ -60,10 +60,10 @@ namespace BatGame
         //how often until it moves frm
         private double interval;
         //how many frames per second
-        private int FramesPerSecond = 100;
+        private int FramesPerSecond = 24;
         //how big are my sprites?
-        private int spriteWidth ;
-        private int spriteHeight ;
+        private int spriteWidth;
+        private int spriteHeight;
         //how fast it moves across the screen?
         private float spriteSpeed;
         //sprite's rect
@@ -95,7 +95,7 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             //isFlying = false;
             //isIdle = false;
-            interval = 60.0 / FramesPerSecond;
+            interval = 15.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
         }
 
@@ -349,10 +349,10 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 11)
-                    currentFrame = 9; //reset the animation
-                    timer =0;
+                        currentFrame = 9; //reset the animation
+                    timer = 0;
                 }
-                
+
 
             }
 
@@ -494,7 +494,7 @@ namespace BatGame
 
         public void EnemyFrameUpdate(GameTime gameTime, Direction d)
         {
-            
+
             if (d == Direction.Up)//
             {
 
@@ -513,7 +513,7 @@ namespace BatGame
 
             else if (d == Direction.Down)//
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -530,7 +530,7 @@ namespace BatGame
 
             else if (d == Direction.Left)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -547,7 +547,7 @@ namespace BatGame
 
             else if (d == Direction.Right)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -564,7 +564,7 @@ namespace BatGame
 
             else if (d == Direction.UpRight)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -581,7 +581,7 @@ namespace BatGame
 
             else if (d == Direction.UpLeft)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -598,7 +598,7 @@ namespace BatGame
 
             else if (d == Direction.DownRight)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -615,7 +615,7 @@ namespace BatGame
 
             else if (d == Direction.DownLeft)
             {
-                
+
 
                 timer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -631,8 +631,8 @@ namespace BatGame
             }
         }
 
-        
-       
+
+
 
     }//end class
 }//end namespace
