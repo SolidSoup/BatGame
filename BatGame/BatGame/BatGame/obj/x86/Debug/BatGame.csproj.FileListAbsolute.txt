@@ -720,3 +720,12 @@ C:\Users\Adam\Documents\College\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\B
 C:\Users\Adam\Documents\College\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Adam\Documents\College\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.exe
 C:\Users\Adam\Documents\College\Bat Game\BatGame\BatGame\BatGame\obj\x86\Debug\BatGame.pdb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Extra_Images\boat.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal2.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\lightsourcemask.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\caveSounds.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\echoSound.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\shriekSound.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\ambientMusic.xnb
+C:\Users\user\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Levels\partyroom.txt

@@ -95,7 +95,7 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             //isFlying = false;
             //isIdle = false;
-            interval = 15.0 / FramesPerSecond;
+            interval = 3.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
         }
 
@@ -223,52 +223,37 @@ namespace BatGame
                 }
             }
 
-            if (d == Direction.Left)
+            if (currentKB.IsKeyDown(Keys.W) && currentKB.IsKeyDown(Keys.D))
             {
-                currentFrame = 6;
-                //interval = 15.0 / FramesPerSecond;
-                //PlayerFlyingAnimation(FlyingDirection, gameTime);
-                //drawPosition.X += spriteSpeed;
+                PlayerFlyingAnimation(Direction.UpRight, gameTime);
             }
-
-            else if (d == Direction.Right)
+            else if (currentKB.IsKeyDown(Keys.W) && currentKB.IsKeyDown(Keys.A))
             {
-                currentFrame = 9;
-                //interval = 15.0 / FramesPerSecond;
-                //PlayerFlyingAnimation(FlyingDirection, gameTime);
-                //drawPosition.X -= spriteSpeed;
+                PlayerFlyingAnimation(Direction.UpLeft, gameTime);
             }
-            else if (d == Direction.Down)
+            else if (currentKB.IsKeyDown(Keys.S) && currentKB.IsKeyDown(Keys.D))
             {
-                currentFrame = 3;
-                //interval = 15.0 / FramesPerSecond;
-                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+                PlayerFlyingAnimation(Direction.DownRight, gameTime);
             }
-            else if (d == Direction.Up)
+            else if (currentKB.IsKeyDown(Keys.S) && currentKB.IsKeyDown(Keys.A))
             {
-                currentFrame = 0;
-                //interval = 15.0 / FramesPerSecond;
-                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+                PlayerFlyingAnimation(Direction.DownLeft, gameTime);
             }
-            else if (d == Direction.UpRight)
+            else if (currentKB.IsKeyDown(Keys.A))
             {
-                currentFrame = 12;
-                //interval = 15.0 / FramesPerSecond;
+                PlayerFlyingAnimation(Direction.Left, gameTime);
             }
-            else if (d == Direction.UpLeft)
+            else if (currentKB.IsKeyDown(Keys.D))
             {
-                currentFrame = 15;
-                //interval = 15.0 / FramesPerSecond;
+                PlayerFlyingAnimation(Direction.Right, gameTime);
             }
-            else if (d == Direction.DownRight)
+            else if (currentKB.IsKeyDown(Keys.S))
             {
-                currentFrame = 18;
-                //interval = 15.0 / FramesPerSecond;
+                PlayerFlyingAnimation(Direction.Down, gameTime);
             }
-            else if (d == Direction.DownLeft)
+            else if (currentKB.IsKeyDown(Keys.W))
             {
-                currentFrame = 21;
-                //interval = 15.0 / FramesPerSecond;
+                PlayerFlyingAnimation(Direction.Up, gameTime);
             }
 
         }

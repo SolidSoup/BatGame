@@ -664,7 +664,7 @@ namespace BatGame
                     }
 
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
-                    playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
+                    //playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
                     base.Update(gameTime);
                     break;
                 #endregion
