@@ -38,16 +38,13 @@ namespace BatGame
             foreach (Enemy e in enemies)
             {
                 e.EnemyUpdate(gameTime, player);
-                
+
+
             }
-            foreach (Enemy e in enemies)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                foreach (AnimationFarm a in enemyAnimations)
-                {
-                    a.EnemyAnimationUpdate(gameTime, e.Facing);
-                    a.EnemyFrameUpdate(gameTime, e.Facing);
-                    break;
-                }
+                enemyAnimations[i].EnemyAnimationUpdate(gameTime, enemies[i].Facing);
+                enemyAnimations[i].EnemyFrameUpdate(gameTime, enemies[i].Facing);
             }
         }
 
@@ -57,7 +54,7 @@ namespace BatGame
         /// <param name="batch">spritebatch object</param>
         public void EManagerDraw(SpriteBatch batch)
         {
-            foreach (Enemy e in enemies)
+            /*foreach (Enemy e in enemies)
             {
                 //e.Draw(batch);
                 foreach (AnimationFarm a in enemyAnimations)
@@ -65,10 +62,17 @@ namespace BatGame
                     batch.Draw(e.ObjTexture, new Vector2((e.RectX + a.Origin.X), (e.RectY + a.Origin.Y)),
                          a.DrawRectangle, Color.White,
                          0f, a.Origin, 1, SpriteEffects.None, 0);
-                    break;
+
                 }
+            }*/
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                batch.Draw(enemies[i].ObjTexture, new Vector2((enemies[i].RectX + enemyAnimations[i].Origin.X), (enemies[i].RectY + enemyAnimations[i].Origin.Y)),
+                         enemyAnimations[i].DrawRectangle, Color.White,
+                         0f, enemyAnimations[i].Origin, 1, SpriteEffects.None, 0);
             }
         }
+
 
         public int Count
         {
