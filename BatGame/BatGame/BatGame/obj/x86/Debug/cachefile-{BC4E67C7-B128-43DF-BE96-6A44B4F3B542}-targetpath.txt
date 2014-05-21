@@ -52,6 +52,7 @@ Content\Sprites\Corners\DownRight_Corner_Inverted.xnb
 Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\TopRight_Corner_Inverted.xnb
 Content\Sprites\Interactables\skull.xnb
+Content\Sprites\Extra_Images\boat.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\danceMusic.xnb
@@ -60,7 +61,6 @@ Content\Sounds\caveSounds.xnb
 Content\Sounds\echoSound.xnb
 Content\Sounds\shriekSound.xnb
 Content\Sounds\ambientMusic.xnb
-Content\Sprites\Extra_Images\boat.xnb
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
 Content\Levels\level2.txt
