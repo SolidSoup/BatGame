@@ -202,6 +202,7 @@ namespace BatGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            #region Images Loading
             lightMask = Content.Load<Texture2D>("Sprites/Shader_Sprites/lightmask");
             spriteDictionary.Add("lightmask", lightMask);
 
@@ -353,6 +354,7 @@ namespace BatGame
 
             skullImage = Content.Load<Texture2D>("Sprites/Interactables/skull");
             spriteDictionary.Add("skull", skullImage);
+            #endregion
 
             //got this from google images
             boatImage = Content.Load<Texture2D>("Sprites/Extra_Images/boat");
@@ -360,6 +362,7 @@ namespace BatGame
 
             player.ObjTexture = playerImage;
 
+            #region Level Loading
             level11 = new Level("Content/Levels/level11.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level12 = new Level("Content/Levels/level12.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level13 = new Level("Content/Levels/level13.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
@@ -430,6 +433,7 @@ namespace BatGame
 
             level33.UpNeighbor = level23;
             level33.LeftNeighbor = level32;
+            #endregion
 
             //Images and buttons for menu and pause screens
             menuImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menu");
@@ -562,6 +566,8 @@ namespace BatGame
                     {
                         LoadLevel(player.CurrentLevel);
                     }
+
+                    #region Hitting Walls or the Open Ends
                     if (player.HitBottom)
                     {
                         int spawnX = player.PosX;
@@ -607,6 +613,7 @@ namespace BatGame
                         LoadLevel(level22);
                         gameState = GameState.warning;
                     }
+#endregion
 
                     if (player.Screech == true)
                     {
@@ -614,9 +621,11 @@ namespace BatGame
                     }
 
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
-                    
+                    playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
                     base.Update(gameTime);
                     break;
+
+
                 case GameState.pause:
                     caveSoundsInstance.Pause();
 
@@ -787,6 +796,7 @@ namespace BatGame
                     base.Update(gameTime);
                     break;
 
+                #region PARTY MODE
                 case GameState.warning:
                     IsMouseVisible = true;
                     continueButton.Selected = false;
@@ -825,6 +835,7 @@ namespace BatGame
                     player.PlayerUpdate();
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     break;
+                #endregion
             }
         }
 
@@ -1051,7 +1062,7 @@ namespace BatGame
 #endregion
 
                     //player drawing animation
-                    playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
+                    
                     spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX + playerAnimation.Origin.X), (player.RectY + playerAnimation.Origin.Y)),
                         playerAnimation.DrawRectangle, Color.White,
                         0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
