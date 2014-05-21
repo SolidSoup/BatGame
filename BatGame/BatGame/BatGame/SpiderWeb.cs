@@ -42,16 +42,8 @@ namespace BatGame
         }
         public override void Draw(SpriteBatch batch)
         {
-            if (!hasKilled)
-            {
-                batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
-                //Animation for empty web
-            }
-            else
-            {
-                //batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
-                //Animation for full web
-            }
+            batch.Draw(this.ObjTexture, this.ObjRectangle, Color.White);
+            
         }
     }
 }

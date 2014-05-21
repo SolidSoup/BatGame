@@ -341,10 +341,11 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempWeb);
                             break;
                         case "M":
+                            
                             Floor tempFloor4 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor4;
                             immobilesManager.AddImmobile(tempFloor4);
-
+                            
                             Stalagmite tempStag = new Stalagmite(textureDictionary["stalagmite"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
                             tempStag.DrawWeight = 2;
                             immobilesManager.AddImmobile(tempStag);
@@ -356,7 +357,12 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempBoulder);
                             break;
                         case "o":
+                            Floor tempFloor5 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            levelObjectArray[i, j] = tempFloor5;
+                            immobilesManager.AddImmobile(tempFloor5);
+
                             Skull tempSkull = new Skull(textureDictionary["skull"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            tempSkull.DrawWeight = 2;
                             immobilesManager.AddImmobile(tempSkull);
                             gameObjectManager.AddGameObject(tempSkull);
                             break;

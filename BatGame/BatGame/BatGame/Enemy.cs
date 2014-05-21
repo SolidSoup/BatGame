@@ -84,12 +84,7 @@ namespace BatGame
                     }
                 }
             }
-            List<GameObject> playerObjects = GManager.inSpot(playerPos.Position);
-            foreach (GameObject g in playerObjects)
-            {
-                if (g is Skull)
-                    detected = false;
-            }
+
             if (IsActive == true)
             {
                 waitTime -= (double)gameTime.ElapsedGameTime.TotalSeconds;
@@ -100,8 +95,14 @@ namespace BatGame
                     distance = Math.Pow((player.PosX - this.PosX), 2) + Math.Pow((player.PosY - this.PosY), 2);
                     if (distance < 10)
                     {
-                        detected = true;
-                        steps = 0;
+                        List<GameObject> playerObjects = GManager.inSpot(playerPos.Position);
+                        foreach (GameObject g in playerObjects)
+                        {
+                            if (g is Skull || g is Stalagmite)
+                                detected = false;
+                            else
+                                detected = true;
+                        }
                     }
                     else if (distance > 100)
                     {
@@ -109,13 +110,19 @@ namespace BatGame
                             needToFindStart = true;
                         detected = false;
                     }
-
+                    
+                    
+                    
                     if (detected == true)
                     {
                         Astar();
                     }
-                    else if (needToFindStart)
+
+                    if (needToFindStart)
+                    {
+                        detected = false;
                         Astart();
+                    }
                     UndetectedMovement();
                     Move();
 
@@ -182,7 +189,7 @@ namespace BatGame
 
         public void Move()
         {
-            //Move left
+            //Move up and to the left
             if (isFacing(Direction.UpLeft) && canMove(Direction.UpLeft))
             {
                 PosY--;
@@ -350,16 +357,16 @@ namespace BatGame
                 objinspot = gom.inSpot(Q.LocInGrid);
                 for (int i = 0; i < objinspot.Count; i++)
                 {
-                    if (objinspot[i] is Player)
+                    if (objinspot[i] is Player && Q.ObjInTangle == null)
                     {
                         Q.ObjInTangle = objinspot[i];
                         //playerPos = Q;
                     }
-                    else if (objinspot[i] is Wall && !(Q.ObjInTangle is Player))
+                    else if (objinspot[i] is Wall)
                         Q.ObjInTangle = objinspot[i];
                     else if (objinspot[i] is Stalagmite)
                         Q.ObjInTangle = objinspot[i];
-                    else if (objinspot[i] is Boulder && !(Q.ObjInTangle is Player))
+                    else if (objinspot[i] is Boulder)
                         Q.ObjInTangle = objinspot[i];
                     else if (objinspot[i] is Skull)
                         Q.ObjInTangle = objinspot[i];
@@ -372,7 +379,7 @@ namespace BatGame
 
             }
         }
-
+        #region  A star helpers that are not set up graph
         /// <summary>
         /// Sets up the neighbors of all of the nodes
         /// </summary>
@@ -587,6 +594,7 @@ namespace BatGame
             return false;
         }
         #endregion
+        #endregion
         public void SetDirectionToMove(QuadTangle q)
         {
             if (q != null)
@@ -705,14 +713,52 @@ namespace BatGame
 
             if (AstarList2.Count > 1)
                 SetDirectionToMove(AstarList2[1]);
+            else if (AstarList2.Count == 1)
+                AstartDirectionOneAway();
             else if (AstarList2.Count == 0)
             {
                 needToFindStart = false;
                 Facing = Direction.Right;
+                steps = 0;
             }
 
         }
 
+        public void AstartDirectionOneAway()
+        {
+            if (startPoint.X < this.PosX && startPoint.Y < this.PosY)
+            {
+                Facing = Direction.UpLeft;
+            }
+            else if (startPoint.X > this.PosX && startPoint.Y < this.PosY)
+            {
+                Facing = Direction.UpRight;
+            }
+            else if (startPoint.X < this.PosX && startPoint.Y > this.PosY)
+            {
+                Facing = Direction.DownLeft;
+            }
+            else if (startPoint.X > this.PosX && startPoint.Y > this.PosY)
+            {
+                Facing = Direction.DownRight;
+            }
+            else if (startPoint.X < this.PosX)
+            {
+                Facing = Direction.Left;
+            }
+            else if (startPoint.X > this.PosX)
+            {
+                Facing = Direction.Right;
+            }
+            else if (startPoint.Y < this.PosY)
+            {
+                Facing = Direction.Up;
+            }
+            else if (startPoint.Y > this.PosY)
+            {
+                Facing = Direction.Down;
+            }
+        }
         #region Unused pathfinding stuff
         public void Pathfinding(Player player)
         {
