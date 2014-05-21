@@ -3,13 +3,13 @@ Content\Font\ComicSansBold28.xnb
 Content\Sprites\Enemy_Sprites\enemy.xnb
 Content\Sprites\Corners\Corner.xnb
 Content\Sprites\Floors\FloorTile.xnb
-Content\Sprites\Shader_Sprites\lightmask.xnb
 Content\Sprites\Bat_Sprites\Bat_Fly_Left.xnb
 Content\Sprites\Bat_Sprites\Bat_Fly_Up.xnb
 Content\Sprites\Shader_Sprites\downCone.xnb
 Content\Sprites\Shader_Sprites\downLeftCone.xnb
 Content\Sprites\Shader_Sprites\downRightCone.xnb
 Content\Sprites\Shader_Sprites\leftCone.xnb
+Content\Sprites\Shader_Sprites\lightmask.xnb
 Content\Sprites\Shader_Sprites\rightCone.xnb
 Content\Sprites\Shader_Sprites\upCone.xnb
 Content\Sprites\Shader_Sprites\upLeftCone.xnb
@@ -53,6 +53,9 @@ Content\Sprites\Corners\TopLeft_Corner_Inverted.xnb
 Content\Sprites\Corners\TopRight_Corner_Inverted.xnb
 Content\Sprites\Interactables\skull.xnb
 Content\Sprites\Extra_Images\boat.xnb
+Content\Sprites\Floors\Crystal.xnb
+Content\Sprites\Floors\Crystal2.xnb
+Content\Sprites\Shader_Sprites\lightsourcemask.xnb
 Content\Shader_Tools\echo.xnb
 Content\Shader_Tools\lightingeffect.xnb
 Content\danceMusic.xnb
@@ -60,9 +63,6 @@ Content\Sounds\caveSounds.xnb
 Content\Sounds\echoSound.xnb
 Content\Sounds\shriekSound.xnb
 Content\Sounds\ambientMusic.xnb
-Content\Sprites\Floors\Crystal.xnb
-Content\Sprites\Floors\Crystal2.xnb
-Content\Sprites\Shader_Sprites\lightsourcemask.xnb
 Content\danceMusic.wma
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
@@ -78,3 +78,4 @@ Content\Levels\level23.txt
 Content\Levels\level31.txt
 Content\Levels\level32.txt
 Content\Levels\level33.txt
+Content\Levels\partyroom.txt

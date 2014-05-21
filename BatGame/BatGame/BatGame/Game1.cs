@@ -122,6 +122,7 @@ namespace BatGame
         Level level31;
         Level level32;
         Level level33;
+        Level partyRoom;
 
 
         Level[,] gameMap;
@@ -384,6 +385,7 @@ namespace BatGame
             level31 = new Level("Content/Levels/level31.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level32 = new Level("Content/Levels/level32.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
             level33 = new Level("Content/Levels/level33.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
+            partyRoom = new Level("Content/Levels/partyroom.txt", spriteDictionary, grid, enemyManager, immobilesManager, gameObjectManager);
 
             gameMap = new Level[3, 3] { { level11, level12, level13 }, { level21, level22, level23 }, { level31, level32, level33 } };
 
@@ -620,9 +622,9 @@ namespace BatGame
 
                     if (player.HitFinish)
                     {
-                        level22.SpawnPlayerX = 2;
-                        level22.SpawnPlayerY = 4;
-                        LoadLevel(level22);
+                        partyRoom.SpawnPlayerX = 11;
+                        partyRoom.SpawnPlayerY = 14;
+                        LoadLevel(partyRoom);
                         gameState = GameState.warning;
                     }
 #endregion
@@ -678,6 +680,8 @@ namespace BatGame
                                 writer.Write(currentLevel);
                                 writer.Write(player.PosX);
                                 writer.Write(player.PosY);
+                                writer.Write(player.CurrentLevel.SpawnPlayerX);
+                                writer.Write(player.CurrentLevel.SpawnPlayerY);
                             }
                             gameState = GameState.game;
                         }
@@ -707,6 +711,8 @@ namespace BatGame
 
                         if (lastMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                         {
+                            level11.SpawnPlayerX = 2;
+                            level11.SpawnPlayerY = 2;
                             LoadLevel(level11);
                         }
                     }
@@ -735,6 +741,8 @@ namespace BatGame
                                     level11.HasStarted = true;
                                     level11.SavedPlayerX = reader.ReadInt32();
                                     level11.SavedPlayerY = reader.ReadInt32();
+                                    level11.SpawnPlayerX = reader.ReadInt32();
+                                    level11.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level11);
                                 }
                                 if (currentLevel.Equals("level12"))
@@ -742,6 +750,8 @@ namespace BatGame
                                     level12.HasStarted = true;
                                     level12.SavedPlayerX = reader.ReadInt32();
                                     level12.SavedPlayerY = reader.ReadInt32();
+                                    level12.SpawnPlayerX = reader.ReadInt32();
+                                    level12.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level12);
                                     
                                 }
@@ -750,6 +760,8 @@ namespace BatGame
                                     level13.HasStarted = true;
                                     level13.SavedPlayerX = reader.ReadInt32();
                                     level13.SavedPlayerY = reader.ReadInt32();
+                                    level13.SpawnPlayerX = reader.ReadInt32();
+                                    level13.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level13);
                                 }
                                 if (currentLevel.Equals("level21"))
@@ -757,6 +769,8 @@ namespace BatGame
                                     level21.HasStarted = true;
                                     level21.SavedPlayerX = reader.ReadInt32();
                                     level21.SavedPlayerY = reader.ReadInt32();
+                                    level21.SpawnPlayerX = reader.ReadInt32();
+                                    level21.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level21);
                                     
                                 }
@@ -765,6 +779,8 @@ namespace BatGame
                                     level22.HasStarted = true;
                                     level22.SavedPlayerX = reader.ReadInt32();
                                     level22.SavedPlayerY = reader.ReadInt32();
+                                    level22.SpawnPlayerX = reader.ReadInt32();
+                                    level22.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level22);
                                     
                                 }
@@ -773,6 +789,8 @@ namespace BatGame
                                     level23.HasStarted = true;
                                     level23.SavedPlayerX = reader.ReadInt32();
                                     level23.SavedPlayerY = reader.ReadInt32();
+                                    level23.SpawnPlayerX = reader.ReadInt32();
+                                    level23.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level23);
                                     
                                 }
@@ -781,6 +799,8 @@ namespace BatGame
                                     level31.HasStarted = true;
                                     level31.SavedPlayerX = reader.ReadInt32();
                                     level31.SavedPlayerY = reader.ReadInt32();
+                                    level31.SpawnPlayerX = reader.ReadInt32();
+                                    level31.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level31);
                                     
                                 }
@@ -789,6 +809,8 @@ namespace BatGame
                                     level32.HasStarted = true;
                                     level32.SavedPlayerX = reader.ReadInt32();
                                     level32.SavedPlayerY = reader.ReadInt32();
+                                    level32.SpawnPlayerX = reader.ReadInt32();
+                                    level32.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level32);
                                     
                                 }
@@ -797,6 +819,8 @@ namespace BatGame
                                     level33.HasStarted = true;
                                     level33.SavedPlayerX = reader.ReadInt32();
                                     level33.SavedPlayerY = reader.ReadInt32();
+                                    level33.SpawnPlayerX = reader.ReadInt32();
+                                    level33.SpawnPlayerY = reader.ReadInt32();
                                     LoadLevel(level33);
                                 }
                                 #endregion
