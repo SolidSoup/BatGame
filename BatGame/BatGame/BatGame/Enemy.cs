@@ -31,6 +31,8 @@ namespace BatGame
         QuadTangle locInGrid;
 
         Point startPoint;
+        //this is used for when the player becomes undetected by the enemy, or the enemy "loses" the player, 
+        //and the enemy needs to pathfind back to its starting point
         bool needToFindStart;
 
         #region Astar fields
@@ -92,6 +94,7 @@ namespace BatGame
                 {
                     waitTime = .75;
 
+                    #region Detection stuff
                     distance = Math.Pow((player.PosX - this.PosX), 2) + Math.Pow((player.PosY - this.PosY), 2);
                     if (distance < 10)
                     {
@@ -114,7 +117,7 @@ namespace BatGame
                             needToFindStart = true;
                         detected = false;
                     }
-                    
+                    #endregion
                     
                     
                     if (detected == true)
@@ -134,6 +137,11 @@ namespace BatGame
                 }
             }
         }
+        #region Movement
+        /// <summary>
+        /// Not actually only undetected movement, this has the cases for the 4 cardinal directions 
+        /// for movement, but also handles idle movement logic.
+        /// </summary>
         public void UndetectedMovement()
         {
             //Move Up
@@ -191,6 +199,9 @@ namespace BatGame
             waitTime = .75;
         }
 
+        /// <summary>
+        /// Handles diagonal movement
+        /// </summary>
         public void Move()
         {
             //Move up and to the left
@@ -227,7 +238,13 @@ namespace BatGame
             }
             waitTime = .75;
         }
+        #endregion
 
+
+        #region Pathfinding
+        /// <summary>
+        /// Main pathfinding algorithm to player for enemy
+        /// </summary>
         public void Astar()
         {
 
@@ -642,7 +659,11 @@ namespace BatGame
             }
         }
         #endregion
-
+        #region Astart code
+        /// <summary>
+        /// A star algorithm modified to return the enemy to its starting position 
+        /// on the level once it has lost the player
+        /// </summary>
         public void Astart()
         {
 
@@ -728,6 +749,10 @@ namespace BatGame
 
         }
 
+        /// <summary>
+        /// Sets direction for when the enemy is one node away
+        /// This is needed to account for a problem with storing the path in a list
+        /// </summary>
         public void AstartDirectionOneAway()
         {
             if (startPoint.X < this.PosX && startPoint.Y < this.PosY)
@@ -763,6 +788,7 @@ namespace BatGame
                 Facing = Direction.Down;
             }
         }
+        #endregion
         #region Unused pathfinding stuff
         public void Pathfinding(Player player)
         {
@@ -944,12 +970,13 @@ namespace BatGame
             }
         }
         #endregion
+        #endregion
 
         public virtual void Draw(SpriteBatch batch)
         {
             if (IsActive)
             {
-                //---------------------------------------------------
+                //--------------------------------------------------- This has been fixed with enemy animation
                 //Glitch Report:
                 //The enemy image is being drawn in the correct location.
                 //The rotation code in spritebatch's draw is moving where the drawing point is

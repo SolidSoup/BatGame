@@ -18,11 +18,13 @@ namespace BatGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        #region Fields
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         Grid grid;
 
+        #region Textures
         Texture2D playerImage;
         Texture2D playerIdle;
         //bat texture
@@ -83,6 +85,7 @@ namespace BatGame
         Texture2D downLeftShriek;
 
         Texture2D boatImage;
+        #endregion
 
         Point shriekStart;
 
@@ -100,11 +103,14 @@ namespace BatGame
 
         Player player;
         Enemy enemy;
+
         PartyMode PARTY;
 
+        #region Managers
         EnemyManager enemyManager;
         ImmobilesManager immobilesManager;
         GameObjectManager gameObjectManager;
+        #endregion
 
         String[,] check;
         GameObject[,] checkMap;
@@ -113,6 +119,7 @@ namespace BatGame
         AnimationFarm playerAnimation;
         AnimationFarm enemyAnimation;
 
+        #region Levels stuff
         Level level11;
         Level level12;
         Level level13;
@@ -128,8 +135,9 @@ namespace BatGame
         Level[,] gameMap;
 
         String currentLevel;
+        #endregion
 
-        //Things that will eventually be moved to state manager
+        #region state and menu stuff
         GameState gameState;
         Texture2D menuImage;
         Texture2D startButtonImage;
@@ -147,12 +155,14 @@ namespace BatGame
         Button continueButton;
         Button saveButton;
         Button menuButton;
+        #endregion
 
         MouseState lastMouseState;
         MouseState currentMouseState;
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
 
+        #region Sounds
         Song tunes;
         SoundEffect echoSound;
         SoundEffect shriekSound;
@@ -160,6 +170,8 @@ namespace BatGame
         SoundEffectInstance caveSoundsInstance;
         SoundEffect ambientMusic;
         SoundEffectInstance ambientMusicInstance;
+        #endregion
+        #endregion
 
         public Game1()
         {
@@ -449,7 +461,7 @@ namespace BatGame
             level33.LeftNeighbor = level32;
             #endregion
 
-            //Images and buttons for menu and pause screens
+            #region Images and buttons for menu and pause screens
             menuImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menu");
             nameLogoImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/nameLogo");
             startButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/startButton");
@@ -459,6 +471,7 @@ namespace BatGame
             saveButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/saveButton");
             menuButtonImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/menuButton");
             pauseImage = Content.Load<Texture2D>("Sprites/Menu_Sprites/pause");
+            
 
             int height = 2 * GraphicsDevice.Viewport.Height / 3;
             startButton = new Button((GraphicsDevice.Viewport.Width / 3) - 90, height, 120, 90, startButtonImage);
@@ -469,6 +482,8 @@ namespace BatGame
             menuButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 3, 140, 90, menuButtonImage);
             continueButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height, 140, 90, continueButtonImage);
             saveButton = new Button((GraphicsDevice.Viewport.Width / 2) - 60, height * 2, 140, 90, saveButtonImage);
+            #endregion
+
 
             //"I Just Hold The Mirror" - Mark Castle
             tunes = Content.Load<Song>("danceMusic");
@@ -518,9 +533,10 @@ namespace BatGame
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
 
-            // TODO: Add your update logic here
+
             switch (gameState)
             {
+                #region Game gamestate
                 case GameState.game:
 
                     if (keyboardState.IsKeyDown(Keys.P) && lastKeyboardState.IsKeyUp(Keys.P))
@@ -533,7 +549,7 @@ namespace BatGame
                     {
                         caveSoundsInstance.Play();
                     }
-                    
+                    #region shriek stuff
                     if (player.Shriek == true)
                     {
                         shriekSound.Play();
@@ -575,7 +591,7 @@ namespace BatGame
                         if (player.ScreechTime > 0)
                             player.ScreechTime--; //cooldown
                     }
-
+                    #endregion
                     player.PlayerUpdate();
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     enemyManager.EManagerUpdate(gameTime, player);
@@ -588,6 +604,7 @@ namespace BatGame
                         gameState = GameState.pause;
                     }
 
+                    //reloads level if player dies
                     if (player.Hits > 0)
                     {
                         LoadLevel(player.CurrentLevel);
@@ -650,8 +667,9 @@ namespace BatGame
                     playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
                     base.Update(gameTime);
                     break;
+                #endregion
 
-
+                #region Pause menu gamestate
                 case GameState.pause:
                     caveSoundsInstance.Pause();
 
@@ -701,7 +719,9 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
+                #endregion
 
+                #region Menu Gamestate
                 case GameState.menu:
                     
                     if (ambientMusicInstance.State != SoundState.Playing)
@@ -843,6 +863,7 @@ namespace BatGame
 
                     base.Update(gameTime);
                     break;
+                #endregion
 
                 #region PARTY MODE
                 case GameState.warning:
@@ -897,6 +918,7 @@ namespace BatGame
 
             switch (gameState)
             {
+                #region Game gamestate
                 case GameState.game:
                     this.IsMouseVisible = false;
 
@@ -906,7 +928,7 @@ namespace BatGame
                     //lightMask bound to player's position as a little sphere of vision
                     Vector2 light = new Vector2(player.RectX - 45, player.RectY - 50);
                     spriteBatch.Draw(lightMask, light, Color.White);
-
+                    #region Adds light shaders to light source tiles
                     // To add more lights: draw them here, with whatever color you want!
                     for (int i = 0; i < player.CurrentLevel.LevelObjectArray.GetLength(0); i++)
                     {
@@ -919,6 +941,7 @@ namespace BatGame
                             }
                         }
                     }
+                    #endregion
 
 #region COMMENTED OUT
                     /*if (currentLevel == "level11")
@@ -1168,6 +1191,9 @@ namespace BatGame
 
                     spriteBatch.End();
                     break;
+                #endregion
+
+                #region Menu gamestate
                 case GameState.menu:
                     spriteBatch.Begin();
 
@@ -1182,7 +1208,9 @@ namespace BatGame
                     spriteBatch.End();
                     base.Draw(gameTime);
                     break;
+                #endregion
 
+                #region Pause menu gamestate
                 case GameState.pause:
                     spriteBatch.Begin();
 
@@ -1196,6 +1224,7 @@ namespace BatGame
                     spriteBatch.End();
                     base.Draw(gameTime);
                     break;
+                #endregion
 
                 #region PARTY GAME MODE
                 case GameState.warning: //PARTY Game message screen
@@ -1226,6 +1255,10 @@ namespace BatGame
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Loads levels into game and sets current level
+        /// </summary>
+        /// <param name="level">the current level</param>
         private void LoadLevel(Level level)
         {
             if (level.Equals(level11))

@@ -38,6 +38,7 @@ namespace BatGame
         private Grid grid;
         private QuadTangle currentQuadtangle;
 
+        #region Properties
         public QuadTangle CurrentQuadTangle
         {
             get { return currentQuadtangle; }
@@ -139,7 +140,7 @@ namespace BatGame
             }
         }
 
-
+        #endregion
 
 
         //possibly add check for something to decide length between screeches
