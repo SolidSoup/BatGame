@@ -397,7 +397,11 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempExit5);
                             break;
                         case "O":
-                            LightSource tempLight = new LightSource(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            Floor tempFloor6 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            levelObjectArray[i, j] = tempFloor6;
+                            immobilesManager.AddImmobile(tempFloor6);
+
+                            LightSource tempLight = new LightSource(textureDictionary["smallCrystal"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
                             levelObjectArray[i, j] = tempLight;
                             immobilesManager.AddImmobile(tempLight);
                             gameObjectManager.AddGameObject(tempLight);

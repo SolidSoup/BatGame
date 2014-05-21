@@ -560,6 +560,33 @@
       <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\ambientMusic.xnb</Output>
       <Time>2014-05-21T01:38:34.8664101-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\Floors\Crystal.png</Source>
+      <Name>Sprites\Floors\Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal.xnb</Output>
+      <Time>2014-05-21T01:46:27.1575422-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Floors\Crystal2.png</Source>
+      <Name>Sprites\Floors\Crystal2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal2.xnb</Output>
+      <Time>2014-05-21T01:46:27.1485366-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Shader_Sprites\lightsourcemask.png</Source>
+      <Name>Sprites\Shader_Sprites\lightsourcemask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\lightsourcemask.xnb</Output>
+      <Time>2014-05-21T02:00:14.831672-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{BC4E67C7-B128-43DF-BE96-6A44B4F3B542}</ContentProjectGUID>

@@ -89,13 +89,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Shader_Sprites\lightmask.png">
-      <Name>lightmask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Bat_Sprites\Bat_Fly_Left.png">
       <Name>Bat_Fly_Left</Name>
       <Importer>TextureImporter</Importer>
@@ -136,6 +129,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\lightmask.png">
+      <Name>lightmask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Sprites\Shader_Sprites\rightCone.png">
       <Name>rightCone</Name>
       <Importer>TextureImporter</Importer>
@@ -465,6 +463,25 @@
   <ItemGroup>
     <Compile Include="Sprites\Extra_Images\boat.png">
       <Name>boat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Floors\Crystal.png">
+      <Name>Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Floors\Crystal2.png">
+      <Name>Crystal2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Shader_Sprites\lightsourcemask.png">
+      <Name>lightsourcemask</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -626,3 +626,6 @@ C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Co
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Extra_Images\boat.xnb
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\caveSounds.xnb
 C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sounds\ambientMusic.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Floors\Crystal2.xnb
+C:\Users\Karen\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Sprites\Shader_Sprites\lightsourcemask.xnb

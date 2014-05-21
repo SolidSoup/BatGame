@@ -59,8 +59,11 @@ namespace BatGame
         Texture2D boulderImage;
         Texture2D stagImage;
         Texture2D skullImage;
+        Texture2D smallCrystal;
+        Texture2D largeCrystal;
 
         Texture2D lightMask;
+        Texture2D lightsourcemask;
         Texture2D rightCone;
         Texture2D leftCone;
         Texture2D upCone;
@@ -203,8 +206,17 @@ namespace BatGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Images Loading
+            smallCrystal = Content.Load<Texture2D>("Sprites/Floors/Crystal");
+            spriteDictionary.Add("smallCrystal", smallCrystal);
+
+            largeCrystal = Content.Load<Texture2D>("Sprites/Floors/Crystal2");
+            spriteDictionary.Add("largeCrystal", largeCrystal);
+
             lightMask = Content.Load<Texture2D>("Sprites/Shader_Sprites/lightmask");
             spriteDictionary.Add("lightmask", lightMask);
+
+            lightsourcemask = Content.Load<Texture2D>("Sprites/Shader_Sprites/lightsourcemask");
+            spriteDictionary.Add("lightsourcemask", lightsourcemask);
 
             rightCone = Content.Load<Texture2D>("Sprites/Shader_Sprites/rightCone");
             spriteDictionary.Add("rightCone", rightCone);
@@ -866,8 +878,8 @@ namespace BatGame
                         {
                             if (player.CurrentLevel.LevelObjectArray[i, j] is LightSource)
                             {
-                                Vector2 lightSource = new Vector2(player.CurrentLevel.LevelObjectArray[i, j].RectX - 45, player.CurrentLevel.LevelObjectArray[i, j].RectY - 50);
-                                spriteBatch.Draw(lightMask, lightSource, Color.White);
+                                Vector2 lightSource = new Vector2(player.CurrentLevel.LevelObjectArray[i, j].RectX -110, player.CurrentLevel.LevelObjectArray[i, j].RectY - 115);
+                                spriteBatch.Draw(lightsourcemask, lightSource, Color.Aqua);
                             }
                         }
                     }

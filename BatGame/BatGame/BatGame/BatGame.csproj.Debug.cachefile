@@ -60,6 +60,9 @@ Content\Sounds\caveSounds.xnb
 Content\Sounds\echoSound.xnb
 Content\Sounds\shriekSound.xnb
 Content\Sounds\ambientMusic.xnb
+Content\Sprites\Floors\Crystal.xnb
+Content\Sprites\Floors\Crystal2.xnb
+Content\Sprites\Shader_Sprites\lightsourcemask.xnb
 Content\danceMusic.wma
 Content\Levels\level1.txt
 Content\Levels\testlevel.txt
