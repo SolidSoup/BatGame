@@ -60,7 +60,7 @@ namespace BatGame
         //how often until it moves frm
         private double interval;
         //how many frames per second
-        private int FramesPerSecond = 60;
+        private int FramesPerSecond = 100;
         //how big are my sprites?
         private int spriteWidth ;
         private int spriteHeight ;
@@ -95,7 +95,7 @@ namespace BatGame
             this.spriteHeight = sprHgt;
             //isFlying = false;
             //isIdle = false;
-            interval = 10.0 / FramesPerSecond;
+            interval = 60.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
         }
 
@@ -226,7 +226,7 @@ namespace BatGame
             if (d == Direction.Left)
             {
                 currentFrame = 6;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X += spriteSpeed;
             }
@@ -234,41 +234,41 @@ namespace BatGame
             else if (d == Direction.Right)
             {
                 currentFrame = 9;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X -= spriteSpeed;
             }
             else if (d == Direction.Down)
             {
                 currentFrame = 3;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
             else if (d == Direction.Up)
             {
                 currentFrame = 0;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
             else if (d == Direction.UpRight)
             {
                 currentFrame = 12;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.UpLeft)
             {
                 currentFrame = 15;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.DownRight)
             {
                 currentFrame = 18;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.DownLeft)
             {
                 currentFrame = 21;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
 
         }
@@ -349,10 +349,11 @@ namespace BatGame
                     currentFrame++; //continue the animation
 
                     if (currentFrame > 11)
-                        currentFrame = 9; //reset the animation
-
-                    timer = 0;
+                    currentFrame = 9; //reset the animation
+                    timer =0;
                 }
+                
+
             }
 
             else if (d == Direction.UpRight)
@@ -445,7 +446,7 @@ namespace BatGame
             if (d == Direction.Left)
             {
                 currentFrame = 6;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X += spriteSpeed;
             }
@@ -453,46 +454,47 @@ namespace BatGame
             else if (d == Direction.Right)
             {
                 currentFrame = 9;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
                 //drawPosition.X -= spriteSpeed;
             }
             else if (d == Direction.Down)
             {
                 currentFrame = 3;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
             else if (d == Direction.Up)
             {
                 currentFrame = 0;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
                 //PlayerFlyingAnimation(FlyingDirection, gameTime);
             }
             else if (d == Direction.UpRight)
             {
                 currentFrame = 12;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.UpLeft)
             {
                 currentFrame = 15;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.DownRight)
             {
                 currentFrame = 18;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
             else if (d == Direction.DownLeft)
             {
                 currentFrame = 21;
-                interval = 15.0 / FramesPerSecond;
+                //interval = 15.0 / FramesPerSecond;
             }
         }
 
         public void EnemyFrameUpdate(GameTime gameTime, Direction d)
         {
+            
             if (d == Direction.Up)//
             {
 
