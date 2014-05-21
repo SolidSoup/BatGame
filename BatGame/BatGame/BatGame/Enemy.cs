@@ -910,7 +910,7 @@ namespace BatGame
                 //This problem should be fixed permanently when Karen uploads her drawing stuff.
                 //END REPORT
                 //---------------------------------------------------
-                if (Facing == Direction.Up)
+                /*if (Facing == Direction.Up)
                 {
                     batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 1.57f, new Vector2(32, 32), SpriteEffects.None, 0f);
                 }
@@ -941,7 +941,9 @@ namespace BatGame
                 else if (Facing == Direction.DownLeft)
                 {
                     batch.Draw(this.ObjTexture, this.ObjRectangle, null, Color.White, 5.51f, new Vector2(32, 32), SpriteEffects.None, 0f);
-                }
+                }*/
+
+                
             }
         }
     }

@@ -16,6 +16,7 @@ namespace BatGame
     class EnemyManager
     {
         List<Enemy> enemies = new List<Enemy>();
+        List<AnimationFarm> enemyAnimations = new List<AnimationFarm>();
 
         public EnemyManager()
         {
@@ -25,6 +26,7 @@ namespace BatGame
         public void AddEnemy(Enemy e)
         {
             enemies.Add(e);
+            enemyAnimations.Add(new AnimationFarm(e.ObjTexture,0,48,48));
         }
 
 
@@ -36,6 +38,11 @@ namespace BatGame
             foreach (Enemy e in enemies)
             {
                 e.EnemyUpdate(gameTime, player);
+                foreach (AnimationFarm a in enemyAnimations)
+                {
+                    a.EnemyAnimationUpdate(gameTime, e.Facing);
+                    a.EnemyFrameUpdate(gameTime, e.Facing);
+                }
             }
         }
 
@@ -47,7 +54,13 @@ namespace BatGame
         {
             foreach (Enemy e in enemies)
             {
-                e.Draw(batch);
+                //e.Draw(batch);
+                foreach (AnimationFarm a in enemyAnimations)
+                {
+                    batch.Draw(e.ObjTexture, new Vector2((e.RectX + a.Origin.X), (e.RectY + a.Origin.Y)),
+                         a.DrawRectangle, Color.White,
+                         0f, a.Origin, 1, SpriteEffects.None, 0);
+                }
             }
         }
 

@@ -108,6 +108,7 @@ namespace BatGame
 
         Dictionary<string, Texture2D> spriteDictionary;
         AnimationFarm playerAnimation;
+        AnimationFarm enemyAnimation;
 
         Level level11;
         Level level12;
@@ -181,6 +182,7 @@ namespace BatGame
             //aniFarm = new AnimationFarm(spriteBatch);
             shriek = null;
             playerAnimation = new AnimationFarm(playerImage, 0, 32, 32);
+            enemyAnimation = new AnimationFarm(enemyImage, 0, 64, 64);
             player = new Player(playerImage, gameObjectManager, new Point(2, 2), grid, Direction.Right,
                 SubSquares.TopLeft, true, 0, .1, true, 0);
             PARTY = new PartyMode(GraphicsDevice, immobilesManager, gameObjectManager, enemyManager, tunes);
@@ -546,6 +548,7 @@ namespace BatGame
                     player.PlayerUpdate();
                     player.Speed += gameTime.ElapsedGameTime.TotalSeconds;
                     enemyManager.EManagerUpdate(gameTime, player);
+                    //enemyAnimation.EnemyAnimationUpdate(gameTime, enemy.Facing);
                     immobilesManager.IManagerUpdate();
 
                     keyboardState = Keyboard.GetState();
@@ -610,6 +613,7 @@ namespace BatGame
                     }
 
                     playerAnimation.AnimationUpdate(gameTime, player.Facing);
+                    
                     base.Update(gameTime);
                     break;
                 case GameState.pause:
@@ -701,6 +705,7 @@ namespace BatGame
                         {
                             using (BinaryReader reader = new BinaryReader(File.Open("saveFile", FileMode.Open)))
                             {
+                                #region Reading In Levels
                                 currentLevel = reader.ReadString();
 
                                 if (currentLevel.Equals("level11"))
@@ -772,6 +777,8 @@ namespace BatGame
                                     level33.SavedPlayerY = reader.ReadInt32();
                                     LoadLevel(level33);
                                 }
+                                #endregion
+                                
                             }
                         }
                     }
@@ -852,7 +859,8 @@ namespace BatGame
                             }
                         }
                     }
-                    
+
+#region COMMENTED OUT
                     /*if (currentLevel == "level11")
                     {
                         for (int i = 0; i < level11.LevelObjectArray.GetLength(0); i++)
@@ -881,7 +889,10 @@ namespace BatGame
                             }
                         }
                     }*/
-                    
+#endregion
+
+                    #region PLAYER SCREECH DRAWING IMPLEMENTATION
+
                     if (player.Screech == true)
                     {
 
@@ -981,7 +992,7 @@ namespace BatGame
                         if (player.ScreechTime > 0)
                             player.ScreechTime--; //cooldown for echolocation decreasing
                     }
-
+                    #endregion
                     spriteBatch.End();
 
 
@@ -989,6 +1000,7 @@ namespace BatGame
                     GraphicsDevice.Clear(new Color(30,30,30));
                     spriteBatch.Begin();
 
+#region COMMENTED OUT
                     // TODO: Add your drawing code here
 
 
@@ -1004,19 +1016,23 @@ namespace BatGame
                         }
                     }
                      * */
-                    immobilesManager.IManagerDrawBack(spriteBatch);
+                    
                     //gameObjectManager.GManagerDraw(spriteBatch);
                     //spriteBatch.Draw(player.ObjTexture, player.ObjRectangle, Color.White);
+                    #endregion
+                    
 
+
+                    immobilesManager.IManagerDrawBack(spriteBatch);
                     if (player.Shrieking == true && shriek != null) //draws shriek
                     {
                         shriek.Draw(spriteBatch);
                     }
-                    playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
-
+                    
+#region Commented OUT
                     //if (player.Facing == Direction.Down || player.Facing == Direction.Up || player.Facing == Direction.Left || player.Facing == Direction.Right)
                     //{
-                        spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX + playerAnimation.Origin.X), (player.RectY + playerAnimation.Origin.Y)), playerAnimation.DrawRectangle, Color.White, 0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
+
                     /*}
                     else if (player.Facing == Direction.DownLeft || player.Facing == Direction.DownRight || player.Facing == Direction.UpLeft || player.Facing == Direction.UpRight)
                     {
@@ -1031,6 +1047,14 @@ namespace BatGame
                                 SpriteEffects.None, 
                                 0);
                     }*/
+#endregion
+
+                    //player drawing animation
+                    playerAnimation.PlayerFlyingAnimation(player.Facing, gameTime);
+                    spriteBatch.Draw(player.ObjTexture, new Vector2((player.RectX + playerAnimation.Origin.X), (player.RectY + playerAnimation.Origin.Y)),
+                        playerAnimation.DrawRectangle, Color.White,
+                        0f, playerAnimation.Origin, 1, SpriteEffects.None, 0);
+
                     enemyManager.EManagerDraw(spriteBatch);
                     immobilesManager.IManagerDrawFront(spriteBatch);
                     spriteBatch.End();
@@ -1046,6 +1070,7 @@ namespace BatGame
                     spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
                     spriteBatch.End();
 
+#region Commented OUT
                     //GraphicsDevice.SetRenderTarget(null);           //code does the lightmask's effects on sprites through multiplication
                     ////GraphicsDevice.Clear(Color.SaddleBrown);        //so anything completely black will remain black
                     //GraphicsDevice.Clear(Color.Blue);
@@ -1054,8 +1079,11 @@ namespace BatGame
                     //lightingEffect.CurrentTechnique.Passes[0].Apply();
                     //spriteBatch.Draw(mainTarget, Vector2.Zero, Color.White);
                     //spriteBatch.End();
-
+#endregion
                     spriteBatch.Begin();
+                    
+                    #region ON SCREEN STATS
+                    
                     spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidthCount + ", " + grid.TileHeightCount,
                     new Vector2(480, 220), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
@@ -1075,7 +1103,7 @@ namespace BatGame
                     spriteBatch.DrawString(comicSans14, "Beta V 0.2P",
                     new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
 
-
+                    #endregion
 
                     spriteBatch.End();
                     break;
@@ -1108,7 +1136,8 @@ namespace BatGame
                     base.Draw(gameTime);
                     break;
 
-                case GameState.warning:
+                #region PARTY GAME MODE
+                case GameState.warning: //PARTY Game message screen
                     spriteBatch.Begin();
                     spriteBatch.DrawString(comicSansBold28, "Warning!",
                     new Vector2(320, 60), Color.Red);
@@ -1129,6 +1158,8 @@ namespace BatGame
                 case GameState.partyMode:
                     PARTY.BeerGoggles(spriteBatch, player);
                     break;
+                #endregion
+                
 
             }
             base.Draw(gameTime);

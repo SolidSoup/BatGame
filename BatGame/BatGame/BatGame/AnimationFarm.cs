@@ -52,28 +52,28 @@ namespace BatGame
         //double ElapsedTime;
 
         //which sprite am I using?
-        Texture2D spriteTexture;
+        private Texture2D spriteTexture;
         //time it will take before moving on to next frm
-        double timer = 0.0;
+        private double timer = 0.0;
         //what frame we on? (current 0-2 || 1-3)
-        int currentFrame = 0;
+        private int currentFrame = 0;
         //how often until it moves frm
-        double interval;
+        private double interval;
         //how many frames per second
-        int FramesPerSecond = 60;
+        private int FramesPerSecond = 180;
         //how big are my sprites?
-        int spriteWidth = 32;
-        int spriteHeight = 32;
+        private int spriteWidth ;
+        private int spriteHeight ;
         //how fast it moves across the screen?
-        float spriteSpeed;
+        private float spriteSpeed;
         //sprite's rect
-        Rectangle drawRect;
+        private Rectangle drawRect;
         //where will I draw the sprite and the center of the sprite
-        Vector2 drawPosition;
-        Vector2 origin;
+        private Vector2 drawPosition;
+        private Vector2 origin;
 
         //rotation float
-        private float rotationAngle = 45.0F;
+        //private float rotationAngle = 45.0F;
 
         KeyboardState currentKB;
         KeyboardState previousKB;
@@ -93,8 +93,8 @@ namespace BatGame
             this.currentFrame = curfrm;
             this.spriteWidth = sprWid;
             this.spriteHeight = sprHgt;
-            isFlying = false;
-            isIdle = false;
+            //isFlying = false;
+            //isIdle = false;
             interval = 10.0 / FramesPerSecond;
             spriteSpeed = FramesPerSecond / spriteWidth;
         }
@@ -436,6 +436,201 @@ namespace BatGame
             }
 
         }//end method
+
+        public void EnemyAnimationUpdate(GameTime gameTime, Direction d)
+        {
+            drawRect = new Rectangle(currentFrame * spriteWidth, 0, spriteWidth, spriteHeight);
+            Origin = new Vector2(spriteWidth / 2, spriteHeight / 2);
+
+            if (d == Direction.Left)
+            {
+                currentFrame = 6;
+                interval = 15.0 / FramesPerSecond;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+                //drawPosition.X += spriteSpeed;
+            }
+
+            else if (d == Direction.Right)
+            {
+                currentFrame = 9;
+                interval = 15.0 / FramesPerSecond;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+                //drawPosition.X -= spriteSpeed;
+            }
+            else if (d == Direction.Down)
+            {
+                currentFrame = 3;
+                interval = 15.0 / FramesPerSecond;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+            }
+            else if (d == Direction.Up)
+            {
+                currentFrame = 0;
+                interval = 15.0 / FramesPerSecond;
+                //PlayerFlyingAnimation(FlyingDirection, gameTime);
+            }
+            else if (d == Direction.UpRight)
+            {
+                currentFrame = 12;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.UpLeft)
+            {
+                currentFrame = 15;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.DownRight)
+            {
+                currentFrame = 18;
+                interval = 15.0 / FramesPerSecond;
+            }
+            else if (d == Direction.DownLeft)
+            {
+                currentFrame = 21;
+                interval = 15.0 / FramesPerSecond;
+            }
+        }
+
+        public void EnemyFrameUpdate(GameTime gameTime, Direction d)
+        {
+            if (d == Direction.Up)//
+            {
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 2) //beyond the animation count held for flying (3)
+                        currentFrame = 0; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.Down)//
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 5)
+                        currentFrame = 3; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.Left)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 8)
+                        currentFrame = 6; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.Right)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 11)
+                        currentFrame = 9; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.UpRight)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 14)
+                        currentFrame = 12; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.UpLeft)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 17)
+                        currentFrame = 15; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.DownRight)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 20)
+                        currentFrame = 18; //reset the animation
+
+                    timer = 0;
+                }
+            }
+
+            else if (d == Direction.DownLeft)
+            {
+                
+
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timer > interval)
+                {
+                    currentFrame++; //continue the animation
+
+                    if (currentFrame > 23)
+                        currentFrame = 21; //reset the animation
+
+                    timer = 0;
+                }
+            }
+        }
+
+        
+       
 
     }//end class
 }//end namespace
