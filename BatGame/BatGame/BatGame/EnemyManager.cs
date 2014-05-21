@@ -38,10 +38,15 @@ namespace BatGame
             foreach (Enemy e in enemies)
             {
                 e.EnemyUpdate(gameTime, player);
+                
+            }
+            foreach (Enemy e in enemies)
+            {
                 foreach (AnimationFarm a in enemyAnimations)
                 {
                     a.EnemyAnimationUpdate(gameTime, e.Facing);
                     a.EnemyFrameUpdate(gameTime, e.Facing);
+                    break;
                 }
             }
         }
@@ -60,6 +65,7 @@ namespace BatGame
                     batch.Draw(e.ObjTexture, new Vector2((e.RectX + a.Origin.X), (e.RectY + a.Origin.Y)),
                          a.DrawRectangle, Color.White,
                          0f, a.Origin, 1, SpriteEffects.None, 0);
+                    break;
                 }
             }
         }
