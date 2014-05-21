@@ -472,10 +472,22 @@ namespace BatGame
 
             //"I Just Hold The Mirror" - Mark Castle
             tunes = Content.Load<Song>("danceMusic");
+
+            //Bats Hunting For Insects 8X Slower - digifishmusic
+            //http://www.freesound.org/people/digifishmusic/sounds/43823/
             echoSound = Content.Load<SoundEffect>("Sounds/echoSound");
+
+            //bat2. - klankschap
+            //http://www.freesound.org/people/klankschap/sounds/47413/
             shriekSound = Content.Load<SoundEffect>("Sounds/shriekSound");
+
+            //Carrier Waves - Doc
+            //http://www.jamendo.com/en/track/45054/carrier-waves
             ambientMusic = Content.Load<SoundEffect>("Sounds/ambientMusic");
             ambientMusicInstance = ambientMusic.CreateInstance();
+
+            //Cave Drips - everythingsounds
+            //http://www.freesound.org/people/everythingsounds/sounds/199515/git
             caveSounds = Content.Load<SoundEffect>("Sounds/caveSounds");
             caveSoundsInstance = caveSounds.CreateInstance();
             PARTY.partyTime(tunes);
@@ -948,7 +960,7 @@ namespace BatGame
                         {
                             case Direction.Right:
                                 cone = new Rectangle(player.RectX, player.RectY - 13, 56, 56);  //makes the starting position of the wave
-                                spriteBatch.Draw(rightCone, cone, Color.Green);
+                                spriteBatch.Draw(rightCone, cone, new Color(240,255,240));
                                 player.Screechdirection = Direction.Right;
                                 break;
                             case Direction.Left:
@@ -1131,7 +1143,7 @@ namespace BatGame
                     spriteBatch.Begin();
                     
                     #region ON SCREEN STATS
-                    
+                    /*
                     spriteBatch.DrawString(comicSans14, "Grid Size: " + grid.TileWidthCount + ", " + grid.TileHeightCount,
                     new Vector2(480, 220), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Direction: " + player.Facing,
@@ -1148,8 +1160,9 @@ namespace BatGame
                     new Vector2(480, 400), Color.Orange);
                     spriteBatch.DrawString(comicSans14, "Current level: " + currentLevel,
                     new Vector2(480, 430), Color.Orange);
-                    spriteBatch.DrawString(comicSans14, "Beta V 0.2P",
-                    new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.Orange);
+                     * */
+                    spriteBatch.DrawString(comicSans14, "Beta V 0.7",
+                    new Vector2(GraphicsDevice.Viewport.Width - 150, GraphicsDevice.Viewport.Height - 30), Color.DarkGray);
 
                     #endregion
 

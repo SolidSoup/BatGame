@@ -326,10 +326,10 @@ namespace BatGame
                             gameObjectManager.AddGameObject(tempFloor3);
 
                             //Adds a player
-                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(spawnPlayerX, spawnPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                            Player player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(spawnPlayerX, spawnPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .15, true, 3);
                             if (HasStarted)
                             {
-                                player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(savedPlayerX, savedPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .1, true, 3);
+                                player = new Player(textureDictionary["playerImage"], gameObjectManager, new Point(savedPlayerX, savedPlayerY), grid, Direction.Right, SubSquares.TopLeft, true, 0, .15, true, 3);
                                 HasStarted = false;
                             }
                             gameObjectManager.Player = player;

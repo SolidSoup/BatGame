@@ -8,7 +8,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Font\ComicSans.xnb</Output>
-      <Time>2014-05-21T02:13:09.700855-04:00</Time>
+      <Time>2014-05-21T03:34:33.337731-04:00</Time>
     </Item>
     <Item>
       <Source>Font\ComicSansBold28.spritefont</Source>
@@ -539,7 +539,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Adam\Documents\GitHub\BatGame\BatGame\BatGame\BatGame\bin\x86\Debug\Content\Shader_Tools\lightingeffect.xnb</Output>
-      <Time>2014-05-21T02:13:09.7108625-04:00</Time>
+      <Time>2014-05-21T02:57:52.3682898-04:00</Time>
     </Item>
     <Item>
       <Source>danceMusic.mp3</Source>
