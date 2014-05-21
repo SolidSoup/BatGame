@@ -60,7 +60,7 @@ namespace BatGame
         //how often until it moves frm
         private double interval;
         //how many frames per second
-        private int FramesPerSecond = 180;
+        private int FramesPerSecond = 60;
         //how big are my sprites?
         private int spriteWidth ;
         private int spriteHeight ;

@@ -99,7 +99,11 @@ namespace BatGame
                         foreach (GameObject g in playerObjects)
                         {
                             if (g is Skull || g is Stalagmite)
+                            {
+                                if (detected)
+                                    needToFindStart = true;
                                 detected = false;
+                            }
                             else
                                 detected = true;
                         }
