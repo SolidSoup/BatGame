@@ -25,6 +25,7 @@ namespace BatGame
         }
         public virtual void Update(GameTime gameTime) //this update is similar to Spiderweb's in that it goes inactive when it touches enemies
         {
+            
             if (IsActive)
             {
                 List<GameObject> objects = GManager.inSpot(Position);
@@ -35,6 +36,36 @@ namespace BatGame
                     {
                         IsActive = false;
                         //IsSolid = true;
+                    }
+                    if (g is Exit && g.ObjRectangle.Intersects(this.ObjRectangle))
+                    {
+                        Exit temp = (Exit)(g);
+                        if (temp.Type == Exit.ExitType.Up)
+                        {
+                            this.PosY += 2;
+                            this.IsActive = false;
+                        }
+                        else if (temp.Type == Exit.ExitType.Down)
+                        {
+                            this.PosY -= 2;
+                            this.IsActive = false;
+                        }
+                        else if (temp.Type == Exit.ExitType.Left)
+                        {
+                            this.PosX += 2;
+                            this.IsActive = false;
+                        }
+                        else if (temp.Type == Exit.ExitType.Right)
+                        {
+                            this.PosX -= 2;
+                            this.IsActive = false;
+                        }
+                        else if (temp.Type == Exit.ExitType.Finish)
+                        {
+                            this.PosX = 1;
+                            this.PosY = 1;
+                            this.IsActive = false;
+                        }
                     }
                 }
                 waitTime -= (double)gameTime.ElapsedGameTime.TotalSeconds;
@@ -59,7 +90,7 @@ namespace BatGame
                     {
                         move = this.checkForCollision(this.Facing, SubSquares.TopRight, this.ObjRectangle);
                     }
-
+                   
                     if (move.Equals(this.ObjRectangle)) //if it can't move, go inactive
                     {
                         IsActive = false;
@@ -71,6 +102,7 @@ namespace BatGame
         }
         public virtual void Draw(SpriteBatch batch)
         {
+
             if (IsActive)
             {
                 batch.Draw(this.ObjTexture, this.ObjRectangle, Color.Blue);
