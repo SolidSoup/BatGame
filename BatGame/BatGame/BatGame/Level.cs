@@ -331,17 +331,42 @@ namespace BatGame
 
                             break;
                         #endregion
-                        #region Enemy
+                        #region Bat Enemy
                         case "e":
                             Floor tempFloor2 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
                             levelObjectArray[i, j] = tempFloor2;
                             immobilesManager.AddImmobile(tempFloor2);
                             gameObjectManager.AddGameObject(tempFloor2);
 
-                            Enemy tempE = new Enemy(textureDictionary["enemyImage"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, false);
+                            BatEnemy tempE = new BatEnemy(textureDictionary["enemyImage"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, false);
                             levelObjectArray[i, j] = tempE;
                             enemyManager.AddEnemy(tempE);
                             gameObjectManager.AddGameObject(tempE);
+                            break;
+                        #endregion
+                        #region Sleeping Bat Enemy
+                        case "S":
+                            Floor tempFloor7 = new Floor(textureDictionary["floorTile"], gameObjectManager, new Point(j, i), grid, Direction.Right, SubSquares.TopLeft, false);
+                            levelObjectArray[i, j] = tempFloor7;
+                            immobilesManager.AddImmobile(tempFloor7);
+                            gameObjectManager.AddGameObject(tempFloor7);
+
+                            SleepingBatEnemy tempSE = new SleepingBatEnemy(textureDictionary["enemyImage"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, false);
+                            levelObjectArray[i, j] = tempSE;
+                            enemyManager.AddEnemy(tempSE);
+                            gameObjectManager.AddGameObject(tempSE);
+                            break;
+                        #endregion
+                        #region Spider Enemy
+                        case "s":
+                            SpiderWeb tempsWeb = new SpiderWeb(textureDictionary["spiderWeb"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, false, true);
+                            immobilesManager.AddImmobile(tempsWeb);
+                            gameObjectManager.AddGameObject(tempsWeb);
+
+                            SpiderEnemy tempspE = new SpiderEnemy(textureDictionary["enemyImage"], gameObjectManager, new Point(j, i), grid, Direction.Down, SubSquares.TopLeft, true, 0, 0, true, 3, false);
+                            levelObjectArray[i, j] = tempspE;
+                            enemyManager.AddEnemy(tempspE);
+                            gameObjectManager.AddGameObject(tempspE);
                             break;
                         #endregion
                         #region Player

@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="AnimationFarm.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="BatEnemy.cs" />
     <Compile Include="Boat.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Collectables.cs" />
@@ -102,6 +103,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="QuadTangle.cs" />
+    <Compile Include="SleepingBatEnemy.cs" />
+    <Compile Include="SpiderEnemy.cs" />
     <Compile Include="SpiderWeb.cs" />
     <Compile Include="Stalagmite.cs" />
     <Compile Include="StateManager.cs" />
