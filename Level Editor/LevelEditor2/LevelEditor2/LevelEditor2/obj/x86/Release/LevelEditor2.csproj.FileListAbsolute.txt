@@ -1,0 +1,78 @@
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\Corner.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\enemy.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\FloorTile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\HorizontalWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\player.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\VerticalWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\tile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LeftWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\RightWall.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LightSourceTile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SkullHidingSpot.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpiderWebTile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownTop.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownBottom.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpTop.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpBottom.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BoulderTile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\StalagmitesTile.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftIn.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftOut.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightIn.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightOut.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftIn.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftOut.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightIn.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightOut.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpriteFont1.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\LevelEditor2.exe
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\LevelEditor2.pdb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.exe
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.pdb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.csprojResolveAssemblyReference.cache
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexit.xnb
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\end grid.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\Corner.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\enemy.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\FloorTile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\HorizontalWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\player.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\VerticalWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\tile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LeftWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\RightWall.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LightSourceTile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SkullHidingSpot.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpiderWebTile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownTop.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownBottom.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpTop.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpBottom.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BoulderTile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\StalagmitesTile.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftIn.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftOut.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightIn.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightOut.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftIn.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftOut.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightIn.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightOut.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexit.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\end grid.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpriteFont1.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\LevelEditor2.exe
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\LevelEditor2.pdb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.exe
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\LevelEditor2.pdb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitdown.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitleft.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitright.xnb
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitup.xnb

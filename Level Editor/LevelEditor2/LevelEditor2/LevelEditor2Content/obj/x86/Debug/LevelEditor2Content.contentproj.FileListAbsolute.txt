@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Madison's Files\Freshman\GDAPS 2\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+J:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+F:\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\GitHub\Level Editor\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Debug\LevelEditor2Content.contentprojResolveAssemblyReference.cache

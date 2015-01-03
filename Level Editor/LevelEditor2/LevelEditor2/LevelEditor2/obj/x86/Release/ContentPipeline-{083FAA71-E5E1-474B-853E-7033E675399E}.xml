@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Corner.png</Source>
+      <Name>Corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\Corner.xnb</Output>
+      <Time>2014-03-28T01:58:22-04:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy.png</Source>
+      <Name>enemy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\enemy.xnb</Output>
+      <Time>2014-03-27T17:47:26-04:00</Time>
+    </Item>
+    <Item>
+      <Source>FloorTile.png</Source>
+      <Name>FloorTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\FloorTile.xnb</Output>
+      <Time>2014-03-28T01:58:22-04:00</Time>
+    </Item>
+    <Item>
+      <Source>HorizontalWall.png</Source>
+      <Name>HorizontalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\HorizontalWall.xnb</Output>
+      <Time>2014-03-28T01:58:22-04:00</Time>
+    </Item>
+    <Item>
+      <Source>player.png</Source>
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\player.xnb</Output>
+      <Time>2014-03-27T17:47:26-04:00</Time>
+    </Item>
+    <Item>
+      <Source>VerticalWall.png</Source>
+      <Name>VerticalWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\VerticalWall.xnb</Output>
+      <Time>2014-03-28T01:58:22-04:00</Time>
+    </Item>
+    <Item>
+      <Source>tile.png</Source>
+      <Name>tile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\tile.xnb</Output>
+      <Time>2014-03-27T17:48:28-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TopWall.png</Source>
+      <Name>TopWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopWall.xnb</Output>
+      <Time>2014-04-05T17:13:48-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BottomWall.png</Source>
+      <Name>BottomWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomWall.xnb</Output>
+      <Time>2014-04-05T17:13:46-04:00</Time>
+    </Item>
+    <Item>
+      <Source>LeftWall.png</Source>
+      <Name>LeftWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LeftWall.xnb</Output>
+      <Time>2014-04-05T17:13:46-04:00</Time>
+    </Item>
+    <Item>
+      <Source>RightWall.png</Source>
+      <Name>RightWall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\RightWall.xnb</Output>
+      <Time>2014-04-05T17:13:46-04:00</Time>
+    </Item>
+    <Item>
+      <Source>LightSourceTile.png</Source>
+      <Name>LightSourceTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\LightSourceTile.xnb</Output>
+      <Time>2014-04-03T17:10:42-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SkullHidingSpot.png</Source>
+      <Name>SkullHidingSpot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SkullHidingSpot.xnb</Output>
+      <Time>2014-04-03T17:10:54-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpiderWebTile.png</Source>
+      <Name>SpiderWebTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpiderWebTile.xnb</Output>
+      <Time>2014-04-03T18:29:24-04:00</Time>
+    </Item>
+    <Item>
+      <Source>DiagonalWallDownTop.png</Source>
+      <Name>DiagonalWallDownTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownTop.xnb</Output>
+      <Time>2014-04-03T17:11:14-04:00</Time>
+    </Item>
+    <Item>
+      <Source>DiagonalWallDownBottom.png</Source>
+      <Name>DiagonalWallDownBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallDownBottom.xnb</Output>
+      <Time>2014-04-03T17:11:22-04:00</Time>
+    </Item>
+    <Item>
+      <Source>DiagonalWallUpTop.png</Source>
+      <Name>DiagonalWallUpTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpTop.xnb</Output>
+      <Time>2014-04-03T17:11:26-04:00</Time>
+    </Item>
+    <Item>
+      <Source>DiagonalWallUpBottom.png</Source>
+      <Name>DiagonalWallUpBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\DiagonalWallUpBottom.xnb</Output>
+      <Time>2014-04-03T17:11:30-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BoulderTile.png</Source>
+      <Name>BoulderTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BoulderTile.xnb</Output>
+      <Time>2014-04-03T17:11:32-04:00</Time>
+    </Item>
+    <Item>
+      <Source>StalagmitesTile.png</Source>
+      <Name>StalagmitesTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\StalagmitesTile.xnb</Output>
+      <Time>2014-04-03T17:11:36-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BottomLeftIn.png</Source>
+      <Name>BottomLeftIn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftIn.xnb</Output>
+      <Time>2014-04-05T17:13:50-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BottomLeftOut.png</Source>
+      <Name>BottomLeftOut</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomLeftOut.xnb</Output>
+      <Time>2014-05-27T17:49:35.0269342-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BottomRightIn.png</Source>
+      <Name>BottomRightIn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightIn.xnb</Output>
+      <Time>2014-04-05T17:13:44-04:00</Time>
+    </Item>
+    <Item>
+      <Source>BottomRightOut.png</Source>
+      <Name>BottomRightOut</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\BottomRightOut.xnb</Output>
+      <Time>2014-05-27T17:50:58.1857198-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TopLeftIn.png</Source>
+      <Name>TopLeftIn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftIn.xnb</Output>
+      <Time>2014-04-05T17:13:48-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TopLeftOut.png</Source>
+      <Name>TopLeftOut</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopLeftOut.xnb</Output>
+      <Time>2014-05-27T17:42:24.7222088-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TopRightIn.png</Source>
+      <Name>TopRightIn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightIn.xnb</Output>
+      <Time>2014-04-05T17:13:48-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TopRightOut.png</Source>
+      <Name>TopRightOut</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\TopRightOut.xnb</Output>
+      <Time>2014-05-27T17:49:50.2923749-04:00</Time>
+    </Item>
+    <Item>
+      <Source>levelexit.png</Source>
+      <Name>levelexit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexit.xnb</Output>
+      <Time>2014-04-05T23:24:54-04:00</Time>
+    </Item>
+    <Item>
+      <Source>end grid.png</Source>
+      <Name>end grid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\end grid.xnb</Output>
+      <Time>2014-05-08T17:06:54-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\SpriteFont1.xnb</Output>
+      <Time>2014-03-28T01:59:42-04:00</Time>
+    </Item>
+    <Item>
+      <Source>levelexitdown.png</Source>
+      <Name>levelexitdown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitdown.xnb</Output>
+      <Time>2014-05-27T17:57:15.7782577-04:00</Time>
+    </Item>
+    <Item>
+      <Source>levelexitleft.png</Source>
+      <Name>levelexitleft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitleft.xnb</Output>
+      <Time>2014-05-27T17:57:15.7782577-04:00</Time>
+    </Item>
+    <Item>
+      <Source>levelexitright.png</Source>
+      <Name>levelexitright</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitright.xnb</Output>
+      <Time>2014-05-27T17:57:15.793863-04:00</Time>
+    </Item>
+    <Item>
+      <Source>levelexitup.png</Source>
+      <Name>levelexitup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\levelexitup.xnb</Output>
+      <Time>2014-05-27T17:57:15.793863-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{083FAA71-E5E1-474B-853E-7033E675399E}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-03-02T15:13:33.3242713-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

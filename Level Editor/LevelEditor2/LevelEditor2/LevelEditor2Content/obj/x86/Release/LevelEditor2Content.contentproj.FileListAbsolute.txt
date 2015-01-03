@@ -1,0 +1,2 @@
+F:\Bat Game\LevelEditor2\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Release\LevelEditor2Content.contentprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\College\Bat Game\LevelEditor2 small grid\LevelEditor2\LevelEditor2\LevelEditor2Content\obj\x86\Release\LevelEditor2Content.contentprojResolveAssemblyReference.cache
